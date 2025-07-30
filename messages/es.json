@@ -1,0 +1,87 @@
+{
+  "Home": {
+    "title": "Redes, Servidores,",
+    "welcome": "Almacenamiento y Energía",
+    "description": "CECOM, S.A.S. es una empresa ubicada en Santo Domingo, República Dominicana, que opera en los campos de reparación de computadoras y servicios de tecnología de la información.",
+    "getStarted": "Empezar",
+    "liveDemo": "Demostración en vivo"
+  },
+  "Solutions": {
+    "title": "Soluciones",
+    "ourSolutions": "Nuestras Soluciones",
+    "businessNeeds": "Todo lo que necesita para operar su negocio",
+    "wideRange": "Ofrecemos una amplia gama de soluciones para satisfacer sus necesidades. Desde ciberseguridad hasta redes, lo tenemos cubierto.",
+    "cybersecurity": {
+      "name": "Ciberseguridad",
+      "description": "Ofrecemos soluciones de ciberseguridad de primer nivel para proteger su negocio de amenazas."
+    },
+    "networking": {
+      "name": "Redes",
+      "description": "Ofrecemos soluciones de red robustas y escalables para su negocio."
+    },
+    "servers": {
+      "name": "Servidores",
+      "description": "Proporcionamos servidores confiables y de alto rendimiento para las necesidades de su negocio."
+    },
+    "storage": {
+      "name": "Almacenamiento",
+      "description": "Ofrecemos soluciones de almacenamiento escalables y seguras para sus datos."
+    }
+  },
+  "Alliances": {
+    "title": "Alianzas",
+    "ourAlliances": "Nuestras Alianzas",
+    "partnerMessage": "Nos asociamos con los mejores para ofrecerle las mejores soluciones.",
+    "alliances": {
+      "3cx": "3CX es una centralita privada (PBX) basada en software que utiliza el estándar SIP (Session Initiation Protocol).",
+      "avaya": "Avaya es un líder global en sistemas, aplicaciones y servicios de comunicación.",
+      "axis": "Axis es el líder del mercado en video en red.",
+      "cambium": "Cambium Networks es un proveedor global líder de soluciones de banda ancha inalámbrica que conectan a los no conectados.",
+      "dahua": "Dahua Technology es un proveedor líder mundial de soluciones y servicios de IoT inteligentes centrados en video.",
+      "eset": "ESET es un proveedor global de software de seguridad para empresas y consumidores.",
+      "extreme": "Extreme Networks es una empresa de redes que diseña, desarrolla y fabrica equipos de infraestructura de red cableados e inalámbricos.",
+      "hp": "Hewlett Packard Enterprise es un líder tecnológico global centrado en el desarrollo de soluciones inteligentes para el mundo híbrido.",
+      "jabra": "Jabra es una marca danesa especializada en equipos de audio y, más recientemente, sistemas de videoconferencia.",
+      "lenovo": "Lenovo es una empresa multinacional de tecnología china que diseña, desarrolla, fabrica y vende computadoras personales, tabletas, teléfonos inteligentes, estaciones de trabajo, servidores, dispositivos de almacenamiento electrónico, software de gestión de TI y televisores inteligentes.",
+      "panduit": "Panduit es un fabricante global de soluciones de infraestructura física que soportan sistemas de energía, comunicaciones, computación, control y seguridad.",
+      "vertiv": "Vertiv es un proveedor global de infraestructura digital crítica y soluciones de continuidad.",
+      "watchguard": "WatchGuard Technologies, Inc. es una empresa multinacional estadounidense de ciberseguridad.",
+      "weboost": "weBoost es un fabricante líder de amplificadores de señal de teléfono celular."
+    }
+  },
+  "AboutUs": {
+    "title": "Nosotros",
+    "description": "CECOM, S.A.S. es una empresa ubicada en Santo Domingo, República Dominicana, que opera en los campos de reparación de computadoras y servicios de tecnología de la información. Llevamos más de 20 años en el negocio y nos dedicamos a brindar las mejores soluciones para su negocio.",
+    "contactUs": "Contáctenos"
+  },
+  "Contact": {
+    "title": "Contacto",
+    "getInTouch": "Ponte en contacto",
+    "description": "Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat massa dictumst amet. Sapien tortor lacus arcu.",
+    "postalAddress": "Dirección postal",
+    "addressLine1": "742 Evergreen Terrace",
+    "addressLine2": "Springfield, OR 12345",
+    "phoneNumber": "Número de teléfono",
+    "phone": "+1 (555) 123-4567",
+    "emailAddress": "Dirección de correo electrónico",
+    "email": "support@example.com",
+    "fullName": "Nombre completo",
+    "fullNamePlaceholder": "Nombre completo",
+    "emailPlaceholder": "Correo electrónico",
+    "phonePlaceholder": "Teléfono",
+    "message": "Mensaje",
+    "messagePlaceholder": "Mensaje",
+    "submit": "Enviar"
+  },
+  "NotFound": {
+    "title": "404 - Página no encontrada",
+    "description": "La página que buscas no existe."
+  },
+  "Header": {
+    "home": "Inicio",
+    "solutions": "Soluciones",
+    "alliances": "Alianzas",
+    "aboutUs": "Nosotros",
+    "contact": "Contacto"
+  }
+}

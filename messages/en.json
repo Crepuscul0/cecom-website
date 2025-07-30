@@ -1,0 +1,87 @@
+{
+  "Home": {
+    "title": "Networks, Servers,",
+    "welcome": "Storage and Energy",
+    "description": "CECOM, S.A.S. is a company located in Santo Domingo, Dominican Republic, that operates in the fields of computer repair and information technology services.",
+    "getStarted": "Get started",
+    "liveDemo": "Live demo"
+  },
+  "Solutions": {
+    "title": "Solutions",
+    "ourSolutions": "Our Solutions",
+    "businessNeeds": "Everything you need to run your business",
+    "wideRange": "We offer a wide range of solutions to meet your needs. From cybersecurity to networking, we have you covered.",
+    "cybersecurity": {
+      "name": "Cybersecurity",
+      "description": "We provide top-tier cybersecurity solutions to protect your business from threats."
+    },
+    "networking": {
+      "name": "Networking",
+      "description": "We offer robust and scalable networking solutions for your business."
+    },
+    "servers": {
+      "name": "Servers",
+      "description": "We provide reliable and high-performance servers for your business needs."
+    },
+    "storage": {
+      "name": "Storage",
+      "description": "We offer scalable and secure storage solutions for your data."
+    }
+  },
+  "Alliances": {
+    "title": "Alliances",
+    "ourAlliances": "Our Alliances",
+    "partnerMessage": "We partner with the best to bring you the best solutions.",
+    "alliances": {
+      "3cx": "3CX is a software-based private branch exchange (PBX) based on the SIP (Session Initiation Protocol) standard.",
+      "avaya": "Avaya is a global leader in communication systems, applications and services.",
+      "axis": "Axis is the market leader in network video.",
+      "cambium": "Cambium Networks is a leading global provider of wireless broadband solutions that connect the unconnected.",
+      "dahua": "Dahua Technology is a world-leading video-centric smart IoT solution and service provider.",
+      "eset": "ESET is a global provider of security software for companies and consumers.",
+      "extreme": "Extreme Networks is a networking company that designs, develops, and manufactures wired and wireless network infrastructure equipment.",
+      "hp": "Hewlett Packard Enterprise is a global technology leader focused on developing intelligent solutions for the hybrid world.",
+      "jabra": "Jabra is a Danish brand specializing in audio equipment, and more recently, video conference systems.",
+      "lenovo": "Lenovo is a Chinese multinational technology company that designs, develops, manufactures, and sells personal computers, tablet computers, smartphones, workstations, servers, electronic storage devices, IT management software, and smart televisions.",
+      "panduit": "Panduit is a global manufacturer of physical infrastructure solutions that support power, communications, computing, control, and security systems.",
+      "vertiv": "Vertiv is a global provider of critical digital infrastructure and continuity solutions.",
+      "watchguard": "WatchGuard Technologies, Inc. is an American multinational cybersecurity company.",
+      "weboost": "weBoost is a leading manufacturer of cell phone signal boosters."
+    }
+  },
+  "AboutUs": {
+    "title": "About Us",
+    "description": "CECOM, S.A.S. is a company located in Santo Domingo, Dominican Republic, that operates in the fields of computer repair and information technology services. We have been in business for over 20 years, and we are dedicated to providing the best solutions for your business.",
+    "contactUs": "Contact Us"
+  },
+  "Contact": {
+    "title": "Contact",
+    "getInTouch": "Get in touch",
+    "description": "Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat massa dictumst amet. Sapien tortor lacus arcu.",
+    "postalAddress": "Postal address",
+    "addressLine1": "742 Evergreen Terrace",
+    "addressLine2": "Springfield, OR 12345",
+    "phoneNumber": "Phone number",
+    "phone": "+1 (555) 123-4567",
+    "emailAddress": "Email address",
+    "email": "support@example.com",
+    "fullName": "Full name",
+    "fullNamePlaceholder": "Full name",
+    "emailPlaceholder": "Email",
+    "phonePlaceholder": "Phone",
+    "message": "Message",
+    "messagePlaceholder": "Message",
+    "submit": "Submit"
+  },
+  "NotFound": {
+    "title": "404 - Page Not Found",
+    "description": "The page you are looking for does not exist."
+  },
+  "Header": {
+    "home": "Home",
+    "solutions": "Solutions",
+    "alliances": "Alliances",
+    "aboutUs": "About Us",
+    "contact": "Contact"
+  }
+}
