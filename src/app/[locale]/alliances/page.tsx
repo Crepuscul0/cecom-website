@@ -51,7 +51,7 @@ const alliances = [
   },
   {
     name: 'Jabra',
-    logo: '/logos/jabra',
+    logo: '/logos/jabra.png',
     descriptionKey: 'alliances.jabra',
   },
   {
@@ -97,24 +97,21 @@ export default function Alliances() {
         </div>
         <div className="mt-12 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:gap-y-12">
           {alliances.map((alliance) => (
-            <Card key={alliance.name}>
-              <CardHeader>
-                <div className="relative w-full h-40 bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
-                  <Image
+            <Card key={alliance.name} className="group hover:shadow-xl transition-all duration-300 transform hover:scale-105 bg-white border-0 shadow-lg">
+              <CardHeader className="p-6">
+                <div className="relative w-full h-40 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg overflow-hidden flex items-center justify-center p-4 group-hover:from-blue-50 group-hover:to-blue-100 transition-all duration-300">
+                  <img
                     src={alliance.logo}
                     alt={alliance.name}
-                    layout="fill"
-                    objectFit="contain"
-                    className="w-full h-full"
+                    className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
-                <CardTitle className="mt-6 text-sm text-gray-500">
-                  <Link href="/contact">
-                    <span className="absolute inset-0" />
+                <CardTitle className="mt-4 text-lg font-bold text-gray-900 text-center">
+                  <Link href="./contact" className="hover:text-blue-600 transition-colors duration-200">
                     {alliance.name}
                   </Link>
                 </CardTitle>
-                <CardDescription className="text-base font-semibold text-gray-900">
+                <CardDescription className="text-sm text-gray-600 text-center leading-relaxed">
                   {t(alliance.descriptionKey)}
                 </CardDescription>
               </CardHeader>

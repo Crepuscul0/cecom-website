@@ -1,0 +1,18 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="30" cy="30" r="25" fill="url(#gradient)" />
+  
+  <!-- Letter C in circle -->
+  <path d="M 20 20 Q 15 15 15 30 Q 15 45 20 40 Q 25 35 30 35 L 35 40 Q 25 50 15 45 Q 5 40 5 30 Q 5 20 15 15 Q 25 10 35 20 L 30 25 Q 25 20 20 20 Z" fill="white" />
+  
+  <!-- CECOM text -->
+  <text x="70" y="25" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1f2937">CECOM</text>
+  <text x="70" y="42" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">Technology Solutions</text>
+</svg>

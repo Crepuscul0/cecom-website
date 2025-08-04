@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 import {
   Card,
   CardHeader,
@@ -21,74 +22,86 @@ export default function About() {
             </p>
             <div className="mt-8 sm:flex">
               <div className="rounded-md shadow">
-                <a
-                  href="/contact"
+                <Link
+                  href="./contact"
                   className="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
                 >
                   {t('contactUs')}
-                </a>
+                </Link>
               </div>
             </div>
           </div>
-          <div className="mt-8 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-0 lg:grid-cols-2">
-            <Card className="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
-              <CardHeader>
-                <img
-                  className="max-h-12"
-                  src="/logos/3cx.png"
-                  alt="3CX"
-                />
-                <CardTitle>3CX</CardTitle>
+          <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3 lg:mt-0 lg:grid-cols-2">
+            <Card className="group hover:shadow-xl transition-all duration-300 transform hover:scale-105 bg-white border-0 shadow-lg">
+              <CardHeader className="flex flex-col items-center p-6">
+                <div className="w-full h-16 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 group-hover:from-blue-50 group-hover:to-blue-100 rounded-lg transition-all duration-300 mb-4">
+                  <img
+                    className="max-h-12 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                    src="/logos/3cx.png"
+                    alt="3CX"
+                  />
+                </div>
+                <CardTitle className="text-center text-sm font-semibold text-gray-700">3CX</CardTitle>
               </CardHeader>
             </Card>
-            <Card className="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
-              <CardHeader>
-                <img
-                  className="max-h-12"
-                  src="/logos/avaya.png"
-                  alt="Avaya"
-                />
-                <CardTitle>Avaya</CardTitle>
+            <Card className="group hover:shadow-xl transition-all duration-300 transform hover:scale-105 bg-white border-0 shadow-lg">
+              <CardHeader className="flex flex-col items-center p-6">
+                <div className="w-full h-16 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 group-hover:from-blue-50 group-hover:to-blue-100 rounded-lg transition-all duration-300 mb-4">
+                  <img
+                    className="max-h-12 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                    src="/logos/avaya.png"
+                    alt="Avaya"
+                  />
+                </div>
+                <CardTitle className="text-center text-sm font-semibold text-gray-700">Avaya</CardTitle>
               </CardHeader>
             </Card>
-            <Card className="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
-              <CardHeader>
-                <img
-                  className="max-h-12"
-                  src="/logos/axis.png"
-                  alt="Axis"
-                />
-                <CardTitle>Axis</CardTitle>
+            <Card className="group hover:shadow-xl transition-all duration-300 transform hover:scale-105 bg-white border-0 shadow-lg">
+              <CardHeader className="flex flex-col items-center p-6">
+                <div className="w-full h-16 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 group-hover:from-blue-50 group-hover:to-blue-100 rounded-lg transition-all duration-300 mb-4">
+                  <img
+                    className="max-h-12 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                    src="/logos/axis.png"
+                    alt="Axis"
+                  />
+                </div>
+                <CardTitle className="text-center text-sm font-semibold text-gray-700">Axis</CardTitle>
               </CardHeader>
             </Card>
-            <Card className="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
-              <CardHeader>
-                <img
-                  className="max-h-12"
-                  src="/logos/cambium.png"
-                  alt="Cambium Networks"
-                />
-                <CardTitle>Cambium Networks</CardTitle>
+            <Card className="group hover:shadow-xl transition-all duration-300 transform hover:scale-105 bg-white border-0 shadow-lg">
+              <CardHeader className="flex flex-col items-center p-6">
+                <div className="w-full h-16 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 group-hover:from-blue-50 group-hover:to-blue-100 rounded-lg transition-all duration-300 mb-4">
+                  <img
+                    className="max-h-12 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                    src="/logos/cambium.png"
+                    alt="Cambium Networks"
+                  />
+                </div>
+                <CardTitle className="text-center text-sm font-semibold text-gray-700">Cambium Networks</CardTitle>
               </CardHeader>
             </Card>
-            <Card className="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
-              <CardHeader>
-                <img
-                  className="max-h-12"
-                  src="/logos/dahua.png"
-                  alt="Dahua"
-                />
-                <CardTitle>Dahua</CardTitle>
+            <Card className="group hover:shadow-xl transition-all duration-300 transform hover:scale-105 bg-white border-0 shadow-lg">
+              <CardHeader className="flex flex-col items-center p-6">
+                <div className="w-full h-16 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 group-hover:from-blue-50 group-hover:to-blue-100 rounded-lg transition-all duration-300 mb-4">
+                  <img
+                    className="max-h-12 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                    src="/logos/dahua.png"
+                    alt="Dahua"
+                  />
+                </div>
+                <CardTitle className="text-center text-sm font-semibold text-gray-700">Dahua</CardTitle>
               </CardHeader>
             </Card>
-            <Card className="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
-              <CardHeader>
-                <img
-                  className="max-h-12"
-                  src="/logos/eset.png"
-                  alt="Eset"
-                />
-                <CardTitle>Eset</CardTitle>
+            <Card className="group hover:shadow-xl transition-all duration-300 transform hover:scale-105 bg-white border-0 shadow-lg">
+              <CardHeader className="flex flex-col items-center p-6">
+                <div className="w-full h-16 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 group-hover:from-blue-50 group-hover:to-blue-100 rounded-lg transition-all duration-300 mb-4">
+                  <img
+                    className="max-h-12 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                    src="/logos/eset.png"
+                    alt="Eset"
+                  />
+                </div>
+                <CardTitle className="text-center text-sm font-semibold text-gray-700">Eset</CardTitle>
               </CardHeader>
             </Card>
           </div>

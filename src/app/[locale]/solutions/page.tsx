@@ -114,16 +114,16 @@ export default function Solutions() {
         <div className="max-w-2xl mx-auto mt-16 sm:mt-20 lg:mt-24 lg:max-w-4xl">
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
             {features.map((feature) => (
-              <Card key={feature.name}>
-                <CardHeader>
-                  <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-2 rounded-lg bg-blue-600">
+              <Card key={feature.name} className="relative overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-0 bg-gradient-to-br from-white to-blue-50">
+                <CardHeader className="pt-8">
+                  <div className="absolute left-6 top-6 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 shadow-lg">
                     <feature.icon
                       className="h-6 w-6 text-white"
                       aria-hidden="true"
                     />
                   </div>
-                  <CardTitle>{t(feature.name)}</CardTitle>
-                  <CardDescription>{t(feature.description)}</CardDescription>
+                  <CardTitle className="text-xl font-bold text-gray-900 mt-4">{t(feature.name)}</CardTitle>
+                  <CardDescription className="text-gray-600 leading-relaxed">{t(feature.description)}</CardDescription>
                 </CardHeader>
               </Card>
             ))}

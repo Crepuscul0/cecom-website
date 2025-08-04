@@ -13,15 +13,20 @@ export default async function RootLayout({
   params
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
   const messages = await getMessages();
-  const { locale } = params;
   if (!['en', 'es'].includes(locale)) notFound();
 
   return (
-    <Providers messages={messages} locale={locale}>
-      {children}
-    </Providers>
+    <html lang={locale} suppressHydrationWarning>
+      <head />
+      <body className="bg-white text-gray-900 antialiased" suppressHydrationWarning>
+        <Providers messages={messages} locale={locale}>
+          {children}
+        </Providers>
+      </body>
+    </html>
   );
 }
