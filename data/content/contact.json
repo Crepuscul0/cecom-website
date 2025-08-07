@@ -1,0 +1,15 @@
+{
+  "id": "contact-content",
+  "type": "contact",
+  "title": {
+    "en": "Contact Us",
+    "es": "Contáctanos"
+  },
+  "content": {
+    "en": "Get in touch with our team of technology experts. We're here to help you find the right solutions for your business needs.",
+    "es": "Póngase en contacto con nuestro equipo de expertos en tecnología. Estamos aquí para ayudarle a encontrar las soluciones adecuadas para las necesidades de su negocio."
+  },
+  "images": [],
+  "lastModified": "2024-01-01T00:00:00Z",
+  "version": 1
+}

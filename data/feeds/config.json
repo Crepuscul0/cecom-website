@@ -1,0 +1,14 @@
+[
+  {
+    "vendorId": "watchguard",
+    "url": "https://www.watchguard.com/wgrd-news/rss",
+    "lastFetched": "2024-01-01T00:00:00Z",
+    "active": true
+  },
+  {
+    "vendorId": "hp",
+    "url": "https://press.hp.com/us/en/rss",
+    "lastFetched": "2024-01-01T00:00:00Z",
+    "active": true
+  }
+]

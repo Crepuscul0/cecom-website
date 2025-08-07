@@ -1,0 +1,15 @@
+{
+  "id": "hero-content",
+  "type": "hero",
+  "title": {
+    "en": "Technology Solutions for Modern Business",
+    "es": "Soluciones Tecnológicas para Empresas Modernas"
+  },
+  "content": {
+    "en": "Empowering your business with cutting-edge technology solutions, from cybersecurity to communications and networking infrastructure.",
+    "es": "Potenciando su negocio con soluciones tecnológicas de vanguardia, desde ciberseguridad hasta comunicaciones e infraestructura de redes."
+  },
+  "images": ["/hero-image.jpg"],
+  "lastModified": "2024-01-01T00:00:00Z",
+  "version": 1
+}

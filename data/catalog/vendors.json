@@ -1,0 +1,44 @@
+[
+  {
+    "id": "watchguard",
+    "name": "WatchGuard",
+    "logo": "/logos/watchguard.png",
+    "website": "https://www.watchguard.com",
+    "rssUrl": "https://www.watchguard.com/wgrd-news/rss",
+    "description": {
+      "en": "Leading provider of network security solutions",
+      "es": "Proveedor líder de soluciones de seguridad de red"
+    }
+  },
+  {
+    "id": "hp",
+    "name": "HP",
+    "logo": "/logos/hp.png",
+    "website": "https://www.hp.com",
+    "rssUrl": "https://press.hp.com/us/en/rss",
+    "description": {
+      "en": "Technology solutions for business and consumers",
+      "es": "Soluciones tecnológicas para empresas y consumidores"
+    }
+  },
+  {
+    "id": "avaya",
+    "name": "Avaya",
+    "logo": "/logos/avaya.png",
+    "website": "https://www.avaya.com",
+    "description": {
+      "en": "Business communications and collaboration solutions",
+      "es": "Soluciones de comunicaciones y colaboración empresarial"
+    }
+  },
+  {
+    "id": "3cx",
+    "name": "3CX",
+    "logo": "/logos/3cx.png",
+    "website": "https://www.3cx.com",
+    "description": {
+      "en": "Software-based PBX and unified communications",
+      "es": "PBX basado en software y comunicaciones unificadas"
+    }
+  }
+]

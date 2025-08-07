@@ -1,0 +1,49 @@
+{
+  "mission": {
+    "en": "To provide innovative technology solutions that empower businesses to achieve their goals through reliable, secure, and efficient systems.",
+    "es": "Proporcionar soluciones tecnológicas innovadoras que permitan a las empresas alcanzar sus objetivos a través de sistemas confiables, seguros y eficientes."
+  },
+  "vision": {
+    "en": "To be the leading technology partner in the Dominican Republic, recognized for excellence in service and cutting-edge solutions.",
+    "es": "Ser el socio tecnológico líder en República Dominicana, reconocido por la excelencia en el servicio y las soluciones de vanguardia."
+  },
+  "values": [
+    {
+      "title": {
+        "en": "Excellence",
+        "es": "Excelencia"
+      },
+      "description": {
+        "en": "We strive for the highest quality in everything we do",
+        "es": "Nos esforzamos por la más alta calidad en todo lo que hacemos"
+      },
+      "icon": "star"
+    },
+    {
+      "title": {
+        "en": "Innovation",
+        "es": "Innovación"
+      },
+      "description": {
+        "en": "We embrace new technologies and creative solutions",
+        "es": "Adoptamos nuevas tecnologías y soluciones creativas"
+      },
+      "icon": "lightbulb"
+    },
+    {
+      "title": {
+        "en": "Trust",
+        "es": "Confianza"
+      },
+      "description": {
+        "en": "We build lasting relationships based on reliability and integrity",
+        "es": "Construimos relaciones duraderas basadas en la confiabilidad e integridad"
+      },
+      "icon": "handshake"
+    }
+  ],
+  "history": {
+    "en": "Founded with a vision to bridge the technology gap in the Dominican Republic, CECOM has been serving businesses with comprehensive IT solutions for over a decade.",
+    "es": "Fundada con la visión de cerrar la brecha tecnológica en República Dominicana, CECOM ha estado sirviendo a las empresas con soluciones integrales de TI durante más de una década."
+  }
+}

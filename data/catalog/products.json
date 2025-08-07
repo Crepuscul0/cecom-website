@@ -1,0 +1,66 @@
+[
+  {
+    "id": "watchguard-firebox-t15",
+    "name": {
+      "en": "WatchGuard Firebox T15",
+      "es": "WatchGuard Firebox T15"
+    },
+    "description": {
+      "en": "Entry-level firewall with advanced threat protection for small businesses",
+      "es": "Firewall de nivel básico con protección avanzada contra amenazas para pequeñas empresas"
+    },
+    "features": {
+      "en": [
+        "Advanced threat protection",
+        "VPN connectivity",
+        "Web filtering",
+        "Application control",
+        "Intrusion prevention"
+      ],
+      "es": [
+        "Protección avanzada contra amenazas",
+        "Conectividad VPN",
+        "Filtrado web",
+        "Control de aplicaciones",
+        "Prevención de intrusiones"
+      ]
+    },
+    "categoryId": "cybersecurity",
+    "vendorId": "watchguard",
+    "image": "/products/watchguard-firebox-t15.jpg",
+    "order": 1,
+    "active": true
+  },
+  {
+    "id": "watchguard-firebox-t35",
+    "name": {
+      "en": "WatchGuard Firebox T35",
+      "es": "WatchGuard Firebox T35"
+    },
+    "description": {
+      "en": "Mid-range firewall solution for growing businesses with enhanced security features",
+      "es": "Solución de firewall de rango medio para empresas en crecimiento con características de seguridad mejoradas"
+    },
+    "features": {
+      "en": [
+        "Next-generation firewall",
+        "Advanced persistent threat protection",
+        "Secure Wi-Fi management",
+        "Multi-factor authentication",
+        "Centralized management"
+      ],
+      "es": [
+        "Firewall de próxima generación",
+        "Protección contra amenazas persistentes avanzadas",
+        "Gestión segura de Wi-Fi",
+        "Autenticación multifactor",
+        "Gestión centralizada"
+      ]
+    },
+    "categoryId": "cybersecurity",
+    "vendorId": "watchguard",
+    "image": "/products/watchguard-firebox-t35.jpg",
+    "order": 2,
+    "active": true
+  }
+]

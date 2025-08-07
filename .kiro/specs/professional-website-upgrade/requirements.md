@@ -20,16 +20,16 @@ This feature transforms the existing CECOM website into a truly professional pla
 
 ### Requirement 2
 
-**User Story:** As a website administrator, I want a simple CMS to update images and text content, so that I can maintain the website without technical knowledge.
+**User Story:** As a website administrator, I want a professional CMS powered by Payload to manage all content, so that I can maintain the website efficiently with an intuitive interface.
 
 #### Acceptance Criteria
 
-1. WHEN I access the admin panel THEN the system SHALL require authentication
-2. WHEN I'm authenticated THEN the system SHALL display editable content sections (hero text, about us content, product descriptions)
-3. WHEN I edit text content THEN the system SHALL provide a rich text editor with basic formatting options
-4. WHEN I upload images THEN the system SHALL validate file types and optimize images automatically
-5. WHEN I save changes THEN the system SHALL update the live website immediately
-6. WHEN I make changes THEN the system SHALL maintain version history for rollback capability
+1. WHEN I access the Payload admin panel THEN the system SHALL require authentication with role-based access
+2. WHEN I'm authenticated THEN the system SHALL display Payload's auto-generated admin interface for managing content, products, categories, and vendors
+3. WHEN I edit content THEN the system SHALL provide Payload's built-in rich text editor with advanced formatting options
+4. WHEN I upload images THEN the system SHALL use Payload's file upload system with automatic validation and optimization
+5. WHEN I save changes THEN the system SHALL update the live website through Payload's API integration
+6. WHEN I make changes THEN the system SHALL use Payload's built-in versioning and audit trail capabilities
 
 ### Requirement 3
 
@@ -70,15 +70,15 @@ This feature transforms the existing CECOM website into a truly professional pla
 
 ### Requirement 6
 
-**User Story:** As a website administrator, I want to manage product categories and vendor partnerships, so that I can keep the catalog current and accurate.
+**User Story:** As a website administrator, I want to manage product categories and vendor partnerships through Payload CMS, so that I can keep the catalog current and accurate with a professional interface.
 
 #### Acceptance Criteria
 
-1. WHEN I access the product management interface THEN the system SHALL allow adding, editing, and removing product categories
-2. WHEN I manage products THEN the system SHALL allow associating products with vendors and categories
-3. WHEN I add a new vendor THEN the system SHALL allow uploading vendor logos and setting up RSS feed URLs
-4. WHEN I organize categories THEN the system SHALL support drag-and-drop reordering
-5. WHEN I update vendor information THEN the system SHALL automatically refresh associated products and feeds
+1. WHEN I access Payload's admin panel THEN the system SHALL provide dedicated collections for Categories, Products, and Vendors with full CRUD operations
+2. WHEN I manage products THEN the system SHALL use Payload's relationship fields to associate products with vendors and categories
+3. WHEN I add a new vendor THEN the system SHALL use Payload's upload field for vendor logos and text fields for RSS feed URLs
+4. WHEN I organize categories THEN the system SHALL use Payload's built-in ordering capabilities for category management
+5. WHEN I update vendor information THEN the system SHALL automatically sync changes through Payload's API to the frontend
 
 ### Requirement 7
 

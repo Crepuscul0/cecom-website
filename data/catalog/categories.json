@@ -1,0 +1,44 @@
+[
+  {
+    "id": "cybersecurity",
+    "name": {
+      "en": "Cybersecurity",
+      "es": "Ciberseguridad"
+    },
+    "description": {
+      "en": "Advanced security solutions to protect your business",
+      "es": "Soluciones de seguridad avanzadas para proteger su negocio"
+    },
+    "slug": "cybersecurity",
+    "order": 1,
+    "icon": "shield"
+  },
+  {
+    "id": "networking",
+    "name": {
+      "en": "Networking",
+      "es": "Redes"
+    },
+    "description": {
+      "en": "Network infrastructure and connectivity solutions",
+      "es": "Infraestructura de red y soluciones de conectividad"
+    },
+    "slug": "networking",
+    "order": 2,
+    "icon": "network"
+  },
+  {
+    "id": "communications",
+    "name": {
+      "en": "Communications",
+      "es": "Comunicaciones"
+    },
+    "description": {
+      "en": "Voice and communication systems",
+      "es": "Sistemas de voz y comunicaciones"
+    },
+    "slug": "communications",
+    "order": 3,
+    "icon": "phone"
+  }
+]

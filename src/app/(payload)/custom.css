@@ -1,0 +1,114 @@
+/* Custom styles for CECOM Payload Admin */
+
+:root {
+  --theme-bg: #fafafa;
+  --theme-input-bg: #ffffff;
+  --theme-elevation-50: #ffffff;
+  --theme-elevation-100: #f7f7f7;
+  --theme-elevation-150: #f0f0f0;
+  --theme-elevation-200: #e8e8e8;
+  --theme-elevation-300: #d0d0d0;
+  --theme-elevation-400: #b8b8b8;
+  --theme-elevation-500: #a0a0a0;
+  --theme-elevation-600: #888888;
+  --theme-elevation-700: #707070;
+  --theme-elevation-800: #585858;
+  --theme-elevation-900: #404040;
+  --theme-elevation-1000: #282828;
+  
+  --theme-text: #333333;
+  --theme-success-50: #f0f9ff;
+  --theme-success-500: #0ea5e9;
+  --theme-success-600: #0284c7;
+  
+  --theme-error-50: #fef2f2;
+  --theme-error-500: #ef4444;
+  --theme-error-600: #dc2626;
+  
+  --theme-warning-50: #fffbeb;
+  --theme-warning-500: #f59e0b;
+  --theme-warning-600: #d97706;
+}
+
+/* Custom branding */
+.payload-admin-bar {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+}
+
+.nav__brand {
+  font-weight: 600;
+  color: white;
+}
+
+/* Custom form styling */
+.field-type.text .field__input,
+.field-type.textarea .field__input,
+.field-type.select .field__input {
+  border-radius: 6px;
+  border: 1px solid var(--theme-elevation-300);
+  transition: border-color 0.2s ease;
+}
+
+.field-type.text .field__input:focus,
+.field-type.textarea .field__input:focus,
+.field-type.select .field__input:focus {
+  border-color: var(--theme-success-500);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+}
+
+/* Rich text editor styling */
+.rich-text-editor {
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.rich-text__toolbar {
+  background: var(--theme-elevation-100);
+  border-bottom: 1px solid var(--theme-elevation-300);
+}
+
+/* Upload field styling */
+.upload .file-field__upload {
+  border: 2px dashed var(--theme-elevation-300);
+  border-radius: 8px;
+  transition: border-color 0.2s ease;
+}
+
+.upload .file-field__upload:hover {
+  border-color: var(--theme-success-500);
+}
+
+/* Collection list styling */
+.collection-list .table {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Button styling */
+.btn {
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn.btn--style-primary {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  border: none;
+}
+
+.btn.btn--style-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .template-default .doc-header {
+    padding: 1rem;
+  }
+  
+  .collection-list .table {
+    font-size: 0.875rem;
+  }
+}

@@ -2,9 +2,9 @@
 
 ## Overview
 
-This design transforms the existing CECOM Next.js website into a professional platform with a comprehensive product catalog, simple CMS, enhanced content pages, and vendor news feed. The solution leverages the existing Next.js 15 + next-intl architecture while adding new data management capabilities through JSON-based storage and external APIs.
+This design transforms the existing CECOM Next.js website into a professional platform with a comprehensive product catalog, professional CMS powered by Payload, enhanced content pages, and vendor news feed. The solution leverages the existing Next.js 15 + next-intl architecture while integrating Payload CMS for robust content management and API generation.
 
-The design prioritizes simplicity, maintainability, and performance while providing a professional user experience. We'll use lightweight libraries and JSON-based data storage to keep the CMS simple and avoid complex database setups.
+The design prioritizes professional functionality, maintainability, and performance while providing an enterprise-grade user experience. We'll use Payload CMS to eliminate the need for custom API development and provide a sophisticated admin interface out of the box.
 
 ## Architecture
 
@@ -12,25 +12,34 @@ The design prioritizes simplicity, maintainability, and performance while provid
 
 ```mermaid
 graph TB
-    A[Next.js Frontend] --> B[API Routes]
-    B --> C[JSON Data Store]
-    B --> D[File System Storage]
-    B --> E[External RSS Feeds]
+    A[Next.js Frontend] --> B[Next.js API Routes]
+    B --> C[Payload CMS API]
+    C --> D[Supabase PostgreSQL]
+    C --> E[Supabase Storage]
+    B --> F[External RSS Feeds]
     
-    F[CMS Admin Panel] --> B
-    G[Embedded Google Maps] --> A
-    H[Image Optimization] --> D
+    G[Payload Admin Panel] --> C
+    H[Embedded Google Maps] --> A
+    I[Supabase Dashboard] --> D
     
-    subgraph "Data Layer"
+    subgraph "Payload CMS Layer"
         C
+        J[Built-in Authentication]
+        K[Auto-generated APIs]
+        L[Admin Interface]
+    end
+    
+    subgraph "Supabase Backend"
         D
-        I[Translation Files]
+        E
+        M[Real-time Subscriptions]
+        N[Row Level Security]
     end
     
     subgraph "External Services"
-        E
-        G
-        J[Vendor RSS Feeds]
+        F
+        H
+        O[Vendor RSS Feeds]
     end
 ```
 
@@ -45,73 +54,187 @@ graph TB
 - Lucide React icons (existing)
 
 **New Dependencies:**
-- `@tiptap/react` + `@tiptap/starter-kit` - Rich text editor for CMS
-- `react-hook-form` + `@hookform/resolvers/zod` - Form handling and validation
-- `zod` - Schema validation
+- `payload` - Headless CMS with admin panel and API generation
+- `@payloadcms/bundler-webpack` - Webpack bundler for Payload
+- `@payloadcms/db-postgres` - PostgreSQL adapter for Payload (Supabase)
+- `@payloadcms/richtext-slate` - Rich text editor for Payload
+- `@supabase/supabase-js` - Supabase client for additional features
 - `rss-parser` - RSS feed parsing
-- `sharp` - Image optimization (already included in Next.js)
+- `pg` - PostgreSQL client
 
 **Data Storage:**
-- JSON files for product catalog, categories, and content
-- File system for images and media
-- No database required for simplicity
+- Supabase PostgreSQL database managed by Payload CMS
+- Supabase Storage for images and media
+- Automatic API generation through Payload
+- Built-in admin interface and authentication
+- Optional Supabase Auth integration
 
 ## Components and Interfaces
 
 ### 1. Product Catalog System
 
-#### Data Models
+#### Payload Collections Configuration with Supabase
 
 ```typescript
-// types/catalog.ts
-export interface Category {
-  id: string;
-  name: {
-    en: string;
-    es: string;
-  };
-  description: {
-    en: string;
-    es: string;
-  };
-  slug: string;
-  order: number;
-  icon?: string;
-}
+// payload.config.ts
+import { buildConfig } from 'payload/config'
+import { postgresAdapter } from '@payloadcms/db-postgres'
 
-export interface Vendor {
-  id: string;
-  name: string;
-  logo: string;
-  website?: string;
-  rssUrl?: string;
-  description: {
-    en: string;
-    es: string;
-  };
-}
-
-export interface Product {
-  id: string;
-  name: {
-    en: string;
-    es: string;
-  };
-  description: {
-    en: string;
-    es: string;
-  };
-  features: {
-    en: string[];
-    es: string[];
-  };
-  categoryId: string;
-  vendorId: string;
-  image?: string;
-  datasheet?: string;
-  order: number;
-  active: boolean;
-}
+export default buildConfig({
+  db: postgresAdapter({
+    pool: {
+      connectionString: process.env.SUPABASE_DATABASE_URL,
+    },
+  }),
+  collections: [
+    {
+      slug: 'categories',
+      admin: {
+        useAsTitle: 'name',
+      },
+      fields: [
+        {
+          name: 'name',
+          type: 'text',
+          required: true,
+          localized: true,
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          localized: true,
+        },
+        {
+          name: 'slug',
+          type: 'text',
+          required: true,
+          unique: true,
+        },
+        {
+          name: 'order',
+          type: 'number',
+          defaultValue: 0,
+        },
+        {
+          name: 'icon',
+          type: 'text',
+        },
+      ],
+    },
+    {
+      slug: 'vendors',
+      admin: {
+        useAsTitle: 'name',
+      },
+      fields: [
+        {
+          name: 'name',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'logo',
+          type: 'upload',
+          relationTo: 'media',
+        },
+        {
+          name: 'website',
+          type: 'text',
+        },
+        {
+          name: 'rssUrl',
+          type: 'text',
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          localized: true,
+        },
+      ],
+    },
+    {
+      slug: 'products',
+      admin: {
+        useAsTitle: 'name',
+      },
+      fields: [
+        {
+          name: 'name',
+          type: 'text',
+          required: true,
+          localized: true,
+        },
+        {
+          name: 'description',
+          type: 'richText',
+          localized: true,
+        },
+        {
+          name: 'features',
+          type: 'array',
+          localized: true,
+          fields: [
+            {
+              name: 'feature',
+              type: 'text',
+            },
+          ],
+        },
+        {
+          name: 'category',
+          type: 'relationship',
+          relationTo: 'categories',
+          required: true,
+        },
+        {
+          name: 'vendor',
+          type: 'relationship',
+          relationTo: 'vendors',
+          required: true,
+        },
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+        },
+        {
+          name: 'datasheet',
+          type: 'upload',
+          relationTo: 'media',
+        },
+        {
+          name: 'order',
+          type: 'number',
+          defaultValue: 0,
+        },
+        {
+          name: 'active',
+          type: 'checkbox',
+          defaultValue: true,
+        },
+      ],
+    },
+  ],
+  localization: {
+    locales: ['en', 'es'],
+    defaultLocale: 'en',
+  },
+  upload: {
+    limits: {
+      fileSize: 5000000, // 5MB
+    },
+  },
+  // Optional: Custom upload handler for Supabase Storage
+  onInit: async (payload) => {
+    // Initialize Supabase client for additional features
+    const { createClient } = await import('@supabase/supabase-js')
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!
+    )
+    payload.supabase = supabase
+  },
+})
 ```
 
 #### Components Structure
@@ -125,47 +248,165 @@ src/components/catalog/
 └── ProductModal.tsx             # Product detail modal
 ```
 
-### 2. Content Management System (CMS)
+### 2. Payload CMS Integration
 
-#### CMS Architecture
+#### Payload Collections for Content Management
 
 ```typescript
-// types/cms.ts
-export interface CMSContent {
-  id: string;
-  type: 'hero' | 'about' | 'contact' | 'page';
-  title: {
-    en: string;
-    es: string;
-  };
-  content: {
-    en: string;
-    es: string;
-  };
-  images?: string[];
-  lastModified: string;
-  version: number;
-}
-
-export interface CMSUser {
-  id: string;
-  email: string;
-  role: 'admin' | 'editor';
-  hashedPassword: string;
+// Additional Payload collections for content management
+{
+  slug: 'pages',
+  admin: {
+    useAsTitle: 'title',
+  },
+  fields: [
+    {
+      name: 'title',
+      type: 'text',
+      required: true,
+      localized: true,
+    },
+    {
+      name: 'slug',
+      type: 'text',
+      required: true,
+      unique: true,
+    },
+    {
+      name: 'content',
+      type: 'richText',
+      localized: true,
+    },
+    {
+      name: 'type',
+      type: 'select',
+      options: ['hero', 'about', 'contact', 'page'],
+      required: true,
+    },
+    {
+      name: 'images',
+      type: 'array',
+      fields: [
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+        },
+      ],
+    },
+  ],
+},
+{
+  slug: 'news-articles',
+  admin: {
+    useAsTitle: 'title',
+  },
+  fields: [
+    {
+      name: 'title',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'summary',
+      type: 'textarea',
+    },
+    {
+      name: 'content',
+      type: 'richText',
+    },
+    {
+      name: 'publishedAt',
+      type: 'date',
+      required: true,
+    },
+    {
+      name: 'vendor',
+      type: 'relationship',
+      relationTo: 'vendors',
+    },
+    {
+      name: 'sourceUrl',
+      type: 'text',
+    },
+    {
+      name: 'image',
+      type: 'upload',
+      relationTo: 'media',
+    },
+    {
+      name: 'tags',
+      type: 'array',
+      fields: [
+        {
+          name: 'tag',
+          type: 'text',
+        },
+      ],
+    },
+  ],
 }
 ```
 
-#### CMS Components
+#### Frontend Integration Components
 
 ```
-src/components/cms/
-├── AdminLayout.tsx              # CMS layout wrapper
-├── ContentEditor.tsx            # Rich text editor
-├── ImageUploader.tsx            # Image upload component
-├── ContentList.tsx              # Content management list
-├── ProductManager.tsx           # Product CRUD interface
-├── CategoryManager.tsx          # Category management
-└── VendorManager.tsx            # Vendor management
+src/components/payload/
+├── PayloadProvider.tsx          # Payload API context provider
+├── PayloadImage.tsx             # Optimized image component for Payload uploads
+└── PayloadRichText.tsx          # Rich text renderer for Payload content
+
+src/lib/payload/
+├── api.ts                       # Payload API integration functions
+├── types.ts                     # TypeScript types for Payload collections
+└── utils.ts                     # Utility functions for Payload data
+
+src/lib/supabase/
+├── client.ts                    # Supabase client configuration
+├── storage.ts                   # Supabase Storage utilities
+└── types.ts                     # Generated TypeScript types from Supabase
+```
+
+### Supabase Integration Benefits
+
+#### MCP Supabase Integration
+- **Kiro MCP Server** - Direct integration with Supabase through Model Context Protocol
+- **Project Management** - Create and manage Supabase projects directly from Kiro
+- **Database Operations** - Execute SQL queries and manage schema through MCP
+- **Storage Management** - Create buckets and manage files through MCP tools
+
+#### Database Schema
+- **PostgreSQL** - Relational database with ACID compliance
+- **Auto-generated types** - TypeScript types from database schema
+- **Row Level Security** - Built-in security policies
+- **Real-time subscriptions** - Live updates for admin panel
+
+#### Storage Integration
+```typescript
+// lib/supabase/storage.ts
+import { createClient } from '@supabase/supabase-js'
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+)
+
+export const uploadFile = async (file: File, bucket: string, path: string) => {
+  const { data, error } = await supabase.storage
+    .from(bucket)
+    .upload(path, file)
+  
+  if (error) throw error
+  return data
+}
+
+export const getPublicUrl = (bucket: string, path: string) => {
+  const { data } = supabase.storage
+    .from(bucket)
+    .getPublicUrl(path)
+  
+  return data.publicUrl
+}
 ```
 
 ### 3. Enhanced Pages
@@ -440,67 +681,132 @@ export const ProductSchema = z.object({
 
 ## API Design
 
-### REST API Endpoints
+### Payload Auto-Generated API Endpoints
 
 ```typescript
-// API Routes Structure
+// Payload automatically generates these REST API endpoints:
 /api/
-├── catalog/
-│   ├── categories/              # GET, POST, PUT, DELETE
-│   ├── products/                # GET, POST, PUT, DELETE
-│   ├── vendors/                 # GET, POST, PUT, DELETE
-│   └── search/                  # GET with query parameters
-├── cms/
-│   ├── auth/                    # POST login, DELETE logout
-│   ├── content/                 # GET, POST, PUT, DELETE
-│   ├── upload/                  # POST for image uploads
-│   └── users/                   # GET, POST, PUT, DELETE
-├── feed/
-│   ├── articles/                # GET with pagination
-│   ├── refresh/                 # POST to trigger RSS refresh
-│   └── vendors/[id]/articles/   # GET vendor-specific articles
+├── categories/                  # GET, POST, PUT, DELETE (auto-generated by Payload)
+├── products/                    # GET, POST, PUT, DELETE (auto-generated by Payload)
+├── vendors/                     # GET, POST, PUT, DELETE (auto-generated by Payload)
+├── pages/                       # GET, POST, PUT, DELETE (auto-generated by Payload)
+├── news-articles/               # GET, POST, PUT, DELETE (auto-generated by Payload)
+├── media/                       # GET, POST, PUT, DELETE (auto-generated by Payload)
+└── users/                       # GET, POST, PUT, DELETE (auto-generated by Payload)
 
+// Custom API routes for specific functionality:
+/api/custom/
+├── search/                      # GET with query parameters (uses Payload queries)
+├── feed/
+│   ├── refresh/                 # POST to trigger RSS refresh and update Payload
+│   └── sync/                    # POST to sync RSS articles to Payload collections
 ```
 
-### Authentication Strategy
+### Payload Authentication Strategy
 
 ```typescript
-// lib/auth.ts
-// Simple JWT-based authentication for CMS
-// Session management with httpOnly cookies
-// Role-based access control (admin/editor)
+// Payload handles authentication automatically
+// Built-in JWT-based authentication
+// Role-based access control through Payload collections
+// Session management handled by Payload
 
-export interface AuthSession {
-  userId: string;
-  email: string;
-  role: 'admin' | 'editor';
-  expiresAt: number;
-}
+// payload.config.ts
+export default buildConfig({
+  admin: {
+    user: 'users',
+    meta: {
+      titleSuffix: '- CECOM Admin',
+    },
+  },
+  collections: [
+    {
+      slug: 'users',
+      auth: {
+        tokenExpiration: 7200, // 2 hours
+      },
+      fields: [
+        {
+          name: 'role',
+          type: 'select',
+          options: ['admin', 'editor'],
+          defaultValue: 'editor',
+          required: true,
+        },
+      ],
+    },
+  ],
+})
 ```
 
 ## Security Considerations
 
-### CMS Security
+### Supabase Security
 
-- Password hashing with bcrypt
-- JWT tokens with short expiration
-- CSRF protection for forms
-- Input sanitization for rich text content
-- File upload validation and scanning
+- **Row Level Security (RLS)** - Database-level access control
+- **JWT tokens** - Secure authentication with automatic refresh
+- **API keys** - Separate keys for public and service role access
+- **HTTPS only** - All connections encrypted
 
-### API Security
+### Payload CMS Security
 
-- Rate limiting for API endpoints
-- Input validation with Zod schemas
-- Sanitization of user-generated content
-- Secure file upload handling
+- **Built-in authentication** - Secure admin access
+- **Input validation** - Automatic sanitization
+- **File upload security** - Type validation and size limits
+- **CSRF protection** - Built-in security measures
+
+### MCP Supabase Configuration
+
+```json
+// ~/.kiro/settings/mcp.json
+{
+  "mcpServers": {
+    "supabase": {
+      "command": "uvx",
+      "args": ["mcp-server-supabase"],
+      "env": {
+        "SUPABASE_ACCESS_TOKEN": "your_supabase_access_token",
+        "SUPABASE_PROJECT_REF": "your_project_reference"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "create_project",
+        "create_bucket",
+        "execute_sql",
+        "list_tables"
+      ]
+    }
+  }
+}
+```
+
+### Environment Variables
+
+```bash
+# Supabase Configuration (obtained through MCP)
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+SUPABASE_DATABASE_URL=postgresql://postgres:[password]@[host]:5432/postgres
+
+# Payload CMS Configuration
+PAYLOAD_SECRET=your_payload_secret_key
+PAYLOAD_CONFIG_PATH=src/payload.config.ts
+
+# MCP Supabase Configuration
+SUPABASE_ACCESS_TOKEN=your_supabase_access_token
+SUPABASE_PROJECT_REF=your_project_reference
+
+# Optional: Additional security
+NEXTAUTH_SECRET=your_nextauth_secret
+NEXTAUTH_URL=http://localhost:3000
+```
 
 ### Data Protection
 
-- No sensitive data in JSON files
-- Environment variables for API keys
-- Secure image upload directory
-- Regular security audits of dependencies
+- **Environment variables** for all sensitive configuration
+- **Supabase RLS policies** for data access control
+- **Secure file upload** through Supabase Storage
+- **Regular security audits** of dependencies
 
 ## Performance Optimizations
 
