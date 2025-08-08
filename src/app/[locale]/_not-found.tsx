@@ -3,11 +3,9 @@ import { useTranslations } from 'next-intl';
 export default function NotFound() {
   const t = useTranslations('NotFound');
   return (
-    <html lang="en">
-      <body>
-        <h1>{t('title')}</h1>
-        <p>{t('description')}</p>
-      </body>
-    </html>
+    <div className="mx-auto max-w-2xl py-16 text-center">
+      <h1 className="text-2xl font-bold mb-2">{t('title')}</h1>
+      <p className="text-gray-600">{t('description')}</p>
+    </div>
   );
 }

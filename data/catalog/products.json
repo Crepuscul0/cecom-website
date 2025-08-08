@@ -27,7 +27,7 @@
     },
     "categoryId": "cybersecurity",
     "vendorId": "watchguard",
-    "image": "/products/watchguard-firebox-t15.jpg",
+    "image": "/products/placeholder-product.svg",
     "order": 1,
     "active": true
   },
@@ -59,7 +59,103 @@
     },
     "categoryId": "cybersecurity",
     "vendorId": "watchguard",
-    "image": "/products/watchguard-firebox-t35.jpg",
+    "image": "/products/placeholder-product.svg",
+    "order": 2,
+    "active": true
+  },
+  {
+    "id": "hp-proliant-dl380",
+    "name": {
+      "en": "HP ProLiant DL380 Gen10",
+      "es": "HP ProLiant DL380 Gen10"
+    },
+    "description": {
+      "en": "High-performance rack server for demanding workloads and virtualization",
+      "es": "Servidor rack de alto rendimiento para cargas de trabajo exigentes y virtualización"
+    },
+    "features": {
+      "en": [
+        "Intel Xeon processors",
+        "Up to 3TB memory",
+        "Flexible storage options",
+        "Advanced management tools",
+        "Energy efficient design"
+      ],
+      "es": [
+        "Procesadores Intel Xeon",
+        "Hasta 3TB de memoria",
+        "Opciones de almacenamiento flexibles",
+        "Herramientas de gestión avanzadas",
+        "Diseño eficiente en energía"
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "hp",
+    "image": "/products/placeholder-product.svg",
+    "order": 1,
+    "active": true
+  },
+  {
+    "id": "avaya-ip-office",
+    "name": {
+      "en": "Avaya IP Office",
+      "es": "Avaya IP Office"
+    },
+    "description": {
+      "en": "Complete unified communications solution for small to medium businesses",
+      "es": "Solución completa de comunicaciones unificadas para pequeñas y medianas empresas"
+    },
+    "features": {
+      "en": [
+        "Voice and video calling",
+        "Instant messaging",
+        "Mobility support",
+        "Contact center features",
+        "Easy administration"
+      ],
+      "es": [
+        "Llamadas de voz y video",
+        "Mensajería instantánea",
+        "Soporte de movilidad",
+        "Características de centro de contacto",
+        "Administración fácil"
+      ]
+    },
+    "categoryId": "communications",
+    "vendorId": "avaya",
+    "image": "/products/placeholder-product.svg",
+    "order": 1,
+    "active": true
+  },
+  {
+    "id": "3cx-phone-system",
+    "name": {
+      "en": "3CX Phone System",
+      "es": "Sistema Telefónico 3CX"
+    },
+    "description": {
+      "en": "Software-based PBX system with advanced communication features",
+      "es": "Sistema PBX basado en software con características de comunicación avanzadas"
+    },
+    "features": {
+      "en": [
+        "Web-based management",
+        "Mobile and desktop apps",
+        "Video conferencing",
+        "Call recording",
+        "CRM integration"
+      ],
+      "es": [
+        "Gestión basada en web",
+        "Aplicaciones móviles y de escritorio",
+        "Videoconferencia",
+        "Grabación de llamadas",
+        "Integración CRM"
+      ]
+    },
+    "categoryId": "communications",
+    "vendorId": "3cx",
+    "image": "/products/placeholder-product.svg",
     "order": 2,
     "active": true
   }

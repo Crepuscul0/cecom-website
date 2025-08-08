@@ -1,106 +1,150 @@
-import { useTranslations } from 'next-intl';
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from '@/components/ui/card';
+"use client";
 
-const features = [
-  {
-    name: 'cybersecurity.name',
-    description: 'cybersecurity.description',
-    icon: (props: any) => (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        {...props}
-      >
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      </svg>
-    ),
-  },
-  {
-    name: 'networking.name',
-    description: 'networking.description',
-    icon: (props: any) => (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        {...props}
-      >
-        <path d="M12 12v-2m0 4v2m-4-2h2m4 0h2m-7-5 1-1m5 5 1-1m-6-3 1-1m4 4 1-1" />
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      </svg>
-    ),
-  },
-  {
-    name: 'servers.name',
-    description: 'servers.description',
-    icon: (props: any) => (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        {...props}
-      >
-        <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
-        <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
-        <line x1="6" y1="6" x2="6" y2="6" />
-        <line x1="6" y1="18" x2="6" y2="18" />
-      </svg>
-    ),
-  },
-  {
-    name: 'storage.name',
-    description: 'storage.description',
-    icon: (props: any) => (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        {...props}
-      >
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        <path d="M12 12v-2m0 4v2m-4-2h2m4 0h2m-7-5 1-1m5 5 1-1m-6-3 1-1m4 4 1-1" />
-      </svg>
-    ),
-  },
-];
+import { useState, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
+import { useSearchParams, useRouter, usePathname } from 'next/navigation'
+import { CategorySidebar } from '@/components/catalog/CategorySidebar'
+import { ProductGrid } from '@/components/catalog/ProductGrid'
+import { ProductFilter } from '@/components/catalog/ProductFilter'
+import { ProductModal } from '@/components/catalog/ProductModal'
+import { Product } from '@/lib/payload/types'
+import { Suspense } from 'react'
 
-export default function Solutions() {
-  const t = useTranslations('Solutions');
+// Loading component for the catalog
+function CatalogLoading() {
+  return (
+    <div className="bg-white py-24 sm:py-32">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto lg:text-center mb-16">
+          <div className="h-6 bg-gray-200 rounded animate-pulse mb-4"></div>
+          <div className="h-10 bg-gray-200 rounded animate-pulse mb-6"></div>
+          <div className="h-6 bg-gray-200 rounded animate-pulse"></div>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          <div className="lg:col-span-1">
+            <div className="h-96 bg-gray-200 rounded animate-pulse"></div>
+          </div>
+          <div className="lg:col-span-3 space-y-6">
+            <div className="h-20 bg-gray-200 rounded animate-pulse"></div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className="h-80 bg-gray-200 rounded animate-pulse"></div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// Main catalog component
+function CatalogContent() {
+  const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(null)
+  const [searchQuery, setSearchQuery] = useState('')
+  const [selectedVendor, setSelectedVendor] = useState<string | null>(null)
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [allProducts, setAllProducts] = useState<Product[]>([])
+  
+  const t = useTranslations('Solutions')
+  const searchParams = useSearchParams()
+  const router = useRouter()
+  const pathname = usePathname()
+
+  // Initialize state from URL parameters
+  useEffect(() => {
+    const categoryParam = searchParams.get('category')
+    const searchParam = searchParams.get('search')
+    const vendorParam = searchParams.get('vendor')
+
+    if (categoryParam) setSelectedCategoryId(categoryParam)
+    if (searchParam) setSearchQuery(searchParam)
+    if (vendorParam) setSelectedVendor(vendorParam)
+  }, [searchParams])
+
+  // Update URL when filters change
+  const updateURL = (category: string | null, search: string, vendor: string | null) => {
+    const params = new URLSearchParams()
+    
+    if (category) params.set('category', category)
+    if (search.trim()) params.set('search', search.trim())
+    if (vendor) params.set('vendor', vendor)
+    
+    const queryString = params.toString()
+    const newURL = queryString ? `${pathname}?${queryString}` : pathname
+    
+    router.replace(newURL, { scroll: false })
+  }
+
+  // Handle category selection
+  const handleCategorySelect = (categoryId: string | null) => {
+    setSelectedCategoryId(categoryId)
+    updateURL(categoryId, searchQuery, selectedVendor)
+  }
+
+  // Handle search change
+  const handleSearchChange = (query: string) => {
+    setSearchQuery(query)
+    updateURL(selectedCategoryId, query, selectedVendor)
+  }
+
+  // Handle vendor filter change
+  const handleVendorChange = (vendorId: string | null) => {
+    setSelectedVendor(vendorId)
+    updateURL(selectedCategoryId, searchQuery, vendorId)
+  }
+
+  // Handle clear filters
+  const handleClearFilters = () => {
+    setSearchQuery('')
+    setSelectedVendor(null)
+    setSelectedCategoryId(null)
+    router.replace(pathname, { scroll: false })
+  }
+
+  // Handle product selection for modal
+  const handleProductSelect = (product: Product) => {
+    setSelectedProduct(product)
+    setIsModalOpen(true)
+  }
+
+  // Handle modal close
+  const handleModalClose = () => {
+    setIsModalOpen(false)
+    setSelectedProduct(null)
+  }
+
+  // Handle product navigation in modal
+  const handleProductNavigate = (direction: 'prev' | 'next') => {
+    if (!selectedProduct || allProducts.length === 0) return
+
+    const currentIndex = allProducts.findIndex(p => p.id === selectedProduct.id)
+    if (currentIndex === -1) return
+
+    let newIndex: number
+    if (direction === 'prev') {
+      newIndex = currentIndex > 0 ? currentIndex - 1 : allProducts.length - 1
+    } else {
+      newIndex = currentIndex < allProducts.length - 1 ? currentIndex + 1 : 0
+    }
+
+    setSelectedProduct(allProducts[newIndex])
+  }
+
+  // Get navigation capabilities for modal
+  const getNavigationCapabilities = () => {
+    if (!selectedProduct || allProducts.length <= 1) {
+      return { prev: false, next: false }
+    }
+    return { prev: true, next: true }
+  }
 
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto lg:text-center">
+        {/* Header Section */}
+        <div className="max-w-2xl mx-auto lg:text-center mb-16">
           <h2 className="text-base font-semibold leading-7 text-blue-600">
             {t('ourSolutions')}
           </h2>
@@ -111,26 +155,84 @@ export default function Solutions() {
             {t('wideRange')}
           </p>
         </div>
-        <div className="max-w-2xl mx-auto mt-16 sm:mt-20 lg:mt-24 lg:max-w-4xl">
-          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
-            {features.map((feature) => (
-              <Card key={feature.name} className="relative overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-0 bg-gradient-to-br from-white to-blue-50">
-                <CardHeader className="pt-8">
-                  <div className="absolute left-6 top-6 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 shadow-lg">
-                    <feature.icon
-                      className="h-6 w-6 text-white"
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <CardTitle className="text-xl font-bold text-gray-900 mt-4">{t(feature.name)}</CardTitle>
-                  <CardDescription className="text-gray-600 leading-relaxed">{t(feature.description)}</CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
-          </dl>
+
+        {/* Catalog Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          {/* Sidebar - Categories */}
+          <div className="lg:col-span-1">
+            <div className="sticky top-8">
+              <CategorySidebar
+                selectedCategoryId={selectedCategoryId || undefined}
+                onCategorySelect={handleCategorySelect}
+                className="mb-6"
+              />
+            </div>
+          </div>
+
+          {/* Main Content - Filters and Products */}
+          <div className="lg:col-span-3 space-y-6">
+            {/* Product Filter */}
+            <ProductFilter
+              searchQuery={searchQuery}
+              selectedVendor={selectedVendor}
+              onSearchChange={handleSearchChange}
+              onVendorChange={handleVendorChange}
+              onClearFilters={handleClearFilters}
+            />
+
+            {/* Product Grid */}
+            <ProductGrid
+              categoryId={selectedCategoryId}
+              searchQuery={searchQuery}
+              vendorFilter={selectedVendor || undefined}
+              onProductSelect={handleProductSelect}
+              onProductsLoad={setAllProducts}
+            />
+          </div>
         </div>
+
+        {/* Product Modal */}
+        <ProductModal
+          product={selectedProduct}
+          isOpen={isModalOpen}
+          onClose={handleModalClose}
+          onNavigate={handleProductNavigate}
+          canNavigate={getNavigationCapabilities()}
+        />
       </div>
     </div>
-  );
+  )
 }
 
+// Error boundary component
+function CatalogError() {
+  const t = useTranslations('catalog')
+  
+  return (
+    <div className="bg-white py-24 sm:py-32">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">
+          {t('error')}
+        </h2>
+        <p className="text-gray-600 mb-6">
+          Something went wrong while loading the catalog. Please try again.
+        </p>
+        <button 
+          onClick={() => window.location.reload()}
+          className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors"
+        >
+          {t('retry')}
+        </button>
+      </div>
+    </div>
+  )
+}
+
+// Main Solutions page component
+export default function Solutions() {
+  return (
+    <Suspense fallback={<CatalogLoading />}>
+      <CatalogContent />
+    </Suspense>
+  )
+}

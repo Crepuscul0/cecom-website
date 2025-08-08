@@ -1,24 +1,18 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest } from 'next/server'
 import { getCategories } from '@/lib/payload/api'
 
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
-    const locale = searchParams.get('locale') || 'en'
-    
+    const locale = (searchParams.get('locale') as 'en' | 'es') || 'en'
+
     const categories = await getCategories(locale)
     
-    return NextResponse.json({
-      success: true,
-      data: categories,
-    })
+    return Response.json(categories)
   } catch (error) {
     console.error('Error fetching categories:', error)
-    return NextResponse.json(
-      {
-        success: false,
-        error: 'Failed to fetch categories',
-      },
+    return Response.json(
+      { error: 'Failed to fetch categories' },
       { status: 500 }
     )
   }

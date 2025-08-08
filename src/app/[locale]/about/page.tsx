@@ -1,109 +1,114 @@
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { getPageBySlug, getTeamMembers, getVendors } from '@/lib/payload/api';
+import { RichTextRenderer } from '@/components/about/RichTextRenderer';
+import { TeamMember } from '@/components/about/TeamMember';
+import { VendorGrid } from '@/components/about/VendorGrid';
 
-export default function About() {
-  const t = useTranslations('AboutUs');
+interface AboutPageProps {
+  params: Promise<{
+    locale: 'en' | 'es';
+  }>;
+}
+
+export default async function About({ params }: AboutPageProps) {
+  const { locale } = await params;
+  // Fetch data from Payload CMS
+  const [aboutPage, teamMembers, vendors] = await Promise.all([
+    getPageBySlug('about', locale),
+    getTeamMembers(locale),
+    getVendors()
+  ]);
 
   return (
     <div className="bg-white">
+      {/* Hero Section */}
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-        <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
-          <div>
-            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-              {t('title')}
-            </h2>
-            <p className="mt-3 max-w-3xl text-lg text-gray-500">
-              {t('description')}
-            </p>
-            <div className="mt-8 sm:flex">
-              <div className="rounded-md shadow">
-                <Link
-                  href="./contact"
-                  className="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
-                >
-                  {t('contactUs')}
-                </Link>
-              </div>
+        <div className="text-center mb-16">
+          <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl">
+            {aboutPage?.title || (locale === 'es' ? 'Nosotros' : 'About Us')}
+          </h1>
+          <p className="mt-6 max-w-3xl mx-auto text-xl text-gray-500">
+            {locale === 'es' 
+              ? 'Conoce más sobre nuestra empresa, nuestro equipo y nuestros valores.'
+              : 'Learn more about our company, our team, and our values.'
+            }
+          </p>
+        </div>
+
+        {/* Company Information */}
+        {aboutPage?.content && (
+          <div className="max-w-4xl mx-auto mb-16">
+            <div className="bg-gray-50 rounded-lg p-8">
+              <RichTextRenderer content={aboutPage.content} />
             </div>
           </div>
-          <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3 lg:mt-0 lg:grid-cols-2">
-            <Card className="group hover:shadow-xl transition-all duration-300 transform hover:scale-105 bg-white border-0 shadow-lg">
-              <CardHeader className="flex flex-col items-center p-6">
-                <div className="w-full h-16 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 group-hover:from-blue-50 group-hover:to-blue-100 rounded-lg transition-all duration-300 mb-4">
-                  <img
-                    className="max-h-12 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                    src="/logos/3cx.png"
-                    alt="3CX"
-                  />
-                </div>
-                <CardTitle className="text-center text-sm font-semibold text-gray-700">3CX</CardTitle>
-              </CardHeader>
-            </Card>
-            <Card className="group hover:shadow-xl transition-all duration-300 transform hover:scale-105 bg-white border-0 shadow-lg">
-              <CardHeader className="flex flex-col items-center p-6">
-                <div className="w-full h-16 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 group-hover:from-blue-50 group-hover:to-blue-100 rounded-lg transition-all duration-300 mb-4">
-                  <img
-                    className="max-h-12 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                    src="/logos/avaya.png"
-                    alt="Avaya"
-                  />
-                </div>
-                <CardTitle className="text-center text-sm font-semibold text-gray-700">Avaya</CardTitle>
-              </CardHeader>
-            </Card>
-            <Card className="group hover:shadow-xl transition-all duration-300 transform hover:scale-105 bg-white border-0 shadow-lg">
-              <CardHeader className="flex flex-col items-center p-6">
-                <div className="w-full h-16 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 group-hover:from-blue-50 group-hover:to-blue-100 rounded-lg transition-all duration-300 mb-4">
-                  <img
-                    className="max-h-12 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                    src="/logos/axis.png"
-                    alt="Axis"
-                  />
-                </div>
-                <CardTitle className="text-center text-sm font-semibold text-gray-700">Axis</CardTitle>
-              </CardHeader>
-            </Card>
-            <Card className="group hover:shadow-xl transition-all duration-300 transform hover:scale-105 bg-white border-0 shadow-lg">
-              <CardHeader className="flex flex-col items-center p-6">
-                <div className="w-full h-16 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 group-hover:from-blue-50 group-hover:to-blue-100 rounded-lg transition-all duration-300 mb-4">
-                  <img
-                    className="max-h-12 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                    src="/logos/cambium.png"
-                    alt="Cambium Networks"
-                  />
-                </div>
-                <CardTitle className="text-center text-sm font-semibold text-gray-700">Cambium Networks</CardTitle>
-              </CardHeader>
-            </Card>
-            <Card className="group hover:shadow-xl transition-all duration-300 transform hover:scale-105 bg-white border-0 shadow-lg">
-              <CardHeader className="flex flex-col items-center p-6">
-                <div className="w-full h-16 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 group-hover:from-blue-50 group-hover:to-blue-100 rounded-lg transition-all duration-300 mb-4">
-                  <img
-                    className="max-h-12 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                    src="/logos/dahua.png"
-                    alt="Dahua"
-                  />
-                </div>
-                <CardTitle className="text-center text-sm font-semibold text-gray-700">Dahua</CardTitle>
-              </CardHeader>
-            </Card>
-            <Card className="group hover:shadow-xl transition-all duration-300 transform hover:scale-105 bg-white border-0 shadow-lg">
-              <CardHeader className="flex flex-col items-center p-6">
-                <div className="w-full h-16 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 group-hover:from-blue-50 group-hover:to-blue-100 rounded-lg transition-all duration-300 mb-4">
-                  <img
-                    className="max-h-12 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                    src="/logos/eset.png"
-                    alt="Eset"
-                  />
-                </div>
-                <CardTitle className="text-center text-sm font-semibold text-gray-700">Eset</CardTitle>
-              </CardHeader>
-            </Card>
+        )}
+
+        {/* Team Section */}
+        {teamMembers && teamMembers.length > 0 && (
+          <div className="mb-16">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                {locale === 'es' ? 'Nuestro Equipo' : 'Our Team'}
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                {locale === 'es'
+                  ? 'Conoce a los profesionales que hacen posible nuestro éxito y el de nuestros clientes.'
+                  : 'Meet the professionals who make our success and that of our clients possible.'
+                }
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {teamMembers.map((member) => (
+                <TeamMember
+                  key={member.id}
+                  name={member.name}
+                  position={member.position}
+                  bio={member.bio}
+                  image={member.image}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Vendor Partners Section */}
+        {vendors && vendors.length > 0 && (
+          <div className="mb-16">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                {locale === 'es' ? 'Nuestros Socios' : 'Our Partners'}
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                {locale === 'es'
+                  ? 'Trabajamos con las mejores marcas del mercado para ofrecerte soluciones de calidad.'
+                  : 'We work with the best brands in the market to offer you quality solutions.'
+                }
+              </p>
+            </div>
+            <VendorGrid vendors={vendors} />
+          </div>
+        )}
+
+        {/* Call to Action */}
+        <div className="text-center">
+          <div className="bg-blue-50 rounded-lg p-8">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              {locale === 'es' ? '¿Listo para trabajar con nosotros?' : 'Ready to work with us?'}
+            </h3>
+            <p className="text-lg text-gray-600 mb-6">
+              {locale === 'es'
+                ? 'Contáctanos hoy mismo y descubre cómo podemos ayudarte a alcanzar tus objetivos tecnológicos.'
+                : 'Contact us today and discover how we can help you achieve your technology goals.'
+              }
+            </p>
+            <Link
+              href={`/${locale}/contact`}
+              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
+            >
+              {locale === 'es' ? 'Contáctanos' : 'Contact Us'}
+            </Link>
           </div>
         </div>
       </div>
