@@ -1,10 +1,12 @@
 {
   "Home": {
-    "title": "Networks, Servers,",
-    "welcome": "Storage and Energy",
-    "description": "CECOM, S.A.S. is a company located in Santo Domingo, Dominican Republic, that operates in the fields of computer repair and information technology services.",
-    "getStarted": "Get started",
-    "liveDemo": "Live demo"
+    "title": "Cutting-Edge",
+    "welcome": "Technology Solutions",
+    "description": "Discover our wide range of technology products: from network equipment and servers to storage and energy solutions. Everything you need to power your business.",
+    "getStarted": "View Catalog",
+    "liveDemo": "Our Solutions",
+    "productsShowcase": "Featured Products",
+    "exploreProducts": "Explore our complete catalog of technology products from the best brands in the market."
   },
   "Solutions": {
     "title": "Solutions",
