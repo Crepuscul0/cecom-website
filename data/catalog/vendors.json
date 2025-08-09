@@ -4,7 +4,7 @@
     "name": "WatchGuard",
     "logo": "/logos/watchguard.png",
     "website": "https://www.watchguard.com",
-    "rssUrl": "https://www.watchguard.com/wgrd-news/rss",
+    "rssUrl": "https://feeds.bbci.co.uk/news/rss.xml",
     "description": {
       "en": "Leading provider of network security solutions",
       "es": "Proveedor líder de soluciones de seguridad de red"
@@ -15,7 +15,7 @@
     "name": "HP",
     "logo": "/logos/hp.png",
     "website": "https://www.hp.com",
-    "rssUrl": "https://press.hp.com/us/en/rss",
+    "rssUrl": "https://feeds.bbci.co.uk/news/technology/rss.xml",
     "description": {
       "en": "Technology solutions for business and consumers",
       "es": "Soluciones tecnológicas para empresas y consumidores"

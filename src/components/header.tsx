@@ -44,7 +44,7 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-md border-b border-gray-100">
+    <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm shadow-md border-b border-border">
       <nav
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         aria-label="Top"
@@ -62,27 +62,27 @@ export default function Header() {
             <NavigationMenu className="hidden ml-10 space-x-8 lg:block">
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuLink href={`/${pathname.split('/')[1]}`} className={cn("text-base font-medium text-gray-600 hover:text-blue-600 transition-colors duration-200")}>
+                  <NavigationMenuLink href={`/${pathname.split('/')[1]}`} className={cn("text-base font-medium text-muted-foreground hover:text-primary transition-colors duration-200")}>
                     {t('home')}
                   </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuLink href={`/${pathname.split('/')[1]}/solutions`} className={cn("text-base font-medium text-gray-600 hover:text-blue-600 transition-colors duration-200")}>
+                  <NavigationMenuLink href={`/${pathname.split('/')[1]}/solutions`} className={cn("text-base font-medium text-muted-foreground hover:text-primary transition-colors duration-200")}>
                     {t('solutions')}
                   </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuLink href={`/${pathname.split('/')[1]}/alliances`} className={cn("text-base font-medium text-gray-600 hover:text-blue-600 transition-colors duration-200")}>
+                  <NavigationMenuLink href={`/${pathname.split('/')[1]}/alliances`} className={cn("text-base font-medium text-muted-foreground hover:text-primary transition-colors duration-200")}>
                     {t('alliances')}
                   </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuLink href={`/${pathname.split('/')[1]}/about`} className={cn("text-base font-medium text-gray-600 hover:text-blue-600 transition-colors duration-200")}>
+                  <NavigationMenuLink href={`/${pathname.split('/')[1]}/about`} className={cn("text-base font-medium text-muted-foreground hover:text-primary transition-colors duration-200")}>
                     {t('aboutUs')}
                   </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuLink href={`/${pathname.split('/')[1]}/contact`} className={cn("text-base font-medium text-gray-600 hover:text-blue-600 transition-colors duration-200")}>
+                  <NavigationMenuLink href={`/${pathname.split('/')[1]}/contact`} className={cn("text-base font-medium text-muted-foreground hover:text-primary transition-colors duration-200")}>
                     {t('contact')}
                   </NavigationMenuLink>
                 </NavigationMenuItem>
@@ -93,7 +93,7 @@ export default function Header() {
             <ThemeToggle />
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="icon">
+                  <Button variant="outline" size="icon">
                   🌐
                   <span className="sr-only">Toggle language</span>
                 </Button>
@@ -117,19 +117,19 @@ export default function Header() {
                 </SheetTrigger>
                 <SheetContent side="right">
                   <nav className="flex flex-col space-y-4 mt-8">
-                    <Link href={`/${pathname.split('/')[1]}`} className="text-base font-medium text-gray-500 hover:text-gray-900">
+                    <Link href={`/${pathname.split('/')[1]}`} className="text-base font-medium text-muted-foreground hover:text-foreground">
                       {t('home')}
                     </Link>
-                    <Link href={`/${pathname.split('/')[1]}/solutions`} className="text-base font-medium text-gray-500 hover:text-gray-900">
+                    <Link href={`/${pathname.split('/')[1]}/solutions`} className="text-base font-medium text-muted-foreground hover:text-foreground">
                       {t('solutions')}
                     </Link>
-                    <Link href={`/${pathname.split('/')[1]}/alliances`} className="text-base font-medium text-gray-500 hover:text-gray-900">
+                    <Link href={`/${pathname.split('/')[1]}/alliances`} className="text-base font-medium text-muted-foreground hover:text-foreground">
                       {t('alliances')}
                     </Link>
-                    <Link href={`/${pathname.split('/')[1]}/about`} className="text-base font-medium text-gray-500 hover:text-gray-900">
+                    <Link href={`/${pathname.split('/')[1]}/about`} className="text-base font-medium text-muted-foreground hover:text-foreground">
                       {t('aboutUs')}
                     </Link>
-                    <Link href={`/${pathname.split('/')[1]}/contact`} className="text-base font-medium text-gray-500 hover:text-gray-900">
+                    <Link href={`/${pathname.split('/')[1]}/contact`} className="text-base font-medium text-muted-foreground hover:text-foreground">
                       {t('contact')}
                     </Link>
                   </nav>

@@ -13,22 +13,22 @@ import { Suspense } from 'react'
 // Loading component for the catalog
 function CatalogLoading() {
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-background py-24 sm:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="max-w-2xl mx-auto lg:text-center mb-16">
-          <div className="h-6 bg-gray-200 rounded animate-pulse mb-4"></div>
-          <div className="h-10 bg-gray-200 rounded animate-pulse mb-6"></div>
-          <div className="h-6 bg-gray-200 rounded animate-pulse"></div>
+          <div className="h-6 bg-muted rounded animate-pulse mb-4"></div>
+          <div className="h-10 bg-muted rounded animate-pulse mb-6"></div>
+          <div className="h-6 bg-muted rounded animate-pulse"></div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           <div className="lg:col-span-1">
-            <div className="h-96 bg-gray-200 rounded animate-pulse"></div>
+            <div className="h-96 bg-muted rounded animate-pulse"></div>
           </div>
           <div className="lg:col-span-3 space-y-6">
-            <div className="h-20 bg-gray-200 rounded animate-pulse"></div>
+            <div className="h-20 bg-muted rounded animate-pulse"></div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[...Array(6)].map((_, i) => (
-                <div key={i} className="h-80 bg-gray-200 rounded animate-pulse"></div>
+                <div key={i} className="h-80 bg-muted rounded animate-pulse"></div>
               ))}
             </div>
           </div>
@@ -141,17 +141,17 @@ function CatalogContent() {
   }
 
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-background py-24 sm:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header Section */}
         <div className="max-w-2xl mx-auto lg:text-center mb-16">
-          <h2 className="text-base font-semibold leading-7 text-blue-600">
+          <h2 className="text-base font-semibold leading-7 text-primary">
             {t('ourSolutions')}
           </h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             {t('businessNeeds')}
           </p>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
+          <p className="mt-6 text-lg leading-8 text-muted-foreground">
             {t('wideRange')}
           </p>
         </div>
@@ -209,17 +209,17 @@ function CatalogError() {
   const t = useTranslations('catalog')
   
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-background py-24 sm:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">
+        <h2 className="text-2xl font-bold text-foreground mb-4">
           {t('error')}
         </h2>
-        <p className="text-gray-600 mb-6">
+        <p className="text-muted-foreground mb-6">
           Something went wrong while loading the catalog. Please try again.
         </p>
         <button 
           onClick={() => window.location.reload()}
-          className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors"
+          className="bg-primary text-primary-foreground px-6 py-2 rounded-md hover:bg-primary/90 transition-colors"
         >
           {t('retry')}
         </button>

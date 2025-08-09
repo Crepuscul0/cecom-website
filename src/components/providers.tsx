@@ -4,12 +4,12 @@ import { ThemeProvider } from "next-themes";
 import { NextIntlClientProvider } from "next-intl";
 import Header from "@/components/header";
 
-export function Providers({ children, messages, locale }: { children: React.ReactNode; messages: any; locale: string }) {
+export function Providers({ children, messages, locale, timeZone, now }: { children: React.ReactNode; messages: any; locale: string; timeZone?: string; now?: Date }) {
   return (
-    <NextIntlClientProvider messages={messages} locale={locale}>
+    <NextIntlClientProvider messages={messages} locale={locale} timeZone={timeZone} now={now}>
       <ThemeProvider 
         attribute="class" 
-        defaultTheme="light" 
+        defaultTheme="dark" 
         enableSystem={false}
         disableTransitionOnChange
 

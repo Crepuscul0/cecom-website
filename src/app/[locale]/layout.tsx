@@ -1,5 +1,7 @@
 import { Providers } from '@/components/providers';
 import { getMessages } from 'next-intl/server';
+import { timeZone } from '@/i18n/config';
+import { getCurrentTime } from '@/lib/timezone';
 import { notFound } from 'next/navigation';
 
 export default async function LocaleLayout({
@@ -14,7 +16,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <Providers messages={messages} locale={locale}>
+    <Providers messages={messages} locale={locale} timeZone={timeZone} now={getCurrentTime()}>
       {children}
     </Providers>
   );

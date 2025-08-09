@@ -21,14 +21,14 @@ export default async function About({ params }: AboutPageProps) {
   ]);
 
   return (
-    <div className="bg-white">
+    <div className="bg-background">
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl">
+          <h1 className="text-4xl font-extrabold text-foreground sm:text-5xl lg:text-6xl">
             {aboutPage?.title || (locale === 'es' ? 'Nosotros' : 'About Us')}
           </h1>
-          <p className="mt-6 max-w-3xl mx-auto text-xl text-gray-500">
+          <p className="mt-6 max-w-3xl mx-auto text-xl text-muted-foreground">
             {locale === 'es' 
               ? 'Conoce más sobre nuestra empresa, nuestro equipo y nuestros valores.'
               : 'Learn more about our company, our team, and our values.'
@@ -39,7 +39,7 @@ export default async function About({ params }: AboutPageProps) {
         {/* Company Information */}
         {aboutPage?.content && (
           <div className="max-w-4xl mx-auto mb-16">
-            <div className="bg-gray-50 rounded-lg p-8">
+            <div className="bg-muted rounded-lg p-8">
               <RichTextRenderer content={aboutPage.content} />
             </div>
           </div>
@@ -49,10 +49,10 @@ export default async function About({ params }: AboutPageProps) {
         {teamMembers && teamMembers.length > 0 && (
           <div className="mb-16">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl font-bold text-foreground mb-4">
                 {locale === 'es' ? 'Nuestro Equipo' : 'Our Team'}
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 {locale === 'es'
                   ? 'Conoce a los profesionales que hacen posible nuestro éxito y el de nuestros clientes.'
                   : 'Meet the professionals who make our success and that of our clients possible.'
@@ -77,10 +77,10 @@ export default async function About({ params }: AboutPageProps) {
         {vendors && vendors.length > 0 && (
           <div className="mb-16">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl font-bold text-foreground mb-4">
                 {locale === 'es' ? 'Nuestros Socios' : 'Our Partners'}
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 {locale === 'es'
                   ? 'Trabajamos con las mejores marcas del mercado para ofrecerte soluciones de calidad.'
                   : 'We work with the best brands in the market to offer you quality solutions.'
@@ -93,11 +93,11 @@ export default async function About({ params }: AboutPageProps) {
 
         {/* Call to Action */}
         <div className="text-center">
-          <div className="bg-blue-50 rounded-lg p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          <div className="bg-accent rounded-lg p-8">
+            <h3 className="text-2xl font-bold text-foreground mb-4">
               {locale === 'es' ? '¿Listo para trabajar con nosotros?' : 'Ready to work with us?'}
             </h3>
-            <p className="text-lg text-gray-600 mb-6">
+            <p className="text-lg text-muted-foreground mb-6">
               {locale === 'es'
                 ? 'Contáctanos hoy mismo y descubre cómo podemos ayudarte a alcanzar tus objetivos tecnológicos.'
                 : 'Contact us today and discover how we can help you achieve your technology goals.'
@@ -105,7 +105,7 @@ export default async function About({ params }: AboutPageProps) {
             </p>
             <Link
               href={`/${locale}/contact`}
-              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
+              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary-foreground bg-primary hover:bg-primary/90 transition-colors duration-200"
             >
               {locale === 'es' ? 'Contáctanos' : 'Contact Us'}
             </Link>

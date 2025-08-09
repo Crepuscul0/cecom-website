@@ -104,12 +104,12 @@ export function ProductModal({
       <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
         {/* Backdrop */}
         <div 
-          className="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" 
+          className="fixed inset-0 transition-opacity bg-background/80 backdrop-blur-sm" 
           onClick={onClose}
         ></div>
         
         {/* Modal */}
-        <div className="inline-block w-full max-w-4xl p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-lg max-h-[90vh] overflow-y-auto">
+        <div className="inline-block w-full max-w-4xl p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-background border shadow-xl rounded-lg max-h-[90vh] overflow-y-auto">
           {/* Header */}
           <div className="flex flex-row items-center justify-between space-y-0 pb-4">
             <h2 className="text-xl font-bold pr-8">
@@ -146,7 +146,7 @@ export function ProductModal({
                 variant="ghost"
                 size="sm"
                 onClick={onClose}
-                className="text-gray-400 hover:text-gray-600"
+                className="text-muted-foreground hover:text-foreground"
               >
                 <X className="h-4 w-4" />
               </Button>
@@ -156,7 +156,7 @@ export function ProductModal({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Product Image */}
           <div className="space-y-4">
-            <div className="relative aspect-square overflow-hidden rounded-lg bg-gray-100">
+            <div className="relative aspect-square overflow-hidden rounded-lg bg-muted">
               {!imageError ? (
                 <Image
                   src={getImageUrl(productImage)}
@@ -170,8 +170,8 @@ export function ProductModal({
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               ) : (
-                <div className="flex items-center justify-center h-full bg-gray-200">
-                  <div className="text-center text-gray-500">
+                <div className="flex items-center justify-center h-full bg-muted">
+                  <div className="text-center text-muted-foreground">
                     <Package className="h-16 w-16 mx-auto mb-4 opacity-50" />
                     <p>No image available</p>
                   </div>
@@ -180,9 +180,9 @@ export function ProductModal({
               
               {/* Loading overlay */}
               {imageLoading && !imageError && (
-                <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+                <div className="absolute inset-0 flex items-center justify-center bg-muted">
                   <div className="animate-pulse">
-                    <div className="h-8 w-8 bg-gray-300 rounded-full"></div>
+                    <div className="h-8 w-8 bg-border rounded-full"></div>
                   </div>
                 </div>
               )}
@@ -243,7 +243,7 @@ export function ProductModal({
 
               {/* Vendor Logo */}
               {vendor && getVendorLogoUrl(vendorLogo) && (
-                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                <div className="flex items-center gap-3 p-3 bg-muted rounded-lg">
                   <Image
                     src={getVendorLogoUrl(vendorLogo)!}
                     alt={vendor.name}

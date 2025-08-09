@@ -19,15 +19,15 @@ export default async function Contact({ params }: ContactPageProps) {
   const contactContent = contactPage?.contactInfo;
 
   return (
-    <div className="relative bg-white">
+    <div className="relative bg-background">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
+      <div className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
               {t('getInTouch')}
             </h1>
-            <p className="mt-4 text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="mt-4 text-xl text-primary-foreground/80 max-w-3xl mx-auto">
               {contactContent?.description || t('description')}
             </p>
           </div>
@@ -39,17 +39,17 @@ export default async function Contact({ params }: ContactPageProps) {
         <div className="lg:grid lg:grid-cols-2 lg:gap-16">
           {/* Contact Information */}
           <div className="mb-12 lg:mb-0">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-8">
               {locale === 'es' ? 'Información de Contacto' : 'Contact Information'}
             </h2>
             
             <div className="space-y-6">
               {/* Address */}
               <div className="flex items-start space-x-4">
-                <MapPin className="h-6 w-6 text-blue-600 mt-1 flex-shrink-0" />
+                <MapPin className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-gray-900">{t('postalAddress')}</h3>
-                  <p className="text-gray-600 mt-1">
+                  <h3 className="font-semibold text-foreground">{t('postalAddress')}</h3>
+                  <p className="text-muted-foreground mt-1">
                     {contactContent?.address?.line1 || t('addressLine1')}<br />
                     {contactContent?.address?.line2 || t('addressLine2')}<br />
                     {contactContent?.address?.line3 || t('addressLine3')}
@@ -59,13 +59,13 @@ export default async function Contact({ params }: ContactPageProps) {
 
               {/* Phone */}
               <div className="flex items-start space-x-4">
-                <Phone className="h-6 w-6 text-blue-600 mt-1 flex-shrink-0" />
+                <Phone className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-gray-900">{t('phoneNumber')}</h3>
-                  <p className="text-gray-600 mt-1">
+                  <h3 className="font-semibold text-foreground">{t('phoneNumber')}</h3>
+                  <p className="text-muted-foreground mt-1">
                     <a 
                       href={`tel:${contactContent?.phone || t('phone')}`}
-                      className="hover:text-blue-600 transition-colors"
+                      className="hover:text-primary transition-colors"
                     >
                       {contactContent?.phone || t('phone')}
                     </a>
@@ -75,13 +75,13 @@ export default async function Contact({ params }: ContactPageProps) {
 
               {/* Email */}
               <div className="flex items-start space-x-4">
-                <Mail className="h-6 w-6 text-blue-600 mt-1 flex-shrink-0" />
+                <Mail className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-gray-900">{t('emailAddress')}</h3>
-                  <p className="text-gray-600 mt-1">
+                  <h3 className="font-semibold text-foreground">{t('emailAddress')}</h3>
+                  <p className="text-muted-foreground mt-1">
                     <a 
                       href={`mailto:${contactContent?.email || t('email')}`}
-                      className="hover:text-blue-600 transition-colors"
+                      className="hover:text-primary transition-colors"
                     >
                       {contactContent?.email || t('email')}
                     </a>
@@ -91,10 +91,10 @@ export default async function Contact({ params }: ContactPageProps) {
 
               {/* Business Hours */}
               <div className="flex items-start space-x-4">
-                <Clock className="h-6 w-6 text-blue-600 mt-1 flex-shrink-0" />
+                <Clock className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-gray-900">{t('businessHours')}</h3>
-                  <div className="text-gray-600 mt-1 space-y-1">
+                  <h3 className="font-semibold text-foreground">{t('businessHours')}</h3>
+                  <div className="text-muted-foreground mt-1 space-y-1">
                     <p>{contactContent?.businessHours?.weekdays || t('weekdays')}</p>
                     <p>{contactContent?.businessHours?.saturday || t('saturday')}</p>
                     <p>{contactContent?.businessHours?.sunday || t('sunday')}</p>
@@ -105,7 +105,7 @@ export default async function Contact({ params }: ContactPageProps) {
 
             {/* Embedded Map */}
             <div className="mt-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+            <h3 className="text-lg font-semibold text-foreground mb-4">
                 {locale === 'es' ? 'Nuestra Ubicación' : 'Our Location'}
               </h3>
               <EmbeddedMap
@@ -118,7 +118,7 @@ export default async function Contact({ params }: ContactPageProps) {
 
           {/* Contact Form */}
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-8">
               {locale === 'es' ? 'Envíanos un Mensaje' : 'Send us a Message'}
             </h2>
             <ContactForm locale={locale} />

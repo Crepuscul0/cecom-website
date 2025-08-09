@@ -154,10 +154,10 @@ export default function ContactForm({ locale }: ContactFormProps) {
             {...register('message')}
             id="message"
             rows={4}
-            className={`block w-full shadow-sm py-3 px-4 placeholder-gray-500 border rounded-md focus:ring-2 focus:ring-offset-2 transition-colors ${
+            className={`block w-full shadow-sm py-3 px-4 placeholder-muted-foreground border rounded-md focus:ring-2 focus:ring-offset-2 transition-colors ${
               errors.message 
                 ? 'border-red-500 focus:border-red-500 focus:ring-red-500' 
-                : 'border-gray-300 focus:ring-blue-500 focus:border-blue-500'
+                : 'border-input focus:ring-primary focus:border-primary'
             } ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
             placeholder={t('messagePlaceholder')}
             disabled={isSubmitting}
@@ -172,7 +172,7 @@ export default function ContactForm({ locale }: ContactFormProps) {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full inline-flex justify-center items-center py-3 px-6 border border-transparent shadow-lg text-base font-medium rounded-md text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+            className="w-full inline-flex justify-center items-center py-3 px-6 border border-transparent shadow-lg text-base font-medium rounded-md text-primary-foreground bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
           >
             {isSubmitting ? (
               <>

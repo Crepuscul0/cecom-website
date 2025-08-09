@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <div className="mx-auto max-w-2xl py-16 text-center">
       <h1 className="text-2xl font-bold mb-2">{t('title')}</h1>
-      <p className="text-gray-600">{t('description')}</p>
+      <p className="text-muted-foreground">{t('description')}</p>
     </div>
   );
 }

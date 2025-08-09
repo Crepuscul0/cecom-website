@@ -41,7 +41,7 @@ export function RichTextRenderer({ content, className = '' }: RichTextRendererPr
       }
       if (node.code) {
         textElement = (
-          <code key={`code-${index}`} className="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono">
+          <code key={`code-${index}`} className="bg-muted px-1 py-0.5 rounded text-sm font-mono">
             {textElement}
           </code>
         )
@@ -58,43 +58,43 @@ export function RichTextRenderer({ content, className = '' }: RichTextRendererPr
     switch (node.type) {
       case 'h1':
         return (
-          <h1 key={index} className="text-3xl font-bold text-gray-900 mb-4">
+          <h1 key={index} className="text-3xl font-bold text-foreground mb-4">
             {children}
           </h1>
         )
       case 'h2':
         return (
-          <h2 key={index} className="text-2xl font-semibold text-gray-900 mb-3">
+          <h2 key={index} className="text-2xl font-semibold text-foreground mb-3">
             {children}
           </h2>
         )
       case 'h3':
         return (
-          <h3 key={index} className="text-xl font-semibold text-gray-900 mb-2">
+          <h3 key={index} className="text-xl font-semibold text-foreground mb-2">
             {children}
           </h3>
         )
       case 'h4':
         return (
-          <h4 key={index} className="text-lg font-semibold text-gray-900 mb-2">
+          <h4 key={index} className="text-lg font-semibold text-foreground mb-2">
             {children}
           </h4>
         )
       case 'p':
         return (
-          <p key={index} className="text-gray-600 mb-4 leading-relaxed">
+          <p key={index} className="text-muted-foreground mb-4 leading-relaxed">
             {children}
           </p>
         )
       case 'ul':
         return (
-          <ul key={index} className="list-disc list-inside text-gray-600 mb-4 space-y-1">
+          <ul key={index} className="list-disc list-inside text-muted-foreground mb-4 space-y-1">
             {children}
           </ul>
         )
       case 'ol':
         return (
-          <ol key={index} className="list-decimal list-inside text-gray-600 mb-4 space-y-1">
+          <ol key={index} className="list-decimal list-inside text-muted-foreground mb-4 space-y-1">
             {children}
           </ol>
         )
@@ -106,7 +106,7 @@ export function RichTextRenderer({ content, className = '' }: RichTextRendererPr
         )
       case 'blockquote':
         return (
-          <blockquote key={index} className="border-l-4 border-blue-500 pl-4 italic text-gray-700 mb-4">
+          <blockquote key={index} className="border-l-4 border-primary pl-4 italic text-muted-foreground mb-4">
             {children}
           </blockquote>
         )
@@ -117,7 +117,7 @@ export function RichTextRenderer({ content, className = '' }: RichTextRendererPr
             href={node.url}
             target={node.newTab ? '_blank' : undefined}
             rel={node.newTab ? 'noopener noreferrer' : undefined}
-            className="text-blue-600 hover:text-blue-800 underline"
+            className="text-primary hover:text-primary/80 underline"
           >
             {children}
           </a>

@@ -23,10 +23,10 @@ export function VendorGrid({ vendors }: VendorGridProps) {
       {vendors.map((vendor) => (
         <Card 
           key={vendor.id}
-          className="group hover:shadow-xl transition-all duration-300 transform hover:scale-105 bg-white border-0 shadow-lg"
+          className="group hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-0 shadow-lg"
         >
           <CardHeader className="flex flex-col items-center p-6">
-            <div className="w-full h-16 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 group-hover:from-blue-50 group-hover:to-blue-100 rounded-lg transition-all duration-300 mb-4">
+            <div className="w-full h-16 flex items-center justify-center bg-gradient-to-br from-muted to-muted group-hover:from-primary/10 group-hover:to-primary/20 rounded-lg transition-all duration-300 mb-4">
               {vendor.logo ? (
                 <Image
                   src={vendor.logo.url}
@@ -36,12 +36,12 @@ export function VendorGrid({ vendors }: VendorGridProps) {
                   className="max-h-12 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                 />
               ) : (
-                <div className="text-xs font-semibold text-gray-400 text-center px-2">
+                <div className="text-xs font-semibold text-muted-foreground text-center px-2">
                   {vendor.name}
                 </div>
               )}
             </div>
-            <CardTitle className="text-center text-sm font-semibold text-gray-700">
+            <CardTitle className="text-center text-sm font-semibold text-foreground">
               {vendor.name}
             </CardTitle>
           </CardHeader>

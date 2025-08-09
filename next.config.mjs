@@ -1,10 +1,11 @@
 import createNextIntlPlugin from 'next-intl/plugin';
 import { withPayload } from '@payloadcms/next/withPayload';
 
-const withNextIntl = createNextIntlPlugin({
-  locales: ['en', 'es'],
-  defaultLocale: 'en',
-});
+// Ensure timezone is set at process level for SSR and tooling
+process.env.TZ = process.env.TZ || 'America/Santo_Domingo';
+
+// Point the plugin to the request config which sets timeZone & messages
+const withNextIntl = createNextIntlPlugin('./i18n.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

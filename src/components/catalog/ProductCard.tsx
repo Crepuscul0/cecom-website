@@ -53,7 +53,7 @@ export function ProductCard({ product, onViewDetails, className = '' }: ProductC
     <Card className={`group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${className}`}>
       <CardContent className="p-0">
         {/* Product Image */}
-        <div className="relative aspect-square overflow-hidden rounded-t-lg bg-gray-100">
+        <div className="relative aspect-square overflow-hidden rounded-t-lg bg-muted">
           {!imageError ? (
             <Image
               src={getImageUrl(productImage)}
@@ -67,8 +67,8 @@ export function ProductCard({ product, onViewDetails, className = '' }: ProductC
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           ) : (
-            <div className="flex items-center justify-center h-full bg-gray-200">
-              <div className="text-center text-gray-500">
+            <div className="flex items-center justify-center h-full bg-muted">
+              <div className="text-center text-muted-foreground">
                 <FileText className="h-12 w-12 mx-auto mb-2 opacity-50" />
                 <p className="text-sm">No image</p>
               </div>
@@ -77,9 +77,9 @@ export function ProductCard({ product, onViewDetails, className = '' }: ProductC
           
           {/* Loading overlay */}
           {imageLoading && !imageError && (
-            <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+            <div className="absolute inset-0 flex items-center justify-center bg-muted">
               <div className="animate-pulse">
-                <div className="h-4 w-4 bg-gray-300 rounded-full"></div>
+                <div className="h-4 w-4 bg-border rounded-full"></div>
               </div>
             </div>
           )}
@@ -94,8 +94,8 @@ export function ProductCard({ product, onViewDetails, className = '' }: ProductC
           )}
 
           {/* Vendor logo */}
-          {vendor && getVendorLogoUrl(vendorLogo) && (
-            <div className="absolute top-2 right-2 bg-white rounded-full p-1 shadow-sm">
+            {vendor && getVendorLogoUrl(vendorLogo) && (
+            <div className="absolute top-2 right-2 bg-background rounded-full p-1 shadow-sm border">
               <Image
                 src={getVendorLogoUrl(vendorLogo)!}
                 alt={vendor.name}

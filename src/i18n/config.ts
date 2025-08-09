@@ -30,5 +30,5 @@ export const host = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : `http://localhost:${port}`;
 
-// Global timezone configuration
-export const timeZone = 'America/Santo_Domingo';
+// Global timezone configuration (env-driven with safe default)
+export const timeZone = process.env.TZ || 'America/Santo_Domingo';

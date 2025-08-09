@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
+    "theme:standardize": "node scripts/standardize-dark-theme.js --write",
     "payload:generate-types": "payload generate:types",
     "payload:generate-graphql": "payload generate:graphQLSchema",
     "setup:supabase": "node scripts/setup-supabase.js",

@@ -87,33 +87,33 @@ export default function Alliances() {
   const t = useTranslations('Alliances');
 
   return (
-    <div className="bg-gray-100">
+    <div className="bg-muted">
       <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+          <h2 className="text-3xl font-extrabold text-foreground sm:text-4xl">
             {t('ourAlliances')}
           </h2>
-          <p className="mt-4 text-lg text-gray-500">
+          <p className="mt-4 text-lg text-muted-foreground">
             {t('partnerMessage')}
           </p>
         </div>
         <div className="mt-12 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:gap-y-12">
           {alliances.map((alliance) => (
-            <Card key={alliance.name} className="group hover:shadow-xl transition-all duration-300 transform hover:scale-105 bg-white border-0 shadow-lg">
+            <Card key={alliance.name} className="group hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-0 shadow-lg">
               <CardHeader className="p-6">
-                <div className="relative w-full h-40 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg overflow-hidden flex items-center justify-center p-4 group-hover:from-blue-50 group-hover:to-blue-100 transition-all duration-300">
+                <div className="relative w-full h-40 bg-gradient-to-br from-muted to-muted rounded-lg overflow-hidden flex items-center justify-center p-4 group-hover:from-primary/10 group-hover:to-primary/20 transition-all duration-300">
                   <img
                     src={alliance.logo}
                     alt={alliance.name}
                     className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
-                <CardTitle className="mt-4 text-lg font-bold text-gray-900 text-center">
-                  <Link href="./contact" className="hover:text-blue-600 transition-colors duration-200">
+                <CardTitle className="mt-4 text-lg font-bold text-foreground text-center">
+                  <Link href="./contact" className="hover:text-primary transition-colors duration-200">
                     {alliance.name}
                   </Link>
                 </CardTitle>
-                <CardDescription className="text-sm text-gray-600 text-center leading-relaxed">
+                <CardDescription className="text-sm text-muted-foreground text-center leading-relaxed">
                   {t(alliance.descriptionKey)}
                 </CardDescription>
               </CardHeader>

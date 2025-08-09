@@ -41,3 +41,8 @@ python scripts/convert_heic.py ./photo.heic ./photo.png
 - `migrate-data.js` - Data migration utilities
 - `setup-supabase.js` - Supabase setup and configuration
 - `setup-storage.js` - Storage setup utilities 
+- `standardize-dark-theme.js` - Rewrites hardcoded light classes to theme tokens. Run with:
+
+```bash
+npm run theme:standardize
+```
