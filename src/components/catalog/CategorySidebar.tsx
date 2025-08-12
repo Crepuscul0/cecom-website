@@ -34,7 +34,7 @@ export function CategorySidebar({
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const locale = useLocale() as 'en' | 'es'
-  const t = useTranslations('catalog')
+  const t = useTranslations('Catalog')
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -79,7 +79,7 @@ export function CategorySidebar({
         <div className="flex items-center justify-center py-8">
           <Loader2 className="h-6 w-6 animate-spin" />
           <span className="ml-2 text-sm text-muted-foreground">
-            {t('loadingCategories')}
+            {t('states.loadingCategories')}
           </span>
         </div>
       </Card>
@@ -90,13 +90,13 @@ export function CategorySidebar({
     return (
       <Card className={`p-4 ${className}`}>
         <div className="text-center py-8">
-          <p className="text-sm text-destructive mb-2">{t('errorLoadingCategories')}</p>
+          <p className="text-sm text-destructive mb-2">{t('states.errorLoadingCategories')}</p>
           <Button 
             variant="outline" 
             size="sm" 
             onClick={() => window.location.reload()}
           >
-            {t('retry')}
+            {t('actions.retry')}
           </Button>
         </div>
       </Card>
@@ -148,7 +148,7 @@ export function CategorySidebar({
         {categories.length === 0 && (
           <div className="text-center py-8 text-muted-foreground">
             <Grid3X3 className="h-8 w-8 mx-auto mb-2 opacity-50" />
-            <p className="text-sm">{t('noCategories')}</p>
+            <p className="text-sm">{t('states.noCategories')}</p>
           </div>
         )}
       </div>

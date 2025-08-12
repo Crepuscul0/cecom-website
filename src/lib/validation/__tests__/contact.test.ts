@@ -1,7 +1,23 @@
 import { describe, it, expect } from 'vitest';
-import { contactFormSchema } from '../contact';
+import { createContactFormSchema } from '../contact';
+
+// Mock translation function for tests
+const mockTranslation = (key: string) => {
+  const translations: Record<string, string> = {
+    'requiredField': 'This field is required',
+    'nameMinLength': 'Name must be at least 2 characters',
+    'messageMinLength': 'Message must be at least 10 characters',
+    'phoneMinLength': 'Phone number must be at least 10 digits',
+    'invalidEmail': 'Please enter a valid email address',
+    'invalidPhone': 'Please enter a valid phone number',
+    'invalidName': 'Name can only contain letters and spaces',
+    'maxLength': 'Must be no more than {max} characters',
+  };
+  return translations[key] || key;
+};
 
 describe('Contact Form Validation', () => {
+  const contactFormSchema = createContactFormSchema(mockTranslation);
   it('should validate a correct contact form', () => {
     const validData = {
       fullName: 'John Doe',

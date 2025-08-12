@@ -1,24 +1,31 @@
 "use client";
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
-import { contactFormSchema, ContactFormData } from '@/lib/validation/contact';
+import { createContactFormSchema, ContactFormData } from '@/lib/validation/contact';
 import { CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 
-interface ContactFormProps {
-  locale: 'en' | 'es';
-}
-
-export default function ContactForm({ locale }: ContactFormProps) {
+export default function ContactForm() {
   const t = useTranslations('Contact');
+  const tValidation = useTranslations('Validation');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [submitMessage, setSubmitMessage] = useState('');
+
+  // Create schema with error handling
+  const contactFormSchema = React.useMemo(() => {
+    try {
+      return createContactFormSchema(tValidation);
+    } catch (error) {
+      console.warn('Error creating contact form schema with translations:', error);
+      // Fallback to a basic schema if translations fail
+      return createContactFormSchema(() => '');
+    }
+  }, [tValidation]);
 
   const {
     register,
@@ -32,7 +39,6 @@ export default function ContactForm({ locale }: ContactFormProps) {
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     setSubmitStatus('idle');
-    setSubmitMessage('');
 
     try {
       const response = await fetch('/api/contact', {
@@ -47,11 +53,6 @@ export default function ContactForm({ locale }: ContactFormProps) {
 
       if (response.ok) {
         setSubmitStatus('success');
-        setSubmitMessage(
-          locale === 'es' 
-            ? 'Mensaje enviado exitosamente. Nos pondremos en contacto contigo pronto.'
-            : 'Message sent successfully. We will get back to you soon.'
-        );
         reset(); // Clear the form
       } else {
         throw new Error(result.error || 'Failed to send message');
@@ -59,11 +60,6 @@ export default function ContactForm({ locale }: ContactFormProps) {
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
-      setSubmitMessage(
-        locale === 'es'
-          ? 'Error al enviar el mensaje. Por favor, inténtalo de nuevo.'
-          : 'Error sending message. Please try again.'
-      );
     } finally {
       setIsSubmitting(false);
     }
@@ -83,7 +79,12 @@ export default function ContactForm({ locale }: ContactFormProps) {
           ) : (
             <AlertCircle className="h-5 w-5 flex-shrink-0" />
           )}
-          <p className="text-sm font-medium">{submitMessage}</p>
+          <p className="text-sm font-medium">
+            {submitStatus === 'success' 
+              ? t('form.successMessage')
+              : t('form.errorMessage')
+            }
+          </p>
         </div>
       )}
 
@@ -91,14 +92,14 @@ export default function ContactForm({ locale }: ContactFormProps) {
         {/* Full Name */}
         <div>
           <Label htmlFor="fullName" className="sr-only">
-            {t('fullName')}
+            {t('form.fullName')}
           </Label>
           <Input
             {...register('fullName')}
             type="text"
             id="fullName"
             autoComplete="name"
-            placeholder={t('fullNamePlaceholder')}
+            placeholder={t('form.fullNamePlaceholder')}
             className={errors.fullName ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}
             disabled={isSubmitting}
           />
@@ -110,14 +111,14 @@ export default function ContactForm({ locale }: ContactFormProps) {
         {/* Email */}
         <div>
           <Label htmlFor="email" className="sr-only">
-            {t('email')}
+            {t('emailAddress')}
           </Label>
           <Input
             {...register('email')}
             id="email"
             type="email"
             autoComplete="email"
-            placeholder={t('emailPlaceholder')}
+            placeholder={t('form.emailPlaceholder')}
             className={errors.email ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}
             disabled={isSubmitting}
           />
@@ -129,14 +130,14 @@ export default function ContactForm({ locale }: ContactFormProps) {
         {/* Phone */}
         <div>
           <Label htmlFor="phone" className="sr-only">
-            {t('phone')}
+            {t('phoneNumber')}
           </Label>
           <Input
             {...register('phone')}
             type="tel"
             id="phone"
             autoComplete="tel"
-            placeholder={t('phonePlaceholder')}
+            placeholder={t('form.phonePlaceholder')}
             className={errors.phone ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}
             disabled={isSubmitting}
           />
@@ -148,7 +149,7 @@ export default function ContactForm({ locale }: ContactFormProps) {
         {/* Message */}
         <div>
           <Label htmlFor="message" className="sr-only">
-            {t('message')}
+            {t('form.message')}
           </Label>
           <textarea
             {...register('message')}
@@ -159,7 +160,7 @@ export default function ContactForm({ locale }: ContactFormProps) {
                 ? 'border-red-500 focus:border-red-500 focus:ring-red-500' 
                 : 'border-input focus:ring-primary focus:border-primary'
             } ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
-            placeholder={t('messagePlaceholder')}
+            placeholder={t('form.messagePlaceholder')}
             disabled={isSubmitting}
           />
           {errors.message && (
@@ -177,10 +178,10 @@ export default function ContactForm({ locale }: ContactFormProps) {
             {isSubmitting ? (
               <>
                 <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                {locale === 'es' ? 'Enviando...' : 'Sending...'}
+                {t('form.sending')}
               </>
             ) : (
-              t('submit')
+              t('form.submit')
             )}
           </Button>
         </div>

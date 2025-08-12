@@ -121,7 +121,7 @@ export default async function Contact({ params }: ContactPageProps) {
             <h2 className="text-2xl font-bold text-foreground mb-8">
               {locale === 'es' ? 'Envíanos un Mensaje' : 'Send us a Message'}
             </h2>
-            <ContactForm locale={locale} />
+            <ContactForm />
           </div>
         </div>
       </div>

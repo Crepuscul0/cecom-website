@@ -39,7 +39,7 @@ export function ProductModal({
 }: ProductModalProps) {
   const [imageLoading, setImageLoading] = useState(true)
   const [imageError, setImageError] = useState(false)
-  const t = useTranslations('catalog')
+  const t = useTranslations('Catalog')
 
   // Reset image states when product changes
   useEffect(() => {
@@ -127,7 +127,7 @@ export function ProductModal({
                     disabled={!canNavigate.prev}
                   >
                     <ChevronLeft className="h-4 w-4" />
-                    {t('previousProduct')}
+                    {t('modal.previousProduct')}
                   </Button>
                   <Button
                     variant="outline"
@@ -135,7 +135,7 @@ export function ProductModal({
                     onClick={() => onNavigate('next')}
                     disabled={!canNavigate.next}
                   >
-                    {t('nextProduct')}
+                    {t('modal.nextProduct')}
                     <ChevronRight className="h-4 w-4" />
                   </Button>
                 </>
@@ -160,7 +160,7 @@ export function ProductModal({
               {!imageError ? (
                 <Image
                   src={getImageUrl(productImage)}
-                  alt={product.name || 'Product image'}
+                  alt={product.name || t('modal.productImageAlt')}
                   fill
                   className={`object-cover transition-opacity duration-300 ${
                     imageLoading ? 'opacity-0' : 'opacity-100'
@@ -173,7 +173,7 @@ export function ProductModal({
                 <div className="flex items-center justify-center h-full bg-muted">
                   <div className="text-center text-muted-foreground">
                     <Package className="h-16 w-16 mx-auto mb-4 opacity-50" />
-                    <p>No image available</p>
+                    <p>{t('modal.noImageAvailable')}</p>
                   </div>
                 </div>
               )}
@@ -215,7 +215,7 @@ export function ProductModal({
                   onClick={() => window.open(vendor.website, '_blank')}
                 >
                   <ExternalLink className="h-4 w-4 mr-2" />
-                  Vendor Site
+                  {t('modal.visitWebsite')}
                 </Button>
               )}
             </div>
@@ -246,7 +246,7 @@ export function ProductModal({
                 <div className="flex items-center gap-3 p-3 bg-muted rounded-lg">
                   <Image
                     src={getVendorLogoUrl(vendorLogo)!}
-                    alt={vendor.name}
+                    alt={`${vendor.name} ${t('modal.logoAlt')}`}
                     width={40}
                     height={40}
                     className="object-contain"
@@ -267,7 +267,7 @@ export function ProductModal({
             {product.description && (
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Description</CardTitle>
+                  <CardTitle className="text-lg">{t('modal.description')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="prose prose-sm max-w-none">
@@ -305,7 +305,7 @@ export function ProductModal({
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">
-                  For detailed specifications, please refer to the product datasheet or contact our sales team.
+                  {t('modal.specificationsNote')}
                 </p>
               </CardContent>
             </Card>

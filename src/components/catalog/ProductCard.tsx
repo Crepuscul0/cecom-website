@@ -18,7 +18,7 @@ interface ProductCardProps {
 export function ProductCard({ product, onViewDetails, className = '' }: ProductCardProps) {
   const [imageLoading, setImageLoading] = useState(true)
   const [imageError, setImageError] = useState(false)
-  const t = useTranslations('catalog')
+  const t = useTranslations('Catalog')
 
   // Type guards and data extraction
   const vendor = typeof product.vendor === 'object' ? product.vendor as Vendor : null
@@ -164,7 +164,7 @@ export function ProductCard({ product, onViewDetails, className = '' }: ProductC
             size="sm"
           >
             <Eye className="h-4 w-4 mr-2" />
-            {t('viewDetails')}
+            {t('actions.viewDetails')}
           </Button>
           
           {product.datasheet && (

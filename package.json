@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
+    "validate:translations": "node scripts/validate-translations.js",
     "theme:standardize": "node scripts/standardize-dark-theme.js --write",
     "payload:generate-types": "payload generate:types",
     "payload:generate-graphql": "payload generate:graphQLSchema",
@@ -50,6 +51,11 @@
     "zod": "^4.0.14"
   },
   "devDependencies": {
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/glob": "^8.1.0",
     "@types/node": "^20",
     "@types/pg": "^8.15.5",
     "@types/react": "^18",
@@ -58,6 +64,8 @@
     "autoprefixer": "^10.4.21",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
+    "glob": "^11.0.3",
+    "jsdom": "^26.1.0",
     "postcss": "^8.5.6",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5",

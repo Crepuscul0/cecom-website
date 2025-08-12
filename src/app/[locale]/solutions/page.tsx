@@ -206,13 +206,13 @@ function CatalogContent() {
 
 // Error boundary component
 function CatalogError() {
-  const t = useTranslations('catalog')
+  const t = useTranslations('Catalog')
   
   return (
     <div className="bg-background py-24 sm:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
         <h2 className="text-2xl font-bold text-foreground mb-4">
-          {t('error')}
+          {t('states.error')}
         </h2>
         <p className="text-muted-foreground mb-6">
           Something went wrong while loading the catalog. Please try again.
@@ -221,7 +221,7 @@ function CatalogError() {
           onClick={() => window.location.reload()}
           className="bg-primary text-primary-foreground px-6 py-2 rounded-md hover:bg-primary/90 transition-colors"
         >
-          {t('retry')}
+          {t('actions.retry')}
         </button>
       </div>
     </div>

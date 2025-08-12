@@ -27,7 +27,8 @@ export function ProductGrid({
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const locale = useLocale() as 'en' | 'es'
-  const t = useTranslations('catalog')
+  const t = useTranslations('Catalog')
+  const tCommon = useTranslations('Common')
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -80,7 +81,7 @@ export function ProductGrid({
       <div className={`flex items-center justify-center py-12 ${className}`}>
         <div className="text-center">
           <Loader2 className="h-8 w-8 animate-spin mx-auto mb-4" />
-          <p className="text-muted-foreground">{t('loadingProducts')}</p>
+          <p className="text-muted-foreground">{t('states.loadingProducts')}</p>
         </div>
       </div>
     )
@@ -91,13 +92,13 @@ export function ProductGrid({
       <div className={`text-center py-12 ${className}`}>
         <div className="max-w-md mx-auto">
           <Package className="h-12 w-12 mx-auto mb-4 text-muted-foreground opacity-50" />
-          <h3 className="text-lg font-semibold mb-2">{t('error')}</h3>
-          <p className="text-muted-foreground mb-4">{t('errorLoadingProducts')}</p>
+          <h3 className="text-lg font-semibold mb-2">{t('states.error')}</h3>
+          <p className="text-muted-foreground mb-4">{t('states.errorLoadingProducts')}</p>
           <button 
             onClick={() => window.location.reload()}
             className="text-primary hover:underline"
           >
-            {t('retry')}
+            {t('actions.retry')}
           </button>
         </div>
       </div>
@@ -106,10 +107,10 @@ export function ProductGrid({
 
   if (products.length === 0) {
     const emptyMessage = categoryId 
-      ? t('noProductsInCategory') 
+      ? t('states.noProductsInCategory') 
       : searchQuery || vendorFilter 
-        ? t('noProducts')
-        : t('noProducts')
+        ? t('states.noProducts')
+        : t('states.noProducts')
 
     return (
       <div className={`text-center py-12 ${className}`}>
@@ -119,11 +120,11 @@ export function ProductGrid({
           <p className="text-muted-foreground">
             {searchQuery || vendorFilter ? (
               <span>
-                Try adjusting your search or filters to find what you&apos;re looking for.
+                {tCommon('states.tryAdjustingFilters')}
               </span>
             ) : (
               <span>
-                No products are currently available in this section.
+                {tCommon('states.noProductsAvailable')}
               </span>
             )}
           </p>

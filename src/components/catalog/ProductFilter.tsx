@@ -46,9 +46,11 @@ export function ProductFilter({
 }: ProductFilterProps) {
   const [vendors, setVendors] = useState<Vendor[]>([])
   const [vendorsLoading, setVendorsLoading] = useState(true)
+  const [vendorsError, setVendorsError] = useState<string | null>(null)
   const [localSearchQuery, setLocalSearchQuery] = useState(searchQuery)
   const locale = useLocale() as 'en' | 'es'
-  const t = useTranslations('catalog')
+  const t = useTranslations('Catalog')
+  const tCommon = useTranslations('Common')
 
   // Debounced search function
   const debouncedSearch = useCallback(
@@ -63,6 +65,7 @@ export function ProductFilter({
     const fetchVendors = async () => {
       try {
         setVendorsLoading(true)
+        setVendorsError(null)
         const response = await fetch('/api/catalog/vendors')
         if (!response.ok) {
           throw new Error('Failed to fetch vendors')
@@ -71,6 +74,7 @@ export function ProductFilter({
         setVendors(data)
       } catch (error) {
         console.error('Error fetching vendors:', error)
+        setVendorsError(error instanceof Error ? error.message : 'Failed to load vendors')
       } finally {
         setVendorsLoading(false)
       }
@@ -127,24 +131,30 @@ export function ProductFilter({
             <DropdownMenuTrigger asChild>
               <Button variant="outline" className="h-9">
                 <Filter className="h-4 w-4 mr-2" />
-                {selectedVendorName || t('filterByVendor')}
+                {selectedVendorName || t('filter.filterByVendor')}
                 <ChevronDown className="h-4 w-4 ml-2" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-56">
-              <DropdownMenuLabel>{t('filterByVendor')}</DropdownMenuLabel>
+              <DropdownMenuLabel>{t('filter.filterByVendor')}</DropdownMenuLabel>
               <DropdownMenuSeparator />
               
               {vendorsLoading ? (
                 <DropdownMenuItem disabled>
                   <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                  {t('loading')}
+                  {t('states.loading')}
+                </DropdownMenuItem>
+              ) : vendorsError ? (
+                <DropdownMenuItem disabled>
+                  <span className="text-destructive text-sm">
+                    {tCommon('states.errorLoadingVendors')}
+                  </span>
                 </DropdownMenuItem>
               ) : (
                 <>
                   <DropdownMenuItem onClick={() => handleVendorSelect(null)}>
                     <span className={selectedVendor === null ? 'font-medium' : ''}>
-                      All Vendors
+                      {t('filter.allVendors')}
                     </span>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
@@ -172,7 +182,7 @@ export function ProductFilter({
               className="h-9"
             >
               <X className="h-4 w-4 mr-2" />
-              {t('clearFilters')}
+              {t('filter.clearFilters')}
             </Button>
           )}
         </div>

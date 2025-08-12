@@ -1,6 +1,34 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { contactFormSchema } from '@/lib/validation/contact';
 import { z } from 'zod';
+
+// Basic validation schema for API route (without translations)
+const contactFormSchema = z.object({
+  fullName: z
+    .string()
+    .min(1, 'Name is required')
+    .min(2, 'Name must be at least 2 characters')
+    .max(100, 'Name must be less than 100 characters')
+    .regex(/^[a-zA-ZÀ-ÿ\u00f1\u00d1\s]+$/, 'Name can only contain letters and spaces'),
+  
+  email: z
+    .string()
+    .min(1, 'Email is required')
+    .email('Please enter a valid email address')
+    .max(255, 'Email must be less than 255 characters'),
+  
+  phone: z
+    .string()
+    .min(1, 'Phone is required')
+    .min(10, 'Phone number must be at least 10 digits')
+    .max(20, 'Phone number must be less than 20 characters')
+    .regex(/^[\+]?[0-9\s\-\(\)]+$/, 'Please enter a valid phone number'),
+  
+  message: z
+    .string()
+    .min(1, 'Message is required')
+    .min(10, 'Message must be at least 10 characters')
+    .max(1000, 'Message must be less than 1000 characters'),
+});
 
 // Simple email sending function (in production, use a service like SendGrid, Resend, etc.)
 async function sendEmail(data: {

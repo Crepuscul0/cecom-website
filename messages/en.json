@@ -1,4 +1,71 @@
 {
+  "Common": {
+    "buttons": {
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "save": "Save",
+      "delete": "Delete",
+      "edit": "Edit",
+      "close": "Close",
+      "retry": "Retry",
+      "clearFilters": "Clear filters",
+      "viewDetails": "View Details",
+      "previous": "Previous",
+      "next": "Next",
+      "allVendors": "All Vendors"
+    },
+    "states": {
+      "loading": "Loading...",
+      "error": "Error",
+      "success": "Success",
+      "noData": "No data available",
+      "sending": "Sending...",
+      "loadingCategories": "Loading categories...",
+      "loadingProducts": "Loading products...",
+      "errorLoadingCategories": "Error loading categories",
+      "errorLoadingProducts": "Error loading products",
+      "errorLoadingVendors": "Error loading vendors",
+      "noProducts": "No products found",
+      "noCategories": "No categories available",
+      "noProductsInCategory": "No products found in this category",
+      "tryAdjustingFilters": "Try adjusting your search or filters to find what you're looking for.",
+      "noProductsAvailable": "No products are currently available in this section."
+    },
+    "accessibility": {
+      "closeModal": "Close modal",
+      "openMenu": "Open menu",
+      "selectLanguage": "Select language",
+      "toggleTheme": "Toggle theme",
+      "toggleNavigation": "Toggle navigation",
+      "topNavigation": "Top",
+      "logoAlt": "CECOM Logo"
+    },
+    "theme": {
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System",
+      "toggleTheme": "Toggle theme"
+    },
+    "language": {
+      "english": "🇺🇸 English",
+      "spanish": "🇪🇸 Español",
+      "toggleLanguage": "Toggle language"
+    }
+  },
+  "Validation": {
+    "required": "This field is required",
+    "requiredField": "This field is required",
+    "email": "Please enter a valid email address",
+    "phone": "Please enter a valid phone number",
+    "minLength": "Must be at least {min} characters",
+    "maxLength": "Must be no more than {max} characters",
+    "nameMinLength": "Name must be at least 2 characters",
+    "messageMinLength": "Message must be at least 10 characters",
+    "phoneMinLength": "Phone number must be at least 10 digits",
+    "invalidEmail": "Please enter a valid email address",
+    "invalidPhone": "Please enter a valid phone number",
+    "invalidName": "Name can only contain letters and spaces"
+  },
   "Home": {
     "title": "Cutting-Edge",
     "welcome": "Technology Solutions",
@@ -79,21 +146,25 @@
     "weekdays": "Monday - Friday: 8:00 AM - 6:00 PM",
     "saturday": "Saturday: 9:00 AM - 1:00 PM",
     "sunday": "Sunday: Closed",
-    "fullName": "Full name",
-    "fullNamePlaceholder": "Full name",
-    "emailPlaceholder": "Email",
-    "phonePlaceholder": "Phone",
-    "message": "Message",
-    "messagePlaceholder": "Message",
-    "submit": "Submit",
-    "sending": "Sending...",
-    "successMessage": "Message sent successfully. We will get back to you soon.",
-    "errorMessage": "Error sending message. Please try again.",
-    "requiredField": "This field is required",
-    "invalidEmail": "Please enter a valid email address",
-    "invalidPhone": "Please enter a valid phone number",
-    "messageMinLength": "Message must be at least 10 characters",
-    "nameMinLength": "Name must be at least 2 characters"
+    "form": {
+      "fullName": "Full name",
+      "fullNamePlaceholder": "Full name",
+      "emailPlaceholder": "Email",
+      "phonePlaceholder": "Phone",
+      "message": "Message",
+      "messagePlaceholder": "Message",
+      "submit": "Submit",
+      "sending": "Sending...",
+      "successMessage": "Message sent successfully. We will get back to you soon.",
+      "errorMessage": "Error sending message. Please try again."
+    },
+    "validation": {
+      "requiredField": "This field is required",
+      "invalidEmail": "Please enter a valid email address",
+      "invalidPhone": "Please enter a valid phone number",
+      "messageMinLength": "Message must be at least 10 characters",
+      "nameMinLength": "Name must be at least 2 characters"
+    }
   },
   "NotFound": {
     "title": "404 - Page Not Found",
@@ -104,31 +175,81 @@
     "solutions": "Solutions",
     "alliances": "Alliances",
     "aboutUs": "About Us",
-    "contact": "Contact"
+    "contact": "Contact",
+    "accessibility": {
+      "mainNavigation": "Main navigation",
+      "homeLink": "Go to home page",
+      "solutionsLink": "Go to solutions page",
+      "alliancesLink": "Go to alliances page",
+      "aboutUsLink": "Go to about us page",
+      "contactLink": "Go to contact page",
+      "logoLink": "Go to home page",
+      "logoAlt": "CECOM Logo - Go to home page",
+      "languageSelector": "Language selector",
+      "languageSelectorButton": "Select language",
+      "languageSelectorMenu": "Language options",
+      "selectEnglish": "Switch to English",
+      "selectSpanish": "Switch to Spanish",
+      "mobileMenuButton": "Open mobile navigation menu",
+      "mobileMenuClose": "Close mobile navigation menu",
+      "mobileNavigation": "Mobile navigation menu",
+      "themeToggle": "Toggle between light and dark theme",
+      "skipToContent": "Skip to main content"
+    },
+    "tooltips": {
+      "home": "Navigate to home page",
+      "solutions": "View our technology solutions",
+      "alliances": "See our business partnerships",
+      "aboutUs": "Learn more about our company",
+      "contact": "Get in touch with us",
+      "languageSelector": "Change website language",
+      "themeToggle": "Switch between light and dark mode",
+      "mobileMenu": "Open navigation menu"
+    }
   },
-  "catalog": {
+  "Catalog": {
     "categories": "Categories",
     "allProducts": "All Products",
-    "loadingCategories": "Loading categories...",
-    "errorLoadingCategories": "Error loading categories",
-    "noCategories": "No categories available",
-    "retry": "Retry",
-    "loadingProducts": "Loading products...",
-    "errorLoadingProducts": "Error loading products",
-    "noProducts": "No products found",
-    "noProductsInCategory": "No products found in this category",
     "searchProducts": "Search products...",
     "filterByVendor": "Filter by vendor",
-    "clearFilters": "Clear filters",
     "showingResults": "Showing {count} results",
-    "viewDetails": "View Details",
     "features": "Features",
     "specifications": "Specifications",
     "datasheet": "Datasheet",
-    "closeModal": "Close",
-    "previousProduct": "Previous",
-    "nextProduct": "Next",
-    "loading": "Loading...",
-    "error": "Error"
+    "modal": {
+      "closeModal": "Close",
+      "previousProduct": "Previous",
+      "nextProduct": "Next",
+      "viewDatasheet": "View Datasheet",
+      "visitWebsite": "Visit Website",
+      "moreFeatures": "+{count} more",
+      "noImageAvailable": "No image available",
+      "description": "Description",
+      "specificationsNote": "For detailed specifications, please refer to the product datasheet or contact our sales team.",
+      "productImageAlt": "Product image",
+      "logoAlt": "logo"
+    },
+    "filter": {
+      "allVendors": "All Vendors",
+      "filterByVendor": "Filter by vendor",
+      "clearFilters": "Clear filters",
+      "activeSearch": "\"{query}\"",
+      "activeVendor": "{vendor}"
+    },
+    "states": {
+      "loading": "Loading...",
+      "error": "Error",
+      "loadingCategories": "Loading categories...",
+      "errorLoadingCategories": "Error loading categories",
+      "noCategories": "No categories available",
+      "loadingProducts": "Loading products...",
+      "errorLoadingProducts": "Error loading products",
+      "noProducts": "No products found",
+      "noProductsInCategory": "No products found in this category"
+    },
+    "actions": {
+      "viewDetails": "View Details",
+      "retry": "Retry"
+    }
   }
 }

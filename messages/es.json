@@ -1,4 +1,71 @@
 {
+  "Common": {
+    "buttons": {
+      "submit": "Enviar",
+      "cancel": "Cancelar",
+      "save": "Guardar",
+      "delete": "Eliminar",
+      "edit": "Editar",
+      "close": "Cerrar",
+      "retry": "Reintentar",
+      "clearFilters": "Limpiar filtros",
+      "viewDetails": "Ver Detalles",
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "allVendors": "Todos los Proveedores"
+    },
+    "states": {
+      "loading": "Cargando...",
+      "error": "Error",
+      "success": "Éxito",
+      "noData": "No hay datos disponibles",
+      "sending": "Enviando...",
+      "loadingCategories": "Cargando categorías...",
+      "loadingProducts": "Cargando productos...",
+      "errorLoadingCategories": "Error al cargar categorías",
+      "errorLoadingProducts": "Error al cargar productos",
+      "errorLoadingVendors": "Error al cargar proveedores",
+      "noProducts": "No se encontraron productos",
+      "noCategories": "No hay categorías disponibles",
+      "noProductsInCategory": "No se encontraron productos en esta categoría",
+      "tryAdjustingFilters": "Intenta ajustar tu búsqueda o filtros para encontrar lo que buscas.",
+      "noProductsAvailable": "No hay productos disponibles actualmente en esta sección."
+    },
+    "accessibility": {
+      "closeModal": "Cerrar modal",
+      "openMenu": "Abrir menú",
+      "selectLanguage": "Seleccionar idioma",
+      "toggleTheme": "Cambiar tema",
+      "toggleNavigation": "Alternar navegación",
+      "topNavigation": "Superior",
+      "logoAlt": "Logo de CECOM"
+    },
+    "theme": {
+      "light": "Claro",
+      "dark": "Oscuro",
+      "system": "Sistema",
+      "toggleTheme": "Cambiar tema"
+    },
+    "language": {
+      "english": "🇺🇸 English",
+      "spanish": "🇪🇸 Español",
+      "toggleLanguage": "Cambiar idioma"
+    }
+  },
+  "Validation": {
+    "required": "Este campo es requerido",
+    "requiredField": "Este campo es requerido",
+    "email": "Por favor ingrese un correo electrónico válido",
+    "phone": "Por favor ingrese un número de teléfono válido",
+    "minLength": "Debe tener al menos {min} caracteres",
+    "maxLength": "No debe tener más de {max} caracteres",
+    "nameMinLength": "El nombre debe tener al menos 2 caracteres",
+    "messageMinLength": "El mensaje debe tener al menos 10 caracteres",
+    "phoneMinLength": "El número de teléfono debe tener al menos 10 dígitos",
+    "invalidEmail": "Por favor ingrese un correo electrónico válido",
+    "invalidPhone": "Por favor ingrese un número de teléfono válido",
+    "invalidName": "El nombre solo puede contener letras y espacios"
+  },
   "Home": {
     "title": "Soluciones Tecnológicas",
     "welcome": "de Vanguardia",
@@ -79,21 +146,25 @@
     "weekdays": "Lunes - Viernes: 8:00 AM - 6:00 PM",
     "saturday": "Sábado: 9:00 AM - 1:00 PM",
     "sunday": "Domingo: Cerrado",
-    "fullName": "Nombre completo",
-    "fullNamePlaceholder": "Nombre completo",
-    "emailPlaceholder": "Correo electrónico",
-    "phonePlaceholder": "Teléfono",
-    "message": "Mensaje",
-    "messagePlaceholder": "Mensaje",
-    "submit": "Enviar",
-    "sending": "Enviando...",
-    "successMessage": "Mensaje enviado exitosamente. Nos pondremos en contacto contigo pronto.",
-    "errorMessage": "Error al enviar el mensaje. Por favor, inténtalo de nuevo.",
-    "requiredField": "Este campo es requerido",
-    "invalidEmail": "Por favor ingrese un correo electrónico válido",
-    "invalidPhone": "Por favor ingrese un número de teléfono válido",
-    "messageMinLength": "El mensaje debe tener al menos 10 caracteres",
-    "nameMinLength": "El nombre debe tener al menos 2 caracteres"
+    "form": {
+      "fullName": "Nombre completo",
+      "fullNamePlaceholder": "Nombre completo",
+      "emailPlaceholder": "Correo electrónico",
+      "phonePlaceholder": "Teléfono",
+      "message": "Mensaje",
+      "messagePlaceholder": "Mensaje",
+      "submit": "Enviar",
+      "sending": "Enviando...",
+      "successMessage": "Mensaje enviado exitosamente. Nos pondremos en contacto contigo pronto.",
+      "errorMessage": "Error al enviar el mensaje. Por favor, inténtalo de nuevo."
+    },
+    "validation": {
+      "requiredField": "Este campo es requerido",
+      "invalidEmail": "Por favor ingrese un correo electrónico válido",
+      "invalidPhone": "Por favor ingrese un número de teléfono válido",
+      "messageMinLength": "El mensaje debe tener al menos 10 caracteres",
+      "nameMinLength": "El nombre debe tener al menos 2 caracteres"
+    }
   },
   "NotFound": {
     "title": "404 - Página no encontrada",
@@ -104,31 +175,81 @@
     "solutions": "Soluciones",
     "alliances": "Alianzas",
     "aboutUs": "Nosotros",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "accessibility": {
+      "mainNavigation": "Navegación principal",
+      "homeLink": "Ir a la página de inicio",
+      "solutionsLink": "Ir a la página de soluciones",
+      "alliancesLink": "Ir a la página de alianzas",
+      "aboutUsLink": "Ir a la página acerca de nosotros",
+      "contactLink": "Ir a la página de contacto",
+      "logoLink": "Ir a la página de inicio",
+      "logoAlt": "Logo de CECOM - Ir a la página de inicio",
+      "languageSelector": "Selector de idioma",
+      "languageSelectorButton": "Seleccionar idioma",
+      "languageSelectorMenu": "Opciones de idioma",
+      "selectEnglish": "Cambiar a inglés",
+      "selectSpanish": "Cambiar a español",
+      "mobileMenuButton": "Abrir menú de navegación móvil",
+      "mobileMenuClose": "Cerrar menú de navegación móvil",
+      "mobileNavigation": "Menú de navegación móvil",
+      "themeToggle": "Alternar entre tema claro y oscuro",
+      "skipToContent": "Saltar al contenido principal"
+    },
+    "tooltips": {
+      "home": "Navegar a la página de inicio",
+      "solutions": "Ver nuestras soluciones tecnológicas",
+      "alliances": "Ver nuestras alianzas comerciales",
+      "aboutUs": "Conocer más sobre nuestra empresa",
+      "contact": "Ponerse en contacto con nosotros",
+      "languageSelector": "Cambiar idioma del sitio web",
+      "themeToggle": "Cambiar entre modo claro y oscuro",
+      "mobileMenu": "Abrir menú de navegación"
+    }
   },
-  "catalog": {
+  "Catalog": {
     "categories": "Categorías",
     "allProducts": "Todos los Productos",
-    "loadingCategories": "Cargando categorías...",
-    "errorLoadingCategories": "Error al cargar categorías",
-    "noCategories": "No hay categorías disponibles",
-    "retry": "Reintentar",
-    "loadingProducts": "Cargando productos...",
-    "errorLoadingProducts": "Error al cargar productos",
-    "noProducts": "No se encontraron productos",
-    "noProductsInCategory": "No se encontraron productos en esta categoría",
     "searchProducts": "Buscar productos...",
     "filterByVendor": "Filtrar por proveedor",
-    "clearFilters": "Limpiar filtros",
     "showingResults": "Mostrando {count} resultados",
-    "viewDetails": "Ver Detalles",
     "features": "Características",
     "specifications": "Especificaciones",
     "datasheet": "Hoja de Datos",
-    "closeModal": "Cerrar",
-    "previousProduct": "Anterior",
-    "nextProduct": "Siguiente",
-    "loading": "Cargando...",
-    "error": "Error"
+    "modal": {
+      "closeModal": "Cerrar",
+      "previousProduct": "Anterior",
+      "nextProduct": "Siguiente",
+      "viewDatasheet": "Ver Hoja de Datos",
+      "visitWebsite": "Visitar Sitio Web",
+      "moreFeatures": "+{count} más",
+      "noImageAvailable": "No hay imagen disponible",
+      "description": "Descripción",
+      "specificationsNote": "Para especificaciones detalladas, consulte la hoja de datos del producto o contacte a nuestro equipo de ventas.",
+      "productImageAlt": "Imagen del producto",
+      "logoAlt": "logo"
+    },
+    "filter": {
+      "allVendors": "Todos los Proveedores",
+      "filterByVendor": "Filtrar por proveedor",
+      "clearFilters": "Limpiar filtros",
+      "activeSearch": "\"{query}\"",
+      "activeVendor": "{vendor}"
+    },
+    "states": {
+      "loading": "Cargando...",
+      "error": "Error",
+      "loadingCategories": "Cargando categorías...",
+      "errorLoadingCategories": "Error al cargar categorías",
+      "noCategories": "No hay categorías disponibles",
+      "loadingProducts": "Cargando productos...",
+      "errorLoadingProducts": "Error al cargar productos",
+      "noProducts": "No se encontraron productos",
+      "noProductsInCategory": "No se encontraron productos en esta categoría"
+    },
+    "actions": {
+      "viewDetails": "Ver Detalles",
+      "retry": "Reintentar"
+    }
   }
 }
