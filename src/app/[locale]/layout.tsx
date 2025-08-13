@@ -13,7 +13,7 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
   if (!['en', 'es'].includes(locale)) notFound();
-  const messages = await getMessages();
+  const messages = await getMessages({ locale });
 
   return (
     <Providers messages={messages} locale={locale} timeZone={timeZone} now={getCurrentTime()}>
