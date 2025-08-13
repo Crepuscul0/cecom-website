@@ -167,7 +167,7 @@ function CatalogContent() {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 flex-1">
             {/* Sidebar - Categories */}
             <div className="lg:col-span-1">
-              <div className="sticky top-4 h-fit">
+              <div className="sticky top-24 h-fit">
                 <CategorySidebar
                   selectedCategoryId={selectedCategoryId || undefined}
                   onCategorySelect={handleCategorySelect}
