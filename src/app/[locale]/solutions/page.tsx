@@ -13,23 +13,28 @@ import { Suspense } from 'react'
 // Loading component for the catalog
 function CatalogLoading() {
   return (
-    <div className="bg-background py-24 sm:py-32">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto lg:text-center mb-16">
-          <div className="h-6 bg-muted rounded animate-pulse mb-4"></div>
-          <div className="h-10 bg-muted rounded animate-pulse mb-6"></div>
-          <div className="h-6 bg-muted rounded animate-pulse"></div>
-        </div>
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          <div className="lg:col-span-1">
-            <div className="h-96 bg-muted rounded animate-pulse"></div>
+    <div className="bg-background min-h-screen flex flex-col">
+      <div className="flex-1 px-4 lg:px-6 py-4">
+        <div className="max-w-7xl mx-auto h-full flex flex-col">
+          <div className="mb-4">
+            <div className="flex items-center justify-between">
+              <div className="flex-1">
+                <div className="h-8 bg-muted rounded animate-pulse mb-2"></div>
+                <div className="h-4 bg-muted rounded animate-pulse w-2/3"></div>
+              </div>
+            </div>
           </div>
-          <div className="lg:col-span-3 space-y-6">
-            <div className="h-20 bg-muted rounded animate-pulse"></div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[...Array(6)].map((_, i) => (
-                <div key={i} className="h-80 bg-muted rounded animate-pulse"></div>
-              ))}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 flex-1">
+            <div className="lg:col-span-1">
+              <div className="h-96 bg-muted rounded animate-pulse"></div>
+            </div>
+            <div className="lg:col-span-3 flex flex-col space-y-4">
+              <div className="h-16 bg-muted rounded animate-pulse"></div>
+              <div className="flex-1 min-h-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {[...Array(6)].map((_, i) => (
+                  <div key={i} className="h-72 bg-muted rounded animate-pulse"></div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -141,64 +146,69 @@ function CatalogContent() {
   }
 
   return (
-    <div className="bg-background py-24 sm:py-32">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Header Section */}
-        <div className="max-w-2xl mx-auto lg:text-center mb-16">
-          <h2 className="text-base font-semibold leading-7 text-primary">
-            {t('ourSolutions')}
-          </h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            {t('businessNeeds')}
-          </p>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground">
-            {t('wideRange')}
-          </p>
-        </div>
-
-        {/* Catalog Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Sidebar - Categories */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-8">
-              <CategorySidebar
-                selectedCategoryId={selectedCategoryId || undefined}
-                onCategorySelect={handleCategorySelect}
-                className="mb-6"
-              />
+    <div className="bg-background min-h-screen flex flex-col">
+      <div className="flex-1 px-4 lg:px-6 py-4">
+        <div className="max-w-7xl mx-auto h-full flex flex-col">
+          {/* Header Section - Compact */}
+          <div className="mb-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <h1 className="text-2xl font-bold text-foreground">
+                  {t('ourSolutions')}
+                </h1>
+                <p className="text-sm text-muted-foreground mt-1">
+                  {t('businessNeeds')}
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* Main Content - Filters and Products */}
-          <div className="lg:col-span-3 space-y-6">
-            {/* Product Filter */}
-            <ProductFilter
-              searchQuery={searchQuery}
-              selectedVendor={selectedVendor}
-              onSearchChange={handleSearchChange}
-              onVendorChange={handleVendorChange}
-              onClearFilters={handleClearFilters}
-            />
+          {/* Catalog Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 flex-1">
+            {/* Sidebar - Categories */}
+            <div className="lg:col-span-1">
+              <div className="sticky top-4 h-fit">
+                <CategorySidebar
+                  selectedCategoryId={selectedCategoryId || undefined}
+                  onCategorySelect={handleCategorySelect}
+                  className="mb-4"
+                />
+              </div>
+            </div>
 
-            {/* Product Grid */}
-            <ProductGrid
-              categoryId={selectedCategoryId}
-              searchQuery={searchQuery}
-              vendorFilter={selectedVendor || undefined}
-              onProductSelect={handleProductSelect}
-              onProductsLoad={setAllProducts}
-            />
+            {/* Main Content - Filters and Products */}
+            <div className="lg:col-span-3 flex flex-col space-y-4">
+              {/* Product Filter */}
+              <ProductFilter
+                searchQuery={searchQuery}
+                selectedVendor={selectedVendor}
+                onSearchChange={handleSearchChange}
+                onVendorChange={handleVendorChange}
+                onClearFilters={handleClearFilters}
+              />
+
+              {/* Product Grid */}
+              <div className="flex-1 min-h-0">
+                <ProductGrid
+                  categoryId={selectedCategoryId}
+                  searchQuery={searchQuery}
+                  vendorFilter={selectedVendor || undefined}
+                  onProductSelect={handleProductSelect}
+                  onProductsLoad={setAllProducts}
+                />
+              </div>
+            </div>
           </div>
-        </div>
 
-        {/* Product Modal */}
-        <ProductModal
-          product={selectedProduct}
-          isOpen={isModalOpen}
-          onClose={handleModalClose}
-          onNavigate={handleProductNavigate}
-          canNavigate={getNavigationCapabilities()}
-        />
+          {/* Product Modal */}
+          <ProductModal
+            product={selectedProduct}
+            isOpen={isModalOpen}
+            onClose={handleModalClose}
+            onNavigate={handleProductNavigate}
+            canNavigate={getNavigationCapabilities()}
+          />
+        </div>
       </div>
     </div>
   )
@@ -209,20 +219,22 @@ function CatalogError() {
   const t = useTranslations('Catalog')
   
   return (
-    <div className="bg-background py-24 sm:py-32">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-        <h2 className="text-2xl font-bold text-foreground mb-4">
-          {t('states.error')}
-        </h2>
-        <p className="text-muted-foreground mb-6">
-          Something went wrong while loading the catalog. Please try again.
-        </p>
-        <button 
-          onClick={() => window.location.reload()}
-          className="bg-primary text-primary-foreground px-6 py-2 rounded-md hover:bg-primary/90 transition-colors"
-        >
-          {t('actions.retry')}
-        </button>
+    <div className="bg-background min-h-screen flex flex-col">
+      <div className="flex-1 px-4 lg:px-6 py-4 flex items-center justify-center">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
+            {t('states.error')}
+          </h2>
+          <p className="text-muted-foreground mb-6">
+            Something went wrong while loading the catalog. Please try again.
+          </p>
+          <button 
+            onClick={() => window.location.reload()}
+            className="bg-primary text-primary-foreground px-6 py-2 rounded-md hover:bg-primary/90 transition-colors"
+          >
+            {t('actions.retry')}
+          </button>
+        </div>
       </div>
     </div>
   )
