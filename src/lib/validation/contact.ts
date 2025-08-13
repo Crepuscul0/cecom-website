@@ -13,48 +13,62 @@ const fallbackMessages = {
 };
 
 // Safe translation function that handles missing translations
-const safeTranslate = (t: (key: string) => string, key: string): string => {
+const safeTranslate = (t: (key: string, values?: Record<string, any>) => string, key: string, values?: Record<string, any>): string => {
   try {
-    const translation = t(key);
+    const translation = t(key, values);
     // Check if the translation is missing (next-intl returns the key when missing)
     if (translation === key || !translation) {
-      return fallbackMessages[key as keyof typeof fallbackMessages] || key;
+      const fallback = fallbackMessages[key as keyof typeof fallbackMessages] || key;
+      // If we have values and the fallback contains placeholders, replace them
+      if (values && typeof fallback === 'string') {
+        return Object.entries(values).reduce((str, [placeholder, value]) => {
+          return str.replace(new RegExp(`\\{${placeholder}\\}`, 'g'), String(value));
+        }, fallback);
+      }
+      return fallback;
     }
     return translation;
   } catch (error) {
     console.warn(`Translation error for key "${key}":`, error);
-    return fallbackMessages[key as keyof typeof fallbackMessages] || key;
+    const fallback = fallbackMessages[key as keyof typeof fallbackMessages] || key;
+    // If we have values and the fallback contains placeholders, replace them
+    if (values && typeof fallback === 'string') {
+      return Object.entries(values).reduce((str, [placeholder, value]) => {
+        return str.replace(new RegExp(`\\{${placeholder}\\}`, 'g'), String(value));
+      }, fallback);
+    }
+    return fallback;
   }
 };
 
 // Create a function that returns the schema with translated messages
-export const createContactFormSchema = (t: (key: string) => string) => {
+export const createContactFormSchema = (t: (key: string, values?: Record<string, any>) => string) => {
   return z.object({
     fullName: z
       .string()
       .min(1, safeTranslate(t, 'requiredField'))
       .min(2, safeTranslate(t, 'nameMinLength'))
-      .max(100, safeTranslate(t, 'maxLength').replace('{max}', '100'))
+      .max(100, safeTranslate(t, 'maxLength', { max: 100 }))
       .regex(/^[a-zA-ZÀ-ÿ\u00f1\u00d1\s]+$/, safeTranslate(t, 'invalidName')),
-    
+
     email: z
       .string()
       .min(1, safeTranslate(t, 'requiredField'))
       .email(safeTranslate(t, 'invalidEmail'))
-      .max(255, safeTranslate(t, 'maxLength').replace('{max}', '255')),
-    
+      .max(255, safeTranslate(t, 'maxLength', { max: 255 })),
+
     phone: z
       .string()
       .min(1, safeTranslate(t, 'requiredField'))
       .min(10, safeTranslate(t, 'phoneMinLength'))
-      .max(20, safeTranslate(t, 'maxLength').replace('{max}', '20'))
+      .max(20, safeTranslate(t, 'maxLength', { max: 20 }))
       .regex(/^[\+]?[0-9\s\-\(\)]+$/, safeTranslate(t, 'invalidPhone')),
-    
+
     message: z
       .string()
       .min(1, safeTranslate(t, 'requiredField'))
       .min(10, safeTranslate(t, 'messageMinLength'))
-      .max(1000, safeTranslate(t, 'maxLength').replace('{max}', '1000')),
+      .max(1000, safeTranslate(t, 'maxLength', { max: 1000 })),
   });
 };
 
