@@ -16,7 +16,18 @@
     "setup:storage": "node scripts/setup-storage.js",
     "migrate:data": "node scripts/migrate-data.js",
     "test:payload": "node scripts/test-payload-collections.js",
-    "test:config": "node scripts/test-payload-config.js"
+    "test:config": "node scripts/test-payload-config.js",
+    "setup:payload": "node scripts/setup-payload.js",
+    "migrate:existing": "node scripts/migrate-existing-data.js",
+    "create:admin": "node scripts/create-admin-user.js",
+    "confirm:admin": "node scripts/confirm-admin-user.js",
+    "create:test": "node scripts/create-test-user.js",
+    "test:supabase": "node scripts/test-supabase-access.js",
+    "fix:theme": "node scripts/fix-dark-theme.js",
+    "fix:colors": "node scripts/fix-admin-colors.js",
+    "fix:final": "node scripts/final-color-fix.js",
+    "theme:apply": "node scripts/apply-consistent-theme.js",
+    "test:write": "node scripts/test-write-operations.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",

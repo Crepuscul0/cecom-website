@@ -1,4 +1,5 @@
 import { Providers } from '@/components/providers';
+import { AdminLink } from '@/components/AdminLink';
 import { getMessages } from 'next-intl/server';
 import { timeZone } from '@/i18n/config';
 import { getCurrentTime } from '@/lib/timezone';
@@ -18,6 +19,7 @@ export default async function LocaleLayout({
   return (
     <Providers messages={messages} locale={locale} timeZone={timeZone} now={getCurrentTime()}>
       {children}
+      <AdminLink />
     </Providers>
   );
 }

@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import {
@@ -87,7 +86,7 @@ export default function Alliances() {
   const t = useTranslations('Alliances');
 
   return (
-    <div className="bg-muted">
+    <div className="bg-background">
       <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl font-extrabold text-foreground sm:text-4xl">
@@ -101,7 +100,7 @@ export default function Alliances() {
           {alliances.map((alliance) => (
             <Card key={alliance.name} className="group hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-0 shadow-lg">
               <CardHeader className="p-6">
-                <div className="relative w-full h-40 bg-gradient-to-br from-muted to-muted rounded-lg overflow-hidden flex items-center justify-center p-4 group-hover:from-primary/10 group-hover:to-primary/20 transition-all duration-300">
+                <div className="relative w-full h-40 bg-gradient-to-br from-muted to-accent rounded-lg overflow-hidden flex items-center justify-center p-4 group-hover:from-primary/10 group-hover:to-primary/20 transition-all duration-300">
                   <img
                     src={alliance.logo}
                     alt={alliance.name}
