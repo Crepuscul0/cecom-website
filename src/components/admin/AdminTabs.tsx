@@ -1,4 +1,5 @@
 import { AdminTab } from '@/types/admin';
+import { useTranslations } from 'next-intl';
 
 interface AdminTabsProps {
   tabs: AdminTab[];

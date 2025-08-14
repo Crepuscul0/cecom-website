@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { Loader2, Grid3X3, Shield, Wifi, Phone, Monitor, Server, Zap } from 'lucide-react'
+import { Loader2, Grid3X3, Shield, Wifi, Phone, Monitor, Server, Zap, Lock, Network, Router, Cable, Bluetooth, Smartphone, Headphones, Radio, Laptop, Tablet, Cpu, MemoryStick, Database, HardDrive, Cloud, Printer, Camera, Keyboard, Mouse, Usb, Tv, Gamepad2, Watch } from 'lucide-react'
 import { Category } from '@/lib/payload/types'
 
 interface CategorySidebarProps {
@@ -13,14 +13,51 @@ interface CategorySidebarProps {
   className?: string
 }
 
-// Icon mapping for categories
+// Icon mapping for categories - matches IconPicker
 const categoryIcons: Record<string, React.ComponentType<{ className?: string }>> = {
+  // Security & Protection
   shield: Shield,
-  network: Wifi,
+  lock: Lock,
+  
+  // Networking
   wifi: Wifi,
+  network: Network,
+  router: Router,
+  cable: Cable,
+  bluetooth: Bluetooth,
+  
+  // Communication
   phone: Phone,
+  smartphone: Smartphone,
+  headphones: Headphones,
+  radio: Radio,
+  
+  // Computing
   monitor: Monitor,
+  laptop: Laptop,
+  tablet: Tablet,
+  cpu: Cpu,
+  memory: MemoryStick,
+  
+  // Storage & Servers
   server: Server,
+  database: Database,
+  harddrive: HardDrive,
+  cloud: Cloud,
+  
+  // Peripherals
+  printer: Printer,
+  camera: Camera,
+  keyboard: Keyboard,
+  mouse: Mouse,
+  usb: Usb,
+  
+  // Entertainment
+  tv: Tv,
+  gamepad: Gamepad2,
+  watch: Watch,
+  
+  // General
   zap: Zap,
   grid: Grid3X3,
 }

@@ -251,5 +251,151 @@
       "viewDetails": "View Details",
       "retry": "Retry"
     }
+  },
+  "Admin": {
+    "title": "CECOM CMS",
+    "subtitle": "Administration Panel",
+    "status": {
+      "active": "Active",
+      "loading": "Loading administration panel...",
+      "error": "Error",
+      "success": "Success"
+    },
+    "auth": {
+      "loginRequired": "You need to log in to access the administration panel",
+      "loginButton": "Log In",
+      "signOut": "Sign Out",
+      "accessDenied": "Access Denied",
+      "noPermissions": "You don't have permissions to access the administration panel.",
+      "currentRole": "Current role:",
+      "developmentMode": "🧪 Loading data in development mode..."
+    },
+    "navigation": {
+      "categories": "Categories",
+      "vendors": "Vendors",
+      "products": "Products",
+      "pages": "Pages"
+    },
+    "stats": {
+      "categories": "Categories",
+      "vendors": "Vendors", 
+      "products": "Products",
+      "pages": "Pages"
+    },
+    "scrollIndicator": {
+      "moreRowsBelow": "More rows below",
+      "moreContentBelow": "More content below",
+      "scrollDown": "Scroll down"
+    },
+    "search": {
+      "searchCategories": "Search categories...",
+      "searchVendors": "Search vendors...",
+      "searchProducts": "Search products..."
+    },
+    "tables": {
+      "categories": "Categories",
+      "vendors": "Vendors",
+      "products": "Products", 
+      "actions": "Actions",
+      "name": "Name",
+      "slug": "Slug",
+      "order": "Order",
+      "website": "Website",
+      "category": "Category",
+      "vendor": "Vendor",
+      "status": "Status",
+      "active": "Active",
+      "inactive": "Inactive",
+      "noWebsite": "No website",
+      "noName": "No name",
+      "noTranslation": "No translation",
+      "noCategory": "No category",
+      "noVendor": "No vendor"
+    },
+    "buttons": {
+      "newCategory": "+ New Category",
+      "newVendor": "+ New Vendor",
+      "newProduct": "+ New Product",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "confirmations": {
+      "deleteCategory": "Are you sure you want to delete this category?",
+      "deleteVendor": "Are you sure you want to delete this vendor?",
+      "deleteProduct": "Are you sure you want to delete this product?"
+    },
+    "errors": {
+      "deleteCategory": "Error deleting category",
+      "deleteVendor": "Error deleting vendor",
+      "deleteProduct": "Error deleting product",
+      "loadingCategories": "Error loading categories",
+      "loadingVendors": "Error loading vendors",
+      "loadingProducts": "Error loading products"
+    },
+    "placeholders": {
+      "pagesComingSoon": "Page management coming soon..."
+    },
+    "forms": {
+      "category": {
+        "title": "Category",
+        "newTitle": "New Category",
+        "editTitle": "Edit Category",
+        "nameEn": "Name (English)",
+        "nameEs": "Name (Spanish)",
+        "descriptionEn": "Description (English)",
+        "descriptionEs": "Description (Spanish)",
+        "slug": "Slug",
+        "order": "Order",
+        "icon": "Icon",
+        "selectIcon": "Select Icon",
+        "generateSlug": "Generate from English name",
+        "save": "Save Category",
+        "cancel": "Cancel",
+        "saving": "Saving...",
+        "errorSaving": "Error saving category"
+      },
+      "vendor": {
+        "title": "Vendor",
+        "newTitle": "New Vendor",
+        "editTitle": "Edit Vendor",
+        "name": "Name",
+        "website": "Website",
+        "descriptionEn": "Description (English)",
+        "descriptionEs": "Description (Spanish)",
+        "save": "Save Vendor",
+        "cancel": "Cancel",
+        "saving": "Saving...",
+        "errorSaving": "Error saving vendor"
+      },
+      "product": {
+        "title": "Product",
+        "newTitle": "New Product",
+        "editTitle": "Edit Product",
+        "nameEn": "Name (English)",
+        "nameEs": "Name (Spanish)",
+        "descriptionEn": "Description (English)",
+        "descriptionEs": "Description (Spanish)",
+        "featuresEn": "Features (English)",
+        "featuresEs": "Features (Spanish)",
+        "category": "Category",
+        "vendor": "Vendor",
+        "order": "Order",
+        "active": "Active",
+        "addFeature": "Add Feature",
+        "removeFeature": "Remove",
+        "selectCategory": "Select category",
+        "selectVendor": "Select vendor",
+        "save": "Save Product",
+        "cancel": "Cancel",
+        "saving": "Saving...",
+        "errorSaving": "Error saving product"
+      },
+      "validation": {
+        "required": "This field is required",
+        "invalidUrl": "Invalid URL",
+        "minLength": "Minimum {min} characters",
+        "maxLength": "Maximum {max} characters"
+      }
+    }
   }
 }

@@ -35,7 +35,7 @@ export function useAdminData() {
       // Check if we're in development mode
       const devUser = localStorage.getItem('dev_user');
       if (devUser) {
-        console.log('🧪 Cargando datos en modo desarrollo...');
+        console.log('🧪 Loading data in development mode...');
       }
 
       const [categoriesRes, vendorsRes, productsRes] = await Promise.all([

@@ -1,4 +1,5 @@
 import { Category, Vendor, Product } from '@/types/admin';
+import { useTranslations } from 'next-intl';
 
 interface StatsCardsProps {
   categories: Category[];
@@ -7,9 +8,11 @@ interface StatsCardsProps {
 }
 
 export function StatsCards({ categories, vendors, products }: StatsCardsProps) {
+  const t = useTranslations('Admin.stats');
+  
   const stats = [
     {
-      title: 'Categorías',
+      title: t('categories'),
       count: categories.length,
       color: 'blue',
       icon: (
@@ -19,7 +22,7 @@ export function StatsCards({ categories, vendors, products }: StatsCardsProps) {
       )
     },
     {
-      title: 'Proveedores',
+      title: t('vendors'),
       count: vendors.length,
       color: 'green',
       icon: (
@@ -29,7 +32,7 @@ export function StatsCards({ categories, vendors, products }: StatsCardsProps) {
       )
     },
     {
-      title: 'Productos',
+      title: t('products'),
       count: products.length,
       color: 'purple',
       icon: (
@@ -39,7 +42,7 @@ export function StatsCards({ categories, vendors, products }: StatsCardsProps) {
       )
     },
     {
-      title: 'Páginas',
+      title: t('pages'),
       count: 3,
       color: 'yellow',
       icon: (

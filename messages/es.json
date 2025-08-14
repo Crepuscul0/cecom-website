@@ -251,5 +251,151 @@
       "viewDetails": "Ver Detalles",
       "retry": "Reintentar"
     }
+  },
+  "Admin": {
+    "title": "CECOM CMS",
+    "subtitle": "Panel de Administración",
+    "status": {
+      "active": "Activo",
+      "loading": "Cargando panel de administración...",
+      "error": "Error",
+      "success": "Éxito"
+    },
+    "auth": {
+      "loginRequired": "Necesitas iniciar sesión para acceder al panel de administración",
+      "loginButton": "Iniciar Sesión",
+      "signOut": "Cerrar Sesión",
+      "accessDenied": "Acceso Denegado",
+      "noPermissions": "No tienes permisos para acceder al panel de administración.",
+      "currentRole": "Rol actual:",
+      "developmentMode": "🧪 Cargando datos en modo desarrollo..."
+    },
+    "navigation": {
+      "categories": "Categorías",
+      "vendors": "Proveedores",
+      "products": "Productos", 
+      "pages": "Páginas"
+    },
+    "stats": {
+      "categories": "Categorías",
+      "vendors": "Proveedores",
+      "products": "Productos",
+      "pages": "Páginas"
+    },
+    "scrollIndicator": {
+      "moreRowsBelow": "Más filas abajo",
+      "moreContentBelow": "Más contenido abajo",
+      "scrollDown": "Desplázate hacia abajo"
+    },
+    "search": {
+      "searchCategories": "Buscar categorías...",
+      "searchVendors": "Buscar proveedores...",
+      "searchProducts": "Buscar productos..."
+    },
+    "tables": {
+      "categories": "Categorías",
+      "vendors": "Proveedores", 
+      "products": "Productos",
+      "actions": "Acciones",
+      "name": "Nombre",
+      "slug": "Slug",
+      "order": "Orden",
+      "website": "Sitio Web",
+      "category": "Categoría",
+      "vendor": "Proveedor",
+      "status": "Estado",
+      "active": "Activo",
+      "inactive": "Inactivo",
+      "noWebsite": "Sin sitio web",
+      "noName": "Sin nombre",
+      "noTranslation": "Sin traducción",
+      "noCategory": "Sin categoría",
+      "noVendor": "Sin proveedor"
+    },
+    "buttons": {
+      "newCategory": "+ Nueva Categoría",
+      "newVendor": "+ Nuevo Proveedor",
+      "newProduct": "+ Nuevo Producto",
+      "edit": "Editar",
+      "delete": "Eliminar"
+    },
+    "confirmations": {
+      "deleteCategory": "¿Estás seguro de que quieres eliminar esta categoría?",
+      "deleteVendor": "¿Estás seguro de que quieres eliminar este proveedor?",
+      "deleteProduct": "¿Estás seguro de que quieres eliminar este producto?"
+    },
+    "errors": {
+      "deleteCategory": "Error al eliminar la categoría",
+      "deleteVendor": "Error al eliminar el proveedor", 
+      "deleteProduct": "Error al eliminar el producto",
+      "loadingCategories": "Error al cargar categorías",
+      "loadingVendors": "Error al cargar proveedores",
+      "loadingProducts": "Error al cargar productos"
+    },
+    "placeholders": {
+      "pagesComingSoon": "Gestión de páginas próximamente..."
+    },
+    "forms": {
+      "category": {
+        "title": "Categoría",
+        "newTitle": "Nueva Categoría",
+        "editTitle": "Editar Categoría",
+        "nameEn": "Nombre (Inglés)",
+        "nameEs": "Nombre (Español)",
+        "descriptionEn": "Descripción (Inglés)",
+        "descriptionEs": "Descripción (Español)",
+        "slug": "Slug",
+        "order": "Orden",
+        "icon": "Icono",
+        "selectIcon": "Seleccionar Icono",
+        "generateSlug": "Generar desde nombre en inglés",
+        "save": "Guardar Categoría",
+        "cancel": "Cancelar",
+        "saving": "Guardando...",
+        "errorSaving": "Error al guardar la categoría"
+      },
+      "vendor": {
+        "title": "Proveedor",
+        "newTitle": "Nuevo Proveedor",
+        "editTitle": "Editar Proveedor",
+        "name": "Nombre",
+        "website": "Sitio Web",
+        "descriptionEn": "Descripción (Inglés)",
+        "descriptionEs": "Descripción (Español)",
+        "save": "Guardar Proveedor",
+        "cancel": "Cancelar",
+        "saving": "Guardando...",
+        "errorSaving": "Error al guardar el proveedor"
+      },
+      "product": {
+        "title": "Producto",
+        "newTitle": "Nuevo Producto",
+        "editTitle": "Editar Producto",
+        "nameEn": "Nombre (Inglés)",
+        "nameEs": "Nombre (Español)",
+        "descriptionEn": "Descripción (Inglés)",
+        "descriptionEs": "Descripción (Español)",
+        "featuresEn": "Características (Inglés)",
+        "featuresEs": "Características (Español)",
+        "category": "Categoría",
+        "vendor": "Proveedor",
+        "order": "Orden",
+        "active": "Activo",
+        "addFeature": "Agregar Característica",
+        "removeFeature": "Eliminar",
+        "selectCategory": "Seleccionar categoría",
+        "selectVendor": "Seleccionar proveedor",
+        "save": "Guardar Producto",
+        "cancel": "Cancelar",
+        "saving": "Guardando...",
+        "errorSaving": "Error al guardar el producto"
+      },
+      "validation": {
+        "required": "Este campo es requerido",
+        "invalidUrl": "URL inválida",
+        "minLength": "Mínimo {min} caracteres",
+        "maxLength": "Máximo {max} caracteres"
+      }
+    }
   }
 }

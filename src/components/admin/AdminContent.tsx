@@ -1,13 +1,12 @@
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { Category, Vendor, Product, AdminTab } from '@/types/admin';
 import { StatsCards } from './StatsCards';
 import { AdminTabs } from './AdminTabs';
 import { CategoriesTable } from './tables/CategoriesTable';
 import { VendorsTable } from './tables/VendorsTable';
 import { ProductsTable } from './tables/ProductsTable';
-import { ProductForm } from './ProductForm';
-import { CategoryForm } from './CategoryForm';
-import { VendorForm } from './VendorForm';
+import { CategoryFormModal, VendorFormModal, ProductFormModal } from './forms';
 
 interface AdminContentProps {
   categories: Category[];
@@ -27,12 +26,13 @@ export function AdminContent({
   const [showCategoryForm, setShowCategoryForm] = useState(false);
   const [showVendorForm, setShowVendorForm] = useState(false);
   const [editingItem, setEditingItem] = useState<any>(null);
+  const t = useTranslations('Admin');
 
   const tabs: AdminTab[] = [
-    { id: 'categories', name: 'Categorías', count: categories.length },
-    { id: 'vendors', name: 'Proveedores', count: vendors.length },
-    { id: 'products', name: 'Productos', count: products.length },
-    { id: 'pages', name: 'Páginas', count: 0 },
+    { id: 'categories', name: t('navigation.categories'), count: categories.length },
+    { id: 'vendors', name: t('navigation.vendors'), count: vendors.length },
+    { id: 'products', name: t('navigation.products'), count: products.length },
+    { id: 'pages', name: t('navigation.pages'), count: 0 },
   ];
 
   const handleFormSuccess = () => {
@@ -117,38 +117,35 @@ export function AdminContent({
           
           {activeTab === 'pages' && (
             <div className="text-center py-12">
-              <p className="text-muted-foreground">Gestión de páginas próximamente...</p>
+              <p className="text-muted-foreground">{t('placeholders.pagesComingSoon')}</p>
             </div>
           )}
         </div>
       </div>
 
       {/* Modals */}
-      {showProductForm && (
-        <ProductForm
-          product={editingItem}
-          categories={categories}
-          vendors={vendors}
-          onClose={handleFormClose}
-          onSuccess={handleFormSuccess}
-        />
-      )}
+      <ProductFormModal
+        isOpen={showProductForm}
+        product={editingItem}
+        categories={categories}
+        vendors={vendors}
+        onClose={handleFormClose}
+        onSuccess={handleFormSuccess}
+      />
 
-      {showCategoryForm && (
-        <CategoryForm
-          category={editingItem}
-          onClose={handleFormClose}
-          onSuccess={handleFormSuccess}
-        />
-      )}
+      <CategoryFormModal
+        isOpen={showCategoryForm}
+        category={editingItem}
+        onClose={handleFormClose}
+        onSuccess={handleFormSuccess}
+      />
 
-      {showVendorForm && (
-        <VendorForm
-          vendor={editingItem}
-          onClose={handleFormClose}
-          onSuccess={handleFormSuccess}
-        />
-      )}
+      <VendorFormModal
+        isOpen={showVendorForm}
+        vendor={editingItem}
+        onClose={handleFormClose}
+        onSuccess={handleFormSuccess}
+      />
     </div>
   );
 }

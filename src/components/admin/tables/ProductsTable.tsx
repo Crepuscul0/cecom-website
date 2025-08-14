@@ -1,7 +1,9 @@
 import { useState, useMemo } from 'react';
 import { Search } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { supabase } from '@/lib/supabase';
 import { Product, Category, Vendor } from '@/types/admin';
+import { ScrollableTableContainer } from './ScrollableTableContainer';
 
 interface ProductsTableProps {
   products: Product[];
@@ -21,6 +23,7 @@ export function ProductsTable({
   onEdit
 }: ProductsTableProps) {
   const [searchTerm, setSearchTerm] = useState('');
+  const t = useTranslations('Admin');
 
   // Filter products based on search term
   const filteredProducts = useMemo(() => {
@@ -39,7 +42,7 @@ export function ProductsTable({
     });
   }, [products, searchTerm]);
   const handleDeleteProduct = async (id: string) => {
-    if (!confirm('¿Estás seguro de que quieres eliminar este producto?')) {
+    if (!confirm(t('confirmations.deleteProduct'))) {
       return;
     }
     
@@ -53,29 +56,29 @@ export function ProductsTable({
       onRefresh();
     } catch (error) {
       console.error('Error deleting product:', error);
-      alert('Error al eliminar el producto');
+      alert(t('errors.deleteProduct'));
     }
   };
 
   const getCategoryName = (categoryId: string) => {
     const category = categories.find(c => c.id === categoryId);
-    return category?.name?.en || 'Sin categoría';
+    return category?.name?.en || t('tables.noCategory');
   };
 
   const getVendorName = (vendorId: string) => {
     const vendor = vendors.find(v => v.id === vendorId);
-    return vendor?.name || 'Sin proveedor';
+    return vendor?.name || t('tables.noVendor');
   };
 
   return (
     <div>
       <div className="flex justify-between items-center mb-4">
-        <h3 className="text-lg font-medium text-foreground">Productos</h3>
+        <h3 className="text-lg font-medium text-foreground">{t('tables.products')}</h3>
         <button 
           onClick={onAdd}
           className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm hover:bg-blue-700"
         >
-          + Nuevo Producto
+          {t('buttons.newProduct')}
         </button>
       </div>
 
@@ -85,7 +88,7 @@ export function ProductsTable({
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <input
             type="text"
-            placeholder="Buscar productos..."
+            placeholder={t('search.searchProducts')}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full pl-10 pr-4 py-2 border border-border rounded-md search-input bg-background text-foreground placeholder:text-muted-foreground"
@@ -93,25 +96,24 @@ export function ProductsTable({
         </div>
       </div>
       
-      <div className="overflow-x-auto max-h-96 scrollbar-hide table-scroll border border-border rounded-md"
-           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+      <ScrollableTableContainer>
         <table className="min-w-full divide-y divide-border">
           <thead className="bg-muted">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                Producto
+                {t('tables.products')}
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                Categoría
+                {t('tables.category')}
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                Proveedor
+                {t('tables.vendor')}
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                Estado
+                {t('tables.status')}
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                Acciones
+                {t('tables.actions')}
               </th>
             </tr>
           </thead>
@@ -121,10 +123,10 @@ export function ProductsTable({
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div>
                     <div className="text-sm font-medium text-foreground">
-                      {product.name?.en || 'Sin nombre'}
+                      {product.name?.en || t('tables.noName')}
                     </div>
                     <div className="text-sm text-muted-foreground">
-                      {product.name?.es || 'Sin traducción'}
+                      {product.name?.es || t('tables.noTranslation')}
                     </div>
                   </div>
                 </td>
@@ -140,7 +142,7 @@ export function ProductsTable({
                       ? 'bg-green-100 text-green-800' 
                       : 'bg-red-100 text-red-800'
                   }`}>
-                    {product.active ? 'Activo' : 'Inactivo'}
+                    {product.active ? t('tables.active') : t('tables.inactive')}
                   </span>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
@@ -148,20 +150,20 @@ export function ProductsTable({
                     onClick={() => onEdit(product)}
                     className="text-blue-600 hover:text-blue-900 mr-4"
                   >
-                    Editar
+                    {t('buttons.edit')}
                   </button>
                   <button 
                     onClick={() => handleDeleteProduct(product.id)}
                     className="text-red-600 hover:text-red-900"
                   >
-                    Eliminar
+                    {t('buttons.delete')}
                   </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-      </div>
+      </ScrollableTableContainer>
     </div>
   );
 }
