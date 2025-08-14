@@ -280,7 +280,7 @@ export function ProductModal({
             )}
 
             {/* Features */}
-            {product.features && product.features.length > 0 && (
+            {product.features && Array.isArray(product.features) && product.features.length > 0 && (
               <Card>
                 <CardHeader>
                   <CardTitle className="text-lg">{t('features')}</CardTitle>
@@ -290,7 +290,9 @@ export function ProductModal({
                     {product.features.map((feature, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
-                        <span className="text-sm">{feature.feature}</span>
+                        <span className="text-sm">
+                          {typeof feature === 'string' ? feature : feature.feature || ''}
+                        </span>
                       </li>
                     ))}
                   </ul>

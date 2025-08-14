@@ -133,7 +133,7 @@ export function ProductCard({ product, onViewDetails, className = '' }: ProductC
             )}
 
             {/* Features Preview */}
-            {product.features && product.features.length > 0 && (
+            {product.features && Array.isArray(product.features) && product.features.length > 0 && (
               <div className="space-y-1">
                 <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
                   {t('features')}
@@ -141,7 +141,7 @@ export function ProductCard({ product, onViewDetails, className = '' }: ProductC
                 <div className="flex flex-wrap gap-1">
                   {product.features.slice(0, 3).map((feature, index) => (
                     <Badge key={index} variant="outline" className="text-xs">
-                      {feature.feature}
+                      {typeof feature === 'string' ? feature : feature.feature || ''}
                     </Badge>
                   ))}
                   {product.features.length > 3 && (
