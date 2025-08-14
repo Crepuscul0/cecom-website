@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server'
-import { getProducts, getProductsByCategory, getProductsByVendor, searchContent } from '@/lib/payload/api'
+import { getProducts, getProductsByCategory, getProductsByVendor, searchContent } from '@/lib/supabase/api'
 
 export async function GET(request: NextRequest) {
   try {
@@ -9,38 +9,33 @@ export async function GET(request: NextRequest) {
     const vendorId = searchParams.get('vendorId')
     const search = searchParams.get('search')
 
-    // Start with all products
-    let products = await getProducts(locale)
+    let products
 
-    // Apply category filter
-    if (categoryId) {
-      products = products.filter((product: any) => {
-        const category = typeof product.category === 'object' ? product.category : null
-        return category?.id === categoryId
-      })
-    }
-
-    // Apply vendor filter
-    if (vendorId) {
-      products = products.filter((product: any) => {
-        const vendor = typeof product.vendor === 'object' ? product.vendor : null
-        return vendor?.id === vendorId
-      })
-    }
-
-    // Apply search filter
+    // If search query is provided, use search function
     if (search) {
-      const lowerQuery = search.toLowerCase()
+      const searchResults = await searchContent(search, locale)
+      products = searchResults.products
+    } else if (categoryId) {
+      // Get products by category
+      products = await getProductsByCategory(categoryId, locale)
+    } else if (vendorId) {
+      // Get products by vendor
+      products = await getProductsByVendor(vendorId, locale)
+    } else {
+      // Get all products
+      products = await getProducts(locale)
+    }
+
+    // Apply additional filters if needed
+    if (categoryId && (search || vendorId)) {
       products = products.filter((product: any) => {
-        const name = (product.name || '').toLowerCase()
-        const description = (product.description || '').toLowerCase()
-        const features = Array.isArray(product.features) 
-          ? product.features.map((f: any) => (f.feature || '').toLowerCase()).join(' ')
-          : ''
-        
-        return name.includes(lowerQuery) || 
-               description.includes(lowerQuery) || 
-               features.includes(lowerQuery)
+        return product.category?.id === categoryId
+      })
+    }
+
+    if (vendorId && (search || categoryId)) {
+      products = products.filter((product: any) => {
+        return product.vendor?.id === vendorId
       })
     }
     

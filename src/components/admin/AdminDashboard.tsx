@@ -413,6 +413,25 @@ function CategoriesTable({
  onAdd: () => void;
  onEdit: (category: Category) => void;
 }) {
+ const handleDeleteCategory = async (id: string) => {
+   if (!confirm('¿Estás seguro de que quieres eliminar esta categoría?')) {
+     return;
+   }
+   
+   try {
+     const { error } = await supabase
+       .from('categories')
+       .delete()
+       .eq('id', id);
+     
+     if (error) throw error;
+     onRefresh();
+   } catch (error) {
+     console.error('Error deleting category:', error);
+     alert('Error al eliminar la categoría');
+   }
+ };
+
  return (
  <div>
  <div className="flex justify-between items-center mb-4">
@@ -463,10 +482,16 @@ function CategoriesTable({
  {category.order}
  </td>
  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
- <button className="text-blue-600 hover:text-blue-900 mr-4">
+ <button 
+   onClick={() => onEdit(category)}
+   className="text-blue-600 hover:text-blue-900 mr-4"
+ >
  Editar
  </button>
- <button className="text-red-600 hover:text-red-900">
+ <button 
+   onClick={() => handleDeleteCategory(category.id)}
+   className="text-red-600 hover:text-red-900"
+ >
  Eliminar
  </button>
  </td>
@@ -490,6 +515,25 @@ function VendorsTable({
  onAdd: () => void;
  onEdit: (vendor: Vendor) => void;
 }) {
+ const handleDeleteVendor = async (id: string) => {
+   if (!confirm('¿Estás seguro de que quieres eliminar este proveedor?')) {
+     return;
+   }
+   
+   try {
+     const { error } = await supabase
+       .from('vendors')
+       .delete()
+       .eq('id', id);
+     
+     if (error) throw error;
+     onRefresh();
+   } catch (error) {
+     console.error('Error deleting vendor:', error);
+     alert('Error al eliminar el proveedor');
+   }
+ };
+
  return (
  <div>
  <div className="flex justify-between items-center mb-4">
@@ -540,10 +584,16 @@ function VendorsTable({
  )}
  </td>
  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
- <button className="text-blue-600 hover:text-blue-900 mr-4">
+ <button 
+   onClick={() => onEdit(vendor)}
+   className="text-blue-600 hover:text-blue-900 mr-4"
+ >
  Editar
  </button>
- <button className="text-red-600 hover:text-red-900">
+ <button 
+   onClick={() => handleDeleteVendor(vendor.id)}
+   className="text-red-600 hover:text-red-900"
+ >
  Eliminar
  </button>
  </td>
@@ -571,6 +621,25 @@ function ProductsTable({
  onAdd: () => void;
  onEdit: (product: Product) => void;
 }) {
+ const handleDeleteProduct = async (id: string) => {
+   if (!confirm('¿Estás seguro de que quieres eliminar este producto?')) {
+     return;
+   }
+   
+   try {
+     const { error } = await supabase
+       .from('products')
+       .delete()
+       .eq('id', id);
+     
+     if (error) throw error;
+     onRefresh();
+   } catch (error) {
+     console.error('Error deleting product:', error);
+     alert('Error al eliminar el producto');
+   }
+ };
+
  const getCategoryName = (categoryId: string) => {
  const category = categories.find(c => c.id === categoryId);
  return category?.name?.en || 'Sin categoría';
@@ -643,10 +712,16 @@ function ProductsTable({
  </span>
  </td>
  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
- <button className="text-blue-600 hover:text-blue-900 mr-4">
+ <button 
+   onClick={() => onEdit(product)}
+   className="text-blue-600 hover:text-blue-900 mr-4"
+ >
  Editar
  </button>
- <button className="text-red-600 hover:text-red-900">
+ <button 
+   onClick={() => handleDeleteProduct(product.id)}
+   className="text-red-600 hover:text-red-900"
+ >
  Eliminar
  </button>
  </td>

@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server'
-import { getCategories } from '@/lib/payload/api'
+import { getCategories } from '@/lib/supabase/api'
 
 export async function GET(request: NextRequest) {
   try {
