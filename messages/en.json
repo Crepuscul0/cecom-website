@@ -394,7 +394,9 @@
         "required": "This field is required",
         "invalidUrl": "Invalid URL",
         "minLength": "Minimum {min} characters",
-        "maxLength": "Maximum {max} characters"
+        "maxLength": "Maximum {max} characters",
+        "duplicateName": "A {type} with this name already exists",
+        "duplicateSlug": "A category with this slug already exists"
       }
     }
   }

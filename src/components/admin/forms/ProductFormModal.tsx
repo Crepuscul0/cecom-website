@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import { supabase } from '@/lib/supabase';
 import { Product, Category, Vendor } from '@/types/admin';
 import { FormModal, FormInput, FormTextarea, FormSelect, FormButtons, FormList } from './index';
+import { validateProductName } from '@/lib/validation/admin';
 
 interface ProductFormModalProps {
   isOpen: boolean;
@@ -90,6 +91,22 @@ export function ProductFormModal({
     setError('');
 
     try {
+      // Validate product name uniqueness within category
+      if (formData.categoryId) {
+        const nameValidation = await validateProductName(
+          formData.nameEn, 
+          formData.nameEs, 
+          formData.categoryId,
+          product?.id
+        );
+        
+        if (!nameValidation.isValid) {
+          setError(nameValidation.error || t('errorSaving'));
+          setLoading(false);
+          return;
+        }
+      }
+
       const productData = {
         name: {
           en: formData.nameEn,

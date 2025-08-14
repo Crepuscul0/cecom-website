@@ -21,7 +21,13 @@ export function AdminContent({
   products, 
   onRefresh 
 }: AdminContentProps) {
-  const [activeTab, setActiveTab] = useState('categories');
+  // Persist active tab in localStorage to maintain user's position
+  const [activeTab, setActiveTab] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('admin-active-tab') || 'categories';
+    }
+    return 'categories';
+  });
   const [showProductForm, setShowProductForm] = useState(false);
   const [showCategoryForm, setShowCategoryForm] = useState(false);
   const [showVendorForm, setShowVendorForm] = useState(false);
@@ -35,12 +41,21 @@ export function AdminContent({
     { id: 'pages', name: t('navigation.pages'), count: 0 },
   ];
 
+  // Handle tab change and persist to localStorage
+  const handleTabChange = (tabId: string) => {
+    setActiveTab(tabId);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('admin-active-tab', tabId);
+    }
+  };
+
   const handleFormSuccess = () => {
     setShowProductForm(false);
     setShowCategoryForm(false);
     setShowVendorForm(false);
     setEditingItem(null);
     onRefresh();
+    // Don't change the active tab - user should stay where they are
   };
 
   const handleFormClose = () => {
@@ -64,7 +79,7 @@ export function AdminContent({
         <AdminTabs 
           tabs={tabs}
           activeTab={activeTab}
-          onTabChange={setActiveTab}
+          onTabChange={handleTabChange}
         />
 
         <div className="p-6">

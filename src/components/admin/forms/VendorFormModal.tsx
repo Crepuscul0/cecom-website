@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import { supabase } from '@/lib/supabase';
 import { Vendor } from '@/types/admin';
 import { FormModal, FormInput, FormTextarea, FormButtons } from './index';
+import { validateVendorName } from '@/lib/validation/admin';
 
 interface VendorFormModalProps {
   isOpen: boolean;
@@ -62,6 +63,18 @@ export function VendorFormModal({
     setError('');
 
     try {
+      // Validate vendor name uniqueness
+      const nameValidation = await validateVendorName(
+        formData.name, 
+        vendor?.id
+      );
+      
+      if (!nameValidation.isValid) {
+        setError(nameValidation.error || t('errorSaving'));
+        setLoading(false);
+        return;
+      }
+
       const vendorData = {
         name: formData.name,
         website: formData.website,

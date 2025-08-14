@@ -394,7 +394,9 @@
         "required": "Este campo es requerido",
         "invalidUrl": "URL inválida",
         "minLength": "Mínimo {min} caracteres",
-        "maxLength": "Máximo {max} caracteres"
+        "maxLength": "Máximo {max} caracteres",
+        "duplicateName": "Ya existe una {type} con este nombre",
+        "duplicateSlug": "Ya existe una categoría con este slug"
       }
     }
   }

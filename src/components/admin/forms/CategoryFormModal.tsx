@@ -6,6 +6,7 @@ import { supabase } from '@/lib/supabase';
 import { Category } from '@/types/admin';
 import { FormModal, FormInput, FormTextarea, FormSelect, FormButtons } from './index';
 import { IconPicker } from '../IconPicker';
+import { validateCategoryName, validateCategorySlug } from '@/lib/validation/admin';
 
 interface CategoryFormModalProps {
   isOpen: boolean;
@@ -91,6 +92,31 @@ export function CategoryFormModal({
     setError('');
 
     try {
+      // Validate category name uniqueness
+      const nameValidation = await validateCategoryName(
+        formData.nameEn, 
+        formData.nameEs, 
+        category?.id
+      );
+      
+      if (!nameValidation.isValid) {
+        setError(nameValidation.error || t('errorSaving'));
+        setLoading(false);
+        return;
+      }
+
+      // Validate slug uniqueness
+      const slugValidation = await validateCategorySlug(
+        formData.slug, 
+        category?.id
+      );
+      
+      if (!slugValidation.isValid) {
+        setError(slugValidation.error || t('errorSaving'));
+        setLoading(false);
+        return;
+      }
+
       const categoryData = {
         name: {
           en: formData.nameEn,
