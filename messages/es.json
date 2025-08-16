@@ -324,6 +324,16 @@
       "deleteVendor": "¿Estás seguro de que quieres eliminar este proveedor?",
       "deleteProduct": "¿Estás seguro de que quieres eliminar este producto?"
     },
+    "confirmDialog": {
+      "title": "Confirmar Acción",
+      "deleteTitle": "Confirmar Eliminación",
+      "message": "¿Estás seguro de que quieres realizar esta acción?",
+      "deleteMessage": "Esta acción no se puede deshacer.",
+      "confirm": "Confirmar",
+      "cancel": "Cancelar",
+      "delete": "Eliminar",
+      "deleteConfirm": "Sí, eliminar"
+    },
     "errors": {
       "deleteCategory": "Error al eliminar la categoría",
       "deleteVendor": "Error al eliminar el proveedor", 

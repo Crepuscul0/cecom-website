@@ -324,6 +324,16 @@
       "deleteVendor": "Are you sure you want to delete this vendor?",
       "deleteProduct": "Are you sure you want to delete this product?"
     },
+    "confirmDialog": {
+      "title": "Confirm Action",
+      "deleteTitle": "Confirm Deletion",
+      "message": "Are you sure you want to perform this action?",
+      "deleteMessage": "This action cannot be undone.",
+      "confirm": "Confirm",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "deleteConfirm": "Yes, delete"
+    },
     "errors": {
       "deleteCategory": "Error deleting category",
       "deleteVendor": "Error deleting vendor",

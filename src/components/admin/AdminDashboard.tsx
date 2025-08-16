@@ -6,6 +6,7 @@ import { useAdminData } from '@/hooks/useAdminData';
 import { AdminHeader } from './AdminHeader';
 import { AdminContent } from './AdminContent';
 import { AdminLoading, AdminLogin, AdminAccessDenied } from './AdminStates';
+import { ToastProvider } from '@/components/ui/toast';
 
 export function AdminDashboard() {
   const [showAuthModal, setShowAuthModal] = useState(false);
@@ -62,18 +63,20 @@ export function AdminDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <AdminHeader
-        userProfile={userProfile}
-        onSignOut={handleSignOut}
-      />
+    <ToastProvider>
+      <div className="min-h-screen bg-background">
+        <AdminHeader
+          userProfile={userProfile}
+          onSignOut={handleSignOut}
+        />
 
-      <AdminContent
-        categories={categories}
-        vendors={vendors}
-        products={products}
-        onRefresh={loadData}
-      />
-    </div>
+        <AdminContent
+          categories={categories}
+          vendors={vendors}
+          products={products}
+          onRefresh={loadData}
+        />
+      </div>
+    </ToastProvider>
   );
 }
