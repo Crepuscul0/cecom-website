@@ -60,3 +60,7 @@
     font-family: system-ui, -apple-system, sans-serif;
   }
 }
+
+.dark .logo {
+  filter: brightness(0) invert(1);
+}

@@ -13,6 +13,7 @@ import {
   Sheet,
   SheetContent,
   SheetTrigger,
+  SheetTitle,
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Menu } from 'lucide-react';
@@ -70,8 +71,8 @@ export default function Header() {
             >
               <span className="sr-only">{t('accessibility.logoLink')}</span>
               <img
-                className="h-10 w-auto"
-                src="/logos/cecom-logo.png"
+                className="h-24 w-auto logo"
+                src="/logos/cecom-logo.svg"
                 alt={t('accessibility.logoAlt')}
               />
             </Link>
@@ -181,6 +182,9 @@ export default function Header() {
                   side="right"
                   aria-label={t('accessibility.mobileNavigation')}
                 >
+                  <SheetTitle className="sr-only">
+                    {t('accessibility.mobileNavigation')}
+                  </SheetTitle>
                   <nav 
                     className="flex flex-col space-y-6 mt-8"
                     aria-label={t('accessibility.mobileNavigation')}

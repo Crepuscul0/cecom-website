@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'CECOM - Technology Solutions',
   description:
     'Professional technology solutions for businesses in the Dominican Republic',
+  icons: {
+    icon: '/logos/favicon.svg',
+  },
 };
 
 export default function RootLayout({
