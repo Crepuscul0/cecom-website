@@ -4,6 +4,8 @@ import { useTranslations } from 'next-intl';
 import { supabase } from '@/lib/supabase';
 import { Vendor } from '@/types/admin';
 import { ScrollableTableContainer } from './ScrollableTableContainer';
+import { DeleteConfirmationDialog, useDeleteConfirmation } from '../DeleteConfirmationDialog';
+import { useErrorHandler } from '@/hooks/useErrorHandler';
 
 interface VendorsTableProps {
   vendors: Vendor[];
@@ -20,6 +22,8 @@ export function VendorsTable({
 }: VendorsTableProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const t = useTranslations('Admin');
+  const deleteConfirmation = useDeleteConfirmation();
+  const { showError } = useErrorHandler();
 
   // Filter vendors based on search term
   const filteredVendors = useMemo(() => {
@@ -30,23 +34,27 @@ export function VendorsTable({
       vendor.website?.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }, [vendors, searchTerm]);
-  const handleDeleteVendor = async (id: string) => {
-    if (!confirm(t('confirmations.deleteVendor'))) {
-      return;
-    }
-    
-    try {
-      const { error } = await supabase
-        .from('vendors')
-        .delete()
-        .eq('id', id);
-      
-      if (error) throw error;
-      onRefresh();
-    } catch (error) {
-      console.error('Error deleting vendor:', error);
-      alert(t('errors.deleteVendor'));
-    }
+
+  const handleDeleteVendor = async (vendor: Vendor) => {
+    deleteConfirmation.showDeleteConfirmation(
+      'vendor',
+      async () => {
+        try {
+          const { error } = await supabase
+            .from('vendors')
+            .delete()
+            .eq('id', vendor.id);
+          
+          if (error) throw error;
+          onRefresh();
+        } catch (error) {
+          console.error('Error deleting vendor:', error);
+          showError('deleteVendor');
+          throw error; // Re-throw to keep loading state
+        }
+      },
+      vendor.name
+    );
   };
 
   return (
@@ -120,7 +128,7 @@ export function VendorsTable({
                     {t('buttons.edit')}
                   </button>
                   <button 
-                    onClick={() => handleDeleteVendor(vendor.id)}
+                    onClick={() => handleDeleteVendor(vendor)}
                     className="text-red-600 hover:text-red-900"
                   >
                     {t('buttons.delete')}
@@ -131,6 +139,15 @@ export function VendorsTable({
           </tbody>
         </table>
       </ScrollableTableContainer>
+
+      <DeleteConfirmationDialog
+        open={deleteConfirmation.isOpen}
+        onOpenChange={deleteConfirmation.hideConfirmation}
+        onConfirm={deleteConfirmation.handleConfirm}
+        itemType={deleteConfirmation.config.itemType}
+        itemName={deleteConfirmation.config.itemName}
+        loading={deleteConfirmation.loading}
+      />
     </div>
   );
 }

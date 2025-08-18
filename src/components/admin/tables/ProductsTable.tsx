@@ -4,6 +4,8 @@ import { useTranslations } from 'next-intl';
 import { supabase } from '@/lib/supabase';
 import { Product, Category, Vendor } from '@/types/admin';
 import { ScrollableTableContainer } from './ScrollableTableContainer';
+import { DeleteConfirmationDialog, useDeleteConfirmation } from '../DeleteConfirmationDialog';
+import { useErrorHandler } from '@/hooks/useErrorHandler';
 
 interface ProductsTableProps {
   products: Product[];
@@ -24,6 +26,18 @@ export function ProductsTable({
 }: ProductsTableProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const t = useTranslations('Admin');
+  const deleteConfirmation = useDeleteConfirmation();
+  const { showError } = useErrorHandler();
+
+  const getCategoryName = (categoryId: string) => {
+    const category = categories.find(c => c.id === categoryId);
+    return category?.name?.en || t('tables.noCategory');
+  };
+
+  const getVendorName = (vendorId: string) => {
+    const vendor = vendors.find(v => v.id === vendorId);
+    return vendor?.name || t('tables.noVendor');
+  };
 
   // Filter products based on search term
   const filteredProducts = useMemo(() => {
@@ -40,34 +54,30 @@ export function ProductsTable({
         vendorName.toLowerCase().includes(searchTerm.toLowerCase())
       );
     });
-  }, [products, searchTerm]);
-  const handleDeleteProduct = async (id: string) => {
-    if (!confirm(t('confirmations.deleteProduct'))) {
-      return;
-    }
+  }, [products, searchTerm, categories, vendors, t]);
+
+  const handleDeleteProduct = async (product: Product) => {
+    const productName = product.name?.en || product.name?.es;
     
-    try {
-      const { error } = await supabase
-        .from('products')
-        .delete()
-        .eq('id', id);
-      
-      if (error) throw error;
-      onRefresh();
-    } catch (error) {
-      console.error('Error deleting product:', error);
-      alert(t('errors.deleteProduct'));
-    }
-  };
-
-  const getCategoryName = (categoryId: string) => {
-    const category = categories.find(c => c.id === categoryId);
-    return category?.name?.en || t('tables.noCategory');
-  };
-
-  const getVendorName = (vendorId: string) => {
-    const vendor = vendors.find(v => v.id === vendorId);
-    return vendor?.name || t('tables.noVendor');
+    deleteConfirmation.showDeleteConfirmation(
+      'product',
+      async () => {
+        try {
+          const { error } = await supabase
+            .from('products')
+            .delete()
+            .eq('id', product.id);
+          
+          if (error) throw error;
+          onRefresh();
+        } catch (error) {
+          console.error('Error deleting product:', error);
+          showError('deleteProduct');
+          throw error; // Re-throw to keep loading state
+        }
+      },
+      productName
+    );
   };
 
   return (
@@ -153,7 +163,7 @@ export function ProductsTable({
                     {t('buttons.edit')}
                   </button>
                   <button 
-                    onClick={() => handleDeleteProduct(product.id)}
+                    onClick={() => handleDeleteProduct(product)}
                     className="text-red-600 hover:text-red-900"
                   >
                     {t('buttons.delete')}
@@ -164,6 +174,15 @@ export function ProductsTable({
           </tbody>
         </table>
       </ScrollableTableContainer>
+
+      <DeleteConfirmationDialog
+        open={deleteConfirmation.isOpen}
+        onOpenChange={deleteConfirmation.hideConfirmation}
+        onConfirm={deleteConfirmation.handleConfirm}
+        itemType={deleteConfirmation.config.itemType}
+        itemName={deleteConfirmation.config.itemName}
+        loading={deleteConfirmation.loading}
+      />
     </div>
   );
 }

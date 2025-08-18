@@ -4,6 +4,8 @@ import { useTranslations } from 'next-intl';
 import { supabase } from '@/lib/supabase';
 import { Category } from '@/types/admin';
 import { ScrollableTableContainer } from './ScrollableTableContainer';
+import { DeleteConfirmationDialog, useDeleteConfirmation } from '../DeleteConfirmationDialog';
+import { useErrorHandler } from '@/hooks/useErrorHandler';
 
 interface CategoriesTableProps {
   categories: Category[];
@@ -20,6 +22,8 @@ export function CategoriesTable({
 }: CategoriesTableProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const t = useTranslations('Admin');
+  const deleteConfirmation = useDeleteConfirmation();
+  const { showError } = useErrorHandler();
 
   // Filter categories based on search term
   const filteredCategories = useMemo(() => {
@@ -31,23 +35,29 @@ export function CategoriesTable({
       category.slug?.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }, [categories, searchTerm]);
-  const handleDeleteCategory = async (id: string) => {
-    if (!confirm(t('confirmations.deleteCategory'))) {
-      return;
-    }
+
+  const handleDeleteCategory = async (category: Category) => {
+    const categoryName = category.name?.en || category.name?.es || category.slug;
     
-    try {
-      const { error } = await supabase
-        .from('categories')
-        .delete()
-        .eq('id', id);
-      
-      if (error) throw error;
-      onRefresh();
-    } catch (error) {
-      console.error('Error deleting category:', error);
-      alert(t('errors.deleteCategory'));
-    }
+    deleteConfirmation.showDeleteConfirmation(
+      'category',
+      async () => {
+        try {
+          const { error } = await supabase
+            .from('categories')
+            .delete()
+            .eq('id', category.id);
+          
+          if (error) throw error;
+          onRefresh();
+        } catch (error) {
+          console.error('Error deleting category:', error);
+          showError('deleteCategory');
+          throw error; // Re-throw to keep loading state
+        }
+      },
+      categoryName
+    );
   };
 
   return (
@@ -121,7 +131,7 @@ export function CategoriesTable({
                     {t('buttons.edit')}
                   </button>
                   <button 
-                    onClick={() => handleDeleteCategory(category.id)}
+                    onClick={() => handleDeleteCategory(category)}
                     className="text-red-600 hover:text-red-900"
                   >
                     {t('buttons.delete')}
@@ -132,6 +142,15 @@ export function CategoriesTable({
           </tbody>
         </table>
       </ScrollableTableContainer>
+
+      <DeleteConfirmationDialog
+        open={deleteConfirmation.isOpen}
+        onOpenChange={deleteConfirmation.hideConfirmation}
+        onConfirm={deleteConfirmation.handleConfirm}
+        itemType={deleteConfirmation.config.itemType}
+        itemName={deleteConfirmation.config.itemName}
+        loading={deleteConfirmation.loading}
+      />
     </div>
   );
 }
