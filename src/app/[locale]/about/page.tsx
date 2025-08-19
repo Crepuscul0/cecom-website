@@ -4,6 +4,8 @@ import { getPageBySlug, getTeamMembers, getVendors } from '@/lib/payload/api';
 import { RichTextRenderer } from '@/components/about/RichTextRenderer';
 import { TeamMember } from '@/components/about/TeamMember';
 import { VendorGrid } from '@/components/about/VendorGrid';
+import { MissionVisionValues } from '@/components/about/MissionVisionValues';
+import { CompanyCredibility } from '@/components/about/CompanyCredibility';
 
 interface AboutPageProps {
   params: Promise<{
@@ -36,14 +38,11 @@ export default async function About({ params }: AboutPageProps) {
           </p>
         </div>
 
-        {/* Company Information */}
-        {aboutPage?.content && (
-          <div className="max-w-4xl mx-auto mb-16">
-            <div className="bg-muted rounded-lg p-8">
-              <RichTextRenderer content={aboutPage.content} />
-            </div>
-          </div>
-        )}
+        {/* Mission, Vision & Values */}
+        <MissionVisionValues />
+
+        {/* Company Credibility */}
+        <CompanyCredibility />
 
         {/* Team Section */}
         {teamMembers && teamMembers.length > 0 && (

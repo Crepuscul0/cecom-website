@@ -1,0 +1,48 @@
+{
+  "CompanyCredibility": {
+    "history": {
+      "title": "Our History",
+      "description": "Since 2004, CECOM has been at the forefront of technology solutions in the Dominican Republic. What started as a small computer repair service has evolved into a comprehensive IT solutions provider, serving businesses across various industries with cutting-edge technology and unparalleled expertise."
+    },
+    "stats": {
+      "yearsExperience": "Years of Experience",
+      "successfulProjects": "Successful Projects",
+      "satisfiedClients": "Satisfied Clients",
+      "certifications": "Industry Certifications"
+    },
+    "timeline": {
+      "title": "Key Milestones",
+      "description": "Major achievements that have shaped our journey and strengthened our position as a technology leader.",
+      "milestones": {
+        "founded": {
+          "title": "Company Founded",
+          "description": "CECOM was established in Santo Domingo, starting with computer repair and basic IT services."
+        },
+        "firstExpansion": {
+          "title": "Service Expansion",
+          "description": "Expanded into network infrastructure and enterprise solutions, serving medium and large businesses."
+        },
+        "majorContract": {
+          "title": "Government Partnership",
+          "description": "Secured major contracts with government institutions, establishing credibility in the public sector."
+        },
+        "modernization": {
+          "title": "Digital Transformation",
+          "description": "Embraced cloud technologies and modern IT solutions, becoming a leader in digital transformation services."
+        }
+      }
+    },
+    "achievements": {
+      "title": "Certifications & Achievements",
+      "description": "Our commitment to excellence is reflected in our industry certifications and recognition from leading technology partners.",
+      "items": {
+        "item1": "ISO 9001:2015 Quality Management Certification",
+        "item2": "Microsoft Gold Partner Status",
+        "item3": "Cisco Certified Partner",
+        "item4": "VMware Authorized Partner",
+        "item5": "HP Enterprise Preferred Partner",
+        "item6": "Dominican Republic IT Excellence Award 2022"
+      }
+    }
+  }
+}

@@ -128,7 +128,34 @@
     "partnersDescription": "Trabajamos con las mejores marcas del mercado para ofrecerte soluciones de calidad.",
     "readyToWork": "¿Listo para trabajar con nosotros?",
     "ctaDescription": "Contáctanos hoy mismo y descubre cómo podemos ayudarte a alcanzar tus objetivos tecnológicos.",
-    "learnMore": "Conoce más sobre nuestra empresa, nuestro equipo y nuestros valores."
+    "learnMore": "Conoce más sobre nuestra empresa, nuestro equipo y nuestros valores.",
+    "mission": {
+      "title": "Nuestra Misión",
+      "description": "En CECOM, nos dedicamos a proporcionar soluciones tecnológicas innovadoras y servicios de calidad superior que impulsen el crecimiento y la eficiencia de nuestros clientes. Nuestra misión es ser el socio tecnológico de confianza que transforma los desafíos empresariales en oportunidades de éxito."
+    },
+    "vision": {
+      "title": "Nuestra Visión",
+      "description": "Ser reconocidos como la empresa líder en soluciones de tecnología de la información en la República Dominicana, destacándonos por nuestra excelencia en el servicio, innovación constante y compromiso con el desarrollo tecnológico de nuestros clientes y la comunidad."
+    },
+    "values": {
+      "title": "Nuestros Valores",
+      "excellence": {
+        "title": "Excelencia",
+        "description": "Nos esforzamos por superar las expectativas en cada proyecto."
+      },
+      "innovation": {
+        "title": "Innovación",
+        "description": "Adoptamos las últimas tecnologías para ofrecer soluciones vanguardistas."
+      },
+      "integrity": {
+        "title": "Integridad",
+        "description": "Actuamos con honestidad y transparencia en todas nuestras relaciones."
+      },
+      "commitment": {
+        "title": "Compromiso",
+        "description": "Nos dedicamos completamente al éxito de nuestros clientes."
+      }
+    }
   },
   "Contact": {
     "title": "Contacto",
@@ -407,6 +434,52 @@
         "maxLength": "Máximo {max} caracteres",
         "duplicateName": "Ya existe una {type} con este nombre",
         "duplicateSlug": "Ya existe una categoría con este slug"
+      }
+    }
+  },
+  "CompanyCredibility": {
+    "history": {
+      "title": "Nuestra Historia",
+      "description": "Desde 2004, CECOM ha estado a la vanguardia de las soluciones tecnológicas en la República Dominicana. Lo que comenzó como un pequeño servicio de reparación de computadoras ha evolucionado hasta convertirse en un proveedor integral de soluciones de TI, sirviendo a empresas de diversas industrias con tecnología de vanguardia y experiencia incomparable."
+    },
+    "stats": {
+      "yearsExperience": "Años de Experiencia",
+      "successfulProjects": "Proyectos Exitosos",
+      "satisfiedClients": "Clientes Satisfechos",
+      "certifications": "Certificaciones de la Industria"
+    },
+    "timeline": {
+      "title": "Hitos Clave",
+      "description": "Logros importantes que han moldeado nuestro camino y fortalecido nuestra posición como líder tecnológico.",
+      "milestones": {
+        "founded": {
+          "title": "Fundación de la Empresa",
+          "description": "CECOM fue establecida en Santo Domingo, comenzando con reparación de computadoras y servicios básicos de TI."
+        },
+        "firstExpansion": {
+          "title": "Expansión de Servicios",
+          "description": "Se expandió hacia infraestructura de redes y soluciones empresariales, sirviendo a medianas y grandes empresas."
+        },
+        "majorContract": {
+          "title": "Alianza Gubernamental",
+          "description": "Aseguró contratos importantes con instituciones gubernamentales, estableciendo credibilidad en el sector público."
+        },
+        "modernization": {
+          "title": "Transformación Digital",
+          "description": "Adoptó tecnologías en la nube y soluciones de TI modernas, convirtiéndose en líder en servicios de transformación digital."
+        }
+      }
+    },
+    "achievements": {
+      "title": "Certificaciones y Logros",
+      "description": "Nuestro compromiso con la excelencia se refleja en nuestras certificaciones de la industria y el reconocimiento de socios tecnológicos líderes.",
+      "items": {
+        "item1": "Certificación ISO 9001:2015 de Gestión de Calidad",
+        "item2": "Estatus de Microsoft Gold Partner",
+        "item3": "Socio Certificado de Cisco",
+        "item4": "Socio Autorizado de VMware",
+        "item5": "Socio Preferido de HP Enterprise",
+        "item6": "Premio de Excelencia en TI República Dominicana 2022"
       }
     }
   }

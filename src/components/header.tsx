@@ -62,7 +62,7 @@ export default function Header() {
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         aria-label={t('accessibility.mainNavigation')}
       >
-        <div className="w-full py-6 flex items-center justify-between">
+        <div className="w-full py-2 flex items-center justify-between">
           <div className="flex items-center">
             <Link 
               href={`/${currentLocale}`}
@@ -71,7 +71,7 @@ export default function Header() {
             >
               <span className="sr-only">{t('accessibility.logoLink')}</span>
               <img
-                className="h-24 w-auto logo"
+                className="h-16 w-auto logo"
                 src="/logos/cecom-logo.svg"
                 alt={t('accessibility.logoAlt')}
               />
@@ -180,57 +180,136 @@ export default function Header() {
                 </SheetTrigger>
                 <SheetContent 
                   side="right"
+                  className="w-80 sm:w-96"
                   aria-label={t('accessibility.mobileNavigation')}
                 >
                   <SheetTitle className="sr-only">
                     {t('accessibility.mobileNavigation')}
                   </SheetTitle>
+                  
+                  {/* Header with Logo */}
+                  <div className="flex items-center justify-between pb-6 border-b border-border">
+                    <Link 
+                      href={`/${currentLocale}`}
+                      className="flex items-center"
+                    >
+                      <img
+                        className="h-12 w-auto logo"
+                        src="/logos/cecom-logo.svg"
+                        alt={t('accessibility.logoAlt')}
+                      />
+                    </Link>
+                  </div>
+
+                  {/* Navigation Links */}
                   <nav 
-                    className="flex flex-col space-y-6 mt-8"
+                    className="flex flex-col space-y-2 mt-8"
                     aria-label={t('accessibility.mobileNavigation')}
                   >
                     <Link 
                       href={`/${currentLocale}`} 
-                      className="px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
+                      className="group flex items-center px-4 py-3 text-base font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 border border-transparent hover:border-primary/20"
                       aria-label={t('accessibility.homeLink')}
                       title={t('tooltips.home')}
                     >
-                      {t('home')}
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                        {t('home')}
+                      </div>
                     </Link>
+                    
                     <Link 
                       href={`/${currentLocale}/solutions`} 
-                      className="px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
+                      className="group flex items-center px-4 py-3 text-base font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 border border-transparent hover:border-primary/20"
                       aria-label={t('accessibility.solutionsLink')}
                       title={t('tooltips.solutions')}
                     >
-                      {t('solutions')}
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                        {t('solutions')}
+                      </div>
                     </Link>
 
                     <Link 
                       href={`/${currentLocale}/alliances`} 
-                      className="px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
+                      className="group flex items-center px-4 py-3 text-base font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 border border-transparent hover:border-primary/20"
                       aria-label={t('accessibility.alliancesLink')}
                       title={t('tooltips.alliances')}
                     >
-                      {t('alliances')}
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                        {t('alliances')}
+                      </div>
                     </Link>
+                    
                     <Link 
                       href={`/${currentLocale}/about`} 
-                      className="px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
+                      className="group flex items-center px-4 py-3 text-base font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 border border-transparent hover:border-primary/20"
                       aria-label={t('accessibility.aboutUsLink')}
                       title={t('tooltips.aboutUs')}
                     >
-                      {t('aboutUs')}
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                        {t('aboutUs')}
+                      </div>
                     </Link>
+                    
                     <Link 
                       href={`/${currentLocale}/contact`} 
-                      className="px-3 py-2 text-base font-medium text-muted-foreground hover:bg-accent rounded-md transition-colors"
+                      className="group flex items-center px-4 py-3 text-base font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 border border-transparent hover:border-primary/20"
                       aria-label={t('accessibility.contactLink')}
                       title={t('tooltips.contact')}
                     >
-                      {t('contact')}
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                        {t('contact')}
+                      </div>
                     </Link>
                   </nav>
+
+                  {/* Footer with Theme and Language Controls */}
+                  <div className="absolute bottom-8 left-6 right-6">
+                    <div className="border-t border-border pt-6">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-3">
+                          <ThemeToggle />
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                              <Button 
+                                variant="outline" 
+                                size="sm"
+                                className="h-9 px-3"
+                                aria-label={t('accessibility.languageSelectorButton')}
+                                title={t('tooltips.languageSelector')}
+                              >
+                                🌐
+                                <span className="ml-2 text-sm font-medium">
+                                  {currentLocale.toUpperCase()}
+                                </span>
+                              </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent 
+                              align="start"
+                              aria-label={t('accessibility.languageSelectorMenu')}
+                            >
+                              <DropdownMenuItem 
+                                onClick={() => changeLocale('en')}
+                                aria-label={t('accessibility.selectEnglish')}
+                              >
+                                {tCommon('language.english')}
+                              </DropdownMenuItem>
+                              <DropdownMenuItem 
+                                onClick={() => changeLocale('es')}
+                                aria-label={t('accessibility.selectSpanish')}
+                              >
+                                {tCommon('language.spanish')}
+                              </DropdownMenuItem>
+                            </DropdownMenuContent>
+                          </DropdownMenu>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </SheetContent>
               </Sheet>
             </div>
