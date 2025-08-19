@@ -473,6 +473,10 @@
     "achievements": {
       "title": "Certificaciones y Logros",
       "description": "Nuestro compromiso con la excelencia se refleja en nuestras certificaciones de la industria y el reconocimiento de socios tecnológicos líderes.",
+      "featuredPartners": "Socios Tecnológicos Estratégicos",
+      "otherCertifications": "Certificaciones Adicionales",
+      "viewMore": "Ver Más",
+      "showLess": "Ver Menos",
       "items": {
         "item1": "Certificación ISO 9001:2015 de Gestión de Calidad",
         "item2": "Estatus de Microsoft Gold Partner",

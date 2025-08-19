@@ -1,8 +1,10 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-import { Building2, Calendar, Trophy, Users, CheckCircle, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
+import { Building, Users, Award, CheckCircle, Calendar, TrendingUp, Trophy, Star, Building2 } from 'lucide-react';
+import { FeaturedPartners } from './FeaturedPartners';
+import { AdditionalCertifications } from './AdditionalCertifications';
 
 export function CompanyCredibility() {
   const t = useTranslations('CompanyCredibility');
@@ -214,24 +216,9 @@ export function CompanyCredibility() {
           <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
             {t('achievements.description')}
           </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
-              <motion.div
-                key={item}
-                className="flex items-center p-4 bg-muted rounded-lg"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.8 + item * 0.05 }}
-              >
-                <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
-                <span className="text-foreground font-medium">
-                  {t(`achievements.items.item${item}`)}
-                </span>
-              </motion.div>
-            ))}
-          </div>
+
+          <FeaturedPartners />
+          <AdditionalCertifications />
         </div>
       </motion.div>
     </div>

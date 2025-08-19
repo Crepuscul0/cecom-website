@@ -471,8 +471,12 @@
       }
     },
     "achievements": {
-      "title": "Certifications & Achievements",
+      "title": "Certifications and Achievements",
       "description": "Our commitment to excellence is reflected in our industry certifications and recognition from leading technology partners.",
+      "featuredPartners": "Strategic Technology Partners",
+      "otherCertifications": "Additional Certifications",
+      "viewMore": "View More",
+      "showLess": "Show Less",
       "items": {
         "item1": "ISO 9001:2015 Quality Management Certification",
         "item2": "Microsoft Gold Partner Status",
