@@ -1,0 +1,688 @@
+openapi: 3.0.0
+info:
+  description: AuthPoint authentication API
+  version: 1.2.0
+  contact:
+    name: API Support
+    url: https://www.watchguard.com/wgrd-support/contact-support
+  title: AuthPoint authentication API
+  termsOfService: https://www.watchguard.com/api/terms/
+paths:
+  /health:
+    get:
+      description: HealthCheck URL
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Health'
+  /v1/accounts/{accountId}/resources/{resourceId}/password:
+    post:
+      description: Validates a user's password.
+      operationId: passwordAuthentication
+      parameters:
+        - in: path
+          description: 'Identifies your WatchGuard Cloud account. Example: WGC-1-123abc456
+            or ACC-1234567.'
+          name: accountId
+          required: true
+          schema:
+            type: string
+        - in: path
+          description: Identifies the API resource making the request.
+          name: resourceId
+          required: true
+          schema:
+            type: number
+      requestBody:
+        description: The body to request a password authentication
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordAuthenticationRequest'
+      responses:
+        200:
+          description: Successful authentication response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationResponse'
+        400:
+          description: Bad request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        403:
+          description: Authentication not authorized
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        404:
+          description: Resource or user not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /v1/accounts/{accountId}/resources/{resourceId}/otp:
+    post:
+      description: Validates the one-time password provided by the user.
+      operationId: otpAuthentication
+      parameters:
+        - in: path
+          description: 'Identifies your WatchGuard Cloud account. Example: WGC-1-123abc456
+            or ACC-1234567.'
+          name: accountId
+          required: true
+          schema:
+            type: string
+        - in: path
+          description: Identifies the API resource making the request.
+          name: resourceId
+          required: true
+          schema:
+            type: number
+      requestBody:
+        description: The body to request an OTP authentication
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OtpAuthenticationRequest'
+      responses:
+        200:
+          description: Successful authentication response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationResponse'
+        400:
+          description: Bad request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        403:
+          description: Authentication not authorized
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        404:
+          description: Resource or user not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /v1/accounts/{accountId}/resources/{resourceId}/qrcode:
+    post:
+      description: Validates the Verification Code provided by a user for the generated
+        QR code.
+      operationId: qrCodeAuthentication
+      parameters:
+        - in: path
+          description: 'Identifies your WatchGuard Cloud account. Example: WGC-1-123abc456
+            or ACC-1234567.'
+          name: accountId
+          required: true
+          schema:
+            type: string
+        - in: path
+          description: Identifies the API resource making the request.
+          name: resourceId
+          required: true
+          schema:
+            type: number
+      requestBody:
+        description: The body to request a QR code response authentication
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QRCodeAuthenticationRequest'
+      responses:
+        200:
+          description: Successful authentication response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationResponse'
+        400:
+          description: Bad request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        403:
+          description: Authentication not authorized
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        404:
+          description: Resource or user not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /v1/accounts/{accountId}/resources/{resourceId}/transactions:
+    post:
+      description: Request a QR code be generated or a push notification be sent to
+        the user.
+      operationId: generateMfaTransaction
+      parameters:
+        - in: path
+          description: 'Identifies your WatchGuard Cloud account. Example: WGC-1-123abc456
+            or ACC-1234567.'
+          name: accountId
+          required: true
+          schema:
+            type: string
+        - in: path
+          description: Identifies the API resource making the request.
+          name: resourceId
+          required: true
+          schema:
+            type: number
+      requestBody:
+        description: The body to request a QR code or push notification
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionRequest'
+      responses:
+        200:
+          description: Transaction created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionResponse'
+        400:
+          description: Bad request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        403:
+          description: Unauthorized request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        404:
+          description: Resource or user not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /v1/accounts/{accountId}/resources/{resourceId}/transactions/{transactionId}:
+    get:
+      description: Check the status of the push notification sent to the user.
+      operationId: checkPushTransaction
+      parameters:
+        - in: path
+          description: 'Identifies your WatchGuard Cloud account. Example: WGC-1-123abc456
+            or ACC-1234567.'
+          name: accountId
+          required: true
+          schema:
+            type: string
+        - in: path
+          description: Identifies the API resource making the request.
+          name: resourceId
+          required: true
+          schema:
+            type: number
+        - in: path
+          description: Identifies the push notification to validate.
+          name: transactionId
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Push response received and authorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CheckPushResponse'
+        202:
+          description: Waiting for push response
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        403:
+          description: Push response received but not authorized or denied by the
+            user
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        404:
+          description: Push transaction not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        412:
+          description: Push failed
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /v1/accounts/{accountId}/resources/{resourceId}/forgottoken:
+    post:
+      description: Validates the Forgot Token Verification Code and enables Forgot
+        Token mode for the user.
+      operationId: forgotTokenActivation
+      parameters:
+        - in: path
+          description: 'Identifies your WatchGuard Cloud account. Example: WGC-1-123abc456
+            or ACC-1234567.'
+          name: accountId
+          required: true
+          schema:
+            type: string
+        - in: path
+          description: Identifies the API resource making the request. You can see
+            the resourceId on the RESTful API Client resource page.
+          name: resourceId
+          required: true
+          schema:
+            type: number
+      requestBody:
+        description: The request body to enable Forgot Token mode for the user
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotTokenActivationRequest'
+      responses:
+        200:
+          description: Forgot token activated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForgotTokenActivationResponse'
+        400:
+          description: Bad request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        403:
+          description: Activation not authorized
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        404:
+          description: Resource or user not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+  /v1/accounts/{accountId}/resources/{resourceId}/authenticationpolicy:
+    post:
+      description: Returns whether the user can authenticate and which authentication
+        methods they can use (Push, QR code, and OTP).
+      operationId: requestAuthenticationPolicy
+      parameters:
+        - in: path
+          description: 'Identifies your WatchGuard Cloud account. Example: WGC-1-123abc456
+            or ACC-1234567.'
+          name: accountId
+          required: true
+          schema:
+            type: string
+        - in: path
+          description: Identifies the API resource making the request.
+          name: resourceId
+          required: true
+          schema:
+            type: number
+      requestBody:
+        description: The body to request the authentication policy
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthenticationPolicyRequest'
+      responses:
+        200:
+          description: Successful request of the authentication policies
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationPolicyResponse'
+        400:
+          description: Bad request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        403:
+          description: Operation not authorized
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        404:
+          description: Resource or user not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+components:
+  schemas:
+    Health:
+      type: object
+      properties:
+        healthy:
+          type: boolean
+          default: false
+    PasswordAuthenticationRequest:
+      description: The body to request a password authentication
+      type: object
+      required:
+        - login
+        - password
+      properties:
+        login:
+          description: Identifies the user to validate. This must be the email address
+            or the user name of the user to validate.
+          type: string
+        password:
+          description: The password of the user to be validated. It must be filled
+            in clear text.
+          type: string
+        originIpAddress:
+          description: The end user IP address. The IP address must be in IPv4 format.
+          type: string
+    OtpAuthenticationRequest:
+      description: The body to request an OTP authentication
+      type: object
+      required:
+        - login
+        - otp
+      properties:
+        login:
+          description: Identifies the user to validate. This must be the email address
+            or the user name of the user to validate.
+          type: string
+        password:
+          description: The password of the user to be validated. It must be filled
+            in clear text.
+          type: string
+        otp:
+          description: The one-time password typed by the user. This must be a six-digit
+            OTP that includes only numbers.
+          type: string
+        originIpAddress:
+          description: The end user IP address. The IP address must be in IPv4 format.
+          type: string
+    TransactionRequest:
+      description: The body to request a QR code or a push transaction
+      type: object
+      required:
+        - login
+        - type
+        - clientInfoRequest
+      properties:
+        login:
+          description: Identifies the user to validate. This must be the email address
+            or the user name of the user to validate.
+          type: string
+        password:
+          description: The password of the user to be validated. It must be filled
+            in clear text.
+          type: string
+        originIpAddress:
+          description: The end user IP address. The IP address must be in IPv4 format.
+          type: string
+        type:
+          description: The type of MFA transaction to generate. The type can be PUSH
+            or QRCODE.
+          type: string
+          enum:
+            - PUSH
+            - QRCODE
+        clientInfoRequest:
+          $ref: '#/components/schemas/ClientInfoRequest'
+    ClientInfoRequest:
+      description: The client information from a transaction request.
+      type: object
+      properties:
+        machineName:
+          description: The name of the device that the end user authenticates from.
+          type: string
+        osVersion:
+          description: The operating system of the device that the end user authenticates
+            from.
+          type: string
+        domain:
+          description: The domain of the device that the end user authenticates from.
+          type: string
+    QRCodeAuthenticationRequest:
+      description: The request body to authenticate a QRCode response
+      type: object
+      required:
+        - login
+        - qrCodeResponse
+        - transactionId
+      properties:
+        login:
+          description: Identifies the user to validate. This must be the email address
+            or the user name of the user to validate.
+          type: string
+        qrCodeResponse:
+          description: The Verification Code that the user receives when they scan
+            the QR code. When you generate a QR code and render it to show in the
+            UI on the authentication page, a six digit Verification Code is generated.
+          type: string
+        transactionId:
+          description: Identifies the QR code to validate.
+          type: string
+        originIpAddress:
+          description: The end user IP address. The IP address must be in IPv4 format.
+          type: string
+    ForgotTokenActivationRequest:
+      description: The request body to activate the forgot token
+      type: object
+      required:
+        - login
+        - password
+        - verificationCode
+        - activationCode
+        - interval
+      properties:
+        login:
+          description: Identifies the user to validate. This must be the email address
+            or the user name of the user to validate.
+          type: string
+        password:
+          description: The password of the user to be validated. It must be filled
+            in clear text.
+          type: string
+        verificationCode:
+          description: The Verification Code is the six digit value generated in the
+            AuthPoint management UI and provided to the user by the operator. The
+            user must provide this value.
+          type: string
+        activationCode:
+          description: The Activation Code value generated by the client application.
+            This value can be any six digit string that consists of only numbers.
+            This value must be visible to the end user so they can provide it to the
+            AuthPoint operator.
+          type: string
+        interval:
+          description: The interval, in hours, that Forgot Token is active for the
+            user. This value is defined by an operator in the AuthPoint management
+            UI and provided to the user.
+          type: number
+    AuthenticationPolicyRequest:
+      description: The body to request the authentication policy
+      type: object
+      required:
+        - login
+      properties:
+        login:
+          description: Identifies the user to validate. This must be the email address
+            or the user name of the user to validate.
+          type: string
+        originIpAddress:
+          description: The end user IP address. The IP address must be in IPv4 format.
+          type: string
+    TransactionResponse:
+      description: The transaction response
+      type: object
+      properties:
+        transactionId:
+          description: The unique transaction identification
+          type: string
+        command:
+          description: The QRCode command
+          type: string
+    AuthenticationResponse:
+      description: The authentication response
+      type: object
+      properties:
+        authenticationResult:
+          description: The authentication result
+          type: string
+          enum:
+            - AUTHORIZED
+    CheckPushResponse:
+      description: The check push response
+      type: object
+      properties:
+        pushResult:
+          description: The check push result
+          type: string
+          enum:
+            - AUTHORIZED
+    ForgotTokenActivationResponse:
+      description: The forgot token activation response
+      type: object
+      properties:
+        authenticationResult:
+          description: The activation result
+          type: string
+          enum:
+            - AUTHORIZED
+    AuthenticationPolicyResponse:
+      description: The authentication policy response
+      type: object
+      properties:
+        username:
+          description: The user name of the user to validate.
+          type: string
+        email:
+          description: The email address of the user to validate.
+          type: string
+        hasPolicy:
+          description: Indicates if the user belongs to a group that has an access
+            policy for this RESTful API Client resource.
+          type: boolean
+        isAllowedToAuthenticate:
+          description: Indicates if the user can authenticate.
+          type: boolean
+        isInSafeLocation:
+          description: Indicates if the user is in a safe location based on the originIpAddress
+            sent in the request body and the safe locations configured for the user's
+            AuthPoint group.
+          type: boolean
+        isInForgotToken:
+          description: Indicates if the user has the Forgot Token feature activated.
+          type: boolean
+        isBlocked:
+          description: Indicates if the user is blocked. Blocked users cannot authenticate.
+          type: boolean
+        isOverallocated:
+          description: Indicates if the user is overallocated. Overallocated users
+            cannot authenticate.
+          type: boolean
+        isInQuarantine:
+          description: Indicates if the user is quarantined. Quarantined users cannot
+            authenticate.
+          type: boolean
+        policyResponse:
+          $ref: '#/components/schemas/PolicyResponse'
+    PolicyResponse:
+      description: The available authentication methods determined by the access policy
+        for the RESTful API Client resource.
+      type: object
+      properties:
+        password:
+          description: Indicates if the user is allowed to authenticate with a password.
+            If additional authentication methods are available, the user must authenticate
+            with their password and another authentication method.
+          type: boolean
+        otp:
+          description: Indicates if the user is allowed to authenticate with a one-time
+            password (OTP).
+          type: boolean
+        qrCode:
+          description: Indicates if the user is allowed to authenticate with a QR
+            code.
+          type: boolean
+        push:
+          description: Indicates if the user is allowed to authenticate with a push
+            notification.
+          type: boolean
+    ResponseError:
+      description: API Problem Details
+      type: object
+      properties:
+        type:
+          type: string
+          format: uri
+          description: An absolute URI that identifies the problem type
+          default: about:blank
+        title:
+          type: string
+          description: A short, summary of the problem type
+        status:
+          type: integer
+          description: The HTTP status code generated by the origin server for this
+            occurrence of the problem
+          format: int32
+          minimum: 100
+          maximum: 599
+        detail:
+          type: string
+          description: A human readable explanation specific to this occurrence of
+            the problem
+        instance:
+          type: string
+          format: uri
+          description: An absolute URI that identifies the specific occurrence of
+            the problem
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+servers:
+  - description: Prod USA Region
+    url: https://api.usa.cloud.watchguard.com/rest/authpoint/authentication
+  - description: Prod DEU region
+    url: https://api.deu.cloud.watchguard.com/rest/authpoint/authentication
+  - description: Prod JPN region
+    url: https://api.jpn.cloud.watchguard.com/rest/authpoint/authentication
+security:
+  - ApiKeyAuth: []
+    BearerAuth: []
+externalDocs:
+  description: Additional documentation
+  url: https://www.watchguard.com/help/docs/api/Content/en-US/home.html

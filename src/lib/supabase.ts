@@ -5,7 +5,7 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-export type UserRole = 'administrator' | 'seller' | 'employee';
+export type UserRole = 'admin' | 'employee' | 'user';
 
 export interface UserProfile {
   id: string;
@@ -14,6 +14,9 @@ export interface UserProfile {
   last_name?: string;
   role: UserRole;
   active: boolean;
+  approval_status: 'pending' | 'approved' | 'rejected';
+  approved_by?: string;
+  approved_at?: string;
   created_at: string;
   updated_at: string;
 }
@@ -41,7 +44,8 @@ export const signUp = async (email: string, password: string, userData: {
         email: data.user.email!,
         first_name: userData.first_name,
         last_name: userData.last_name,
-        role: userData.role || 'employee'
+        role: userData.role || 'user',
+        approval_status: 'pending'
       });
     
     if (profileError) {
@@ -101,9 +105,17 @@ export const hasPermission = (userRole: UserRole, requiredRoles: UserRole[]): bo
 };
 
 export const canModifyContent = (userRole: UserRole): boolean => {
-  return hasPermission(userRole, ['administrator', 'seller']);
+  return hasPermission(userRole, ['admin', 'employee']);
 };
 
 export const isAdmin = (userRole: UserRole): boolean => {
-  return userRole === 'administrator';
+  return userRole === 'admin';
+};
+
+export const isEmployee = (userRole: UserRole): boolean => {
+  return userRole === 'employee';
+};
+
+export const isUser = (userRole: UserRole): boolean => {
+  return userRole === 'user';
 };
