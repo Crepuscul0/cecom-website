@@ -28,13 +28,23 @@ export function VPNsManagement() {
   const [statusFilter, setStatusFilter] = useState<string>('all')
   const [locationFilter, setLocationFilter] = useState<string>('all')
 
-  const [formData, setFormData] = useState({
+  type VPNFormData = {
+    vpn_name: string
+    client_name: string
+    client_email: string
+    server_location: string
+    configuration: string
+    status: VPN['status']
+    expires_at: string
+  }
+
+  const [formData, setFormData] = useState<VPNFormData>({
     vpn_name: '',
     client_name: '',
     client_email: '',
     server_location: '',
     configuration: '',
-    status: 'requested' as const,
+    status: 'requested',
     expires_at: ''
   })
 
@@ -475,7 +485,7 @@ export function VPNsManagement() {
                   </label>
                   <select
                     value={formData.status}
-                    onChange={(e) => setFormData(prev => ({ ...prev, status: e.target.value as any }))}
+                    onChange={(e) => setFormData(prev => ({ ...prev, status: e.target.value as VPN['status'] }))}
                     className="w-full px-3 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
                   >
                     <option value="requested">Solicitada</option>

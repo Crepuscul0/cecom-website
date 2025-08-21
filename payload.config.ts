@@ -13,10 +13,7 @@ export default buildConfig({
     user: 'users',
     meta: {
       titleSuffix: '- CECOM Admin',
-      favicon: '/favicon.ico',
-      ogImage: '/logos/cecom-logo.png',
     },
-    css: path.resolve(dirname, 'src/app/(payload)/custom.css'),
   },
   editor: slateEditor({
     admin: {
@@ -314,7 +311,6 @@ export default buildConfig({
     {
       slug: 'media',
       upload: {
-        staticURL: '/media',
         staticDir: 'media',
         imageSizes: [
           {

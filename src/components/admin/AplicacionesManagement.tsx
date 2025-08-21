@@ -19,6 +19,8 @@ interface Aplicacion {
   updated_at: string
 }
 
+type Status = Aplicacion['status']
+
 export function AplicacionesManagement() {
   const [aplicaciones, setAplicaciones] = useState<Aplicacion[]>([])
   const [loading, setLoading] = useState(true)
@@ -28,14 +30,22 @@ export function AplicacionesManagement() {
   const [statusFilter, setStatusFilter] = useState<string>('all')
   const [typeFilter, setTypeFilter] = useState<string>('all')
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    application_name: string
+    client_name: string
+    client_email: string
+    application_type: string
+    description: string
+    requirements: string
+    status: Status
+  }>({
     application_name: '',
     client_name: '',
     client_email: '',
     application_type: '',
     description: '',
     requirements: '',
-    status: 'submitted' as const
+    status: 'submitted'
   })
 
   const applicationTypes = [
@@ -465,7 +475,7 @@ export function AplicacionesManagement() {
                 </label>
                 <select
                   value={formData.status}
-                  onChange={(e) => setFormData(prev => ({ ...prev, status: e.target.value as any }))}
+                  onChange={(e) => setFormData(prev => ({ ...prev, status: e.target.value as Status }))}
                   className="w-full px-3 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
                 >
                   <option value="submitted">Enviada</option>

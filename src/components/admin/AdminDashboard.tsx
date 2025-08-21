@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { canModifyContent, signOut } from '@/lib/supabase';
 import { useAdminData } from '@/hooks/useAdminData';
 import { AdminHeader } from './AdminHeader';
+import { AdminIntlProvider } from './AdminIntlProvider';
 import { AdminContent } from './AdminContent';
 import { AdminLoading, AdminLogin, AdminAccessDenied } from './AdminStates';
 import { ToastProvider } from '@/components/ui/toast';
@@ -63,20 +64,22 @@ export function AdminDashboard() {
   }
 
   return (
-    <ToastProvider>
-      <div className="min-h-screen bg-background">
-        <AdminHeader
-          userProfile={userProfile}
-          onSignOut={handleSignOut}
-        />
+    <AdminIntlProvider>
+      <ToastProvider>
+        <div className="min-h-screen bg-background">
+          <AdminHeader
+            userProfile={userProfile}
+            onSignOut={handleSignOut}
+          />
 
-        <AdminContent
-          categories={categories}
-          vendors={vendors}
-          products={products}
-          onRefresh={loadData}
-        />
-      </div>
-    </ToastProvider>
+          <AdminContent
+            categories={categories}
+            vendors={vendors}
+            products={products}
+            onRefresh={loadData}
+          />
+        </div>
+      </ToastProvider>
+    </AdminIntlProvider>
   );
 }

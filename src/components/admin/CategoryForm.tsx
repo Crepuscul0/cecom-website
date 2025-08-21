@@ -215,8 +215,8 @@ export function CategoryForm({ category, onClose, onSuccess }: CategoryFormProps
  Icono
  </label>
  <IconPicker
- value={formData.icon}
- onChange={(icon) => setFormData(prev => ({ ...prev, icon }))}
+ selectedIcon={formData.icon}
+ onIconSelect={(icon) => setFormData(prev => ({ ...prev, icon }))}
  />
  </div>
  </div>

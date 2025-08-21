@@ -67,7 +67,7 @@ export function AdminPanelLayout({ children, activeSection }: AdminPanelLayoutPr
   const navigationItems = [
     // Admin-only sections
     ...(isAdmin(userProfile.role) ? [
-      { id: 'cms', label: 'CMS', icon: Settings, href: '/admin' },
+      { id: 'cms', label: 'CMS', icon: Settings, href: '/admin-panel/cms' },
       { id: 'users', label: 'Usuarios', icon: Users, href: '/admin-panel/users' },
     ] : []),
     

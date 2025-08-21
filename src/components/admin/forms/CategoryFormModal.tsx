@@ -248,7 +248,7 @@ export function CategoryFormModal({
 
         <FormButtons
           onCancel={onClose}
-          onSave={handleSubmit}
+          onSave={() => {}}
           saveText={t('save')}
           cancelText={t('cancel')}
           isLoading={loading}

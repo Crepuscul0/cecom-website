@@ -10,12 +10,15 @@ export const host = process.env.VERCEL_URL
   : `http://localhost:${port}`;
 
 export default getRequestConfig(async ({ locale }) => {
-  // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale as any)) notFound();
+  const currentLocale = (locale ?? defaultLocale) as (typeof locales)[number];
 
-  const messages = (await import(`../../messages/${locale}.json`)).default;
+  // Validate that the incoming `locale` parameter is valid
+  if (!locales.includes(currentLocale as any)) notFound();
+
+  const messages = (await import(`../../messages/${currentLocale}.json`)).default;
 
   return {
+    locale: currentLocale,
     messages
   };
 });

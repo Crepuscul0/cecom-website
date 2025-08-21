@@ -26,11 +26,20 @@ export function TicketsManagement() {
   const [statusFilter, setStatusFilter] = useState<string>('all')
   const [priorityFilter, setPriorityFilter] = useState<string>('all')
 
-  const [formData, setFormData] = useState({
+  type TicketFormData = {
+    title: string
+    description: string
+    status: Ticket['status']
+    priority: Ticket['priority']
+    category: string
+    assigned_to: string
+  }
+
+  const [formData, setFormData] = useState<TicketFormData>({
     title: '',
     description: '',
-    status: 'open' as const,
-    priority: 'medium' as const,
+    status: 'open',
+    priority: 'medium',
     category: '',
     assigned_to: ''
   })
@@ -395,7 +404,7 @@ export function TicketsManagement() {
                   </label>
                   <select
                     value={formData.status}
-                    onChange={(e) => setFormData(prev => ({ ...prev, status: e.target.value as any }))}
+                    onChange={(e) => setFormData(prev => ({ ...prev, status: e.target.value as Ticket['status'] }))}
                     className="w-full px-3 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
                   >
                     <option value="open">Abierto</option>
@@ -404,14 +413,13 @@ export function TicketsManagement() {
                     <option value="closed">Cerrado</option>
                   </select>
                 </div>
-                
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-1">
                     Prioridad
                   </label>
                   <select
                     value={formData.priority}
-                    onChange={(e) => setFormData(prev => ({ ...prev, priority: e.target.value as any }))}
+                    onChange={(e) => setFormData(prev => ({ ...prev, priority: e.target.value as Ticket['priority'] }))}
                     className="w-full px-3 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
                   >
                     <option value="low">Baja</option>

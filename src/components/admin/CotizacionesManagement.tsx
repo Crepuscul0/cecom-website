@@ -29,7 +29,19 @@ export function CotizacionesManagement() {
   const [searchTerm, setSearchTerm] = useState('')
   const [statusFilter, setStatusFilter] = useState<string>('all')
 
-  const [formData, setFormData] = useState({
+  type CotizacionFormData = {
+    client_name: string
+    client_email: string
+    client_phone: string
+    company: string
+    description: string
+    products: string
+    total_amount: string
+    status: Cotizacion['status']
+    valid_until: string
+  }
+
+  const [formData, setFormData] = useState<CotizacionFormData>({
     client_name: '',
     client_email: '',
     client_phone: '',
@@ -37,7 +49,7 @@ export function CotizacionesManagement() {
     description: '',
     products: '',
     total_amount: '',
-    status: 'draft' as const,
+    status: 'draft',
     valid_until: ''
   })
 
@@ -457,7 +469,7 @@ export function CotizacionesManagement() {
                   </label>
                   <select
                     value={formData.status}
-                    onChange={(e) => setFormData(prev => ({ ...prev, status: e.target.value as any }))}
+                    onChange={(e) => setFormData(prev => ({ ...prev, status: e.target.value as Cotizacion['status'] }))}
                     className="w-full px-3 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
                   >
                     <option value="draft">Borrador</option>
