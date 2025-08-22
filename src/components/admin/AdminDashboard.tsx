@@ -66,18 +66,20 @@ export function AdminDashboard() {
   return (
     <AdminIntlProvider>
       <ToastProvider>
-        <div className="min-h-screen bg-background">
+        <div className="w-full h-full flex flex-col">
           <AdminHeader
             userProfile={userProfile}
             onSignOut={handleSignOut}
           />
 
-          <AdminContent
-            categories={categories}
-            vendors={vendors}
-            products={products}
-            onRefresh={loadData}
-          />
+          <div className="flex-1 w-full">
+            <AdminContent
+              categories={categories}
+              vendors={vendors}
+              products={products}
+              onRefresh={loadData}
+            />
+          </div>
         </div>
       </ToastProvider>
     </AdminIntlProvider>

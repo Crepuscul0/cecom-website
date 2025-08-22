@@ -116,7 +116,7 @@ export function AdminPanelLayout({ children, activeSection }: AdminPanelLayoutPr
       </div>
 
       {/* Main content */}
-      <div className="lg:pl-64">
+      <div className="lg:pl-64 flex flex-col min-h-screen">
         {/* Top bar */}
         <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-border bg-card px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
           <button
@@ -147,8 +147,8 @@ export function AdminPanelLayout({ children, activeSection }: AdminPanelLayoutPr
         </div>
 
         {/* Page content */}
-        <main className="py-10">
-          <div className="px-4 sm:px-6 lg:px-8">
+        <main className="flex-1 h-full">
+          <div className="h-full">
             {children}
           </div>
         </main>
