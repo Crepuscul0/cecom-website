@@ -350,7 +350,7 @@ export function CotizacionesManagement() {
         
         {filteredCotizaciones.length === 0 && (
           <div className="text-center py-12">
-            <div className="text-muted-foreground">No se encontraron cotizaciones</div>
+            <div className="text-muted-foreground">{t('noCotizacionesFound')}</div>
           </div>
         )}
       </div>

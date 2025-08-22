@@ -465,12 +465,25 @@
     },
     "users": {
       "title": "User Management",
+      "newUser": "New User",
       "searchPlaceholder": "Search users...",
+      "noUsersFound": "No users found",
       "status": {
         "all": "All",
+        "active": "Active",
+        "inactive": "Inactive",
         "pending": "Pending",
         "approved": "Approved",
         "rejected": "Rejected"
+      },
+      "roles": {
+        "all": "All Roles"
+      },
+      "stats": {
+        "total": "Total Users",
+        "active": "Active",
+        "pending": "Pending",
+        "inactive": "Inactive"
       },
       "actions": {
         "approve": "Approve",
@@ -498,15 +511,17 @@
       "title": "Ticket Management",
       "newTicket": "New Ticket",
       "searchPlaceholder": "Search tickets...",
+      "noTicketsFound": "No tickets found",
       "status": {
         "all": "All",
         "open": "Open",
+        "inProgress": "In Progress",
         "in_progress": "In Progress",
         "resolved": "Resolved",
         "closed": "Closed"
       },
       "priority": {
-        "all": "All",
+        "all": "All Priorities",
         "low": "Low",
         "medium": "Medium",
         "high": "High",
@@ -516,16 +531,18 @@
         "total": "Total Tickets",
         "open": "Open",
         "inProgress": "In Progress",
+        "resolved": "Resolved",
         "urgent": "Urgent"
       },
       "table": {
         "title": "Title",
-        "status": "Status",
-        "priority": "Priority",
+        "subject": "Subject",
+        "client": "Client",
         "category": "Category",
+        "priority": "Priority",
+        "status": "Status",
         "date": "Date",
-        "assignedTo": "Assigned To",
-        "createdAt": "Created"
+        "created": "Created"
       },
       "form": {
         "title": "Title",
@@ -536,29 +553,36 @@
     },
     "cotizaciones": {
       "title": "Quote Management",
+      "newCotizacion": "New Quote",
       "newQuote": "New Quote",
       "searchPlaceholder": "Search quotes...",
+      "noCotizacionesFound": "No quotes found",
       "status": {
         "all": "All",
         "draft": "Draft",
         "sent": "Sent",
-        "approved": "Approved",
+        "accepted": "Accepted",
         "rejected": "Rejected",
+        "approved": "Approved",
         "expired": "Expired"
       },
       "stats": {
         "total": "Total Quotes",
+        "draft": "Draft",
         "sent": "Sent",
+        "accepted": "Accepted",
         "approved": "Approved",
         "approvedValue": "Approved Value"
       },
       "table": {
         "client": "Client",
+        "description": "Description",
+        "products": "Products",
         "status": "Status",
         "amount": "Amount",
-        "validUntil": "Valid Until",
         "date": "Date",
-        "createdAt": "Created"
+        "totalAmount": "Total Amount",
+        "validUntil": "Valid Until"
       },
       "form": {
         "clientName": "Client Name",
@@ -575,6 +599,7 @@
       "title": "Application Management",
       "newApplication": "New Application",
       "searchPlaceholder": "Search applications...",
+      "noApplicationsFound": "No applications found",
       "status": {
         "all": "All",
         "active": "Active",
@@ -606,11 +631,14 @@
       "title": "VPN Management",
       "newVPN": "New VPN",
       "searchPlaceholder": "Search VPNs...",
+      "noVPNsFound": "No VPNs found",
       "status": {
         "all": "All",
         "requested": "Requested",
-        "configuring": "Configuring",
+        "approved": "Approved",
         "active": "Active",
+        "expired": "Expired",
+        "configuring": "Configuring",
         "suspended": "Suspended",
         "terminated": "Terminated"
       },
@@ -619,17 +647,22 @@
       },
       "stats": {
         "total": "Total VPNs",
+        "requested": "Requested",
+        "approved": "Approved",
         "active": "Active",
         "configuring": "Configuring",
         "suspended": "Suspended",
         "expired": "Expired"
       },
       "table": {
-        "name": "VPN",
+        "name": "Name",
         "client": "Client",
+        "user": "User",
         "location": "Location",
         "status": "Status",
-        "expires": "Expires"
+        "expires": "Expires",
+        "expiryDate": "Expiry Date",
+        "bandwidth": "Bandwidth"
       }
     }
   },

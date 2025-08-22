@@ -465,12 +465,25 @@
     },
     "users": {
       "title": "Gestión de Usuarios",
+      "newUser": "Nuevo Usuario",
       "searchPlaceholder": "Buscar usuarios...",
+      "noUsersFound": "No se encontraron usuarios",
       "status": {
         "all": "Todos",
+        "active": "Activo",
+        "inactive": "Inactivo",
         "pending": "Pendiente",
         "approved": "Aprobado",
         "rejected": "Rechazado"
+      },
+      "roles": {
+        "all": "Todos los Roles"
+      },
+      "stats": {
+        "total": "Total Usuarios",
+        "active": "Activos",
+        "pending": "Pendientes",
+        "inactive": "Inactivos"
       },
       "actions": {
         "approve": "Aprobar",
@@ -498,15 +511,17 @@
       "title": "Gestión de Tickets",
       "newTicket": "Nuevo Ticket",
       "searchPlaceholder": "Buscar tickets...",
+      "noTicketsFound": "No se encontraron tickets",
       "status": {
         "all": "Todos",
         "open": "Abierto",
+        "inProgress": "En Progreso",
         "in_progress": "En Progreso",
         "resolved": "Resuelto",
         "closed": "Cerrado"
       },
       "priority": {
-        "all": "Todas",
+        "all": "Todas las Prioridades",
         "low": "Baja",
         "medium": "Media",
         "high": "Alta",
@@ -516,16 +531,18 @@
         "total": "Total Tickets",
         "open": "Abiertos",
         "inProgress": "En Progreso",
+        "resolved": "Resueltos",
         "urgent": "Urgentes"
       },
       "table": {
         "title": "Título",
-        "status": "Estado",
-        "priority": "Prioridad",
+        "subject": "Asunto",
+        "client": "Cliente",
         "category": "Categoría",
+        "priority": "Prioridad",
+        "status": "Estado",
         "date": "Fecha",
-        "assignedTo": "Asignado a",
-        "createdAt": "Creado"
+        "created": "Creado"
       },
       "form": {
         "title": "Título",
@@ -536,29 +553,36 @@
     },
     "cotizaciones": {
       "title": "Gestión de Cotizaciones",
+      "newCotizacion": "Nueva Cotización",
       "newQuote": "Nueva Cotización",
       "searchPlaceholder": "Buscar cotizaciones...",
+      "noCotizacionesFound": "No se encontraron cotizaciones",
       "status": {
         "all": "Todas",
         "draft": "Borrador",
         "sent": "Enviada",
-        "approved": "Aprobada",
+        "accepted": "Aceptada",
         "rejected": "Rechazada",
+        "approved": "Aprobada",
         "expired": "Expirada"
       },
       "stats": {
         "total": "Total Cotizaciones",
+        "draft": "Borradores",
         "sent": "Enviadas",
+        "accepted": "Aceptadas",
         "approved": "Aprobadas",
         "approvedValue": "Valor Aprobado"
       },
       "table": {
         "client": "Cliente",
+        "description": "Descripción",
+        "products": "Productos",
         "status": "Estado",
         "amount": "Monto",
-        "validUntil": "Válida Hasta",
         "date": "Fecha",
-        "createdAt": "Creada"
+        "totalAmount": "Monto Total",
+        "validUntil": "Válida Hasta"
       },
       "form": {
         "clientName": "Nombre del Cliente",
@@ -575,6 +599,7 @@
       "title": "Gestión de Aplicaciones",
       "newApplication": "Nueva Aplicación",
       "searchPlaceholder": "Buscar aplicaciones...",
+      "noApplicationsFound": "No se encontraron aplicaciones",
       "status": {
         "all": "Todas",
         "active": "Activa",
@@ -606,11 +631,14 @@
       "title": "Gestión de VPNs",
       "newVPN": "Nueva VPN",
       "searchPlaceholder": "Buscar VPNs...",
+      "noVPNsFound": "No se encontraron VPNs",
       "status": {
         "all": "Todas",
         "requested": "Solicitada",
-        "configuring": "Configurando",
+        "approved": "Aprobada",
         "active": "Activa",
+        "expired": "Expirada",
+        "configuring": "Configurando",
         "suspended": "Suspendida",
         "terminated": "Terminada"
       },
@@ -619,17 +647,22 @@
       },
       "stats": {
         "total": "Total VPNs",
+        "requested": "Solicitadas",
+        "approved": "Aprobadas",
         "active": "Activas",
         "configuring": "Configurando",
         "suspended": "Suspendidas",
         "expired": "Expiradas"
       },
       "table": {
-        "name": "VPN",
+        "name": "Nombre",
         "client": "Cliente",
+        "user": "Usuario",
         "location": "Ubicación",
         "status": "Estado",
-        "expires": "Expira"
+        "expires": "Expira",
+        "expiryDate": "Fecha de Vencimiento",
+        "bandwidth": "Ancho de Banda"
       }
     }
   },

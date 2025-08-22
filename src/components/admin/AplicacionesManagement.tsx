@@ -365,7 +365,7 @@ export function AplicacionesManagement() {
         
         {filteredAplicaciones.length === 0 && (
           <div className="text-center py-12">
-            <div className="text-muted-foreground">No se encontraron aplicaciones</div>
+            <div className="text-muted-foreground">{t('noApplicationsFound')}</div>
           </div>
         )}
       </div>

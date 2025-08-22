@@ -353,7 +353,7 @@ export function TicketsManagement() {
         
         {filteredTickets.length === 0 && (
           <div className="text-center py-12">
-            <div className="text-muted-foreground">No se encontraron tickets</div>
+            <div className="text-muted-foreground">{t('noTicketsFound')}</div>
           </div>
         )}
       </div>

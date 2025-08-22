@@ -387,7 +387,7 @@ export function VPNsManagement() {
         
         {filteredVPNs.length === 0 && (
           <div className="text-center py-12">
-            <div className="text-muted-foreground">No se encontraron VPNs</div>
+            <div className="text-muted-foreground">{t('noVPNsFound')}</div>
           </div>
         )}
       </div>

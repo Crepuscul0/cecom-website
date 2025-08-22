@@ -271,7 +271,7 @@ export function UsersManagement() {
         
         {filteredUsers.length === 0 && (
           <div className="text-center py-12">
-            <div className="text-muted-foreground">No se encontraron usuarios</div>
+            <div className="text-muted-foreground">{t('noUsersFound')}</div>
           </div>
         )}
       </div>
