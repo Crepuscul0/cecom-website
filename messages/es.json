@@ -437,6 +437,202 @@
       }
     }
   },
+  "AdminPanel": {
+    "title": "Panel de Administración - CECOM",
+    "navigation": {
+      "cms": "CMS",
+      "users": "Usuarios",
+      "tickets": "Tickets",
+      "cotizaciones": "Cotizaciones",
+      "aplicaciones": "Aplicaciones",
+      "vpns": "VPNs"
+    },
+    "common": {
+      "search": "Buscar...",
+      "filter": "Filtrar",
+      "actions": "Acciones",
+      "status": "Estado",
+      "created": "Creado",
+      "updated": "Actualizado",
+      "save": "Guardar",
+      "cancel": "Cancelar",
+      "delete": "Eliminar",
+      "edit": "Editar",
+      "view": "Ver",
+      "add": "Agregar",
+      "loading": "Cargando...",
+      "noData": "No hay datos disponibles"
+    },
+    "users": {
+      "title": "Gestión de Usuarios",
+      "searchPlaceholder": "Buscar usuarios...",
+      "status": {
+        "all": "Todos",
+        "pending": "Pendiente",
+        "approved": "Aprobado",
+        "rejected": "Rechazado"
+      },
+      "actions": {
+        "approve": "Aprobar",
+        "reject": "Rechazar",
+        "viewDetails": "Ver Detalles"
+      },
+      "table": {
+        "name": "Nombre",
+        "email": "Email",
+        "role": "Rol",
+        "status": "Estado",
+        "created": "Creado"
+      },
+      "userDetails": {
+        "title": "Detalles del Usuario",
+        "fullName": "Nombre Completo",
+        "email": "Email",
+        "role": "Rol",
+        "status": "Estado",
+        "registrationDate": "Fecha de Registro",
+        "approvalDate": "Fecha de Aprobación"
+      }
+    },
+    "tickets": {
+      "title": "Gestión de Tickets",
+      "newTicket": "Nuevo Ticket",
+      "searchPlaceholder": "Buscar tickets...",
+      "status": {
+        "all": "Todos",
+        "open": "Abierto",
+        "in_progress": "En Progreso",
+        "resolved": "Resuelto",
+        "closed": "Cerrado"
+      },
+      "priority": {
+        "all": "Todas",
+        "low": "Baja",
+        "medium": "Media",
+        "high": "Alta",
+        "urgent": "Urgente"
+      },
+      "stats": {
+        "total": "Total Tickets",
+        "open": "Abiertos",
+        "inProgress": "En Progreso",
+        "urgent": "Urgentes"
+      },
+      "table": {
+        "title": "Título",
+        "status": "Estado",
+        "priority": "Prioridad",
+        "category": "Categoría",
+        "date": "Fecha",
+        "assignedTo": "Asignado a",
+        "createdAt": "Creado"
+      },
+      "form": {
+        "title": "Título",
+        "description": "Descripción",
+        "category": "Categoría",
+        "assignedTo": "Asignado a"
+      }
+    },
+    "cotizaciones": {
+      "title": "Gestión de Cotizaciones",
+      "newQuote": "Nueva Cotización",
+      "searchPlaceholder": "Buscar cotizaciones...",
+      "status": {
+        "all": "Todas",
+        "draft": "Borrador",
+        "sent": "Enviada",
+        "approved": "Aprobada",
+        "rejected": "Rechazada",
+        "expired": "Expirada"
+      },
+      "stats": {
+        "total": "Total Cotizaciones",
+        "sent": "Enviadas",
+        "approved": "Aprobadas",
+        "approvedValue": "Valor Aprobado"
+      },
+      "table": {
+        "client": "Cliente",
+        "status": "Estado",
+        "amount": "Monto",
+        "validUntil": "Válida Hasta",
+        "date": "Fecha",
+        "createdAt": "Creada"
+      },
+      "form": {
+        "clientName": "Nombre del Cliente",
+        "clientEmail": "Correo del Cliente",
+        "clientPhone": "Teléfono del Cliente",
+        "company": "Empresa",
+        "description": "Descripción",
+        "products": "Productos",
+        "totalAmount": "Monto Total",
+        "validUntil": "Válida Hasta"
+      }
+    },
+    "aplicaciones": {
+      "title": "Gestión de Aplicaciones",
+      "newApplication": "Nueva Aplicación",
+      "searchPlaceholder": "Buscar aplicaciones...",
+      "status": {
+        "all": "Todas",
+        "active": "Activa",
+        "inactive": "Inactiva",
+        "pending": "Pendiente"
+      },
+      "types": {
+        "all": "Todos los Tipos"
+      },
+      "stats": {
+        "total": "Total Aplicaciones",
+        "submitted": "Enviadas",
+        "underReview": "En Revisión",
+        "approved": "Aprobadas",
+        "deployed": "Desplegadas"
+      },
+      "table": {
+        "application": "Aplicación",
+        "client": "Cliente",
+        "type": "Tipo",
+        "status": "Estado",
+        "date": "Fecha",
+        "name": "Nombre",
+        "version": "Versión",
+        "lastUpdate": "Última Actualización"
+      }
+    },
+    "vpns": {
+      "title": "Gestión de VPNs",
+      "newVPN": "Nueva VPN",
+      "searchPlaceholder": "Buscar VPNs...",
+      "status": {
+        "all": "Todas",
+        "requested": "Solicitada",
+        "configuring": "Configurando",
+        "active": "Activa",
+        "suspended": "Suspendida",
+        "terminated": "Terminada"
+      },
+      "locations": {
+        "all": "Todas las Ubicaciones"
+      },
+      "stats": {
+        "total": "Total VPNs",
+        "active": "Activas",
+        "configuring": "Configurando",
+        "suspended": "Suspendidas",
+        "expired": "Expiradas"
+      },
+      "table": {
+        "name": "VPN",
+        "client": "Cliente",
+        "location": "Ubicación",
+        "status": "Estado",
+        "expires": "Expira"
+      }
+    }
+  },
   "CompanyCredibility": {
     "history": {
       "title": "Nuestra Historia",

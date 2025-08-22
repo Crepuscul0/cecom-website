@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
 import { supabase } from '@/lib/supabase'
 import { Plus, Search, Filter, Eye, Edit, Trash2, DollarSign } from 'lucide-react'
 
@@ -28,6 +29,8 @@ export function CotizacionesManagement() {
   const [editingCotizacion, setEditingCotizacion] = useState<Cotizacion | null>(null)
   const [searchTerm, setSearchTerm] = useState('')
   const [statusFilter, setStatusFilter] = useState<string>('all')
+  const t = useTranslations('AdminPanel.cotizaciones')
+  const tCommon = useTranslations('AdminPanel.common')
 
   type CotizacionFormData = {
     client_name: string
@@ -172,11 +175,11 @@ export function CotizacionesManagement() {
     }
     
     const labels = {
-      draft: 'Borrador',
-      sent: 'Enviada',
-      approved: 'Aprobada',
-      rejected: 'Rechazada',
-      expired: 'Expirada'
+      draft: t('status.draft'),
+      sent: t('status.sent'),
+      approved: t('status.approved'),
+      rejected: t('status.rejected'),
+      expired: t('status.expired')
     }
 
     return (
@@ -208,14 +211,14 @@ export function CotizacionesManagement() {
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <h1 className="text-2xl font-bold text-foreground">Gestión de Cotizaciones</h1>
+        <h1 className="text-2xl font-bold text-foreground">{t('title')}</h1>
         
         <button
           onClick={() => setShowForm(true)}
           className="inline-flex items-center px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
         >
           <Plus className="h-4 w-4 mr-2" />
-          Nueva Cotización
+{t('newQuote')}
         </button>
       </div>
 
@@ -225,7 +228,7 @@ export function CotizacionesManagement() {
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
           <input
             type="text"
-            placeholder="Buscar cotizaciones..."
+            placeholder={t('searchPlaceholder')}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="pl-10 pr-4 py-2 w-full border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
@@ -237,12 +240,12 @@ export function CotizacionesManagement() {
           onChange={(e) => setStatusFilter(e.target.value)}
           className="px-3 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
         >
-          <option value="all">Todos los estados</option>
-          <option value="draft">Borrador</option>
-          <option value="sent">Enviada</option>
-          <option value="approved">Aprobada</option>
-          <option value="rejected">Rechazada</option>
-          <option value="expired">Expirada</option>
+          <option value="all">{t('status.all')}</option>
+          <option value="draft">{t('status.draft')}</option>
+          <option value="sent">{t('status.sent')}</option>
+          <option value="approved">{t('status.approved')}</option>
+          <option value="rejected">{t('status.rejected')}</option>
+          <option value="expired">{t('status.expired')}</option>
         </select>
       </div>
 
@@ -250,21 +253,21 @@ export function CotizacionesManagement() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="bg-card p-4 rounded-lg border">
           <div className="text-2xl font-bold text-foreground">{cotizaciones.length}</div>
-          <div className="text-sm text-muted-foreground">Total Cotizaciones</div>
+          <div className="text-sm text-muted-foreground">{t('stats.total')}</div>
         </div>
         <div className="bg-card p-4 rounded-lg border">
           <div className="text-2xl font-bold text-blue-600">{cotizaciones.filter(c => c.status === 'sent').length}</div>
-          <div className="text-sm text-muted-foreground">Enviadas</div>
+          <div className="text-sm text-muted-foreground">{t('stats.sent')}</div>
         </div>
         <div className="bg-card p-4 rounded-lg border">
           <div className="text-2xl font-bold text-green-600">{cotizaciones.filter(c => c.status === 'approved').length}</div>
-          <div className="text-sm text-muted-foreground">Aprobadas</div>
+          <div className="text-sm text-muted-foreground">{t('stats.approved')}</div>
         </div>
         <div className="bg-card p-4 rounded-lg border">
           <div className="text-2xl font-bold text-green-600">
             ${cotizaciones.filter(c => c.status === 'approved').reduce((sum, c) => sum + (c.total_amount || 0), 0).toLocaleString()}
           </div>
-          <div className="text-sm text-muted-foreground">Valor Aprobado</div>
+          <div className="text-sm text-muted-foreground">{t('stats.approvedValue')}</div>
         </div>
       </div>
 
@@ -275,22 +278,22 @@ export function CotizacionesManagement() {
             <thead className="bg-muted">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Cliente
+                  {t('table.client')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Estado
+                  {t('table.status')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Monto
+                  {t('table.amount')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Válida Hasta
+                  {t('table.validUntil')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Fecha
+                  {t('table.date')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Acciones
+                  {tCommon('actions')}
                 </th>
               </tr>
             </thead>

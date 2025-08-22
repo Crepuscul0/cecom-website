@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
 import { supabase, UserProfile } from '@/lib/supabase'
 import { Check, X, Eye, UserCheck, UserX, Search, Filter } from 'lucide-react'
 
@@ -10,6 +11,8 @@ export function UsersManagement() {
   const [filter, setFilter] = useState<'all' | 'pending' | 'approved' | 'rejected'>('all')
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedUser, setSelectedUser] = useState<UserProfile | null>(null)
+  const t = useTranslations('AdminPanel.users')
+  const tCommon = useTranslations('AdminPanel.common')
 
   useEffect(() => {
     fetchUsers()
@@ -84,9 +87,9 @@ export function UsersManagement() {
     }
     
     const labels = {
-      pending: 'Pendiente',
-      approved: 'Aprobado',
-      rejected: 'Rechazado'
+      pending: t('status.pending'),
+      approved: t('status.approved'),
+      rejected: t('status.rejected')
     }
 
     return (
@@ -105,7 +108,7 @@ export function UsersManagement() {
     
     const labels = {
       admin: 'Administrador',
-      employee: 'Empleado',
+      employee: 'Empleado', 
       user: 'Usuario'
     }
 
@@ -127,7 +130,7 @@ export function UsersManagement() {
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <h1 className="text-2xl font-bold text-foreground">Gestión de Usuarios</h1>
+        <h1 className="text-2xl font-bold text-foreground">{t('title')}</h1>
         
         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
           {/* Search */}
@@ -135,7 +138,7 @@ export function UsersManagement() {
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
             <input
               type="text"
-              placeholder="Buscar usuarios..."
+              placeholder={t('searchPlaceholder')}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-10 pr-4 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
@@ -150,10 +153,10 @@ export function UsersManagement() {
               onChange={(e) => setFilter(e.target.value as any)}
               className="pl-10 pr-8 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring appearance-none"
             >
-              <option value="all">Todos</option>
-              <option value="pending">Pendientes</option>
-              <option value="approved">Aprobados</option>
-              <option value="rejected">Rechazados</option>
+              <option value="all">{t('status.all')}</option>
+              <option value="pending">{t('status.pending')}</option>
+              <option value="approved">{t('status.approved')}</option>
+              <option value="rejected">{t('status.rejected')}</option>
             </select>
           </div>
         </div>
@@ -167,15 +170,15 @@ export function UsersManagement() {
         </div>
         <div className="bg-card p-4 rounded-lg border">
           <div className="text-2xl font-bold text-yellow-600">{users.filter(u => u.approval_status === 'pending').length}</div>
-          <div className="text-sm text-muted-foreground">Pendientes</div>
+          <div className="text-sm text-muted-foreground">{t('status.pending')}</div>
         </div>
         <div className="bg-card p-4 rounded-lg border">
           <div className="text-2xl font-bold text-green-600">{users.filter(u => u.approval_status === 'approved').length}</div>
-          <div className="text-sm text-muted-foreground">Aprobados</div>
+          <div className="text-sm text-muted-foreground">{t('status.approved')}</div>
         </div>
         <div className="bg-card p-4 rounded-lg border">
           <div className="text-2xl font-bold text-red-600">{users.filter(u => u.approval_status === 'rejected').length}</div>
-          <div className="text-sm text-muted-foreground">Rechazados</div>
+          <div className="text-sm text-muted-foreground">{t('status.rejected')}</div>
         </div>
       </div>
 
@@ -186,19 +189,19 @@ export function UsersManagement() {
             <thead className="bg-muted">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Usuario
+                  {t('table.name')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Rol
+                  {t('table.role')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Estado
+                  {t('table.status')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Fecha Registro
+                  {t('table.created')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Acciones
+                  {tCommon('actions')}
                 </th>
               </tr>
             </thead>
@@ -278,7 +281,7 @@ export function UsersManagement() {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-card rounded-lg p-6 max-w-md w-full mx-4">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-semibold">Detalles del Usuario</h3>
+              <h3 className="text-lg font-semibold">{t('userDetails.title')}</h3>
               <button
                 onClick={() => setSelectedUser(null)}
                 className="text-muted-foreground hover:text-foreground"
@@ -289,34 +292,34 @@ export function UsersManagement() {
             
             <div className="space-y-4">
               <div>
-                <label className="text-sm font-medium text-muted-foreground">Nombre Completo</label>
+                <label className="text-sm font-medium text-muted-foreground">{t('userDetails.fullName')}</label>
                 <div className="text-foreground">{selectedUser.first_name} {selectedUser.last_name}</div>
               </div>
               
               <div>
-                <label className="text-sm font-medium text-muted-foreground">Email</label>
+                <label className="text-sm font-medium text-muted-foreground">{t('userDetails.email')}</label>
                 <div className="text-foreground">{selectedUser.email}</div>
               </div>
               
               <div>
-                <label className="text-sm font-medium text-muted-foreground">Rol</label>
+                <label className="text-sm font-medium text-muted-foreground">{t('userDetails.role')}</label>
                 <div>{getRoleBadge(selectedUser.role)}</div>
               </div>
               
               <div>
-                <label className="text-sm font-medium text-muted-foreground">Estado</label>
+                <label className="text-sm font-medium text-muted-foreground">{t('userDetails.status')}</label>
                 <div>{getStatusBadge(selectedUser.approval_status)}</div>
               </div>
               
               <div>
-                <label className="text-sm font-medium text-muted-foreground">Fecha de Registro</label>
-                <div className="text-foreground">{new Date(selectedUser.created_at).toLocaleString('es-ES')}</div>
+                <label className="text-sm font-medium text-muted-foreground">{t('userDetails.registrationDate')}</label>
+                <div className="text-foreground">{new Date(selectedUser.created_at).toLocaleString()}</div>
               </div>
               
               {selectedUser.approved_at && (
                 <div>
-                  <label className="text-sm font-medium text-muted-foreground">Fecha de Aprobación</label>
-                  <div className="text-foreground">{new Date(selectedUser.approved_at).toLocaleString('es-ES')}</div>
+                  <label className="text-sm font-medium text-muted-foreground">{t('userDetails.approvalDate')}</label>
+                  <div className="text-foreground">{new Date(selectedUser.approved_at).toLocaleString()}</div>
                 </div>
               )}
             </div>

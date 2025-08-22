@@ -2,8 +2,11 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 import { supabase, getUserProfile, UserProfile, isAdmin, isEmployee } from '@/lib/supabase'
 import { Users, Ticket, FileText, Wifi, Settings, LogOut, Menu, X } from 'lucide-react'
+import { LanguageToggle } from '@/components/admin/LanguageToggle'
+import { useAdminLocale } from '@/contexts/AdminLocaleContext'
 
 interface AdminPanelLayoutProps {
   children: React.ReactNode
@@ -16,6 +19,8 @@ export function AdminPanelLayout({ children, activeSection }: AdminPanelLayoutPr
   const [loading, setLoading] = useState(true)
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const router = useRouter()
+  const t = useTranslations('AdminPanel')
+  const { locale, setLocale } = useAdminLocale()
 
   useEffect(() => {
     const getUser = async () => {
@@ -67,16 +72,16 @@ export function AdminPanelLayout({ children, activeSection }: AdminPanelLayoutPr
   const navigationItems = [
     // Admin-only sections
     ...(isAdmin(userProfile.role) ? [
-      { id: 'cms', label: 'CMS', icon: Settings, href: '/admin-panel/cms' },
-      { id: 'users', label: 'Usuarios', icon: Users, href: '/admin-panel/users' },
+      { id: 'cms', label: t('navigation.cms'), icon: Settings, href: '/admin-panel/cms' },
+      { id: 'users', label: t('navigation.users'), icon: Users, href: '/admin-panel/users' },
     ] : []),
     
     // Employee and Admin sections
     ...(isEmployee(userProfile.role) || isAdmin(userProfile.role) ? [
-      { id: 'tickets', label: 'Tickets', icon: Ticket, href: '/admin-panel/tickets' },
-      { id: 'cotizaciones', label: 'Cotizaciones', icon: FileText, href: '/admin-panel/cotizaciones' },
-      { id: 'aplicaciones', label: 'Aplicaciones', icon: Settings, href: '/admin-panel/aplicaciones' },
-      { id: 'vpns', label: 'VPNs', icon: Wifi, href: '/admin-panel/vpns' },
+      { id: 'tickets', label: t('navigation.tickets'), icon: Ticket, href: '/admin-panel/tickets' },
+      { id: 'cotizaciones', label: t('navigation.cotizaciones'), icon: FileText, href: '/admin-panel/cotizaciones' },
+      { id: 'aplicaciones', label: t('navigation.aplicaciones'), icon: Settings, href: '/admin-panel/aplicaciones' },
+      { id: 'vpns', label: t('navigation.vpns'), icon: Wifi, href: '/admin-panel/vpns' },
     ] : []),
   ]
 
@@ -125,15 +130,16 @@ export function AdminPanelLayout({ children, activeSection }: AdminPanelLayoutPr
           <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
             <div className="flex items-center gap-x-4 lg:gap-x-6">
               <h1 className="text-lg font-semibold text-foreground">
-                Panel de Administración - CECOM
+                {t('title')}
               </h1>
             </div>
             <div className="flex items-center gap-x-4 lg:gap-x-6 ml-auto">
+              <LanguageToggle currentLocale={locale} onLocaleChange={setLocale} />
               <span className="text-sm text-muted-foreground">
                 {userProfile.first_name} {userProfile.last_name}
               </span>
               <span className="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-xs font-medium text-primary ring-1 ring-inset ring-primary/20">
-                {userProfile.role === 'admin' ? 'Administrador' : 
+                {userProfile.role === 'admin' ? t('navigation.users') : 
                  userProfile.role === 'employee' ? 'Empleado' : 'Usuario'}
               </span>
             </div>

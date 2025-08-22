@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
 import { supabase } from '@/lib/supabase'
 import { Plus, Search, Filter, Eye, Edit, Trash2, Wifi, WifiOff } from 'lucide-react'
 
@@ -27,6 +28,8 @@ export function VPNsManagement() {
   const [searchTerm, setSearchTerm] = useState('')
   const [statusFilter, setStatusFilter] = useState<string>('all')
   const [locationFilter, setLocationFilter] = useState<string>('all')
+  const t = useTranslations('AdminPanel.vpns')
+  const tCommon = useTranslations('AdminPanel.common')
 
   type VPNFormData = {
     vpn_name: string
@@ -224,14 +227,14 @@ export function VPNsManagement() {
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <h1 className="text-2xl font-bold text-foreground">Gestión de VPNs</h1>
+        <h1 className="text-2xl font-bold text-foreground">{t('title')}</h1>
         
         <button
           onClick={() => setShowForm(true)}
           className="inline-flex items-center px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
         >
           <Plus className="h-4 w-4 mr-2" />
-          Nueva VPN
+{t('newVPN')}
         </button>
       </div>
 
@@ -241,7 +244,7 @@ export function VPNsManagement() {
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
           <input
             type="text"
-            placeholder="Buscar VPNs..."
+            placeholder={t('searchPlaceholder')}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="pl-10 pr-4 py-2 w-full border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
@@ -253,12 +256,12 @@ export function VPNsManagement() {
           onChange={(e) => setStatusFilter(e.target.value)}
           className="px-3 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
         >
-          <option value="all">Todos los estados</option>
-          <option value="requested">Solicitada</option>
-          <option value="configuring">Configurando</option>
-          <option value="active">Activa</option>
-          <option value="suspended">Suspendida</option>
-          <option value="terminated">Terminada</option>
+          <option value="all">{t('status.all')}</option>
+          <option value="requested">{t('status.requested')}</option>
+          <option value="configuring">{t('status.configuring')}</option>
+          <option value="active">{t('status.active')}</option>
+          <option value="suspended">{t('status.suspended')}</option>
+          <option value="terminated">{t('status.terminated')}</option>
         </select>
         
         <select
@@ -266,7 +269,7 @@ export function VPNsManagement() {
           onChange={(e) => setLocationFilter(e.target.value)}
           className="px-3 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
         >
-          <option value="all">Todas las ubicaciones</option>
+          <option value="all">{t('locations.all')}</option>
           {serverLocations.map(location => (
             <option key={location} value={location}>{location}</option>
           ))}
@@ -277,23 +280,23 @@ export function VPNsManagement() {
       <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
         <div className="bg-card p-4 rounded-lg border">
           <div className="text-2xl font-bold text-foreground">{vpns.length}</div>
-          <div className="text-sm text-muted-foreground">Total VPNs</div>
+          <div className="text-sm text-muted-foreground">{t('stats.total')}</div>
         </div>
         <div className="bg-card p-4 rounded-lg border">
           <div className="text-2xl font-bold text-green-600">{vpns.filter(v => v.status === 'active').length}</div>
-          <div className="text-sm text-muted-foreground">Activas</div>
+          <div className="text-sm text-muted-foreground">{t('stats.active')}</div>
         </div>
         <div className="bg-card p-4 rounded-lg border">
           <div className="text-2xl font-bold text-yellow-600">{vpns.filter(v => v.status === 'configuring').length}</div>
-          <div className="text-sm text-muted-foreground">Configurando</div>
+          <div className="text-sm text-muted-foreground">{t('stats.configuring')}</div>
         </div>
         <div className="bg-card p-4 rounded-lg border">
           <div className="text-2xl font-bold text-orange-600">{vpns.filter(v => v.status === 'suspended').length}</div>
-          <div className="text-sm text-muted-foreground">Suspendidas</div>
+          <div className="text-sm text-muted-foreground">{t('stats.suspended')}</div>
         </div>
         <div className="bg-card p-4 rounded-lg border">
           <div className="text-2xl font-bold text-red-600">{vpns.filter(v => v.expires_at && isExpired(v.expires_at)).length}</div>
-          <div className="text-sm text-muted-foreground">Expiradas</div>
+          <div className="text-sm text-muted-foreground">{t('stats.expired')}</div>
         </div>
       </div>
 
@@ -304,22 +307,22 @@ export function VPNsManagement() {
             <thead className="bg-muted">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  VPN
+                  {t('table.name')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Cliente
+                  {t('table.client')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Ubicación
+                  {t('table.location')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Estado
+                  {t('table.status')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Expira
+                  {t('table.expires')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Acciones
+                  {tCommon('actions')}
                 </th>
               </tr>
             </thead>

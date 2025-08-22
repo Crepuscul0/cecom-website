@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
 import { supabase } from '@/lib/supabase'
 import { Plus, Search, Filter, Eye, Edit, Trash2 } from 'lucide-react'
 
@@ -25,6 +26,8 @@ export function TicketsManagement() {
   const [searchTerm, setSearchTerm] = useState('')
   const [statusFilter, setStatusFilter] = useState<string>('all')
   const [priorityFilter, setPriorityFilter] = useState<string>('all')
+  const t = useTranslations('AdminPanel.tickets')
+  const tCommon = useTranslations('AdminPanel.common')
 
   type TicketFormData = {
     title: string
@@ -149,10 +152,10 @@ export function TicketsManagement() {
     }
     
     const labels = {
-      open: 'Abierto',
-      in_progress: 'En Progreso',
-      resolved: 'Resuelto',
-      closed: 'Cerrado'
+      open: t('status.open'),
+      in_progress: t('status.in_progress'),
+      resolved: t('status.resolved'),
+      closed: t('status.closed')
     }
 
     return (
@@ -171,10 +174,10 @@ export function TicketsManagement() {
     }
     
     const labels = {
-      low: 'Baja',
-      medium: 'Media',
-      high: 'Alta',
-      urgent: 'Urgente'
+      low: t('priority.low'),
+      medium: t('priority.medium'),
+      high: t('priority.high'),
+      urgent: t('priority.urgent')
     }
 
     return (
@@ -206,14 +209,14 @@ export function TicketsManagement() {
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <h1 className="text-2xl font-bold text-foreground">Gestión de Tickets</h1>
+        <h1 className="text-2xl font-bold text-foreground">{t('title')}</h1>
         
         <button
           onClick={() => setShowForm(true)}
           className="inline-flex items-center px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
         >
           <Plus className="h-4 w-4 mr-2" />
-          Nuevo Ticket
+{t('newTicket')}
         </button>
       </div>
 
@@ -223,7 +226,7 @@ export function TicketsManagement() {
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
           <input
             type="text"
-            placeholder="Buscar tickets..."
+            placeholder={t('searchPlaceholder')}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="pl-10 pr-4 py-2 w-full border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
@@ -235,11 +238,11 @@ export function TicketsManagement() {
           onChange={(e) => setStatusFilter(e.target.value)}
           className="px-3 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
         >
-          <option value="all">Todos los estados</option>
-          <option value="open">Abierto</option>
-          <option value="in_progress">En Progreso</option>
-          <option value="resolved">Resuelto</option>
-          <option value="closed">Cerrado</option>
+          <option value="all">{t('status.all')}</option>
+          <option value="open">{t('status.open')}</option>
+          <option value="in_progress">{t('status.in_progress')}</option>
+          <option value="resolved">{t('status.resolved')}</option>
+          <option value="closed">{t('status.closed')}</option>
         </select>
         
         <select
@@ -247,11 +250,11 @@ export function TicketsManagement() {
           onChange={(e) => setPriorityFilter(e.target.value)}
           className="px-3 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
         >
-          <option value="all">Todas las prioridades</option>
-          <option value="low">Baja</option>
-          <option value="medium">Media</option>
-          <option value="high">Alta</option>
-          <option value="urgent">Urgente</option>
+          <option value="all">{t('priority.all')}</option>
+          <option value="low">{t('priority.low')}</option>
+          <option value="medium">{t('priority.medium')}</option>
+          <option value="high">{t('priority.high')}</option>
+          <option value="urgent">{t('priority.urgent')}</option>
         </select>
       </div>
 
@@ -259,19 +262,19 @@ export function TicketsManagement() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="bg-card p-4 rounded-lg border">
           <div className="text-2xl font-bold text-foreground">{tickets.length}</div>
-          <div className="text-sm text-muted-foreground">Total Tickets</div>
+          <div className="text-sm text-muted-foreground">{t('stats.total')}</div>
         </div>
         <div className="bg-card p-4 rounded-lg border">
           <div className="text-2xl font-bold text-blue-600">{tickets.filter(t => t.status === 'open').length}</div>
-          <div className="text-sm text-muted-foreground">Abiertos</div>
+          <div className="text-sm text-muted-foreground">{t('stats.open')}</div>
         </div>
         <div className="bg-card p-4 rounded-lg border">
           <div className="text-2xl font-bold text-yellow-600">{tickets.filter(t => t.status === 'in_progress').length}</div>
-          <div className="text-sm text-muted-foreground">En Progreso</div>
+          <div className="text-sm text-muted-foreground">{t('stats.inProgress')}</div>
         </div>
         <div className="bg-card p-4 rounded-lg border">
           <div className="text-2xl font-bold text-red-600">{tickets.filter(t => t.priority === 'urgent').length}</div>
-          <div className="text-sm text-muted-foreground">Urgentes</div>
+          <div className="text-sm text-muted-foreground">{t('stats.urgent')}</div>
         </div>
       </div>
 
@@ -282,22 +285,22 @@ export function TicketsManagement() {
             <thead className="bg-muted">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Título
+                  {t('table.title')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Estado
+                  {t('table.status')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Prioridad
+                  {t('table.priority')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Categoría
+                  {t('table.category')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Fecha
+                  {t('table.date')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Acciones
+                  {tCommon('actions')}
                 </th>
               </tr>
             </thead>

@@ -437,6 +437,202 @@
       }
     }
   },
+  "AdminPanel": {
+    "title": "Administration Panel - CECOM",
+    "navigation": {
+      "cms": "CMS",
+      "users": "Users",
+      "tickets": "Tickets",
+      "cotizaciones": "Quotes",
+      "aplicaciones": "Applications",
+      "vpns": "VPNs"
+    },
+    "common": {
+      "search": "Search...",
+      "filter": "Filter",
+      "actions": "Actions",
+      "status": "Status",
+      "created": "Created",
+      "updated": "Updated",
+      "save": "Save",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "edit": "Edit",
+      "view": "View",
+      "add": "Add",
+      "loading": "Loading...",
+      "noData": "No data available"
+    },
+    "users": {
+      "title": "User Management",
+      "searchPlaceholder": "Search users...",
+      "status": {
+        "all": "All",
+        "pending": "Pending",
+        "approved": "Approved",
+        "rejected": "Rejected"
+      },
+      "actions": {
+        "approve": "Approve",
+        "reject": "Reject",
+        "viewDetails": "View Details"
+      },
+      "table": {
+        "name": "Name",
+        "email": "Email",
+        "role": "Role",
+        "status": "Status",
+        "created": "Created"
+      },
+      "userDetails": {
+        "title": "User Details",
+        "fullName": "Full Name",
+        "email": "Email",
+        "role": "Role",
+        "status": "Status",
+        "registrationDate": "Registration Date",
+        "approvalDate": "Approval Date"
+      }
+    },
+    "tickets": {
+      "title": "Ticket Management",
+      "newTicket": "New Ticket",
+      "searchPlaceholder": "Search tickets...",
+      "status": {
+        "all": "All",
+        "open": "Open",
+        "in_progress": "In Progress",
+        "resolved": "Resolved",
+        "closed": "Closed"
+      },
+      "priority": {
+        "all": "All",
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High",
+        "urgent": "Urgent"
+      },
+      "stats": {
+        "total": "Total Tickets",
+        "open": "Open",
+        "inProgress": "In Progress",
+        "urgent": "Urgent"
+      },
+      "table": {
+        "title": "Title",
+        "status": "Status",
+        "priority": "Priority",
+        "category": "Category",
+        "date": "Date",
+        "assignedTo": "Assigned To",
+        "createdAt": "Created"
+      },
+      "form": {
+        "title": "Title",
+        "description": "Description",
+        "category": "Category",
+        "assignedTo": "Assigned To"
+      }
+    },
+    "cotizaciones": {
+      "title": "Quote Management",
+      "newQuote": "New Quote",
+      "searchPlaceholder": "Search quotes...",
+      "status": {
+        "all": "All",
+        "draft": "Draft",
+        "sent": "Sent",
+        "approved": "Approved",
+        "rejected": "Rejected",
+        "expired": "Expired"
+      },
+      "stats": {
+        "total": "Total Quotes",
+        "sent": "Sent",
+        "approved": "Approved",
+        "approvedValue": "Approved Value"
+      },
+      "table": {
+        "client": "Client",
+        "status": "Status",
+        "amount": "Amount",
+        "validUntil": "Valid Until",
+        "date": "Date",
+        "createdAt": "Created"
+      },
+      "form": {
+        "clientName": "Client Name",
+        "clientEmail": "Client Email",
+        "clientPhone": "Client Phone",
+        "company": "Company",
+        "description": "Description",
+        "products": "Products",
+        "totalAmount": "Total Amount",
+        "validUntil": "Valid Until"
+      }
+    },
+    "aplicaciones": {
+      "title": "Application Management",
+      "newApplication": "New Application",
+      "searchPlaceholder": "Search applications...",
+      "status": {
+        "all": "All",
+        "active": "Active",
+        "inactive": "Inactive",
+        "pending": "Pending"
+      },
+      "types": {
+        "all": "All Types"
+      },
+      "stats": {
+        "total": "Total Applications",
+        "submitted": "Submitted",
+        "underReview": "Under Review",
+        "approved": "Approved",
+        "deployed": "Deployed"
+      },
+      "table": {
+        "application": "Application",
+        "client": "Client",
+        "type": "Type",
+        "status": "Status",
+        "date": "Date",
+        "name": "Name",
+        "version": "Version",
+        "lastUpdate": "Last Update"
+      }
+    },
+    "vpns": {
+      "title": "VPN Management",
+      "newVPN": "New VPN",
+      "searchPlaceholder": "Search VPNs...",
+      "status": {
+        "all": "All",
+        "requested": "Requested",
+        "configuring": "Configuring",
+        "active": "Active",
+        "suspended": "Suspended",
+        "terminated": "Terminated"
+      },
+      "locations": {
+        "all": "All Locations"
+      },
+      "stats": {
+        "total": "Total VPNs",
+        "active": "Active",
+        "configuring": "Configuring",
+        "suspended": "Suspended",
+        "expired": "Expired"
+      },
+      "table": {
+        "name": "VPN",
+        "client": "Client",
+        "location": "Location",
+        "status": "Status",
+        "expires": "Expires"
+      }
+    }
+  },
   "CompanyCredibility": {
     "history": {
       "title": "Our History",

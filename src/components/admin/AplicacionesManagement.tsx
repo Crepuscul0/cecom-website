@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
 import { supabase } from '@/lib/supabase'
 import { Plus, Search, Filter, Eye, Edit, Trash2, Settings } from 'lucide-react'
 
@@ -29,6 +30,8 @@ export function AplicacionesManagement() {
   const [searchTerm, setSearchTerm] = useState('')
   const [statusFilter, setStatusFilter] = useState<string>('all')
   const [typeFilter, setTypeFilter] = useState<string>('all')
+  const t = useTranslations('AdminPanel.aplicaciones')
+  const tCommon = useTranslations('AdminPanel.common')
 
   const [formData, setFormData] = useState<{
     application_name: string
@@ -209,14 +212,14 @@ export function AplicacionesManagement() {
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <h1 className="text-2xl font-bold text-foreground">Gestión de Aplicaciones</h1>
+        <h1 className="text-2xl font-bold text-foreground">{t('title')}</h1>
         
         <button
           onClick={() => setShowForm(true)}
           className="inline-flex items-center px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
         >
           <Plus className="h-4 w-4 mr-2" />
-          Nueva Aplicación
+{t('newApplication')}
         </button>
       </div>
 
@@ -226,7 +229,7 @@ export function AplicacionesManagement() {
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
           <input
             type="text"
-            placeholder="Buscar aplicaciones..."
+            placeholder={t('searchPlaceholder')}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="pl-10 pr-4 py-2 w-full border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
@@ -238,10 +241,10 @@ export function AplicacionesManagement() {
           onChange={(e) => setStatusFilter(e.target.value)}
           className="px-3 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
         >
-          <option value="all">Todos los estados</option>
+          <option value="all">{t('status.all')}</option>
           <option value="submitted">Enviada</option>
           <option value="under_review">En Revisión</option>
-          <option value="approved">Aprobada</option>
+          <option value="approved">{t('status.active')}</option>
           <option value="rejected">Rechazada</option>
           <option value="deployed">Desplegada</option>
         </select>
@@ -251,7 +254,7 @@ export function AplicacionesManagement() {
           onChange={(e) => setTypeFilter(e.target.value)}
           className="px-3 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-ring"
         >
-          <option value="all">Todos los tipos</option>
+          <option value="all">{t('types.all')}</option>
           {applicationTypes.map(type => (
             <option key={type} value={type}>{type}</option>
           ))}
@@ -262,23 +265,23 @@ export function AplicacionesManagement() {
       <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
         <div className="bg-card p-4 rounded-lg border">
           <div className="text-2xl font-bold text-foreground">{aplicaciones.length}</div>
-          <div className="text-sm text-muted-foreground">Total</div>
+          <div className="text-sm text-muted-foreground">{t('stats.total')}</div>
         </div>
         <div className="bg-card p-4 rounded-lg border">
           <div className="text-2xl font-bold text-blue-600">{aplicaciones.filter(a => a.status === 'submitted').length}</div>
-          <div className="text-sm text-muted-foreground">Enviadas</div>
+          <div className="text-sm text-muted-foreground">{t('stats.submitted')}</div>
         </div>
         <div className="bg-card p-4 rounded-lg border">
           <div className="text-2xl font-bold text-yellow-600">{aplicaciones.filter(a => a.status === 'under_review').length}</div>
-          <div className="text-sm text-muted-foreground">En Revisión</div>
+          <div className="text-sm text-muted-foreground">{t('stats.underReview')}</div>
         </div>
         <div className="bg-card p-4 rounded-lg border">
           <div className="text-2xl font-bold text-green-600">{aplicaciones.filter(a => a.status === 'approved').length}</div>
-          <div className="text-sm text-muted-foreground">Aprobadas</div>
+          <div className="text-sm text-muted-foreground">{t('stats.approved')}</div>
         </div>
         <div className="bg-card p-4 rounded-lg border">
           <div className="text-2xl font-bold text-purple-600">{aplicaciones.filter(a => a.status === 'deployed').length}</div>
-          <div className="text-sm text-muted-foreground">Desplegadas</div>
+          <div className="text-sm text-muted-foreground">{t('stats.deployed')}</div>
         </div>
       </div>
 
@@ -289,22 +292,22 @@ export function AplicacionesManagement() {
             <thead className="bg-muted">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Aplicación
+                  {t('table.application')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Cliente
+                  {t('table.client')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Tipo
+                  {t('table.type')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Estado
+                  {t('table.status')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Fecha
+                  {t('table.date')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Acciones
+                  {tCommon('actions')}
                 </th>
               </tr>
             </thead>
