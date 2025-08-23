@@ -307,6 +307,181 @@ export default buildConfig({
         },
       ],
     },
+    // Blog Posts collection
+    {
+      slug: 'blog-posts',
+      admin: {
+        useAsTitle: 'title',
+      },
+      fields: [
+        {
+          name: 'title',
+          type: 'text',
+          required: true,
+          localized: true,
+        },
+        {
+          name: 'slug',
+          type: 'text',
+          required: true,
+          unique: true,
+          admin: {
+            description: 'URL-friendly version of the title',
+          },
+        },
+        {
+          name: 'excerpt',
+          type: 'textarea',
+          required: true,
+          localized: true,
+          admin: {
+            description: 'Brief summary for article previews',
+          },
+        },
+        {
+          name: 'content',
+          type: 'richText',
+          required: true,
+          localized: true,
+        },
+        {
+          name: 'featuredImage',
+          type: 'upload',
+          relationTo: 'media',
+          admin: {
+            description: 'Main image for the blog post',
+          },
+        },
+        {
+          name: 'category',
+          type: 'relationship',
+          relationTo: 'blog-categories',
+          required: true,
+        },
+        {
+          name: 'tags',
+          type: 'relationship',
+          relationTo: 'blog-tags',
+          hasMany: true,
+        },
+        {
+          name: 'author',
+          type: 'relationship',
+          relationTo: 'users',
+          required: true,
+        },
+        {
+          name: 'publishedDate',
+          type: 'date',
+          required: true,
+          defaultValue: () => new Date(),
+        },
+        {
+          name: 'readingTime',
+          type: 'number',
+          admin: {
+            description: 'Estimated reading time in minutes',
+          },
+        },
+        {
+          name: 'status',
+          type: 'select',
+          options: [
+            { label: 'Draft', value: 'draft' },
+            { label: 'Published', value: 'published' },
+            { label: 'Archived', value: 'archived' },
+          ],
+          defaultValue: 'draft',
+          required: true,
+        },
+        {
+          name: 'seo',
+          type: 'group',
+          fields: [
+            {
+              name: 'metaTitle',
+              type: 'text',
+              localized: true,
+            },
+            {
+              name: 'metaDescription',
+              type: 'textarea',
+              localized: true,
+            },
+            {
+              name: 'keywords',
+              type: 'text',
+              localized: true,
+            },
+          ],
+        },
+      ],
+      hooks: {
+        beforeChange: [
+          async ({ data }) => {
+            // Auto-generate reading time based on content length
+            if (data.content && !data.readingTime) {
+              const wordCount = JSON.stringify(data.content).split(' ').length;
+              data.readingTime = Math.ceil(wordCount / 200); // 200 words per minute
+            }
+            return data;
+          },
+        ],
+      },
+    },
+    // Blog Categories collection
+    {
+      slug: 'blog-categories',
+      admin: {
+        useAsTitle: 'name',
+      },
+      fields: [
+        {
+          name: 'name',
+          type: 'text',
+          required: true,
+          localized: true,
+        },
+        {
+          name: 'slug',
+          type: 'text',
+          required: true,
+          unique: true,
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          localized: true,
+        },
+        {
+          name: 'color',
+          type: 'text',
+          admin: {
+            description: 'Hex color code for category badge',
+          },
+        },
+      ],
+    },
+    // Blog Tags collection
+    {
+      slug: 'blog-tags',
+      admin: {
+        useAsTitle: 'name',
+      },
+      fields: [
+        {
+          name: 'name',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'slug',
+          type: 'text',
+          required: true,
+          unique: true,
+        },
+      ],
+    },
     // Media collection for file uploads
     {
       slug: 'media',

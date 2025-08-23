@@ -111,6 +111,16 @@ export default function Header() {
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <Link 
+                    href={`/${currentLocale}/blog`} 
+                    className={cn("px-3 py-2 text-base font-medium text-muted-foreground hover:text-primary transition-colors duration-200 rounded-md hover:bg-accent")}
+                    aria-label={t('accessibility.blogLink')}
+                    title={t('tooltips.blog')}
+                  >
+                    {t('blog')}
+                  </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link 
                     href={`/${currentLocale}/about`} 
                     className={cn("px-3 py-2 text-base font-medium text-muted-foreground hover:text-primary transition-colors duration-200 rounded-md hover:bg-accent")}
                     aria-label={t('accessibility.aboutUsLink')}
@@ -239,6 +249,18 @@ export default function Header() {
                       <div className="flex items-center">
                         <div className="w-2 h-2 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
                         {t('alliances')}
+                      </div>
+                    </Link>
+                    
+                    <Link 
+                      href={`/${currentLocale}/blog`} 
+                      className="group flex items-center px-4 py-3 text-base font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 border border-transparent hover:border-primary/20"
+                      aria-label={t('accessibility.blogLink')}
+                      title={t('tooltips.blog')}
+                    >
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                        {t('blog')}
                       </div>
                     </Link>
                     

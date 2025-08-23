@@ -1,0 +1,23 @@
+[
+  {
+    "id": "cat-cybersecurity",
+    "name": "Ciberseguridad",
+    "slug": "cybersecurity",
+    "description": "Avisos de seguridad, vulnerabilidades y mejores prácticas de ciberseguridad",
+    "color": "#dc2626"
+  },
+  {
+    "id": "cat-networking",
+    "name": "Redes",
+    "slug": "networking",
+    "description": "Infraestructura de red, configuraciones y mejores prácticas",
+    "color": "#2563eb"
+  },
+  {
+    "id": "cat-solutions",
+    "name": "Soluciones Tecnológicas",
+    "slug": "technology-solutions",
+    "description": "Soluciones tecnológicas empresariales e implementaciones",
+    "color": "#059669"
+  }
+]

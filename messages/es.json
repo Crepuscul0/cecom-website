@@ -193,6 +193,30 @@
       "nameMinLength": "El nombre debe tener al menos 2 caracteres"
     }
   },
+  "Blog": {
+    "title": "Blog",
+    "subtitle": "Insights, guías y tendencias en tecnología empresarial para República Dominicana",
+    "description": "Mantente actualizado con las últimas tendencias tecnológicas, consejos de ciberseguridad y soluciones empresariales de los expertos de CECOM.",
+    "backToBlog": "Volver al Blog",
+    "minRead": "min de lectura",
+    "needHelp": "¿Necesitas Ayuda Experta?",
+    "needHelpDescription": "Nuestros expertos en ciberseguridad y TI están listos para ayudarte a implementar estas soluciones en tu empresa.",
+    "contactUs": "Contáctanos",
+    "activeFilters": "Filtros Activos",
+    "category": "Categoría",
+    "tag": "Etiqueta",
+    "search": "Búsqueda",
+    "noPosts": "No se encontraron artículos",
+    "noPostsDescription": "Intenta ajustar tu búsqueda o filtros para encontrar lo que buscas.",
+    "categoryDescription": "Artículos en la categoría",
+    "categorySubDescription": "Explora nuestros últimos insights y guías.",
+    "tagDescription": "Artículos etiquetados con",
+    "tagSubDescription": "Descubre contenido relacionado.",
+    "tagPageDescription": "Todos los artículos etiquetados con",
+    "noPostsInCategory": "Aún no hay artículos en esta categoría",
+    "noPostsInCategoryDescription": "Estamos trabajando en agregar más contenido. ¡Vuelve pronto!",
+    "articles": "artículos"
+  },
   "NotFound": {
     "title": "404 - Página no encontrada",
     "description": "La página que buscas no existe."
@@ -201,6 +225,7 @@
     "home": "Inicio",
     "solutions": "Soluciones",
     "alliances": "Alianzas",
+    "blog": "Blog",
     "aboutUs": "Nosotros",
     "contact": "Contacto",
     "accessibility": {
@@ -208,6 +233,7 @@
       "homeLink": "Ir a la página de inicio",
       "solutionsLink": "Ir a la página de soluciones",
       "alliancesLink": "Ir a la página de alianzas",
+      "blogLink": "Ir a la página del blog",
       "aboutUsLink": "Ir a la página acerca de nosotros",
       "contactLink": "Ir a la página de contacto",
       "logoLink": "Ir a la página de inicio",
@@ -227,8 +253,9 @@
       "home": "Navegar a la página de inicio",
       "solutions": "Ver nuestras soluciones tecnológicas",
       "alliances": "Ver nuestras alianzas comerciales",
-      "aboutUs": "Conocer más sobre nuestra empresa",
-      "contact": "Ponerse en contacto con nosotros",
+      "blog": "Lee nuestros últimos artículos e insights",
+      "aboutUs": "Conoce más sobre nuestra empresa",
+      "contact": "Ponte en contacto con nosotros",
       "languageSelector": "Cambiar idioma del sitio web",
       "themeToggle": "Cambiar entre modo claro y oscuro",
       "mobileMenu": "Abrir menú de navegación"

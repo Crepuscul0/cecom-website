@@ -193,6 +193,30 @@
       "nameMinLength": "Name must be at least 2 characters"
     }
   },
+  "Blog": {
+    "title": "Blog",
+    "subtitle": "Insights, guides and trends in enterprise technology for the Dominican Republic",
+    "description": "Stay updated with the latest technology trends, cybersecurity tips, and enterprise solutions from CECOM experts.",
+    "backToBlog": "Back to Blog",
+    "minRead": "min read",
+    "needHelp": "Need Expert Help?",
+    "needHelpDescription": "Our cybersecurity and IT experts are ready to help you implement these solutions in your business.",
+    "contactUs": "Contact Us",
+    "activeFilters": "Active Filters",
+    "category": "Category",
+    "tag": "Tag",
+    "search": "Search",
+    "noPosts": "No articles found",
+    "noPostsDescription": "Try adjusting your search or filters to find what you're looking for.",
+    "categoryDescription": "Articles in category",
+    "categorySubDescription": "Explore our latest insights and guides.",
+    "tagDescription": "Articles tagged with",
+    "tagSubDescription": "Discover related content.",
+    "tagPageDescription": "All articles tagged with",
+    "noPostsInCategory": "No articles in this category yet",
+    "noPostsInCategoryDescription": "We're working on adding more content. Check back soon!",
+    "articles": "articles"
+  },
   "NotFound": {
     "title": "404 - Page Not Found",
     "description": "The page you are looking for does not exist."
@@ -201,6 +225,7 @@
     "home": "Home",
     "solutions": "Solutions",
     "alliances": "Alliances",
+    "blog": "Blog",
     "aboutUs": "About Us",
     "contact": "Contact",
     "accessibility": {
@@ -208,6 +233,7 @@
       "homeLink": "Go to home page",
       "solutionsLink": "Go to solutions page",
       "alliancesLink": "Go to alliances page",
+      "blogLink": "Go to blog page",
       "aboutUsLink": "Go to about us page",
       "contactLink": "Go to contact page",
       "logoLink": "Go to home page",
@@ -227,6 +253,7 @@
       "home": "Navigate to home page",
       "solutions": "View our technology solutions",
       "alliances": "See our business partnerships",
+      "blog": "Read our latest articles and insights",
       "aboutUs": "Learn more about our company",
       "contact": "Get in touch with us",
       "languageSelector": "Change website language",

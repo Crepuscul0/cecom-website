@@ -1,0 +1,13 @@
+{
+  "endpoint": "/api/webhook/rss-import",
+  "secret": "cecom-rss-webhook-kte7rj",
+  "enabled": true,
+  "allowedIPs": [
+    "127.0.0.1",
+    "::1"
+  ],
+  "rateLimit": {
+    "requests": 10,
+    "window": 3600
+  }
+}

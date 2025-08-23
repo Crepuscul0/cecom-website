@@ -1,0 +1,32 @@
+[
+  {
+    "id": "tag-security",
+    "name": "Seguridad",
+    "slug": "seguridad"
+  },
+  {
+    "id": "tag-extreme",
+    "name": "Extreme Networks",
+    "slug": "extreme-networks"
+  },
+  {
+    "id": "tag-vulnerability",
+    "name": "Vulnerabilidad",
+    "slug": "vulnerabilidad"
+  },
+  {
+    "id": "tag-firewall",
+    "name": "Firewall",
+    "slug": "firewall"
+  },
+  {
+    "id": "tag-enterprise",
+    "name": "Empresas",
+    "slug": "empresas"
+  },
+  {
+    "id": "tag-dominican",
+    "name": "República Dominicana",
+    "slug": "republica-dominicana"
+  }
+]

@@ -1,0 +1,482 @@
+[
+  {
+    "id": "post-1",
+    "title": "SA-2025-007 - Apache Tomcat TOCTOU Race Condition Vulnerabilidad (CVE-2024-50379)",
+    "slug": "sa-2025-007-apache-tomcat-toctou-race-condition-vulnerability-cve-2024-50379-es",
+    "excerpt": "Time-of-check Time-of-use (TOCTOU) Race Condition vulnerability during JSP compilation in Apache Tomcat permits an RCE on case insensitive file systems when the default servlet is enabled for write (n...",
+    "content": "# SA-2025-007 - Apache Tomcat TOCTOU Race Condition Vulnerabilidad (CVE-2024-50379)\n\n## Resumen de la Vulnerabilidad\n\nTime-of-check Time-of-use (TOCTOU) Race Condition vulnerability during JSP compilation in Apache Tomcat permits an RCE on case insensitive file systems when the default servlet is enabled for write (non-default configuration).Products not listed in the Impact Details section have not been evaluated....\n\n## Detalles Técnicos\n\nEsta vulnerabilidad ha sido identificada por Extreme Networks y afecta a productos específicos de su portafolio. Como distribuidor autorizado de Extreme Networks en República Dominicana, CECOM recomienda revisar inmediatamente si sus equipos están afectados.\n\n### Información de la Vulnerabilidad\n\n- **CVE ID:** CVE-2024-50379\n- **Security Advisory:** SA-2025-007\n- **Fecha de Publicación:** 7/8/2025\n- **Fuente:** Extreme Networks Security Advisory\n\n## Recomendaciones de CECOM\n\n1. **Evaluación Inmediata**: Identifique si sus equipos Extreme Networks están afectados\n2. **Actualización de Firmware**: Aplique las actualizaciones recomendadas por el fabricante\n3. **Monitoreo**: Implemente monitoreo adicional en los equipos afectados\n4. **Contacto con Soporte**: Contacte a CECOM para asistencia técnica especializada\n\n## ¿Necesita Ayuda?\n\nNuestro equipo de expertos en seguridad está disponible para ayudarle a evaluar y mitigar esta vulnerabilidad en su infraestructura.\n\n**Contacto CECOM:**\n- **Teléfono:** +1 (809) 555-0123\n- **Email:** seguridad@cecom.com.do\n- **Soporte 24/7:** Disponible para clientes con contrato de soporte\n\n---\n\n*Para más detalles técnicos, consulte el [aviso oficial de Extreme Networks](https://extreme-networks.my.site.com/ExtrArticleDetail?an=000122669).*",
+    "publishedDate": "Thu, 7 Aug 2025 19:28:19 +0000",
+    "category": "cat-cybersecurity",
+    "tags": [
+      "tag-security",
+      "tag-extreme",
+      "tag-vulnerability"
+    ],
+    "author": "Equipo CECOM",
+    "readingTime": 1,
+    "status": "published",
+    "sourceUrl": "https://extreme-networks.my.site.com/ExtrArticleDetail?an=000122669",
+    "featuredImage": "/blog/cybersecurity-placeholder.jpg",
+    "seo": {
+      "metaTitle": "SA-2025-007 - Apache Tomcat TOCTOU Race Condition Vulnerability (CVE-2024-50379)",
+      "metaDescription": "Time-of-check Time-of-use (TOCTOU) Race Condition vulnerability during JSP compilation in Apache Tomcat permits an RCE on case insensitive file systems when the",
+      "keywords": "seguridad, extreme networks, vulnerabilidad, CVE-2024-50379"
+    }
+  },
+  {
+    "id": "post-2",
+    "title": "SA-2023-059 - DHEat attack (CVE-2002-20001)",
+    "slug": "sa-2023-059-dheat-attack-cve-2002-20001-es",
+    "excerpt": "The Diffie-Hellman Key Agreement Protocol enables remote attackers to send arbitrary numbers without public keys, triggering costly server-side DHE modular-exponentiation calculations. This attack req...",
+    "content": "# SA-2023-059 - DHEat attack (CVE-2002-20001)\n\n## Resumen de la Vulnerabilidad\n\nThe Diffie-Hellman Key Agreement Protocol enables remote attackers to send arbitrary numbers without public keys, triggering costly server-side DHE modular-exponentiation calculations. This attack requires minimal CPU resources and bandwidth, and may be more disruptive in cases where clients require...\n\n## Detalles Técnicos\n\nEsta vulnerabilidad ha sido identificada por Extreme Networks y afecta a productos específicos de su portafolio. Como distribuidor autorizado de Extreme Networks en República Dominicana, CECOM recomienda revisar inmediatamente si sus equipos están afectados.\n\n### Información de la Vulnerabilidad\n\n- **CVE ID:** CVE-2002-20001\n- **Security Advisory:** SA-2023-059\n- **Fecha de Publicación:** 29/7/2025\n- **Fuente:** Extreme Networks Security Advisory\n\n## Recomendaciones de CECOM\n\n1. **Evaluación Inmediata**: Identifique si sus equipos Extreme Networks están afectados\n2. **Actualización de Firmware**: Aplique las actualizaciones recomendadas por el fabricante\n3. **Monitoreo**: Implemente monitoreo adicional en los equipos afectados\n4. **Contacto con Soporte**: Contacte a CECOM para asistencia técnica especializada\n\n## ¿Necesita Ayuda?\n\nNuestro equipo de expertos en seguridad está disponible para ayudarle a evaluar y mitigar esta vulnerabilidad en su infraestructura.\n\n**Contacto CECOM:**\n- **Teléfono:** +1 (809) 555-0123\n- **Email:** seguridad@cecom.com.do\n- **Soporte 24/7:** Disponible para clientes con contrato de soporte\n\n---\n\n*Para más detalles técnicos, consulte el [aviso oficial de Extreme Networks](https://extreme-networks.my.site.com/ExtrArticleDetail?an=000112244).*",
+    "publishedDate": "Tue, 29 Jul 2025 16:44:08 +0000",
+    "category": "cat-cybersecurity",
+    "tags": [
+      "tag-security",
+      "tag-extreme",
+      "tag-vulnerability"
+    ],
+    "author": "Equipo CECOM",
+    "readingTime": 1,
+    "status": "published",
+    "sourceUrl": "https://extreme-networks.my.site.com/ExtrArticleDetail?an=000112244",
+    "featuredImage": "/blog/cybersecurity-placeholder.jpg",
+    "seo": {
+      "metaTitle": "SA-2023-059 - DHEat attack (CVE-2002-20001)",
+      "metaDescription": "The Diffie-Hellman Key Agreement Protocol enables remote attackers to send arbitrary numbers without public keys, triggering costly server-side DHE modular-expo",
+      "keywords": "seguridad, extreme networks, vulnerabilidad, CVE-2002-20001"
+    }
+  },
+  {
+    "id": "post-3",
+    "title": "SA-2025-065 - Diffie-Hellman Resource Exhaustion (CVE-2024-41996)",
+    "slug": "sa-2025-065-diffie-hellman-resource-exhaustion-cve-2024-41996-es",
+    "excerpt": "Validating the order of the public keys in the Diffie-Hellman Key Agreement Protocol, when an approved safe prime is used, allows remote attackers (from the client side) to trigger unnecessarily expen...",
+    "content": "# SA-2025-065 - Diffie-Hellman Resource Exhaustion (CVE-2024-41996)\n\n## Resumen de la Vulnerabilidad\n\nValidating the order of the public keys in the Diffie-Hellman Key Agreement Protocol, when an approved safe prime is used, allows remote attackers (from the client side) to trigger unnecessarily expensive server-side DHE modular-exponentiation calculations. The client may cause asymmetric resource c...\n\n## Detalles Técnicos\n\nEsta vulnerabilidad ha sido identificada por Extreme Networks y afecta a productos específicos de su portafolio. Como distribuidor autorizado de Extreme Networks en República Dominicana, CECOM recomienda revisar inmediatamente si sus equipos están afectados.\n\n### Información de la Vulnerabilidad\n\n- **CVE ID:** CVE-2024-41996\n- **Security Advisory:** SA-2025-065\n- **Fecha de Publicación:** 29/7/2025\n- **Fuente:** Extreme Networks Security Advisory\n\n## Recomendaciones de CECOM\n\n1. **Evaluación Inmediata**: Identifique si sus equipos Extreme Networks están afectados\n2. **Actualización de Firmware**: Aplique las actualizaciones recomendadas por el fabricante\n3. **Monitoreo**: Implemente monitoreo adicional en los equipos afectados\n4. **Contacto con Soporte**: Contacte a CECOM para asistencia técnica especializada\n\n## ¿Necesita Ayuda?\n\nNuestro equipo de expertos en seguridad está disponible para ayudarle a evaluar y mitigar esta vulnerabilidad en su infraestructura.\n\n**Contacto CECOM:**\n- **Teléfono:** +1 (809) 555-0123\n- **Email:** seguridad@cecom.com.do\n- **Soporte 24/7:** Disponible para clientes con contrato de soporte\n\n---\n\n*Para más detalles técnicos, consulte el [aviso oficial de Extreme Networks](https://extreme-networks.my.site.com/ExtrArticleDetail?an=000128178).*",
+    "publishedDate": "Tue, 29 Jul 2025 16:40:30 +0000",
+    "category": "cat-cybersecurity",
+    "tags": [
+      "tag-security",
+      "tag-extreme",
+      "tag-vulnerability"
+    ],
+    "author": "Equipo CECOM",
+    "readingTime": 1,
+    "status": "published",
+    "sourceUrl": "https://extreme-networks.my.site.com/ExtrArticleDetail?an=000128178",
+    "featuredImage": "/blog/cybersecurity-placeholder.jpg",
+    "seo": {
+      "metaTitle": "SA-2025-065 - Diffie-Hellman Resource Exhaustion (CVE-2024-41996)",
+      "metaDescription": "Validating the order of the public keys in the Diffie-Hellman Key Agreement Protocol, when an approved safe prime is used, allows remote attackers (from the cli",
+      "keywords": "seguridad, extreme networks, vulnerabilidad, CVE-2024-41996"
+    }
+  },
+  {
+    "id": "post-4",
+    "title": "SA-2023-088 - Diffie-Hellman Key allows long exponents (CVE-2022-40735)",
+    "slug": "sa-2023-088-diffie-hellman-key-allows-long-exponents-cve-2022-40735-es",
+    "excerpt": "Long exponents are permitted under the Diffie-Hellman Key Agreement Protocol, making some calculations needlessly expensive. When there are sufficient subgroup constraints, it is possible to utilize a...",
+    "content": "# SA-2023-088 - Diffie-Hellman Key allows long exponents (CVE-2022-40735)\n\n## Resumen de la Vulnerabilidad\n\nLong exponents are permitted under the Diffie-Hellman Key Agreement Protocol, making some calculations needlessly expensive. When there are sufficient subgroup constraints, it is possible to utilize appropriately small exponents, which results in less expensive calculations. The particulars of the D...\n\n## Detalles Técnicos\n\nEsta vulnerabilidad ha sido identificada por Extreme Networks y afecta a productos específicos de su portafolio. Como distribuidor autorizado de Extreme Networks en República Dominicana, CECOM recomienda revisar inmediatamente si sus equipos están afectados.\n\n### Información de la Vulnerabilidad\n\n- **CVE ID:** CVE-2022-40735\n- **Security Advisory:** SA-2023-088\n- **Fecha de Publicación:** 29/7/2025\n- **Fuente:** Extreme Networks Security Advisory\n\n## Recomendaciones de CECOM\n\n1. **Evaluación Inmediata**: Identifique si sus equipos Extreme Networks están afectados\n2. **Actualización de Firmware**: Aplique las actualizaciones recomendadas por el fabricante\n3. **Monitoreo**: Implemente monitoreo adicional en los equipos afectados\n4. **Contacto con Soporte**: Contacte a CECOM para asistencia técnica especializada\n\n## ¿Necesita Ayuda?\n\nNuestro equipo de expertos en seguridad está disponible para ayudarle a evaluar y mitigar esta vulnerabilidad en su infraestructura.\n\n**Contacto CECOM:**\n- **Teléfono:** +1 (809) 555-0123\n- **Email:** seguridad@cecom.com.do\n- **Soporte 24/7:** Disponible para clientes con contrato de soporte\n\n---\n\n*Para más detalles técnicos, consulte el [aviso oficial de Extreme Networks](https://extreme-networks.my.site.com/ExtrArticleDetail?an=000113602).*",
+    "publishedDate": "Tue, 29 Jul 2025 16:39:36 +0000",
+    "category": "cat-cybersecurity",
+    "tags": [
+      "tag-security",
+      "tag-extreme",
+      "tag-vulnerability"
+    ],
+    "author": "Equipo CECOM",
+    "readingTime": 1,
+    "status": "published",
+    "sourceUrl": "https://extreme-networks.my.site.com/ExtrArticleDetail?an=000113602",
+    "featuredImage": "/blog/cybersecurity-placeholder.jpg",
+    "seo": {
+      "metaTitle": "SA-2023-088 - Diffie-Hellman Key allows long exponents (CVE-2022-40735)",
+      "metaDescription": "Long exponents are permitted under the Diffie-Hellman Key Agreement Protocol, making some calculations needlessly expensive. When there are sufficient subgroup ",
+      "keywords": "seguridad, extreme networks, vulnerabilidad, CVE-2022-40735"
+    }
+  },
+  {
+    "id": "post-5",
+    "title": "SA-2024-011 - libcurl HTTP authentication leak (CVE-2018-1000007)",
+    "slug": "sa-2024-011-libcurl-http-authentication-leak-cve-2018-1000007-es",
+    "excerpt": "It was found that curl and libcurl might send their Authentication header to a third party HTTP server upon receiving an HTTP REDIRECT reply. This could leak authentication token to external entities....",
+    "content": "# SA-2024-011 - libcurl HTTP authentication leak (CVE-2018-1000007)\n\n## Resumen de la Vulnerabilidad\n\nIt was found that curl and libcurl might send their Authentication header to a third party HTTP server upon receiving an HTTP REDIRECT reply. This could leak authentication token to external entities.Products not listed in the Impact Details section have not been evaluated.  Furthermore, products th...\n\n## Detalles Técnicos\n\nEsta vulnerabilidad ha sido identificada por Extreme Networks y afecta a productos específicos de su portafolio. Como distribuidor autorizado de Extreme Networks en República Dominicana, CECOM recomienda revisar inmediatamente si sus equipos están afectados.\n\n### Información de la Vulnerabilidad\n\n- **CVE ID:** CVE-2018-1000007\n- **Security Advisory:** SA-2024-011\n- **Fecha de Publicación:** 29/7/2025\n- **Fuente:** Extreme Networks Security Advisory\n\n## Recomendaciones de CECOM\n\n1. **Evaluación Inmediata**: Identifique si sus equipos Extreme Networks están afectados\n2. **Actualización de Firmware**: Aplique las actualizaciones recomendadas por el fabricante\n3. **Monitoreo**: Implemente monitoreo adicional en los equipos afectados\n4. **Contacto con Soporte**: Contacte a CECOM para asistencia técnica especializada\n\n## ¿Necesita Ayuda?\n\nNuestro equipo de expertos en seguridad está disponible para ayudarle a evaluar y mitigar esta vulnerabilidad en su infraestructura.\n\n**Contacto CECOM:**\n- **Teléfono:** +1 (809) 555-0123\n- **Email:** seguridad@cecom.com.do\n- **Soporte 24/7:** Disponible para clientes con contrato de soporte\n\n---\n\n*Para más detalles técnicos, consulte el [aviso oficial de Extreme Networks](https://extreme-networks.my.site.com/ExtrArticleDetail?an=000128177).*",
+    "publishedDate": "Tue, 29 Jul 2025 16:37:06 +0000",
+    "category": "cat-cybersecurity",
+    "tags": [
+      "tag-security",
+      "tag-extreme",
+      "tag-vulnerability"
+    ],
+    "author": "Equipo CECOM",
+    "readingTime": 1,
+    "status": "published",
+    "sourceUrl": "https://extreme-networks.my.site.com/ExtrArticleDetail?an=000128177",
+    "featuredImage": "/blog/cybersecurity-placeholder.jpg",
+    "seo": {
+      "metaTitle": "SA-2024-011 - libcurl HTTP authentication leak (CVE-2018-1000007)",
+      "metaDescription": "It was found that curl and libcurl might send their Authentication header to a third party HTTP server upon receiving an HTTP REDIRECT reply. This could leak au",
+      "keywords": "seguridad, extreme networks, vulnerabilidad, CVE-2018-1000007"
+    }
+  },
+  {
+    "id": "post-6",
+    "title": "SA-2024-010 - libcurl HTTP2 trailer out-of-bounds read (CVE-2018-1000005)",
+    "slug": "sa-2024-010-libcurl-http2-trailer-out-of-bounds-read-cve-2018-1000005-es",
+    "excerpt": "libcurl contains an outbounds read in code handling HTTP/2 trailers, potentially causing future trailers to be messed up due to a stored size being one byte less than required. This could lead to a cr...",
+    "content": "# SA-2024-010 - libcurl HTTP2 trailer out-of-bounds read (CVE-2018-1000005)\n\n## Resumen de la Vulnerabilidad\n\nlibcurl contains an outbounds read in code handling HTTP/2 trailers, potentially causing future trailers to be messed up due to a stored size being one byte less than required. This could lead to a crash or large data being passed to client write, potentially causing denial-of-service or information...\n\n## Detalles Técnicos\n\nEsta vulnerabilidad ha sido identificada por Extreme Networks y afecta a productos específicos de su portafolio. Como distribuidor autorizado de Extreme Networks en República Dominicana, CECOM recomienda revisar inmediatamente si sus equipos están afectados.\n\n### Información de la Vulnerabilidad\n\n- **CVE ID:** CVE-2018-1000005\n- **Security Advisory:** SA-2024-010\n- **Fecha de Publicación:** 29/7/2025\n- **Fuente:** Extreme Networks Security Advisory\n\n## Recomendaciones de CECOM\n\n1. **Evaluación Inmediata**: Identifique si sus equipos Extreme Networks están afectados\n2. **Actualización de Firmware**: Aplique las actualizaciones recomendadas por el fabricante\n3. **Monitoreo**: Implemente monitoreo adicional en los equipos afectados\n4. **Contacto con Soporte**: Contacte a CECOM para asistencia técnica especializada\n\n## ¿Necesita Ayuda?\n\nNuestro equipo de expertos en seguridad está disponible para ayudarle a evaluar y mitigar esta vulnerabilidad en su infraestructura.\n\n**Contacto CECOM:**\n- **Teléfono:** +1 (809) 555-0123\n- **Email:** seguridad@cecom.com.do\n- **Soporte 24/7:** Disponible para clientes con contrato de soporte\n\n---\n\n*Para más detalles técnicos, consulte el [aviso oficial de Extreme Networks](https://extreme-networks.my.site.com/ExtrArticleDetail?an=000128176).*",
+    "publishedDate": "Tue, 29 Jul 2025 16:34:34 +0000",
+    "category": "cat-cybersecurity",
+    "tags": [
+      "tag-security",
+      "tag-extreme",
+      "tag-vulnerability"
+    ],
+    "author": "Equipo CECOM",
+    "readingTime": 1,
+    "status": "published",
+    "sourceUrl": "https://extreme-networks.my.site.com/ExtrArticleDetail?an=000128176",
+    "featuredImage": "/blog/cybersecurity-placeholder.jpg",
+    "seo": {
+      "metaTitle": "SA-2024-010 - libcurl HTTP2 trailer out-of-bounds read (CVE-2018-1000005)",
+      "metaDescription": "libcurl contains an outbounds read in code handling HTTP/2 trailers, potentially causing future trailers to be messed up due to a stored size being one byte les",
+      "keywords": "seguridad, extreme networks, vulnerabilidad, CVE-2018-1000005"
+    }
+  },
+  {
+    "id": "post-7",
+    "title": "SA-2025-018 - FreeBSD Blacklistd Remote Code Execution (CVE-2024-7589)",
+    "slug": "sa-2025-018-freebsd-blacklistd-remote-code-execution-cve-2024-7589-es",
+    "excerpt": "A signal handler in sshd(8) may call a logging function that is not async-signal-safe. The signal handler is invoked when a client does not authenticate within the LoginGraceTime seconds (120 by defau...",
+    "content": "# SA-2025-018 - FreeBSD Blacklistd Remote Code Execution (CVE-2024-7589)\n\n## Resumen de la Vulnerabilidad\n\nA signal handler in sshd(8) may call a logging function that is not async-signal-safe. The signal handler is invoked when a client does not authenticate within the LoginGraceTime seconds (120 by default). This signal handler executes in the context of the sshd(8)&#39;s privileged code, which is not ...\n\n## Detalles Técnicos\n\nEsta vulnerabilidad ha sido identificada por Extreme Networks y afecta a productos específicos de su portafolio. Como distribuidor autorizado de Extreme Networks en República Dominicana, CECOM recomienda revisar inmediatamente si sus equipos están afectados.\n\n### Información de la Vulnerabilidad\n\n- **CVE ID:** CVE-2024-7589\n- **Security Advisory:** SA-2025-018\n- **Fecha de Publicación:** 21/2/2025\n- **Fuente:** Extreme Networks Security Advisory\n\n## Recomendaciones de CECOM\n\n1. **Evaluación Inmediata**: Identifique si sus equipos Extreme Networks están afectados\n2. **Actualización de Firmware**: Aplique las actualizaciones recomendadas por el fabricante\n3. **Monitoreo**: Implemente monitoreo adicional en los equipos afectados\n4. **Contacto con Soporte**: Contacte a CECOM para asistencia técnica especializada\n\n## ¿Necesita Ayuda?\n\nNuestro equipo de expertos en seguridad está disponible para ayudarle a evaluar y mitigar esta vulnerabilidad en su infraestructura.\n\n**Contacto CECOM:**\n- **Teléfono:** +1 (809) 555-0123\n- **Email:** seguridad@cecom.com.do\n- **Soporte 24/7:** Disponible para clientes con contrato de soporte\n\n---\n\n*Para más detalles técnicos, consulte el [aviso oficial de Extreme Networks](https://extreme-networks.my.site.com/ExtrArticleDetail?an=000123529).*",
+    "publishedDate": "Fri, 21 Feb 2025 18:00:02 +0000",
+    "category": "cat-cybersecurity",
+    "tags": [
+      "tag-security",
+      "tag-extreme",
+      "tag-vulnerability"
+    ],
+    "author": "Equipo CECOM",
+    "readingTime": 1,
+    "status": "published",
+    "sourceUrl": "https://extreme-networks.my.site.com/ExtrArticleDetail?an=000123529",
+    "featuredImage": "/blog/cybersecurity-placeholder.jpg",
+    "seo": {
+      "metaTitle": "SA-2025-018 - FreeBSD Blacklistd Remote Code Execution (CVE-2024-7589)",
+      "metaDescription": "A signal handler in sshd(8) may call a logging function that is not async-signal-safe. The signal handler is invoked when a client does not authenticate within ",
+      "keywords": "seguridad, extreme networks, vulnerabilidad, CVE-2024-7589"
+    }
+  },
+  {
+    "id": "post-8",
+    "title": "SA-2025-073 - ExtremeControl (NAC) 'onmouseover' XSS (CVE-2025-6235)",
+    "slug": "sa-2025-073-extremecontrol-nac-onmouseover-xss-cve-2025-6235-es",
+    "excerpt": "In ExtremeControl before 25.5.12, a cross-site scripting (XSS) vulnerability was discovered in a login interface of the affected application. The issue stems from improper handling of user-supplied in...",
+    "content": "# SA-2025-073 - ExtremeControl (NAC) 'onmouseover' XSS (CVE-2025-6235)\n\n## Resumen de la Vulnerabilidad\n\nIn ExtremeControl before 25.5.12, a cross-site scripting (XSS) vulnerability was discovered in a login interface of the affected application. The issue stems from improper handling of user-supplied input within HTML attributes, allowing an attacker to inject script code that may execute in a user&#3...\n\n## Detalles Técnicos\n\nEsta vulnerabilidad ha sido identificada por Extreme Networks y afecta a productos específicos de su portafolio. Como distribuidor autorizado de Extreme Networks en República Dominicana, CECOM recomienda revisar inmediatamente si sus equipos están afectados.\n\n### Información de la Vulnerabilidad\n\n- **CVE ID:** CVE-2025-6235\n- **Security Advisory:** SA-2025-073\n- **Fecha de Publicación:** 21/7/2025\n- **Fuente:** Extreme Networks Security Advisory\n\n## Recomendaciones de CECOM\n\n1. **Evaluación Inmediata**: Identifique si sus equipos Extreme Networks están afectados\n2. **Actualización de Firmware**: Aplique las actualizaciones recomendadas por el fabricante\n3. **Monitoreo**: Implemente monitoreo adicional en los equipos afectados\n4. **Contacto con Soporte**: Contacte a CECOM para asistencia técnica especializada\n\n## ¿Necesita Ayuda?\n\nNuestro equipo de expertos en seguridad está disponible para ayudarle a evaluar y mitigar esta vulnerabilidad en su infraestructura.\n\n**Contacto CECOM:**\n- **Teléfono:** +1 (809) 555-0123\n- **Email:** seguridad@cecom.com.do\n- **Soporte 24/7:** Disponible para clientes con contrato de soporte\n\n---\n\n*Para más detalles técnicos, consulte el [aviso oficial de Extreme Networks](https://extreme-networks.my.site.com/ExtrArticleDetail?an=000128019).*",
+    "publishedDate": "Mon, 21 Jul 2025 18:35:14 +0000",
+    "category": "cat-cybersecurity",
+    "tags": [
+      "tag-security",
+      "tag-extreme",
+      "tag-vulnerability"
+    ],
+    "author": "Equipo CECOM",
+    "readingTime": 1,
+    "status": "published",
+    "sourceUrl": "https://extreme-networks.my.site.com/ExtrArticleDetail?an=000128019",
+    "featuredImage": "/blog/cybersecurity-placeholder.jpg",
+    "seo": {
+      "metaTitle": "SA-2025-073 - ExtremeControl (NAC) 'onmouseover' XSS (CVE-2025-6235)",
+      "metaDescription": "In ExtremeControl before 25.5.12, a cross-site scripting (XSS) vulnerability was discovered in a login interface of the affected application. The issue stems fr",
+      "keywords": "seguridad, extreme networks, vulnerabilidad, CVE-2025-6235"
+    }
+  },
+  {
+    "id": "post-9",
+    "title": "SA-2025-066 - Linux PAM Privilege Escalation (CVE-2025-6020)",
+    "slug": "sa-2025-066-linux-pam-privilege-escalation-cve-2025-6020-es",
+    "excerpt": "A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevate their privileges to root via multiple symlink at...",
+    "content": "# SA-2025-066 - Linux PAM Privilege Escalation (CVE-2025-6020)\n\n## Resumen de la Vulnerabilidad\n\nA flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevate their privileges to root via multiple symlink attacks and race conditions.Products not listed in the Impact Details section have not been evaluated....\n\n## Detalles Técnicos\n\nEsta vulnerabilidad ha sido identificada por Extreme Networks y afecta a productos específicos de su portafolio. Como distribuidor autorizado de Extreme Networks en República Dominicana, CECOM recomienda revisar inmediatamente si sus equipos están afectados.\n\n### Información de la Vulnerabilidad\n\n- **CVE ID:** CVE-2025-6020\n- **Security Advisory:** SA-2025-066\n- **Fecha de Publicación:** 18/7/2025\n- **Fuente:** Extreme Networks Security Advisory\n\n## Recomendaciones de CECOM\n\n1. **Evaluación Inmediata**: Identifique si sus equipos Extreme Networks están afectados\n2. **Actualización de Firmware**: Aplique las actualizaciones recomendadas por el fabricante\n3. **Monitoreo**: Implemente monitoreo adicional en los equipos afectados\n4. **Contacto con Soporte**: Contacte a CECOM para asistencia técnica especializada\n\n## ¿Necesita Ayuda?\n\nNuestro equipo de expertos en seguridad está disponible para ayudarle a evaluar y mitigar esta vulnerabilidad en su infraestructura.\n\n**Contacto CECOM:**\n- **Teléfono:** +1 (809) 555-0123\n- **Email:** seguridad@cecom.com.do\n- **Soporte 24/7:** Disponible para clientes con contrato de soporte\n\n---\n\n*Para más detalles técnicos, consulte el [aviso oficial de Extreme Networks](https://extreme-networks.my.site.com/ExtrArticleDetail?an=000127989).*",
+    "publishedDate": "Fri, 18 Jul 2025 18:21:20 +0000",
+    "category": "cat-cybersecurity",
+    "tags": [
+      "tag-security",
+      "tag-extreme",
+      "tag-vulnerability"
+    ],
+    "author": "Equipo CECOM",
+    "readingTime": 1,
+    "status": "published",
+    "sourceUrl": "https://extreme-networks.my.site.com/ExtrArticleDetail?an=000127989",
+    "featuredImage": "/blog/cybersecurity-placeholder.jpg",
+    "seo": {
+      "metaTitle": "SA-2025-066 - Linux PAM Privilege Escalation (CVE-2025-6020)",
+      "metaDescription": "A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevate their pr",
+      "keywords": "seguridad, extreme networks, vulnerabilidad, CVE-2025-6020"
+    }
+  },
+  {
+    "id": "post-10",
+    "title": "SA-2025-067 - libblockdev Local Privilege Escalation (CVE-2025-6019)",
+    "slug": "sa-2025-067-libblockdev-local-privilege-escalation-cve-2025-6019-es",
+    "excerpt": "A Local Privilege Escalation (LPE) vulnerability was found in libblockdev. Generally, the \"allow_active\" setting in Polkit permits a physically present user to take certain actions based on the sessio...",
+    "content": "# SA-2025-067 - libblockdev Local Privilege Escalation (CVE-2025-6019)\n\n## Resumen de la Vulnerabilidad\n\nA Local Privilege Escalation (LPE) vulnerability was found in libblockdev. Generally, the \"allow_active\" setting in Polkit permits a physically present user to take certain actions based on the session type. Due to the way libblockdev interacts with the udisks daemon, an \"allow_active\" user on a sys...\n\n## Detalles Técnicos\n\nEsta vulnerabilidad ha sido identificada por Extreme Networks y afecta a productos específicos de su portafolio. Como distribuidor autorizado de Extreme Networks en República Dominicana, CECOM recomienda revisar inmediatamente si sus equipos están afectados.\n\n### Información de la Vulnerabilidad\n\n- **CVE ID:** CVE-2025-6019\n- **Security Advisory:** SA-2025-067\n- **Fecha de Publicación:** 18/7/2025\n- **Fuente:** Extreme Networks Security Advisory\n\n## Recomendaciones de CECOM\n\n1. **Evaluación Inmediata**: Identifique si sus equipos Extreme Networks están afectados\n2. **Actualización de Firmware**: Aplique las actualizaciones recomendadas por el fabricante\n3. **Monitoreo**: Implemente monitoreo adicional en los equipos afectados\n4. **Contacto con Soporte**: Contacte a CECOM para asistencia técnica especializada\n\n## ¿Necesita Ayuda?\n\nNuestro equipo de expertos en seguridad está disponible para ayudarle a evaluar y mitigar esta vulnerabilidad en su infraestructura.\n\n**Contacto CECOM:**\n- **Teléfono:** +1 (809) 555-0123\n- **Email:** seguridad@cecom.com.do\n- **Soporte 24/7:** Disponible para clientes con contrato de soporte\n\n---\n\n*Para más detalles técnicos, consulte el [aviso oficial de Extreme Networks](https://extreme-networks.my.site.com/ExtrArticleDetail?an=000127988).*",
+    "publishedDate": "Fri, 18 Jul 2025 18:16:45 +0000",
+    "category": "cat-cybersecurity",
+    "tags": [
+      "tag-security",
+      "tag-extreme",
+      "tag-vulnerability"
+    ],
+    "author": "Equipo CECOM",
+    "readingTime": 2,
+    "status": "published",
+    "sourceUrl": "https://extreme-networks.my.site.com/ExtrArticleDetail?an=000127988",
+    "featuredImage": "/blog/cybersecurity-placeholder.jpg",
+    "seo": {
+      "metaTitle": "SA-2025-067 - libblockdev Local Privilege Escalation (CVE-2025-6019)",
+      "metaDescription": "A Local Privilege Escalation (LPE) vulnerability was found in libblockdev. Generally, the \"allow_active\" setting in Polkit permits a physically present user to ",
+      "keywords": "seguridad, extreme networks, vulnerabilidad, CVE-2025-6019"
+    }
+  },
+  {
+    "id": "post-11",
+    "title": "SA-2025-064 - GNU C Untrusted Library (CVE-2025-4802)",
+    "slug": "sa-2025-064-gnu-c-untrusted-library-cve-2025-4802-es",
+    "excerpt": "Untrusted LD_LIBRARY_PATH environment variable vulnerability in the GNU C Library version 2.27 to 2.38 allows attacker controlled loading of dynamically shared library in statically compiled setuid bi...",
+    "content": "# SA-2025-064 - GNU C Untrusted Library (CVE-2025-4802)\n\n## Resumen de la Vulnerabilidad\n\nUntrusted LD_LIBRARY_PATH environment variable vulnerability in the GNU C Library version 2.27 to 2.38 allows attacker controlled loading of dynamically shared library in statically compiled setuid binaries that call dlopen (including internal dlopen calls after setlocale or calls to NSS functions s...\n\n## Detalles Técnicos\n\nEsta vulnerabilidad ha sido identificada por Extreme Networks y afecta a productos específicos de su portafolio. Como distribuidor autorizado de Extreme Networks en República Dominicana, CECOM recomienda revisar inmediatamente si sus equipos están afectados.\n\n### Información de la Vulnerabilidad\n\n- **CVE ID:** CVE-2025-4802\n- **Security Advisory:** SA-2025-064\n- **Fecha de Publicación:** 18/7/2025\n- **Fuente:** Extreme Networks Security Advisory\n\n## Recomendaciones de CECOM\n\n1. **Evaluación Inmediata**: Identifique si sus equipos Extreme Networks están afectados\n2. **Actualización de Firmware**: Aplique las actualizaciones recomendadas por el fabricante\n3. **Monitoreo**: Implemente monitoreo adicional en los equipos afectados\n4. **Contacto con Soporte**: Contacte a CECOM para asistencia técnica especializada\n\n## ¿Necesita Ayuda?\n\nNuestro equipo de expertos en seguridad está disponible para ayudarle a evaluar y mitigar esta vulnerabilidad en su infraestructura.\n\n**Contacto CECOM:**\n- **Teléfono:** +1 (809) 555-0123\n- **Email:** seguridad@cecom.com.do\n- **Soporte 24/7:** Disponible para clientes con contrato de soporte\n\n---\n\n*Para más detalles técnicos, consulte el [aviso oficial de Extreme Networks](https://extreme-networks.my.site.com/ExtrArticleDetail?an=000127987).*",
+    "publishedDate": "Fri, 18 Jul 2025 18:16:04 +0000",
+    "category": "cat-cybersecurity",
+    "tags": [
+      "tag-security",
+      "tag-extreme",
+      "tag-vulnerability"
+    ],
+    "author": "Equipo CECOM",
+    "readingTime": 1,
+    "status": "published",
+    "sourceUrl": "https://extreme-networks.my.site.com/ExtrArticleDetail?an=000127987",
+    "featuredImage": "/blog/cybersecurity-placeholder.jpg",
+    "seo": {
+      "metaTitle": "SA-2025-064 - GNU C Untrusted Library (CVE-2025-4802)",
+      "metaDescription": "Untrusted LD_LIBRARY_PATH environment variable vulnerability in the GNU C Library version 2.27 to 2.38 allows attacker controlled loading of dynamically shared ",
+      "keywords": "seguridad, extreme networks, vulnerabilidad, CVE-2025-4802"
+    }
+  },
+  {
+    "id": "post-12",
+    "title": "SA-2025-047 - Kerberos 5 Memory Leak (CVE-2024-26461)",
+    "slug": "sa-2025-047-kerberos-5-memory-leak-cve-2024-26461-es",
+    "excerpt": "In Kerberos 5 (aka krb5) a memory leak vulnerability was discovered. The issue occurs in the k5sealv3.c file within the GSSAPI library. Specifically, the leak happens during a bounds check in an encod...",
+    "content": "# SA-2025-047 - Kerberos 5 Memory Leak (CVE-2024-26461)\n\n## Resumen de la Vulnerabilidad\n\nIn Kerberos 5 (aka krb5) a memory leak vulnerability was discovered. The issue occurs in the k5sealv3.c file within the GSSAPI library. Specifically, the leak happens during a bounds check in an encoding function.Products not listed in the Impact Details section have not been evaluated.  Furthermore...\n\n## Detalles Técnicos\n\nEsta vulnerabilidad ha sido identificada por Extreme Networks y afecta a productos específicos de su portafolio. Como distribuidor autorizado de Extreme Networks en República Dominicana, CECOM recomienda revisar inmediatamente si sus equipos están afectados.\n\n### Información de la Vulnerabilidad\n\n- **CVE ID:** CVE-2024-26461\n- **Security Advisory:** SA-2025-047\n- **Fecha de Publicación:** 25/6/2025\n- **Fuente:** Extreme Networks Security Advisory\n\n## Recomendaciones de CECOM\n\n1. **Evaluación Inmediata**: Identifique si sus equipos Extreme Networks están afectados\n2. **Actualización de Firmware**: Aplique las actualizaciones recomendadas por el fabricante\n3. **Monitoreo**: Implemente monitoreo adicional en los equipos afectados\n4. **Contacto con Soporte**: Contacte a CECOM para asistencia técnica especializada\n\n## ¿Necesita Ayuda?\n\nNuestro equipo de expertos en seguridad está disponible para ayudarle a evaluar y mitigar esta vulnerabilidad en su infraestructura.\n\n**Contacto CECOM:**\n- **Teléfono:** +1 (809) 555-0123\n- **Email:** seguridad@cecom.com.do\n- **Soporte 24/7:** Disponible para clientes con contrato de soporte\n\n---\n\n*Para más detalles técnicos, consulte el [aviso oficial de Extreme Networks](https://extreme-networks.my.site.com/ExtrArticleDetail?an=000127050).*",
+    "publishedDate": "Wed, 25 Jun 2025 17:42:35 +0000",
+    "category": "cat-cybersecurity",
+    "tags": [
+      "tag-security",
+      "tag-extreme",
+      "tag-vulnerability"
+    ],
+    "author": "Equipo CECOM",
+    "readingTime": 1,
+    "status": "published",
+    "sourceUrl": "https://extreme-networks.my.site.com/ExtrArticleDetail?an=000127050",
+    "featuredImage": "/blog/cybersecurity-placeholder.jpg",
+    "seo": {
+      "metaTitle": "SA-2025-047 - Kerberos 5 Memory Leak (CVE-2024-26461)",
+      "metaDescription": "In Kerberos 5 (aka krb5) a memory leak vulnerability was discovered. The issue occurs in the k5sealv3.c file within the GSSAPI library. Specifically, the leak h",
+      "keywords": "seguridad, extreme networks, vulnerabilidad, CVE-2024-26461"
+    }
+  },
+  {
+    "id": "post-13",
+    "title": "SA-2025-059 - HiveOS Authentication Bypass (CVE-2025-27230)",
+    "slug": "sa-2025-059-hiveos-authentication-bypass-cve-2025-27230-es",
+    "excerpt": "An issue was discovered in Extreme Networks IQ Engine (HiveOS) in 10.7r5 and earlier. From a device that has previously logged into a (possibly vestigial) web UI, the web UI may allow exploitation of ...",
+    "content": "# SA-2025-059 - HiveOS Authentication Bypass (CVE-2025-27230)\n\n## Resumen de la Vulnerabilidad\n\nAn issue was discovered in Extreme Networks IQ Engine (HiveOS) in 10.7r5 and earlier. From a device that has previously logged into a (possibly vestigial) web UI, the web UI may allow exploitation of the AhBaseAction class, which allows arbitrary execution of files that have an Access.class.php5 tra...\n\n## Detalles Técnicos\n\nEsta vulnerabilidad ha sido identificada por Extreme Networks y afecta a productos específicos de su portafolio. Como distribuidor autorizado de Extreme Networks en República Dominicana, CECOM recomienda revisar inmediatamente si sus equipos están afectados.\n\n### Información de la Vulnerabilidad\n\n- **CVE ID:** CVE-2025-27230\n- **Security Advisory:** SA-2025-059\n- **Fecha de Publicación:** 25/6/2025\n- **Fuente:** Extreme Networks Security Advisory\n\n## Recomendaciones de CECOM\n\n1. **Evaluación Inmediata**: Identifique si sus equipos Extreme Networks están afectados\n2. **Actualización de Firmware**: Aplique las actualizaciones recomendadas por el fabricante\n3. **Monitoreo**: Implemente monitoreo adicional en los equipos afectados\n4. **Contacto con Soporte**: Contacte a CECOM para asistencia técnica especializada\n\n## ¿Necesita Ayuda?\n\nNuestro equipo de expertos en seguridad está disponible para ayudarle a evaluar y mitigar esta vulnerabilidad en su infraestructura.\n\n**Contacto CECOM:**\n- **Teléfono:** +1 (809) 555-0123\n- **Email:** seguridad@cecom.com.do\n- **Soporte 24/7:** Disponible para clientes con contrato de soporte\n\n---\n\n*Para más detalles técnicos, consulte el [aviso oficial de Extreme Networks](https://extreme-networks.my.site.com/ExtrArticleDetail?an=000126599).*",
+    "publishedDate": "Wed, 25 Jun 2025 16:45:57 +0000",
+    "category": "cat-cybersecurity",
+    "tags": [
+      "tag-security",
+      "tag-extreme",
+      "tag-vulnerability"
+    ],
+    "author": "Equipo CECOM",
+    "readingTime": 1,
+    "status": "published",
+    "sourceUrl": "https://extreme-networks.my.site.com/ExtrArticleDetail?an=000126599",
+    "featuredImage": "/blog/cybersecurity-placeholder.jpg",
+    "seo": {
+      "metaTitle": "SA-2025-059 - HiveOS Authentication Bypass (CVE-2025-27230)",
+      "metaDescription": "An issue was discovered in Extreme Networks IQ Engine (HiveOS) in 10.7r5 and earlier. From a device that has previously logged into a (possibly vestigial) web U",
+      "keywords": "seguridad, extreme networks, vulnerabilidad, CVE-2025-27230"
+    }
+  },
+  {
+    "id": "post-14",
+    "title": "SA-2025-060 - ExtremeCloud Universal ZTNA Improper Authorization (CVE-2025-6083)",
+    "slug": "sa-2025-060-extremecloud-universal-ztna-improper-authorization-cve-2025-6083-es",
+    "excerpt": "In ExtremeCloud Universal ZTNA, a syntax error in the &#39;searchKeyword&#39; condition caused queries to bypass the owner_id filter. This issue may allow users to search data across the entire table ...",
+    "content": "# SA-2025-060 - ExtremeCloud Universal ZTNA Improper Authorization (CVE-2025-6083)\n\n## Resumen de la Vulnerabilidad\n\nIn ExtremeCloud Universal ZTNA, a syntax error in the &#39;searchKeyword&#39; condition caused queries to bypass the owner_id filter. This issue may allow users to search data across the entire table instead of being restricted to their specific owner_id.  Furthermore, products that have exceeded an...\n\n## Detalles Técnicos\n\nEsta vulnerabilidad ha sido identificada por Extreme Networks y afecta a productos específicos de su portafolio. Como distribuidor autorizado de Extreme Networks en República Dominicana, CECOM recomienda revisar inmediatamente si sus equipos están afectados.\n\n### Información de la Vulnerabilidad\n\n- **CVE ID:** CVE-2025-6083\n- **Security Advisory:** SA-2025-060\n- **Fecha de Publicación:** 13/6/2025\n- **Fuente:** Extreme Networks Security Advisory\n\n## Recomendaciones de CECOM\n\n1. **Evaluación Inmediata**: Identifique si sus equipos Extreme Networks están afectados\n2. **Actualización de Firmware**: Aplique las actualizaciones recomendadas por el fabricante\n3. **Monitoreo**: Implemente monitoreo adicional en los equipos afectados\n4. **Contacto con Soporte**: Contacte a CECOM para asistencia técnica especializada\n\n## ¿Necesita Ayuda?\n\nNuestro equipo de expertos en seguridad está disponible para ayudarle a evaluar y mitigar esta vulnerabilidad en su infraestructura.\n\n**Contacto CECOM:**\n- **Teléfono:** +1 (809) 555-0123\n- **Email:** seguridad@cecom.com.do\n- **Soporte 24/7:** Disponible para clientes con contrato de soporte\n\n---\n\n*Para más detalles técnicos, consulte el [aviso oficial de Extreme Networks](https://extreme-networks.my.site.com/ExtrArticleDetail?an=000126912).*",
+    "publishedDate": "Fri, 13 Jun 2025 21:30:28 +0000",
+    "category": "cat-cybersecurity",
+    "tags": [
+      "tag-security",
+      "tag-extreme",
+      "tag-vulnerability"
+    ],
+    "author": "Equipo CECOM",
+    "readingTime": 1,
+    "status": "published",
+    "sourceUrl": "https://extreme-networks.my.site.com/ExtrArticleDetail?an=000126912",
+    "featuredImage": "/blog/cybersecurity-placeholder.jpg",
+    "seo": {
+      "metaTitle": "SA-2025-060 - ExtremeCloud Universal ZTNA Improper Authorization (CVE-2025-6083)",
+      "metaDescription": "In ExtremeCloud Universal ZTNA, a syntax error in the &#39;searchKeyword&#39; condition caused queries to bypass the owner_id filter. This issue may allow users",
+      "keywords": "seguridad, extreme networks, vulnerabilidad, CVE-2025-6083"
+    }
+  },
+  {
+    "id": "post-15",
+    "title": "SA-2022-019 - Apache Tomcat (CVE-2022-25762)",
+    "slug": "sa-2022-019-apache-tomcat-cve-2022-25762-es",
+    "excerpt": "If a web application sends a WebSocket message concurrently with the WebSocket connection closing when running on Apache Tomcat 8.5.0 to 8.5.75 or Apache Tomcat 9.0.0.M1 to 9.0.20, it is possible that...",
+    "content": "# SA-2022-019 - Apache Tomcat (CVE-2022-25762)\n\n## Resumen de la Vulnerabilidad\n\nIf a web application sends a WebSocket message concurrently with the WebSocket connection closing when running on Apache Tomcat 8.5.0 to 8.5.75 or Apache Tomcat 9.0.0.M1 to 9.0.20, it is possible that the application will continue to use the socket after it has been closed. The error handling trigge...\n\n## Detalles Técnicos\n\nEsta vulnerabilidad ha sido identificada por Extreme Networks y afecta a productos específicos de su portafolio. Como distribuidor autorizado de Extreme Networks en República Dominicana, CECOM recomienda revisar inmediatamente si sus equipos están afectados.\n\n### Información de la Vulnerabilidad\n\n- **CVE ID:** CVE-2022-25762\n- **Security Advisory:** SA-2022-019\n- **Fecha de Publicación:** 23/9/2022\n- **Fuente:** Extreme Networks Security Advisory\n\n## Recomendaciones de CECOM\n\n1. **Evaluación Inmediata**: Identifique si sus equipos Extreme Networks están afectados\n2. **Actualización de Firmware**: Aplique las actualizaciones recomendadas por el fabricante\n3. **Monitoreo**: Implemente monitoreo adicional en los equipos afectados\n4. **Contacto con Soporte**: Contacte a CECOM para asistencia técnica especializada\n\n## ¿Necesita Ayuda?\n\nNuestro equipo de expertos en seguridad está disponible para ayudarle a evaluar y mitigar esta vulnerabilidad en su infraestructura.\n\n**Contacto CECOM:**\n- **Teléfono:** +1 (809) 555-0123\n- **Email:** seguridad@cecom.com.do\n- **Soporte 24/7:** Disponible para clientes con contrato de soporte\n\n---\n\n*Para más detalles técnicos, consulte el [aviso oficial de Extreme Networks](https://extreme-networks.my.site.com/ExtrArticleDetail?an=000106739).*",
+    "publishedDate": "Fri, 23 Sep 2022 14:19:01 +0000",
+    "category": "cat-cybersecurity",
+    "tags": [
+      "tag-security",
+      "tag-extreme",
+      "tag-vulnerability"
+    ],
+    "author": "Equipo CECOM",
+    "readingTime": 1,
+    "status": "published",
+    "sourceUrl": "https://extreme-networks.my.site.com/ExtrArticleDetail?an=000106739",
+    "featuredImage": "/blog/cybersecurity-placeholder.jpg",
+    "seo": {
+      "metaTitle": "SA-2022-019 - Apache Tomcat (CVE-2022-25762)",
+      "metaDescription": "If a web application sends a WebSocket message concurrently with the WebSocket connection closing when running on Apache Tomcat 8.5.0 to 8.5.75 or Apache Tomcat",
+      "keywords": "seguridad, extreme networks, vulnerabilidad, CVE-2022-25762"
+    }
+  },
+  {
+    "id": "post-16",
+    "title": "SA-2024-084 - Blast RADIUS Attack (CVE-2024-3596)",
+    "slug": "sa-2024-084-blast-radius-attack-cve-2024-3596-es",
+    "excerpt": "RADIUS Protocol under RFC 2865 is susceptible to forgery attacks by a local attacker who can modify any valid Response (Access-Accept, Access-Reject, or Access-Challenge) to any other response using a...",
+    "content": "# SA-2024-084 - Blast RADIUS Attack (CVE-2024-3596)\n\n## Resumen de la Vulnerabilidad\n\nRADIUS Protocol under RFC 2865 is susceptible to forgery attacks by a local attacker who can modify any valid Response (Access-Accept, Access-Reject, or Access-Challenge) to any other response using a chosen-prefix collision attack against MD5 Response Authenticator signature.Products not listed in ...\n\n## Detalles Técnicos\n\nEsta vulnerabilidad ha sido identificada por Extreme Networks y afecta a productos específicos de su portafolio. Como distribuidor autorizado de Extreme Networks en República Dominicana, CECOM recomienda revisar inmediatamente si sus equipos están afectados.\n\n### Información de la Vulnerabilidad\n\n- **CVE ID:** CVE-2024-3596\n- **Security Advisory:** SA-2024-084\n- **Fecha de Publicación:** 23/5/2025\n- **Fuente:** Extreme Networks Security Advisory\n\n## Recomendaciones de CECOM\n\n1. **Evaluación Inmediata**: Identifique si sus equipos Extreme Networks están afectados\n2. **Actualización de Firmware**: Aplique las actualizaciones recomendadas por el fabricante\n3. **Monitoreo**: Implemente monitoreo adicional en los equipos afectados\n4. **Contacto con Soporte**: Contacte a CECOM para asistencia técnica especializada\n\n## ¿Necesita Ayuda?\n\nNuestro equipo de expertos en seguridad está disponible para ayudarle a evaluar y mitigar esta vulnerabilidad en su infraestructura.\n\n**Contacto CECOM:**\n- **Teléfono:** +1 (809) 555-0123\n- **Email:** seguridad@cecom.com.do\n- **Soporte 24/7:** Disponible para clientes con contrato de soporte\n\n---\n\n*Para más detalles técnicos, consulte el [aviso oficial de Extreme Networks](https://extreme-networks.my.site.com/ExtrArticleDetail?an=000119537).*",
+    "publishedDate": "Fri, 23 May 2025 15:51:42 +0000",
+    "category": "cat-cybersecurity",
+    "tags": [
+      "tag-security",
+      "tag-extreme",
+      "tag-vulnerability"
+    ],
+    "author": "Equipo CECOM",
+    "readingTime": 1,
+    "status": "published",
+    "sourceUrl": "https://extreme-networks.my.site.com/ExtrArticleDetail?an=000119537",
+    "featuredImage": "/blog/cybersecurity-placeholder.jpg",
+    "seo": {
+      "metaTitle": "SA-2024-084 - Blast RADIUS Attack (CVE-2024-3596)",
+      "metaDescription": "RADIUS Protocol under RFC 2865 is susceptible to forgery attacks by a local attacker who can modify any valid Response (Access-Accept, Access-Reject, or Access-",
+      "keywords": "seguridad, extreme networks, vulnerabilidad, CVE-2024-3596"
+    }
+  },
+  {
+    "id": "post-17",
+    "title": "SA-2025-041 - SSH RCE through Erlang (CVE-2025-32433)",
+    "slug": "sa-2025-041-ssh-rce-through-erlang-cve-2025-32433-es",
+    "excerpt": "Erlang/OTP is a set of libraries for the Erlang programming language. In some versions of Erlang/OTP, an SSH server may allow an attacker to perform unauthenticated remote code execution (RCE). By exp...",
+    "content": "# SA-2025-041 - SSH RCE through Erlang (CVE-2025-32433)\n\n## Resumen de la Vulnerabilidad\n\nErlang/OTP is a set of libraries for the Erlang programming language. In some versions of Erlang/OTP, an SSH server may allow an attacker to perform unauthenticated remote code execution (RCE). By exploiting a flaw in SSH protocol message handling, a malicious actor could gain unauthorized access to...\n\n## Detalles Técnicos\n\nEsta vulnerabilidad ha sido identificada por Extreme Networks y afecta a productos específicos de su portafolio. Como distribuidor autorizado de Extreme Networks en República Dominicana, CECOM recomienda revisar inmediatamente si sus equipos están afectados.\n\n### Información de la Vulnerabilidad\n\n- **CVE ID:** CVE-2025-32433\n- **Security Advisory:** SA-2025-041\n- **Fecha de Publicación:** 23/5/2025\n- **Fuente:** Extreme Networks Security Advisory\n\n## Recomendaciones de CECOM\n\n1. **Evaluación Inmediata**: Identifique si sus equipos Extreme Networks están afectados\n2. **Actualización de Firmware**: Aplique las actualizaciones recomendadas por el fabricante\n3. **Monitoreo**: Implemente monitoreo adicional en los equipos afectados\n4. **Contacto con Soporte**: Contacte a CECOM para asistencia técnica especializada\n\n## ¿Necesita Ayuda?\n\nNuestro equipo de expertos en seguridad está disponible para ayudarle a evaluar y mitigar esta vulnerabilidad en su infraestructura.\n\n**Contacto CECOM:**\n- **Teléfono:** +1 (809) 555-0123\n- **Email:** seguridad@cecom.com.do\n- **Soporte 24/7:** Disponible para clientes con contrato de soporte\n\n---\n\n*Para más detalles técnicos, consulte el [aviso oficial de Extreme Networks](https://extreme-networks.my.site.com/ExtrArticleDetail?an=000126362).*",
+    "publishedDate": "Fri, 23 May 2025 15:50:53 +0000",
+    "category": "cat-cybersecurity",
+    "tags": [
+      "tag-security",
+      "tag-extreme",
+      "tag-vulnerability"
+    ],
+    "author": "Equipo CECOM",
+    "readingTime": 1,
+    "status": "published",
+    "sourceUrl": "https://extreme-networks.my.site.com/ExtrArticleDetail?an=000126362",
+    "featuredImage": "/blog/cybersecurity-placeholder.jpg",
+    "seo": {
+      "metaTitle": "SA-2025-041 - SSH RCE through Erlang (CVE-2025-32433)",
+      "metaDescription": "Erlang/OTP is a set of libraries for the Erlang programming language. In some versions of Erlang/OTP, an SSH server may allow an attacker to perform unauthentic",
+      "keywords": "seguridad, extreme networks, vulnerabilidad, CVE-2025-32433"
+    }
+  },
+  {
+    "id": "post-18",
+    "title": "SA-2025-046 - Linux OOB Memory Write Flaw (CVE-2022-0995)",
+    "slug": "sa-2025-046-linux-oob-memory-write-flaw-cve-2022-0995-es",
+    "excerpt": "An out-of-bounds (OOB) memory write flaw was found in the Linux kernel’s watch_queue event notification subsystem. This flaw can overwrite parts of the kernel state, potentially allowing a local user ...",
+    "content": "# SA-2025-046 - Linux OOB Memory Write Flaw (CVE-2022-0995)\n\n## Resumen de la Vulnerabilidad\n\nAn out-of-bounds (OOB) memory write flaw was found in the Linux kernel’s watch_queue event notification subsystem. This flaw can overwrite parts of the kernel state, potentially allowing a local user to gain privileged access or cause a denial of service on the system.This disclosure rolls up all CV...\n\n## Detalles Técnicos\n\nEsta vulnerabilidad ha sido identificada por Extreme Networks y afecta a productos específicos de su portafolio. Como distribuidor autorizado de Extreme Networks en República Dominicana, CECOM recomienda revisar inmediatamente si sus equipos están afectados.\n\n### Información de la Vulnerabilidad\n\n- **CVE ID:** CVE-2022-0995\n- **Security Advisory:** SA-2025-046\n- **Fecha de Publicación:** 23/5/2025\n- **Fuente:** Extreme Networks Security Advisory\n\n## Recomendaciones de CECOM\n\n1. **Evaluación Inmediata**: Identifique si sus equipos Extreme Networks están afectados\n2. **Actualización de Firmware**: Aplique las actualizaciones recomendadas por el fabricante\n3. **Monitoreo**: Implemente monitoreo adicional en los equipos afectados\n4. **Contacto con Soporte**: Contacte a CECOM para asistencia técnica especializada\n\n## ¿Necesita Ayuda?\n\nNuestro equipo de expertos en seguridad está disponible para ayudarle a evaluar y mitigar esta vulnerabilidad en su infraestructura.\n\n**Contacto CECOM:**\n- **Teléfono:** +1 (809) 555-0123\n- **Email:** seguridad@cecom.com.do\n- **Soporte 24/7:** Disponible para clientes con contrato de soporte\n\n---\n\n*Para más detalles técnicos, consulte el [aviso oficial de Extreme Networks](https://extreme-networks.my.site.com/ExtrArticleDetail?an=000126361).*",
+    "publishedDate": "Fri, 23 May 2025 15:49:03 +0000",
+    "category": "cat-cybersecurity",
+    "tags": [
+      "tag-security",
+      "tag-extreme",
+      "tag-vulnerability"
+    ],
+    "author": "Equipo CECOM",
+    "readingTime": 1,
+    "status": "published",
+    "sourceUrl": "https://extreme-networks.my.site.com/ExtrArticleDetail?an=000126361",
+    "featuredImage": "/blog/cybersecurity-placeholder.jpg",
+    "seo": {
+      "metaTitle": "SA-2025-046 - Linux OOB Memory Write Flaw (CVE-2022-0995)",
+      "metaDescription": "An out-of-bounds (OOB) memory write flaw was found in the Linux kernel’s watch_queue event notification subsystem. This flaw can overwrite parts of the kernel s",
+      "keywords": "seguridad, extreme networks, vulnerabilidad, CVE-2022-0995"
+    }
+  },
+  {
+    "id": "post-19",
+    "title": "SA-2025-044 - Perl Heap Buffer Overflow (CVE-2024-56406)",
+    "slug": "sa-2025-044-perl-heap-buffer-overflow-cve-2024-56406-es",
+    "excerpt": "A flaw was found in Perl that may allow a heap buffer overflow, which can lead to denial of service and potential arbitrary code execution on platforms that lack sufficient defenses via specially craf...",
+    "content": "# SA-2025-044 - Perl Heap Buffer Overflow (CVE-2024-56406)\n\n## Resumen de la Vulnerabilidad\n\nA flaw was found in Perl that may allow a heap buffer overflow, which can lead to denial of service and potential arbitrary code execution on platforms that lack sufficient defenses via specially crafted input to the tr/// transliteration operator containing non-ASCII bytes on the left-hand side.Pro...\n\n## Detalles Técnicos\n\nEsta vulnerabilidad ha sido identificada por Extreme Networks y afecta a productos específicos de su portafolio. Como distribuidor autorizado de Extreme Networks en República Dominicana, CECOM recomienda revisar inmediatamente si sus equipos están afectados.\n\n### Información de la Vulnerabilidad\n\n- **CVE ID:** CVE-2024-56406\n- **Security Advisory:** SA-2025-044\n- **Fecha de Publicación:** 23/5/2025\n- **Fuente:** Extreme Networks Security Advisory\n\n## Recomendaciones de CECOM\n\n1. **Evaluación Inmediata**: Identifique si sus equipos Extreme Networks están afectados\n2. **Actualización de Firmware**: Aplique las actualizaciones recomendadas por el fabricante\n3. **Monitoreo**: Implemente monitoreo adicional en los equipos afectados\n4. **Contacto con Soporte**: Contacte a CECOM para asistencia técnica especializada\n\n## ¿Necesita Ayuda?\n\nNuestro equipo de expertos en seguridad está disponible para ayudarle a evaluar y mitigar esta vulnerabilidad en su infraestructura.\n\n**Contacto CECOM:**\n- **Teléfono:** +1 (809) 555-0123\n- **Email:** seguridad@cecom.com.do\n- **Soporte 24/7:** Disponible para clientes con contrato de soporte\n\n---\n\n*Para más detalles técnicos, consulte el [aviso oficial de Extreme Networks](https://extreme-networks.my.site.com/ExtrArticleDetail?an=000126360).*",
+    "publishedDate": "Fri, 23 May 2025 15:47:26 +0000",
+    "category": "cat-cybersecurity",
+    "tags": [
+      "tag-security",
+      "tag-extreme",
+      "tag-vulnerability"
+    ],
+    "author": "Equipo CECOM",
+    "readingTime": 1,
+    "status": "published",
+    "sourceUrl": "https://extreme-networks.my.site.com/ExtrArticleDetail?an=000126360",
+    "featuredImage": "/blog/cybersecurity-placeholder.jpg",
+    "seo": {
+      "metaTitle": "SA-2025-044 - Perl Heap Buffer Overflow (CVE-2024-56406)",
+      "metaDescription": "A flaw was found in Perl that may allow a heap buffer overflow, which can lead to denial of service and potential arbitrary code execution on platforms that lac",
+      "keywords": "seguridad, extreme networks, vulnerabilidad, CVE-2024-56406"
+    }
+  },
+  {
+    "id": "post-20",
+    "title": "SA-2025-048 - Linux Kernel UAF in SMB Client (CVE-2024-26928)",
+    "slug": "sa-2025-048-linux-kernel-uaf-in-smb-client-cve-2024-26928-es",
+    "excerpt": "In the Linux kernel, specifically in the smb client, a use-after-free (UAF) vulnerability in the cifs_debug_files_proc_show() function was discovered. This occurs when sessions that are being torn dow...",
+    "content": "# SA-2025-048 - Linux Kernel UAF in SMB Client (CVE-2024-26928)\n\n## Resumen de la Vulnerabilidad\n\nIn the Linux kernel, specifically in the smb client, a use-after-free (UAF) vulnerability in the cifs_debug_files_proc_show() function was discovered. This occurs when sessions that are being torn down (status == SES_EXITING) are not properly skipped, leading to potential memory corruption.Products ...\n\n## Detalles Técnicos\n\nEsta vulnerabilidad ha sido identificada por Extreme Networks y afecta a productos específicos de su portafolio. Como distribuidor autorizado de Extreme Networks en República Dominicana, CECOM recomienda revisar inmediatamente si sus equipos están afectados.\n\n### Información de la Vulnerabilidad\n\n- **CVE ID:** CVE-2024-26928\n- **Security Advisory:** SA-2025-048\n- **Fecha de Publicación:** 23/5/2025\n- **Fuente:** Extreme Networks Security Advisory\n\n## Recomendaciones de CECOM\n\n1. **Evaluación Inmediata**: Identifique si sus equipos Extreme Networks están afectados\n2. **Actualización de Firmware**: Aplique las actualizaciones recomendadas por el fabricante\n3. **Monitoreo**: Implemente monitoreo adicional en los equipos afectados\n4. **Contacto con Soporte**: Contacte a CECOM para asistencia técnica especializada\n\n## ¿Necesita Ayuda?\n\nNuestro equipo de expertos en seguridad está disponible para ayudarle a evaluar y mitigar esta vulnerabilidad en su infraestructura.\n\n**Contacto CECOM:**\n- **Teléfono:** +1 (809) 555-0123\n- **Email:** seguridad@cecom.com.do\n- **Soporte 24/7:** Disponible para clientes con contrato de soporte\n\n---\n\n*Para más detalles técnicos, consulte el [aviso oficial de Extreme Networks](https://extreme-networks.my.site.com/ExtrArticleDetail?an=000126359).*",
+    "publishedDate": "Fri, 23 May 2025 15:46:31 +0000",
+    "category": "cat-cybersecurity",
+    "tags": [
+      "tag-security",
+      "tag-extreme",
+      "tag-vulnerability"
+    ],
+    "author": "Equipo CECOM",
+    "readingTime": 1,
+    "status": "published",
+    "sourceUrl": "https://extreme-networks.my.site.com/ExtrArticleDetail?an=000126359",
+    "featuredImage": "/blog/cybersecurity-placeholder.jpg",
+    "seo": {
+      "metaTitle": "SA-2025-048 - Linux Kernel UAF in SMB Client (CVE-2024-26928)",
+      "metaDescription": "In the Linux kernel, specifically in the smb client, a use-after-free (UAF) vulnerability in the cifs_debug_files_proc_show() function was discovered. This occu",
+      "keywords": "seguridad, extreme networks, vulnerabilidad, CVE-2024-26928"
+    }
+  }
+]
