@@ -5,9 +5,8 @@ import { BlogCard } from '@/components/blog/BlogCard';
 import { BlogSidebar } from '@/components/blog/BlogSidebar';
 import { BlogPagination } from '@/components/blog/BlogPagination';
 import { BlogPost } from '@/types/blog';
-import { normalizeBlogPost, filterBlogPosts, sortBlogPosts, paginateBlogPosts } from '@/utils/blog';
-import fs from 'fs';
-import path from 'path';
+import { getBlogPosts } from '@/lib/supabase-blog';
+import { filterBlogPosts, paginateBlogPosts } from '@/utils/blog';
 
 interface BlogPageProps {
   params: Promise<{ locale: string }>;
@@ -38,34 +37,20 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
   };
 }
 
-// Load RSS data from local files
-function loadBlogPosts(): BlogPost[] {
-  try {
-    const dataDir = path.join(process.cwd(), 'data', 'blog')
-    const postsPath = path.join(dataDir, 'posts.json')
-    
-    if (fs.existsSync(postsPath)) {
-      const rawPosts = JSON.parse(fs.readFileSync(postsPath, 'utf8'))
-      return rawPosts.map((post: any) => normalizeBlogPost(post))
-    }
-  } catch (error) {
-    console.error('Error loading blog posts:', error)
-  }
-  
-  return []
-}
-
 export default async function BlogPage({ params, searchParams }: BlogPageProps) {
   const { locale } = await params;
   const { page = '1', category, tag, search } = await searchParams;
   const t = await getTranslations({ locale, namespace: 'Blog' });
   
-  // Load and process blog posts
-  const allPosts = loadBlogPosts();
-  const sortedPosts = sortBlogPosts(allPosts);
+  // Load blog posts from Supabase
+  const allPosts = await getBlogPosts({ 
+    status: 'published',
+    category: category,
+    limit: 100 // Get all posts for filtering
+  });
   
-  // Apply filters
-  const filteredPosts = filterBlogPosts(sortedPosts, {
+  // Apply filters (posts are already sorted by date from Supabase)
+  const filteredPosts = filterBlogPosts(allPosts, {
     category,
     tag,
     search,
