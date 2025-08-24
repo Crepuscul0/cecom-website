@@ -1,13 +1,14 @@
-import { getTranslations } from 'next-intl/server'
-import { notFound } from 'next/navigation'
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowLeft, Calendar, Clock, Tag, User } from 'lucide-react'
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
 import { BlogHeader } from '@/components/blog/BlogHeader';
-import { BlogContent } from '@/components/blog/BlogContent';
 import { BlogSidebar } from '@/components/blog/BlogSidebar';
-import { RelatedPosts } from '@/components/blog/RelatedPosts';
-import { ArticleSchema } from '@/components/seo/StructuredData'
+import { Calendar, Clock, Tag, User, ArrowLeft } from 'lucide-react';
+import Link from 'next/link';
+import { BlogPost } from '@/types/blog';
+import { normalizeBlogPost, parseDate, formatDate } from '@/utils/blog';
+import fs from 'fs';
+import path from 'path';
 
 interface BlogPostPageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -54,139 +55,32 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   };
 }
 
-// Mock function - será reemplazada por consulta real a PayloadCMS
-async function getPostBySlug(slug: string, locale: string) {
-  const mockPosts = {
-    'guia-ciberseguridad-empresas-dominicanas': {
-      id: '1',
-      title: locale === 'es' 
-        ? 'Guía Completa de Ciberseguridad para Empresas Dominicanas'
-        : 'Complete Cybersecurity Guide for Dominican Businesses',
-      excerpt: locale === 'es'
-        ? 'Descubre las mejores prácticas de ciberseguridad adaptadas al mercado dominicano y protege tu empresa de las amenazas digitales.'
-        : 'Discover cybersecurity best practices adapted to the Dominican market and protect your business from digital threats.',
-      content: locale === 'es' ? `
-# Guía Completa de Ciberseguridad para Empresas Dominicanas
-
-En el panorama digital actual, la **ciberseguridad** se ha convertido en una prioridad crítica para las empresas dominicanas. Con el aumento de las amenazas digitales y la digitalización acelerada, proteger los activos digitales de tu empresa ya no es opcional.
-
-## ¿Por qué es crucial la ciberseguridad en República Dominicana?
-
-Las empresas dominicanas enfrentan desafíos únicos:
-
-- **Aumento del 150%** en ataques cibernéticos en los últimos 2 años
-- Regulaciones locales cada vez más estrictas
-- Dependencia creciente de sistemas digitales
-- Falta de conciencia sobre amenazas emergentes
-
-## Principales Amenazas para Empresas Locales
-
-### 1. Ransomware
-Los ataques de ransomware han aumentado significativamente en la región. Empresas de todos los tamaños son objetivos potenciales.
-
-### 2. Phishing Dirigido
-Ataques específicamente diseñados para el mercado dominicano, utilizando referencias locales y culturales.
-
-### 3. Vulnerabilidades en Sistemas Legacy
-Muchas empresas aún utilizan sistemas obsoletos sin actualizaciones de seguridad.
-
-## Soluciones Recomendadas por CECOM
-
-### Firewalls de Nueva Generación
-Implementamos soluciones **WatchGuard** que ofrecen:
-- Protección contra amenazas avanzadas
-- Control de aplicaciones
-- Filtrado web inteligente
-- Reporting detallado
-
-### Antivirus Empresarial
-Recomendamos **ESET Business Security** por:
-- Detección proactiva de malware
-- Protección de endpoints
-- Gestión centralizada
-- Soporte técnico local
-
-## Plan de Implementación
-
-1. **Evaluación inicial** (Semana 1)
-2. **Diseño de arquitectura** (Semana 2)
-3. **Implementación gradual** (Semanas 3-6)
-4. **Capacitación del personal** (Semana 7)
-5. **Monitoreo continuo** (Ongoing)
-
-## Contacta con CECOM
-
-¿Necesitas asesoría personalizada? Nuestro equipo de expertos en ciberseguridad está listo para ayudarte a proteger tu empresa.
-
-**Teléfono:** +1 (809) 555-0123  
-**Email:** seguridad@cecom.com.do
-      ` : `
-# Complete Cybersecurity Guide for Dominican Businesses
-
-In today's digital landscape, **cybersecurity** has become a critical priority for Dominican businesses. With the rise of digital threats and accelerated digitalization, protecting your company's digital assets is no longer optional.
-
-## Why is cybersecurity crucial in the Dominican Republic?
-
-Dominican businesses face unique challenges:
-
-- **150% increase** in cyber attacks in the last 2 years
-- Increasingly strict local regulations
-- Growing dependence on digital systems
-- Lack of awareness about emerging threats
-
-## Main Threats for Local Businesses
-
-### 1. Ransomware
-Ransomware attacks have increased significantly in the region. Companies of all sizes are potential targets.
-
-### 2. Targeted Phishing
-Attacks specifically designed for the Dominican market, using local and cultural references.
-
-### 3. Legacy System Vulnerabilities
-Many companies still use obsolete systems without security updates.
-
-## Solutions Recommended by CECOM
-
-### Next-Generation Firewalls
-We implement **WatchGuard** solutions that offer:
-- Advanced threat protection
-- Application control
-- Intelligent web filtering
-- Detailed reporting
-
-### Enterprise Antivirus
-We recommend **ESET Business Security** for:
-- Proactive malware detection
-- Endpoint protection
-- Centralized management
-- Local technical support
-
-## Implementation Plan
-
-1. **Initial assessment** (Week 1)
-2. **Architecture design** (Week 2)
-3. **Gradual implementation** (Weeks 3-6)
-4. **Staff training** (Week 7)
-5. **Continuous monitoring** (Ongoing)
-
-## Contact CECOM
-
-Need personalized advice? Our cybersecurity expert team is ready to help protect your business.
-
-**Phone:** +1 (809) 555-0123  
-**Email:** security@cecom.com.do
-      `,
-      slug: 'guia-ciberseguridad-empresas-dominicanas',
-      category: 'Ciberseguridad',
-      tags: ['seguridad', 'empresas', 'firewall', 'antivirus', 'watchguard', 'eset'],
-      featuredImage: '/blog/cybersecurity-guide.jpg',
-      publishedDate: '2024-08-20',
-      readingTime: 8,
-      author: 'Equipo CECOM'
+// Load RSS data from local files
+function loadBlogPosts(): BlogPost[] {
+  try {
+    const dataDir = path.join(process.cwd(), 'data', 'blog');
+    const postsPath = path.join(dataDir, 'posts.json');
+    
+    if (fs.existsSync(postsPath)) {
+      const rawPosts = JSON.parse(fs.readFileSync(postsPath, 'utf8'));
+      return rawPosts.map((post: any) => normalizeBlogPost(post));
     }
-  };
+  } catch (error) {
+    console.error('Error loading posts:', error);
+  }
+  
+  return [];
+}
 
-  return mockPosts[slug as keyof typeof mockPosts] || null;
+async function getPostBySlug(slug: string, locale: string): Promise<BlogPost | null> {
+  try {
+    const allPosts = loadBlogPosts();
+    const post = allPosts.find(p => p.slug === slug);
+    return post || null;
+  } catch (error) {
+    console.error('Error loading post:', error);
+    return null;
+  }
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -199,14 +93,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
-  const formattedDate = new Date(post.publishedDate).toLocaleDateString(
-    locale === 'es' ? 'es-DO' : 'en-US',
-    { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
-    }
-  );
+  const parsedDate = parseDate(post.publishedDate);
+  const formattedDate = formatDate(parsedDate, locale);
 
   return (
     <div className="min-h-screen bg-background">
@@ -266,7 +154,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
           {/* Tags */}
           <div className="flex flex-wrap gap-2 mt-4">
-            {post.tags.map((tag) => (
+            {post.tags.map((tag: string) => (
               <Link
                 key={tag}
                 href={`/${locale}/blog/tag/${tag}`}
@@ -290,20 +178,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         )}
 
-        {/* Structured Data */}
-        <ArticleSchema
-          title={post.title}
-          description={post.excerpt}
-          publishedDate={post.publishedDate}
-          author={post.author}
-          locale={locale}
-          slug={slug}
-          imageUrl={post.featuredImage}
-        />
-
         {/* Article Content */}
         <div className="prose prose-lg max-w-none dark:prose-invert">
-          <BlogContent content={post.content} />
+          <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </div>
 
         {/* Article Footer */}
@@ -325,13 +202,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </footer>
       </article>
 
-      {/* Related Posts */}
+      {/* Related Posts - TODO: Implement related posts component */}
       <section className="container mx-auto px-4 py-8 max-w-4xl">
-        <RelatedPosts 
-          currentPostId={post.id}
-          category={post.category}
-          locale={locale}
-        />
+        <h2 className="text-2xl font-bold mb-6">{t('relatedPosts')}</h2>
+        <p className="text-muted-foreground">{t('relatedPostsComingSoon')}</p>
       </section>
     </div>
   );

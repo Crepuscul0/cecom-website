@@ -1,23 +1,41 @@
 [
   {
     "id": "cat-cybersecurity",
-    "name": "Ciberseguridad",
+    "name": {
+      "es": "Ciberseguridad",
+      "en": "Cybersecurity"
+    },
     "slug": "cybersecurity",
-    "description": "Avisos de seguridad, vulnerabilidades y mejores prácticas de ciberseguridad",
+    "description": {
+      "es": "Avisos de seguridad, vulnerabilidades y mejores prácticas de ciberseguridad",
+      "en": "Security advisories, vulnerabilities and cybersecurity best practices"
+    },
     "color": "#dc2626"
   },
   {
     "id": "cat-networking",
-    "name": "Redes",
+    "name": {
+      "es": "Redes",
+      "en": "Networking"
+    },
     "slug": "networking",
-    "description": "Infraestructura de red, configuraciones y mejores prácticas",
+    "description": {
+      "es": "Infraestructura de red, configuraciones y mejores prácticas",
+      "en": "Network infrastructure, configurations and best practices"
+    },
     "color": "#2563eb"
   },
   {
     "id": "cat-solutions",
-    "name": "Soluciones Tecnológicas",
+    "name": {
+      "es": "Soluciones Tecnológicas",
+      "en": "Technology Solutions"
+    },
     "slug": "technology-solutions",
-    "description": "Soluciones tecnológicas empresariales e implementaciones",
+    "description": {
+      "es": "Soluciones tecnológicas empresariales e implementaciones",
+      "en": "Enterprise technology solutions and implementations"
+    },
     "color": "#059669"
   }
 ]

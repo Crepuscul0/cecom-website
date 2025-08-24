@@ -1,5 +1,7 @@
 import Link from 'next/link';
-import { Folder, Tag, TrendingUp, Calendar, Search } from 'lucide-react';
+import { Folder, Tag, TrendingUp, Calendar } from 'lucide-react';
+import fs from 'fs';
+import path from 'path';
 
 interface BlogSidebarProps {
   locale: string;
@@ -7,70 +9,97 @@ interface BlogSidebarProps {
   activeTag?: string;
 }
 
-// Mock data - será reemplazado por datos reales de PayloadCMS
-const mockCategories = [
-  { name: 'Ciberseguridad', slug: 'ciberseguridad', count: 8 },
-  { name: 'Redes', slug: 'redes', count: 12 },
-  { name: 'Casos de Éxito', slug: 'casos-de-exito', count: 6 },
-  { name: 'Guías Técnicas', slug: 'guias-tecnicas', count: 10 },
-  { name: 'Tendencias', slug: 'tendencias', count: 4 }
-];
-
-const mockTags = [
-  { name: 'seguridad', count: 15 },
-  { name: 'firewall', count: 8 },
-  { name: 'switches', count: 12 },
-  { name: 'extreme-networks', count: 10 },
-  { name: 'watchguard', count: 7 },
-  { name: 'empresas', count: 20 },
-  { name: 'configuracion', count: 9 },
-  { name: 'troubleshooting', count: 6 }
-];
-
-const mockRecentPosts = [
-  {
-    title: 'Guía Completa de Ciberseguridad para Empresas Dominicanas',
-    slug: 'guia-ciberseguridad-empresas-dominicanas',
-    date: '2024-08-20',
-    category: 'Ciberseguridad'
-  },
-  {
-    title: 'Cómo Elegir el Switch Perfecto para tu Red Empresarial',
-    slug: 'elegir-switch-red-empresarial',
-    date: '2024-08-18',
-    category: 'Redes'
-  },
-  {
-    title: 'Caso de Éxito: Modernización de Red en Empresa Local',
-    slug: 'caso-exito-modernizacion-red',
-    date: '2024-08-15',
-    category: 'Casos de Éxito'
+// Load real data from JSON files
+function loadCategories(locale: string) {
+  try {
+    const categoriesPath = path.join(process.cwd(), 'data', 'blog', 'categories.json');
+    const postsPath = path.join(process.cwd(), 'data', 'blog', 'posts.json');
+    const posts = JSON.parse(fs.readFileSync(postsPath, 'utf8'));
+    
+    if (fs.existsSync(categoriesPath)) {
+      const categories = JSON.parse(fs.readFileSync(categoriesPath, 'utf8'));
+      
+      return categories.map((category: any) => {
+        const postCount = posts.filter((post: any) => post.category === category.id).length;
+        return {
+          name: category.name[locale] || category.name.es,
+          slug: category.slug,
+          count: postCount,
+          color: category.color
+        };
+      });
+    }
+  } catch (error) {
+    // console.error('Error loading categories:', error);
   }
-];
+  return [];
+}
+
+function loadTags(locale: string) {
+  try {
+    const tagsPath = path.join(process.cwd(), 'data', 'blog', 'tags.json');
+    const postsPath = path.join(process.cwd(), 'data', 'blog', 'posts.json');
+    
+    if (fs.existsSync(tagsPath) && fs.existsSync(postsPath)) {
+      const tags = JSON.parse(fs.readFileSync(tagsPath, 'utf8'));
+      const posts = JSON.parse(fs.readFileSync(postsPath, 'utf8'));
+      
+      // Count posts per tag
+      return tags.map((tag: any) => ({
+        name: tag.name[locale] || tag.name.es,
+        slug: tag.slug,
+        count: posts.reduce((acc: number, post: any) => {
+          return acc + (post.tags && post.tags.includes(tag.id) ? 1 : 0);
+        }, 0)
+      })).filter((tag: any) => tag.count > 0); // Only show tags with posts
+    }
+  } catch (error) {
+    // console.error('Error loading tags:', error);
+  }
+  return [];
+}
+
+function loadRecentPosts(locale: string) {
+  try {
+    const postsPath = path.join(process.cwd(), 'data', 'blog', 'posts.json');
+    const categoriesPath = path.join(process.cwd(), 'data', 'blog', 'categories.json');
+    
+    if (fs.existsSync(postsPath) && fs.existsSync(categoriesPath)) {
+      const posts = JSON.parse(fs.readFileSync(postsPath, 'utf8'));
+      const categories = JSON.parse(fs.readFileSync(categoriesPath, 'utf8'));
+      
+      // Get the 3 most recent posts
+      const recentPosts = posts
+        .sort((a: any, b: any) => new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime())
+        .slice(0, 3)
+        .map((post: any) => {
+          const category = categories.find((cat: any) => cat.id === post.category);
+          return {
+            title: post.title,
+            slug: post.slug,
+            date: post.publishedDate,
+            category: category?.name[locale] || category?.name.es || 'Sin categoría'
+          };
+        });
+      
+      return recentPosts;
+    }
+  } catch (error) {
+    // console.error('Error loading recent posts:', error);
+  }
+  return [];
+}
 
 export function BlogSidebar({ locale, activeCategory, activeTag }: BlogSidebarProps) {
   const isSpanish = locale === 'es';
+  
+  // Load real data
+  const categories = loadCategories(locale);
+  const tags = loadTags(locale);
+  const recentPosts = loadRecentPosts(locale);
 
   return (
     <aside className="space-y-8">
-      {/* Search Widget */}
-      <div className="bg-card border border-border rounded-lg p-6">
-        <h3 className="flex items-center gap-2 text-lg font-semibold text-foreground mb-4">
-          <Search className="w-5 h-5" />
-          {isSpanish ? 'Buscar' : 'Search'}
-        </h3>
-        <form action={`/${locale}/blog`} method="get">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-            <input
-              type="search"
-              name="search"
-              placeholder={isSpanish ? 'Buscar artículos...' : 'Search articles...'}
-              className="w-full pl-10 pr-4 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-            />
-          </div>
-        </form>
-      </div>
 
       {/* Categories */}
       <div className="bg-card border border-border rounded-lg p-6">
@@ -79,7 +108,7 @@ export function BlogSidebar({ locale, activeCategory, activeTag }: BlogSidebarPr
           {isSpanish ? 'Categorías' : 'Categories'}
         </h3>
         <ul className="space-y-2">
-          {mockCategories.map((category) => (
+          {categories.map((category: { name: string; slug: string; count: number }) => (
             <li key={category.slug}>
               <Link
                 href={`/${locale}/blog/category/${category.slug}`}
@@ -108,13 +137,13 @@ export function BlogSidebar({ locale, activeCategory, activeTag }: BlogSidebarPr
           {isSpanish ? 'Tags Populares' : 'Popular Tags'}
         </h3>
         <div className="flex flex-wrap gap-2">
-          {mockTags.map((tag) => (
+          {tags.map((tag: { name: string; slug: string; count: number }) => (
             <Link
-              key={tag.name}
-              href={`/${locale}/blog/tag/${tag.name}`}
+              key={tag.slug}
+              href={`/${locale}/blog/tag/${tag.slug}`}
               className={`
                 inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs transition-colors
-                ${activeTag === tag.name
+                ${activeTag === tag.slug
                   ? 'bg-primary text-primary-foreground'
                   : 'bg-accent text-accent-foreground hover:bg-accent/80'
                 }
@@ -134,7 +163,7 @@ export function BlogSidebar({ locale, activeCategory, activeTag }: BlogSidebarPr
           {isSpanish ? 'Artículos Recientes' : 'Recent Posts'}
         </h3>
         <ul className="space-y-4">
-          {mockRecentPosts.map((post) => (
+          {recentPosts.map((post: { title: string; slug: string; date: string; category: string }) => (
             <li key={post.slug}>
               <Link
                 href={`/${locale}/blog/${post.slug}`}

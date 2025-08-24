@@ -215,7 +215,9 @@
     "tagPageDescription": "All articles tagged with",
     "noPostsInCategory": "No articles in this category yet",
     "noPostsInCategoryDescription": "We're working on adding more content. Check back soon!",
-    "articles": "articles"
+    "articles": "articles",
+    "relatedPosts": "Related Posts",
+    "relatedPostsComingSoon": "Related posts feature coming soon!"
   },
   "NotFound": {
     "title": "404 - Page Not Found",

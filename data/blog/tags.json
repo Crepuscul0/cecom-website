@@ -1,32 +1,50 @@
 [
   {
     "id": "tag-security",
-    "name": "Seguridad",
+    "name": {
+      "es": "Seguridad",
+      "en": "Security"
+    },
     "slug": "seguridad"
   },
   {
     "id": "tag-extreme",
-    "name": "Extreme Networks",
+    "name": {
+      "es": "Extreme Networks",
+      "en": "Extreme Networks"
+    },
     "slug": "extreme-networks"
   },
   {
     "id": "tag-vulnerability",
-    "name": "Vulnerabilidad",
+    "name": {
+      "es": "Vulnerabilidad",
+      "en": "Vulnerability"
+    },
     "slug": "vulnerabilidad"
   },
   {
     "id": "tag-firewall",
-    "name": "Firewall",
+    "name": {
+      "es": "Firewall",
+      "en": "Firewall"
+    },
     "slug": "firewall"
   },
   {
     "id": "tag-enterprise",
-    "name": "Empresas",
+    "name": {
+      "es": "Empresas",
+      "en": "Enterprise"
+    },
     "slug": "empresas"
   },
   {
     "id": "tag-dominican",
-    "name": "República Dominicana",
+    "name": {
+      "es": "República Dominicana",
+      "en": "Dominican Republic"
+    },
     "slug": "republica-dominicana"
   }
 ]

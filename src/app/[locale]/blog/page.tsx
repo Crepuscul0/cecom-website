@@ -4,6 +4,10 @@ import { BlogHeader } from '@/components/blog/BlogHeader';
 import { BlogCard } from '@/components/blog/BlogCard';
 import { BlogSidebar } from '@/components/blog/BlogSidebar';
 import { BlogPagination } from '@/components/blog/BlogPagination';
+import { BlogPost } from '@/types/blog';
+import { normalizeBlogPost, filterBlogPosts, sortBlogPosts, paginateBlogPosts } from '@/utils/blog';
+import fs from 'fs';
+import path from 'path';
 
 interface BlogPageProps {
   params: Promise<{ locale: string }>;
@@ -34,72 +38,43 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
   };
 }
 
-// Load mock data from local files for development
-function loadMockData(locale: string) {
+// Load RSS data from local files
+function loadBlogPosts(): BlogPost[] {
   try {
-    const fs = require('fs')
-    const path = require('path')
-    
     const dataDir = path.join(process.cwd(), 'data', 'blog')
     const postsPath = path.join(dataDir, 'posts.json')
     
     if (fs.existsSync(postsPath)) {
-      const posts = JSON.parse(fs.readFileSync(postsPath, 'utf8'))
-      return posts
+      const rawPosts = JSON.parse(fs.readFileSync(postsPath, 'utf8'))
+      return rawPosts.map((post: any) => normalizeBlogPost(post))
     }
   } catch (error) {
-    console.log('Using fallback mock data')
+    console.error('Error loading blog posts:', error)
   }
   
-  // Fallback mock data
-  return [
-    {
-      id: '1',
-      title: locale === 'es' 
-        ? 'Guía Completa de Ciberseguridad para Empresas Dominicanas'
-        : 'Complete Cybersecurity Guide for Dominican Businesses',
-      excerpt: locale === 'es'
-        ? 'Descubre las mejores prácticas de ciberseguridad adaptadas al mercado dominicano y protege tu empresa de las amenazas digitales.'
-        : 'Discover cybersecurity best practices adapted to the Dominican market and protect your business from digital threats.',
-      slug: 'guia-ciberseguridad-empresas-dominicanas',
-      category: locale === 'es' ? 'Ciberseguridad' : 'Cybersecurity',
-      tags: ['seguridad', 'empresas', 'firewall', 'antivirus'],
-      featuredImage: '/blog/cybersecurity-guide.jpg',
-      publishedDate: '2024-08-20',
-      readingTime: 8,
-      author: 'Equipo CECOM'
-    }
-  ]
+  return []
 }
-
-// This will be moved inside the component to use the correct locale
-// const mockPosts = loadMockData('es')
 
 export default async function BlogPage({ params, searchParams }: BlogPageProps) {
   const { locale } = await params;
   const { page = '1', category, tag, search } = await searchParams;
   const t = await getTranslations({ locale, namespace: 'Blog' });
   
-  // Load posts with correct locale
-  const mockPosts = loadMockData(locale);
+  // Load and process blog posts
+  const allPosts = loadBlogPosts();
+  const sortedPosts = sortBlogPosts(allPosts);
   
-  // TODO: Implementar lógica de filtrado y paginación real
-  const currentPage = parseInt(page);
-  const postsPerPage = 6;
-  const totalPosts = mockPosts.length;
-  const totalPages = Math.ceil(totalPosts / postsPerPage);
-  
-  const filteredPosts = mockPosts.filter((post: any) => {
-    if (category && post.category !== category) return false;
-    if (tag && !post.tags.includes(tag)) return false;
-    if (search) {
-      const searchLower = search.toLowerCase();
-      const title = post.title.toLowerCase();
-      const excerpt = post.excerpt.toLowerCase();
-      return title.includes(searchLower) || excerpt.includes(searchLower);
-    }
-    return true;
+  // Apply filters
+  const filteredPosts = filterBlogPosts(sortedPosts, {
+    category,
+    tag,
+    search,
+    status: 'published'
   });
+  
+  // Apply pagination
+  const currentPage = parseInt(page);
+  const paginationResult = paginateBlogPosts(filteredPosts, currentPage, 6);
 
   return (
     <div className="min-h-screen bg-background">
@@ -143,10 +118,10 @@ export default async function BlogPage({ params, searchParams }: BlogPageProps) 
             )}
 
             {/* Posts Grid */}
-            {filteredPosts.length > 0 ? (
+            {paginationResult.posts.length > 0 ? (
               <>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                  {filteredPosts.map((post: any) => (
+                  {paginationResult.posts.map((post: BlogPost) => (
                     <BlogCard 
                       key={post.id} 
                       post={post} 
@@ -157,8 +132,8 @@ export default async function BlogPage({ params, searchParams }: BlogPageProps) 
 
                 {/* Pagination */}
                 <BlogPagination 
-                  currentPage={currentPage}
-                  totalPages={totalPages}
+                  currentPage={paginationResult.currentPage}
+                  totalPages={paginationResult.totalPages}
                   locale={locale}
                 />
               </>

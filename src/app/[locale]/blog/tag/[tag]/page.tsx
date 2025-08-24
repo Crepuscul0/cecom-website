@@ -7,6 +7,10 @@ import { BlogSidebar } from '@/components/blog/BlogSidebar';
 import { BlogPagination } from '@/components/blog/BlogPagination';
 import Link from 'next/link';
 import { ArrowLeft, Tag } from 'lucide-react';
+import { BlogPost } from '@/types/blog';
+import { normalizeBlogPost, filterBlogPosts, sortBlogPosts, paginateBlogPosts } from '@/utils/blog';
+import fs from 'fs';
+import path from 'path';
 
 interface TagPageProps {
   params: Promise<{ locale: string; tag: string }>;
@@ -39,70 +43,48 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
   };
 }
 
-// Mock data - será reemplazado por datos reales de PayloadCMS
-const mockTagData = {
-  'seguridad': [
-    {
-      id: '1',
-      title: {
-        es: 'Guía Completa de Ciberseguridad para Empresas Dominicanas',
-        en: 'Complete Cybersecurity Guide for Dominican Businesses'
-      },
-      excerpt: {
-        es: 'Descubre las mejores prácticas de ciberseguridad adaptadas al mercado dominicano.',
-        en: 'Discover cybersecurity best practices adapted to the Dominican market.'
-      },
-      slug: 'guia-ciberseguridad-empresas-dominicanas',
-      category: 'Ciberseguridad',
-      tags: ['seguridad', 'empresas', 'firewall'],
-      featured_image: '/blog/cybersecurity-guide.jpg',
-      published_date: '2024-08-20',
-      reading_time: 8
+// Load RSS data from local files and filter by tag
+function loadBlogPosts(): BlogPost[] {
+  try {
+    
+    const dataDir = path.join(process.cwd(), 'data', 'blog')
+    const postsPath = path.join(dataDir, 'posts.json')
+    
+    if (fs.existsSync(postsPath)) {
+      const rawPosts = JSON.parse(fs.readFileSync(postsPath, 'utf8'))
+      return rawPosts.map((post: any) => normalizeBlogPost(post))
     }
-  ],
-  'switches': [
-    {
-      id: '2',
-      title: {
-        es: 'Cómo Elegir el Switch Perfecto para tu Red Empresarial',
-        en: 'How to Choose the Perfect Switch for Your Business Network'
-      },
-      excerpt: {
-        es: 'Análisis detallado de switches Extreme Networks y cómo seleccionar el modelo ideal.',
-        en: 'Detailed analysis of Extreme Networks switches and how to select the ideal model.'
-      },
-      slug: 'elegir-switch-red-empresarial',
-      category: 'Redes',
-      tags: ['switches', 'extreme-networks', 'infraestructura'],
-      featured_image: '/blog/network-switch-guide.jpg',
-      published_date: '2024-08-18',
-      reading_time: 6
-    }
-  ],
-  'extreme-networks': [
-    {
-      id: '2',
-      title: {
-        es: 'Cómo Elegir el Switch Perfecto para tu Red Empresarial',
-        en: 'How to Choose the Perfect Switch for Your Business Network'
-      },
-      excerpt: {
-        es: 'Análisis detallado de switches Extreme Networks y cómo seleccionar el modelo ideal.',
-        en: 'Detailed analysis of Extreme Networks switches and how to select the ideal model.'
-      },
-      slug: 'elegir-switch-red-empresarial',
-      category: 'Redes',
-      tags: ['switches', 'extreme-networks', 'infraestructura'],
-      featured_image: '/blog/network-switch-guide.jpg',
-      published_date: '2024-08-18',
-      reading_time: 6
-    }
-  ]
-};
+  } catch (error) {
+    console.error('Error loading blog posts:', error)
+  }
+  
+  return []
+}
 
-async function getPostsByTag(tag: string) {
-  const tagKey = tag.toLowerCase();
-  return mockTagData[tagKey as keyof typeof mockTagData] || [];
+async function getPostsByTag(tagSlug: string): Promise<BlogPost[]> {
+  const allPosts = loadBlogPosts();
+  const sortedPosts = sortBlogPosts(allPosts);
+  
+  // Load tags to map slug to ID
+  try {
+    const tagsPath = path.join(process.cwd(), 'data', 'blog', 'tags.json');
+    if (fs.existsSync(tagsPath)) {
+      const tags = JSON.parse(fs.readFileSync(tagsPath, 'utf8'));
+      const tag = tags.find((t: any) => t.slug === tagSlug);
+      
+      if (tag) {
+        // Filter posts by tag ID
+        return filterBlogPosts(sortedPosts, {
+          tag: tag.id,
+          status: 'published'
+        });
+      }
+    }
+  } catch (error) {
+    console.error('Error loading tags:', error);
+  }
+  
+  return [];
 }
 
 export default async function TagPage({ params, searchParams }: TagPageProps) {
@@ -116,14 +98,9 @@ export default async function TagPage({ params, searchParams }: TagPageProps) {
     notFound();
   }
 
+  // Apply pagination
   const currentPage = parseInt(page);
-  const postsPerPage = 6;
-  const totalPosts = posts.length;
-  const totalPages = Math.ceil(totalPosts / postsPerPage);
-  
-  const startIndex = (currentPage - 1) * postsPerPage;
-  const endIndex = startIndex + postsPerPage;
-  const paginatedPosts = posts.slice(startIndex, endIndex);
+  const paginationResult = paginateBlogPosts(posts, currentPage, 6);
 
   const tagName = decodeURIComponent(tag);
 
@@ -162,13 +139,13 @@ export default async function TagPage({ params, searchParams }: TagPageProps) {
               </p>
               
               <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                <span>{totalPosts} {t('articles')}</span>
+                <span>{posts.length} {t('articles')}</span>
               </div>
             </div>
 
             {/* Posts Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              {paginatedPosts.map((post) => (
+              {paginationResult.posts.map((post: BlogPost) => (
                 <BlogCard 
                   key={post.id} 
                   post={post} 
@@ -178,10 +155,10 @@ export default async function TagPage({ params, searchParams }: TagPageProps) {
             </div>
 
             {/* Pagination */}
-            {totalPages > 1 && (
+            {paginationResult.totalPages > 1 && (
               <BlogPagination 
-                currentPage={currentPage}
-                totalPages={totalPages}
+                currentPage={paginationResult.currentPage}
+                totalPages={paginationResult.totalPages}
                 locale={locale}
                 basePath={`/${locale}/blog/tag/${tag}`}
               />

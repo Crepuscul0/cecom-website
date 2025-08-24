@@ -215,7 +215,9 @@
     "tagPageDescription": "Todos los artículos etiquetados con",
     "noPostsInCategory": "Aún no hay artículos en esta categoría",
     "noPostsInCategoryDescription": "Estamos trabajando en agregar más contenido. ¡Vuelve pronto!",
-    "articles": "artículos"
+    "articles": "artículos",
+    "relatedPosts": "Artículos Relacionados",
+    "relatedPostsComingSoon": "¡La función de artículos relacionados estará disponible pronto!"
   },
   "NotFound": {
     "title": "404 - Página no encontrada",

@@ -1,17 +1,10 @@
-import Link from 'next/link';
-import { Calendar, Clock, Tag, ArrowRight } from 'lucide-react';
+'use client';
 
-interface BlogPost {
-  id: string;
-  title: { es: string; en: string } | string;
-  excerpt: { es: string; en: string } | string;
-  slug: string;
-  category: string;
-  tags: string[];
-  featured_image?: string;
-  published_date: string;
-  reading_time: number;
-}
+import Link from 'next/link';
+import Image from 'next/image';
+import { Calendar, Clock, Tag, ArrowRight } from 'lucide-react';
+import { BlogPost } from '@/types/blog';
+import { parseDate, formatDate } from '@/utils/blog';
 
 interface BlogCardProps {
   post: BlogPost;
@@ -19,40 +12,28 @@ interface BlogCardProps {
 }
 
 export function BlogCard({ post, locale }: BlogCardProps) {
-  const title = typeof post.title === 'string' ? post.title : post.title[locale];
-  const excerpt = typeof post.excerpt === 'string' ? post.excerpt : post.excerpt[locale];
+  const title = post.title;
+  const excerpt = post.excerpt;
   
-  const formattedDate = new Date(post.published_date).toLocaleDateString(
-    locale === 'es' ? 'es-DO' : 'en-US',
-    { 
-      year: 'numeric', 
-      month: 'short', 
-      day: 'numeric' 
-    }
-  );
+  // Use utility functions for date parsing and formatting
+  const parsedDate = parseDate(post.publishedDate);
+  const formattedDate = formatDate(parsedDate, locale);
 
   return (
     <article className="group bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 hover:border-primary/20">
-      {/* Featured Image */}
-      {post.featured_image && (
-        <div className="relative h-48 overflow-hidden">
-          <img
-            src={post.featured_image}
-            alt={title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-          />
-          
-          {/* Category Badge */}
-          <div className="absolute top-4 left-4">
-            <Link
-              href={`/${locale}/blog/category/${post.category.toLowerCase()}`}
-              className="inline-block px-3 py-1 bg-primary text-primary-foreground rounded-full text-xs font-medium hover:bg-primary/90 transition-colors"
-            >
-              {post.category}
-            </Link>
+      {/* Security Advisory Icon */}
+      <div className="relative h-48 mb-4 overflow-hidden rounded-lg bg-gradient-to-br from-red-500/10 to-orange-500/10 border border-red-200/20">
+        <div className="flex items-center justify-center h-full">
+          <div className="text-center">
+            <div className="w-20 h-20 mx-auto mb-3 bg-red-500/20 rounded-full flex items-center justify-center">
+              <svg className="w-10 h-10 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+              </svg>
+            </div>
+            <p className="text-sm font-medium text-red-600 dark:text-red-400">Security Advisory</p>
           </div>
         </div>
-      )}
+      </div>
 
       {/* Content */}
       <div className="p-6">
@@ -60,12 +41,12 @@ export function BlogCard({ post, locale }: BlogCardProps) {
         <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
           <div className="flex items-center gap-1">
             <Calendar className="w-3 h-3" />
-            <time dateTime={post.published_date}>{formattedDate}</time>
+            <time dateTime={post.publishedDate}>{formattedDate}</time>
           </div>
           
           <div className="flex items-center gap-1">
             <Clock className="w-3 h-3" />
-            <span>{post.reading_time} min</span>
+            <span>{post.readingTime} min</span>
           </div>
         </div>
 
@@ -83,7 +64,7 @@ export function BlogCard({ post, locale }: BlogCardProps) {
 
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-4">
-          {post.tags.slice(0, 3).map((tag) => (
+          {post.tags.slice(0, 3).map((tag: string) => (
             <Link
               key={tag}
               href={`/${locale}/blog/tag/${tag}`}

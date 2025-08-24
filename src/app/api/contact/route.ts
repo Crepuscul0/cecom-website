@@ -39,13 +39,13 @@ async function sendEmail(data: {
 }) {
   // For now, we'll just log the email data
   // In production, integrate with an email service
-  console.log('Contact form submission:', {
-    from: data.email,
-    name: data.fullName,
-    phone: data.phone,
-    message: data.message,
-    timestamp: new Date().toISOString(),
-  });
+  // console.log('Contact form submission:', {
+  //   from: data.email,
+  //   name: data.fullName,
+  //   phone: data.phone,
+  //   message: data.message,
+  //   timestamp: new Date().toISOString(),
+  // });
 
   // Simulate email sending delay
   await new Promise(resolve => setTimeout(resolve, 1000));

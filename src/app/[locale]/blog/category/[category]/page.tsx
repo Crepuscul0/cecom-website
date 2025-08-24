@@ -7,6 +7,10 @@ import { BlogSidebar } from '@/components/blog/BlogSidebar';
 import { BlogPagination } from '@/components/blog/BlogPagination';
 import Link from 'next/link';
 import { ArrowLeft, Folder } from 'lucide-react';
+import { BlogPost } from '@/types/blog';
+import { normalizeBlogPost, filterBlogPosts, sortBlogPosts, paginateBlogPosts } from '@/utils/blog';
+import fs from 'fs';
+import path from 'path';
 
 interface CategoryPageProps {
   params: Promise<{ locale: string; category: string }>;
@@ -39,89 +43,94 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   };
 }
 
-// Mock data - será reemplazado por datos reales de PayloadCMS
-const mockCategories = {
+// Load RSS data from local files and filter by category
+function loadBlogPosts(): BlogPost[] {
+  try {
+    const dataDir = path.join(process.cwd(), 'data', 'blog')
+    const postsPath = path.join(dataDir, 'posts.json')
+    
+    if (fs.existsSync(postsPath)) {
+      const rawPosts = JSON.parse(fs.readFileSync(postsPath, 'utf8'))
+      return rawPosts.map((post: any) => normalizeBlogPost(post))
+    }
+  } catch (error) {
+    console.error('Error loading blog posts:', error)
+  }
+  
+  return []
+}
+
+async function getPostsByCategory(categorySlug: string): Promise<BlogPost[]> {
+  const allPosts = loadBlogPosts();
+  const sortedPosts = sortBlogPosts(allPosts);
+  
+  // Load categories to map slug to ID
+  try {
+    const categoriesPath = path.join(process.cwd(), 'data', 'blog', 'categories.json');
+    if (fs.existsSync(categoriesPath)) {
+      const categories = JSON.parse(fs.readFileSync(categoriesPath, 'utf8'));
+      const category = categories.find((cat: any) => cat.slug === categorySlug);
+      
+      if (category) {
+        // Filter posts by category ID
+        return filterBlogPosts(sortedPosts, {
+          category: category.id,
+          status: 'published'
+        });
+      }
+    }
+  } catch (error) {
+    console.error('Error loading categories:', error);
+  }
+  
+  return [];
+}
+
+// Category metadata mapping
+const categoryMetadata = {
   'ciberseguridad': {
     name: { es: 'Ciberseguridad', en: 'Cybersecurity' },
     description: { 
       es: 'Artículos sobre protección digital, firewalls, antivirus y mejores prácticas de seguridad informática.',
       en: 'Articles about digital protection, firewalls, antivirus and cybersecurity best practices.'
-    },
-    posts: [
-      {
-        id: '1',
-        title: {
-          es: 'Guía Completa de Ciberseguridad para Empresas Dominicanas',
-          en: 'Complete Cybersecurity Guide for Dominican Businesses'
-        },
-        excerpt: {
-          es: 'Descubre las mejores prácticas de ciberseguridad adaptadas al mercado dominicano.',
-          en: 'Discover cybersecurity best practices adapted to the Dominican market.'
-        },
-        slug: 'guia-ciberseguridad-empresas-dominicanas',
-        category: 'Ciberseguridad',
-        tags: ['seguridad', 'empresas', 'firewall'],
-        featured_image: '/blog/cybersecurity-guide.jpg',
-        published_date: '2024-08-20',
-        reading_time: 8
-      }
-    ]
+    }
+  },
+  'cat-cybersecurity': {
+    name: { es: 'Ciberseguridad', en: 'Cybersecurity' },
+    description: { 
+      es: 'Artículos sobre protección digital, firewalls, antivirus y mejores prácticas de seguridad informática.',
+      en: 'Articles about digital protection, firewalls, antivirus and cybersecurity best practices.'
+    }
   },
   'redes': {
     name: { es: 'Redes', en: 'Networking' },
     description: { 
       es: 'Todo sobre infraestructura de red, switches, routers y conectividad empresarial.',
       en: 'Everything about network infrastructure, switches, routers and enterprise connectivity.'
-    },
-    posts: [
-      {
-        id: '2',
-        title: {
-          es: 'Cómo Elegir el Switch Perfecto para tu Red Empresarial',
-          en: 'How to Choose the Perfect Switch for Your Business Network'
-        },
-        excerpt: {
-          es: 'Análisis detallado de switches Extreme Networks y cómo seleccionar el modelo ideal.',
-          en: 'Detailed analysis of Extreme Networks switches and how to select the ideal model.'
-        },
-        slug: 'elegir-switch-red-empresarial',
-        category: 'Redes',
-        tags: ['switches', 'extreme-networks', 'infraestructura'],
-        featured_image: '/blog/network-switch-guide.jpg',
-        published_date: '2024-08-18',
-        reading_time: 6
-      }
-    ]
+    }
   }
 };
-
-async function getCategoryData(category: string, locale: string) {
-  const categoryKey = category.toLowerCase();
-  return mockCategories[categoryKey as keyof typeof mockCategories] || null;
-}
 
 export default async function CategoryPage({ params, searchParams }: CategoryPageProps) {
   const { locale, category } = await params;
   const { page = '1' } = await searchParams;
   const t = await getTranslations({ locale, namespace: 'Blog' });
   
-  const categoryData = await getCategoryData(category, locale);
+  const posts = await getPostsByCategory(category);
   
-  if (!categoryData) {
+  if (posts.length === 0) {
     notFound();
   }
 
+  // Apply pagination
   const currentPage = parseInt(page);
-  const postsPerPage = 6;
-  const totalPosts = categoryData.posts.length;
-  const totalPages = Math.ceil(totalPosts / postsPerPage);
-  
-  const startIndex = (currentPage - 1) * postsPerPage;
-  const endIndex = startIndex + postsPerPage;
-  const paginatedPosts = categoryData.posts.slice(startIndex, endIndex);
+  const paginationResult = paginateBlogPosts(posts, currentPage, 6);
 
-  const categoryName = categoryData.name[locale as 'es' | 'en'];
-  const categoryDescription = categoryData.description[locale as 'es' | 'en'];
+  // Get category metadata
+  const categoryKey = category.toLowerCase();
+  const metadata = categoryMetadata[categoryKey as keyof typeof categoryMetadata];
+  const categoryName = metadata?.name[locale as 'es' | 'en'] || category;
+  const categoryDescription = metadata?.description[locale as 'es' | 'en'] || '';
 
   return (
     <div className="min-h-screen bg-background">
@@ -158,15 +167,15 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
               </p>
               
               <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                <span>{totalPosts} {t('articles')}</span>
+                <span>{posts.length} {t('articles')}</span>
               </div>
             </div>
 
             {/* Posts Grid */}
-            {paginatedPosts.length > 0 ? (
+            {paginationResult.posts.length > 0 ? (
               <>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                  {paginatedPosts.map((post) => (
+                  {paginationResult.posts.map((post: BlogPost) => (
                     <BlogCard 
                       key={post.id} 
                       post={post} 
@@ -176,10 +185,10 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
                 </div>
 
                 {/* Pagination */}
-                {totalPages > 1 && (
+                {paginationResult.totalPages > 1 && (
                   <BlogPagination 
-                    currentPage={currentPage}
-                    totalPages={totalPages}
+                    currentPage={paginationResult.currentPage}
+                    totalPages={paginationResult.totalPages}
                     locale={locale}
                     basePath={`/${locale}/blog/category/${category}`}
                   />
