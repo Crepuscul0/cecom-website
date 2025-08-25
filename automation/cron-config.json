@@ -1,7 +1,7 @@
 {
   "schedule": "0 6 * * *",
-  "command": "node scripts/import-extreme-rss.js --limit=10",
-  "description": "Importación diaria de RSS de Extreme Networks",
+  "command": "node scripts/import-extreme-rss-supabase.js --limit=10",
+  "description": "Importación diaria de RSS de Extreme Networks a Supabase",
   "enabled": true,
   "lastRun": null,
   "nextRun": null

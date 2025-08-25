@@ -23,12 +23,9 @@ export interface BlogTag {
 
 export interface BlogPostDB {
   id: string;
-  title_es: string;
-  title_en: string;
-  content_es: string;
-  content_en: string;
-  excerpt_es?: string;
-  excerpt_en?: string;
+  title: string;
+  content: string;
+  excerpt?: string;
   slug: string;
   category_id: string;
   featured_image?: string;
@@ -36,10 +33,8 @@ export interface BlogPostDB {
   status: 'draft' | 'published' | 'archived';
   author: string;
   reading_time?: number;
-  seo_title_es?: string;
-  seo_title_en?: string;
-  seo_description_es?: string;
-  seo_description_en?: string;
+  meta_title?: string;
+  meta_description?: string;
   created_at: string;
   updated_at: string;
 }
@@ -72,8 +67,7 @@ export async function getBlogPosts(options?: {
     .from('blog_posts')
     .select(`
       *,
-      blog_categories(name_es, name_en, slug),
-      blog_post_tags(blog_tags(name_es, name_en, slug))
+      blog_categories(name_es, name_en, slug)
     `);
 
   if (options?.status) {
@@ -81,7 +75,7 @@ export async function getBlogPosts(options?: {
   }
 
   if (options?.category) {
-    query = query.eq('blog_categories.slug', options.category);
+    query = query.eq('category_id', options.category);
   }
 
   if (options?.limit) {
@@ -103,20 +97,20 @@ export async function getBlogPosts(options?: {
 
   return data?.map(post => ({
     id: post.id,
-    title: post.title_es, // Default to Spanish, can be localized
-    excerpt: post.excerpt_es || '',
-    content: post.content_es,
+    title: post.title,
+    excerpt: post.excerpt || '',
+    content: post.content,
     slug: post.slug,
     category: post.blog_categories?.slug || '',
-    tags: post.blog_post_tags?.map((pt: any) => pt.blog_tags.slug) || [],
+    tags: [], // Tags will need to be implemented separately
     featuredImage: post.featured_image,
     publishedDate: post.published_date,
-    readingTime: post.reading_time || 5,
+    readingTime: 5, // Default reading time
     author: post.author,
     status: post.status,
-    seo: post.seo_title_es || post.seo_description_es ? {
-      metaTitle: post.seo_title_es || post.title_es,
-      metaDescription: post.seo_description_es || post.excerpt_es || '',
+    seo: post.meta_title || post.meta_description ? {
+      metaTitle: post.meta_title || post.title,
+      metaDescription: post.meta_description || post.excerpt || '',
       keywords: ''
     } : undefined
   })) || [];
@@ -127,8 +121,7 @@ export async function getBlogPost(slug: string): Promise<BlogPost | null> {
     .from('blog_posts')
     .select(`
       *,
-      blog_categories(name_es, name_en, slug),
-      blog_post_tags(blog_tags(name_es, name_en, slug))
+      blog_categories(name_es, name_en, slug)
     `)
     .eq('slug', slug)
     .eq('status', 'published')
@@ -140,20 +133,20 @@ export async function getBlogPost(slug: string): Promise<BlogPost | null> {
 
   return {
     id: data.id,
-    title: data.title_es,
-    excerpt: data.excerpt_es || '',
-    content: data.content_es,
+    title: data.title,
+    excerpt: data.excerpt || '',
+    content: data.content,
     slug: data.slug,
     category: data.blog_categories?.slug || '',
-    tags: data.blog_post_tags?.map((pt: any) => pt.blog_tags.slug) || [],
+    tags: [], // Tags will need to be implemented separately
     featuredImage: data.featured_image,
     publishedDate: data.published_date,
-    readingTime: data.reading_time || 5,
+    readingTime: 5, // Default reading time
     author: data.author,
     status: data.status,
-    seo: data.seo_title_es || data.seo_description_es ? {
-      metaTitle: data.seo_title_es || data.title_es,
-      metaDescription: data.seo_description_es || data.excerpt_es || '',
+    seo: data.meta_title || data.meta_description ? {
+      metaTitle: data.meta_title || data.title,
+      metaDescription: data.meta_description || data.excerpt || '',
       keywords: ''
     } : undefined
   };

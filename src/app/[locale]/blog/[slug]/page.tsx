@@ -6,9 +6,8 @@ import { BlogSidebar } from '@/components/blog/BlogSidebar';
 import { Calendar, Clock, Tag, User, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { BlogPost } from '@/types/blog';
-import { normalizeBlogPost, parseDate, formatDate } from '@/utils/blog';
-import fs from 'fs';
-import path from 'path';
+import { getBlogPost } from '@/lib/supabase-blog';
+import { parseDate, formatDate } from '@/utils/blog';
 
 interface BlogPostPageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -17,8 +16,7 @@ interface BlogPostPageProps {
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { locale, slug } = await params;
   
-  // TODO: Fetch real post data from PayloadCMS
-  const post = await getPostBySlug(slug, locale);
+  const post = await getBlogPost(slug);
   
   if (!post) {
     return {
@@ -55,39 +53,12 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   };
 }
 
-// Load RSS data from local files
-function loadBlogPosts(): BlogPost[] {
-  try {
-    const dataDir = path.join(process.cwd(), 'data', 'blog');
-    const postsPath = path.join(dataDir, 'posts.json');
-    
-    if (fs.existsSync(postsPath)) {
-      const rawPosts = JSON.parse(fs.readFileSync(postsPath, 'utf8'));
-      return rawPosts.map((post: any) => normalizeBlogPost(post));
-    }
-  } catch (error) {
-    console.error('Error loading posts:', error);
-  }
-  
-  return [];
-}
-
-async function getPostBySlug(slug: string, locale: string): Promise<BlogPost | null> {
-  try {
-    const allPosts = loadBlogPosts();
-    const post = allPosts.find(p => p.slug === slug);
-    return post || null;
-  } catch (error) {
-    console.error('Error loading post:', error);
-    return null;
-  }
-}
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { locale, slug } = await params;
   const t = await getTranslations({ locale, namespace: 'Blog' });
   
-  const post = await getPostBySlug(slug, locale);
+  const post = await getBlogPost(slug);
   
   if (!post) {
     notFound();
