@@ -32,7 +32,6 @@ export interface BlogPostDB {
   published_date: string;
   status: 'draft' | 'published' | 'archived';
   author: string;
-  reading_time?: number;
   meta_title?: string;
   meta_description?: string;
   created_at: string;

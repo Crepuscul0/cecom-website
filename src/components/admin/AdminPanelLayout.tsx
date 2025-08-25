@@ -4,9 +4,10 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { supabase, getUserProfile, UserProfile, isAdmin, isEmployee } from '@/lib/supabase'
-import { Users, Ticket, FileText, Wifi, Settings, LogOut, Menu, X } from 'lucide-react'
+import { Users, Ticket, FileText, Wifi, Settings, LogOut, Menu, X, BookOpen } from 'lucide-react'
 import { LanguageToggle } from '@/components/admin/LanguageToggle'
 import { useAdminLocale } from '@/contexts/AdminLocaleContext'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 interface AdminPanelLayoutProps {
   children: React.ReactNode
@@ -78,6 +79,7 @@ export function AdminPanelLayout({ children, activeSection }: AdminPanelLayoutPr
     
     // Employee and Admin sections
     ...(isEmployee(userProfile.role) || isAdmin(userProfile.role) ? [
+      { id: 'blogs', label: t('navigation.blogs'), icon: BookOpen, href: '/admin-panel/blogs' },
       { id: 'tickets', label: t('navigation.tickets'), icon: Ticket, href: '/admin-panel/tickets' },
       { id: 'cotizaciones', label: t('navigation.cotizaciones'), icon: FileText, href: '/admin-panel/cotizaciones' },
       { id: 'aplicaciones', label: t('navigation.aplicaciones'), icon: Settings, href: '/admin-panel/aplicaciones' },
@@ -91,7 +93,7 @@ export function AdminPanelLayout({ children, activeSection }: AdminPanelLayoutPr
       {sidebarOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
           <div className="fixed inset-0 bg-black bg-opacity-50" onClick={() => setSidebarOpen(false)} />
-          <div className="fixed inset-y-0 left-0 z-50 w-64 bg-card shadow-lg">
+          <div className="fixed inset-y-0 left-0 z-50 w-64 bg-card shadow-lg border-r border-border">
             <SidebarContent 
               navigationItems={navigationItems}
               activeSection={activeSection}
@@ -105,7 +107,7 @@ export function AdminPanelLayout({ children, activeSection }: AdminPanelLayoutPr
 
       {/* Desktop sidebar */}
       <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-64 lg:flex-col">
-        <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-card px-6 pb-4">
+        <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-card px-6 pb-4 border-r border-border">
           <SidebarContent 
             navigationItems={navigationItems}
             activeSection={activeSection}
@@ -134,14 +136,8 @@ export function AdminPanelLayout({ children, activeSection }: AdminPanelLayoutPr
               </h1>
             </div>
             <div className="flex items-center gap-x-4 lg:gap-x-6 ml-auto">
+              <ThemeToggle />
               <LanguageToggle currentLocale={locale} onLocaleChange={setLocale} />
-              <span className="text-sm text-muted-foreground">
-                {userProfile.first_name} {userProfile.last_name}
-              </span>
-              <span className="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-xs font-medium text-primary ring-1 ring-inset ring-primary/20">
-                {userProfile.role === 'admin' ? t('navigation.users') : 
-                 userProfile.role === 'employee' ? 'Empleado' : 'Usuario'}
-              </span>
             </div>
           </div>
         </div>

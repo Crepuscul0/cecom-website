@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 import { NextIntlClientProvider } from 'next-intl'
+import { ThemeProvider } from 'next-themes'
 
 interface AdminLocaleContextType {
   locale: string
@@ -60,7 +61,9 @@ export function AdminLocaleProvider({
   return (
     <AdminLocaleContext.Provider value={{ locale, setLocale, messages }}>
       <NextIntlClientProvider messages={messages} locale={locale}>
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
       </NextIntlClientProvider>
     </AdminLocaleContext.Provider>
   )

@@ -1,16 +1,12 @@
 'use client';
-
-import { useState } from 'react';
 import { canModifyContent, signOut } from '@/lib/supabase';
 import { useAdminData } from '@/hooks/useAdminData';
-import { AdminHeader } from './AdminHeader';
 import { AdminIntlProvider } from './AdminIntlProvider';
 import { AdminContent } from './AdminContent';
-import { AdminLoading, AdminLogin, AdminAccessDenied } from './AdminStates';
+import { AdminLoading, AdminAccessDenied } from './AdminStates';
 import { ToastProvider } from '@/components/ui/toast';
 
 export function AdminDashboard() {
-  const [showAuthModal, setShowAuthModal] = useState(false);
   const {
     categories,
     vendors,
@@ -24,9 +20,7 @@ export function AdminDashboard() {
     setUserProfile
   } = useAdminData();
 
-  const handleAuthSuccess = () => {
-    checkAuth();
-  };
+  // Auth is gated by AdminPanelLayout; if not authenticated, the layout redirects.
 
   const handleSignOut = async () => {
     // Clear development mode
@@ -37,21 +31,12 @@ export function AdminDashboard() {
     setUserProfile(null);
   };
 
-  // Show loading state
-  if (loading) {
+  // Show loading state (also covers the brief moment before user is resolved)
+  if (loading || !user) {
     return <AdminLoading />;
   }
 
-  // Show login if user is not authenticated
-  if (!user) {
-    return (
-      <AdminLogin
-        showAuthModal={showAuthModal}
-        onShowAuthModal={setShowAuthModal}
-        onAuthSuccess={handleAuthSuccess}
-      />
-    );
-  }
+  // At this point, user is authenticated by the parent layout
 
   // Check if user has permission to access admin
   if (userProfile && !canModifyContent(userProfile.role)) {
@@ -67,10 +52,7 @@ export function AdminDashboard() {
     <AdminIntlProvider>
       <ToastProvider>
         <div className="w-full h-full flex flex-col">
-          <AdminHeader
-            userProfile={userProfile}
-            onSignOut={handleSignOut}
-          />
+          {/* CMS header removed: no sign-out button or user identification in top bar */}
 
           <div className="flex-1 w-full">
             <AdminContent
