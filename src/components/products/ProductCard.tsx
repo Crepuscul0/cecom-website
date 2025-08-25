@@ -14,7 +14,13 @@ export function ProductCard({ product, locale }: ProductCardProps) {
   const isSpanish = locale === 'es';
 
   return (
-    <Card className="h-full flex flex-col hover:shadow-lg transition-shadow">
+    <Card className="relative h-full flex flex-col hover:shadow-lg transition-shadow cursor-pointer group">
+      {/* Full-card clickable overlay */}
+      <Link
+        href={`/${locale}/products/${product.id}`}
+        aria-label={`${product.name} - ${isSpanish ? 'Ver detalles' : 'View details'}`}
+        className="absolute inset-0 z-10"
+      />
       <CardHeader className="p-4">
         <div className="aspect-square relative bg-muted rounded-lg overflow-hidden mb-3">
           {(product.image_url || product.external_image_url) ? (
@@ -36,7 +42,13 @@ export function ProductCard({ product, locale }: ProductCardProps) {
         
         <div className="space-y-2">
           <h3 className="font-semibold text-lg leading-tight line-clamp-2">
-            {product.name}
+            <Link
+              href={`/${locale}/products/${product.id}`}
+              className="hover:underline"
+              aria-label={`${product.name} - ${isSpanish ? 'Ver detalles' : 'View details'}`}
+            >
+              {product.name}
+            </Link>
           </h3>
           
           <div className="flex flex-wrap gap-1">
@@ -65,7 +77,7 @@ export function ProductCard({ product, locale }: ProductCardProps) {
           </div>
         )}
 
-        <div className="space-y-2 mt-auto">
+        <div className="space-y-2 mt-auto relative z-20">
           <Button asChild className="w-full">
             <Link href={`/${locale}/products/${product.id}`}>
               {isSpanish ? 'Ver detalles' : 'View details'}

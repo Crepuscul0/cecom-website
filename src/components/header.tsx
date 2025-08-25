@@ -16,7 +16,7 @@ import {
   SheetTitle,
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
-import { Menu } from 'lucide-react';
+import { Menu, Languages } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -153,7 +153,7 @@ export default function Header() {
                   aria-label={t('accessibility.languageSelectorButton')}
                   title={t('tooltips.languageSelector')}
                 >
-                  🌐
+                  <Languages className="h-5 w-5" aria-hidden="true" />
                   <span className="sr-only">{t('accessibility.languageSelector')}</span>
                 </Button>
               </DropdownMenuTrigger>
@@ -304,7 +304,7 @@ export default function Header() {
                                 aria-label={t('accessibility.languageSelectorButton')}
                                 title={t('tooltips.languageSelector')}
                               >
-                                🌐
+                                <Languages className="h-4 w-4" aria-hidden="true" />
                                 <span className="ml-2 text-sm font-medium">
                                   {currentLocale.toUpperCase()}
                                 </span>

@@ -49,9 +49,23 @@ export function ProductCard({ product, onViewDetails, className = '' }: ProductC
     return media.sizes?.thumbnail?.url || media.url
   }
 
+  const handleCardKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      handleViewDetails()
+    }
+  }
+
   return (
-    <Card className={`group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${className}`}>
-      <CardContent className="p-0">
+    <Card 
+      className={`group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full flex flex-col cursor-pointer ${className}`}
+      onClick={handleViewDetails}
+      onKeyDown={handleCardKeyDown}
+      role="button"
+      tabIndex={0}
+      aria-label={`${product.name} - ${t('actions.viewDetails')}`}
+    >
+      <CardContent className="p-0 flex-1 flex flex-col">
         {/* Product Image */}
         <div className="relative aspect-square overflow-hidden rounded-t-lg bg-muted">
           {!imageError ? (
@@ -112,7 +126,14 @@ export function ProductCard({ product, onViewDetails, className = '' }: ProductC
           <div className="space-y-2">
             {/* Product Name */}
             <h3 className="font-semibold text-lg line-clamp-2 group-hover:text-primary transition-colors">
-              {product.name}
+              <button
+                type="button"
+                onClick={handleViewDetails}
+                className="text-left w-full cursor-pointer hover:underline focus:outline-none"
+                aria-label={`${product.name} - ${t('actions.viewDetails')}`}
+              >
+                {product.name}
+              </button>
             </h3>
 
             {/* Vendor Name */}
@@ -156,11 +177,11 @@ export function ProductCard({ product, onViewDetails, className = '' }: ProductC
         </div>
       </CardContent>
 
-      <CardFooter className="p-4 pt-0">
+      <CardFooter className="p-4 pt-0 mt-auto">
         <div className="flex gap-2 w-full">
           <Button 
-            onClick={handleViewDetails}
-            className="flex-1"
+            onClick={(e) => { e.stopPropagation(); handleViewDetails() }}
+            className="flex-1 relative z-20"
             size="sm"
           >
             <Eye className="h-4 w-4 mr-2" />
@@ -171,7 +192,9 @@ export function ProductCard({ product, onViewDetails, className = '' }: ProductC
             <Button 
               variant="outline" 
               size="sm"
-              onClick={() => {
+              className="relative z-20"
+              onClick={(e) => {
+                e.stopPropagation()
                 const datasheetUrl = typeof product.datasheet === 'object' 
                   ? (product.datasheet as Media).url 
                   : product.datasheet
@@ -188,7 +211,8 @@ export function ProductCard({ product, onViewDetails, className = '' }: ProductC
             <Button 
               variant="outline" 
               size="sm"
-              onClick={() => window.open(vendor.website, '_blank')}
+              className="relative z-20"
+              onClick={(e) => { e.stopPropagation(); window.open(vendor.website, '_blank') }}
             >
               <ExternalLink className="h-4 w-4" />
             </Button>
