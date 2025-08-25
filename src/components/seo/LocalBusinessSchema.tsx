@@ -12,10 +12,10 @@ export function LocalBusinessSchema({ locale }: LocalBusinessSchemaProps) {
     "description": isSpanish 
       ? "Proveedor líder de soluciones tecnológicas profesionales, ciberseguridad, redes e infraestructura IT para empresas en República Dominicana"
       : "Leading provider of professional technology solutions, cybersecurity, networking, and IT infrastructure for businesses in the Dominican Republic",
-    "url": "https://cecom.do",
-    "logo": "https://cecom.do/logos/cecom-logo.svg",
-    "image": "https://cecom.do/hero-image.jpg",
-    "telephone": "+1-809-XXX-XXXX", // Replace with actual phone
+    "url": "https://cecom.com.do",
+    "logo": "https://cecom.com.do/logos/cecom-logo.svg",
+    "image": "https://cecom.com.do/hero-image.jpg",
+    "telephone": "+1-809-688-4491", // Replace with actual phone
     "email": "info@cecom.do",
     "address": {
       "@type": "PostalAddress",
