@@ -2,7 +2,6 @@
 
 import { ThemeProvider } from "next-themes";
 import { NextIntlClientProvider } from "next-intl";
-import Header from "@/components/header";
 
 export function Providers({ children, messages, locale, timeZone, now }: { children: React.ReactNode; messages: any; locale: string; timeZone?: string; now?: Date }) {
   return (
@@ -14,7 +13,6 @@ export function Providers({ children, messages, locale, timeZone, now }: { child
         disableTransitionOnChange
 
       >
-        <Header />
         {children}
       </ThemeProvider>
     </NextIntlClientProvider>

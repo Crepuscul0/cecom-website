@@ -10,14 +10,14 @@ export default function Home() {
   const currentLocale = pathname.split('/')[1] || 'en';
 
   return (
-    <div className="bg-background min-h-screen">
+    <div className="bg-background">
       <div className="relative bg-[url('/background.svg')] bg-cover bg-center bg-no-repeat dark:brightness-90 dark:contrast-110">
         <div
           className="absolute inset-0 z-0 bg-gradient-to-br from-background/70 via-background/60 to-background/70 dark:from-background/80 dark:via-background/70 dark:to-background/80"
           aria-hidden="true"
         />
-        <main className="lg:relative relative z-10">
-          <div className="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48">
+        <main className="relative z-10 min-h-[calc(100dvh-80px)] flex items-center">
+          <div className="mx-auto max-w-7xl w-full text-center">
             <div className="px-4 sm:px-8">
               <h1 className="text-4xl tracking-tight font-extrabold text-foreground sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
                 <span className="block">{t('title')}</span>{' '}
