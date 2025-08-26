@@ -3,6 +3,7 @@ import { getMessages } from 'next-intl/server';
 import { timeZone } from '@/i18n/config';
 import { getCurrentTime } from '@/lib/timezone';
 import { notFound } from 'next/navigation';
+import { Footer } from '@/components/layout/Footer';
 
 export default async function LocaleLayout({
   children,
@@ -18,6 +19,7 @@ export default async function LocaleLayout({
   return (
     <Providers messages={messages} locale={locale} timeZone={timeZone} now={getCurrentTime()}>
       {children}
+      <Footer />
     </Providers>
   );
 }

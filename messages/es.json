@@ -263,6 +263,17 @@
       "mobileMenu": "Abrir menú de navegación"
     }
   },
+  "Footer": {
+    "quickLinks": "Enlaces Rápidos",
+    "followUs": "Síguenos",
+    "rights": "Todos los derechos reservados.",
+    "products": "Productos",
+    "social": {
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "x": "X (Twitter)"
+    }
+  },
   "Catalog": {
     "categories": "Categorías",
     "allProducts": "Todos los Productos",
