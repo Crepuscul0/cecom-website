@@ -40,5 +40,15 @@
       "en": "Software-based PBX and unified communications",
       "es": "PBX basado en software y comunicaciones unificadas"
     }
+  },
+  {
+    "id": "extreme",
+    "name": "Extreme Networks",
+    "logo": "/logos/extreme.png",
+    "website": "https://www.extremenetworks.com",
+    "description": {
+      "en": "Enterprise networking solutions including wired and wireless access, fabric, and cloud management.",
+      "es": "Soluciones de redes empresariales incluyendo acceso cableado e inalámbrico, fabric y gestión en la nube."
+    }
   }
 ]

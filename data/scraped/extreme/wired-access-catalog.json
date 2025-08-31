@@ -1,0 +1,1636 @@
+[
+  {
+    "id": "extreme-ers-3600",
+    "name": {
+      "en": "ERS 3600",
+      "es": "ERS 3600"
+    },
+    "description": {
+      "en": "Extreme Networks product.",
+      "es": "Extreme Networks product."
+    },
+    "features": {
+      "en": [
+        "High-performance Wiring Closet Switches",
+        "Delivers Enabled Edge",
+        "Static and Dynamic IP Routing",
+        "Non-blocking, wire-speed switching performance",
+        "High-capacity Stackable Chassis architecture",
+        "24 or 48 ports of Gigabit Ethernet for Access connectivity",
+        "2 ports of 10 Gigabit Ethernet for Network Uplink connectivity",
+        "2 dual-use ports of 10 Gigabit for Stackable Chassis or Network Uplink connectivity",
+        "Optional support for full-power PoE/PoE+",
+        "Ethernet Switches that are simple to operate",
+        "Certified 1-Minute plug-and-play for IP Phones",
+        "Auto Set-Up for Unified Communications",
+        "Intelligent Stacking delivers Enterprise-class scalability",
+        "Lifetime Warranty",
+        "Non-blocking, wire-speed",
+        "Integrated design",
+        "Feature-rich",
+        "Extreme Stackable Chassis",
+        "Extreme Fabric Attach",
+        "Features &amp; Benefits"
+      ],
+      "es": [
+        "High-performance Wiring Closet Switches",
+        "Delivers Enabled Edge",
+        "Static and Dynamic IP Routing",
+        "Non-blocking, wire-speed switching performance",
+        "High-capacity Stackable Chassis architecture",
+        "24 or 48 ports of Gigabit Ethernet for Access connectivity",
+        "2 ports of 10 Gigabit Ethernet for Network Uplink connectivity",
+        "2 dual-use ports of 10 Gigabit for Stackable Chassis or Network Uplink connectivity",
+        "Optional support for full-power PoE/PoE+",
+        "Ethernet Switches that are simple to operate",
+        "Certified 1-Minute plug-and-play for IP Phones",
+        "Auto Set-Up for Unified Communications",
+        "Intelligent Stacking delivers Enterprise-class scalability",
+        "Lifetime Warranty",
+        "Non-blocking, wire-speed",
+        "Integrated design",
+        "Feature-rich",
+        "Extreme Stackable Chassis",
+        "Extreme Fabric Attach",
+        "Features &amp; Benefits"
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/28f73064f9f24e97848bb480862ecd42?v=f048f0a4",
+    "order": 1,
+    "active": true
+  },
+  {
+    "id": "extreme-v300",
+    "name": {
+      "en": "V300",
+      "es": "V300"
+    },
+    "description": {
+      "en": "Extreme Networks product.",
+      "es": "Extreme Networks product."
+    },
+    "features": {
+      "en": [
+        "Compact cost-effective edge switches centrally managed by ExtremeXOS software",
+        "Edge component of Extreme’s Extended Edge Switching solution",
+        "Seamlessly runs advanced services residing on ExtremeXOS aggregation switch",
+        "Plug and play edge installation – just connect and start-up",
+        "Multiple models providing 8 x 1GbE access ports (PoE and non-PoE) and 2 x 10Gb SFP+",
+        "Environmentally hardened options that operate from -40°C to +70°C",
+        "System model that draws power from upstream switch – eliminating need for separate PSU",
+        "Resilient operations through support of Extended Edge Ring topology",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources",
+        "V300-8T-2X: 8 x 10/100/1000-BaseT with 2 x 1/10Gb SFP+ uplinks",
+        "V300-8P-2X: 8 x 10/100/1000BaseT with 30W PoE and 2 x 1/10Gb SFP+ uplinks",
+        "V300HT-8T-2X: 8 x 10/100/1000-BaseT with 2 x 1/10Gb SFP+uplinks (environmentally hardened unit designed to operate at -40°C to +70°C)",
+        "V300-8P-2T-W: 8 x 10/100/1000BaseT 30W PoE access with 2 x 1Gb Type 4 30/60/90W uplinks"
+      ],
+      "es": [
+        "Compact cost-effective edge switches centrally managed by ExtremeXOS software",
+        "Edge component of Extreme’s Extended Edge Switching solution",
+        "Seamlessly runs advanced services residing on ExtremeXOS aggregation switch",
+        "Plug and play edge installation – just connect and start-up",
+        "Multiple models providing 8 x 1GbE access ports (PoE and non-PoE) and 2 x 10Gb SFP+",
+        "Environmentally hardened options that operate from -40°C to +70°C",
+        "System model that draws power from upstream switch – eliminating need for separate PSU",
+        "Resilient operations through support of Extended Edge Ring topology",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources",
+        "V300-8T-2X: 8 x 10/100/1000-BaseT with 2 x 1/10Gb SFP+ uplinks",
+        "V300-8P-2X: 8 x 10/100/1000BaseT with 30W PoE and 2 x 1/10Gb SFP+ uplinks",
+        "V300HT-8T-2X: 8 x 10/100/1000-BaseT with 2 x 1/10Gb SFP+uplinks (environmentally hardened unit designed to operate at -40°C to +70°C)",
+        "V300-8P-2T-W: 8 x 10/100/1000BaseT 30W PoE access with 2 x 1Gb Type 4 30/60/90W uplinks"
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/857dfc95ce484af3badf0d64c16355a1?v=f9d8e620",
+    "order": 2,
+    "active": true
+  },
+  {
+    "id": "extreme-v400",
+    "name": {
+      "en": "V400",
+      "es": "V400"
+    },
+    "description": {
+      "en": "Extreme Networks product.",
+      "es": "Extreme Networks product."
+    },
+    "features": {
+      "en": [
+        "Scalable family of edge switches centrally powered by ExtremeXOS software",
+        "Edge component of Extreme's Extended Edge Switching solution",
+        "Seamlessly runs advanced services residing on ExtremeXOS aggregation switch",
+        "Centralized, single point of control reduces complexity and operational costs",
+        "Plug and play edge installation - just connect and power-up",
+        "24 or 48-port Gigabit Ethernet (non-PoE) models",
+        "24 or 48-port 802.3at PoE models",
+        "2 or 4-port l0Gbase-X SFP+ uplink ports",
+        "Redundant Power Supply (RPS) option",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ],
+      "es": [
+        "Scalable family of edge switches centrally powered by ExtremeXOS software",
+        "Edge component of Extreme's Extended Edge Switching solution",
+        "Seamlessly runs advanced services residing on ExtremeXOS aggregation switch",
+        "Centralized, single point of control reduces complexity and operational costs",
+        "Plug and play edge installation - just connect and power-up",
+        "24 or 48-port Gigabit Ethernet (non-PoE) models",
+        "24 or 48-port 802.3at PoE models",
+        "2 or 4-port l0Gbase-X SFP+ uplink ports",
+        "Redundant Power Supply (RPS) option",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/49697ee584ab4059a4c573d26a3656ea?v=b0a11afe",
+    "order": 3,
+    "active": true
+  },
+  {
+    "id": "extreme-x435",
+    "name": {
+      "en": "X435",
+      "es": "X435"
+    },
+    "description": {
+      "en": "The economic X435 edge switch series by Extreme Networks is made for enterprises, branches, and small sites, offering cost-effective Ethernet connectivity.",
+      "es": "The economic X435 edge switch series by Extreme Networks is made for enterprises, branches, and small sites, offering cost-effective Ethernet connectivity."
+    },
+    "features": {
+      "en": [
+        "8-port and 24-port models with Gigabit Ethernet connectivity",
+        "4x 100M/1Gb/2.5Gb integrated uplink ports",
+        "30W, 60W, and 90W PoE support for powering connected edge devices",
+        "Silent operation with fanless 8-port models for noise-sensitive environments",
+        "Power over Ethernet (PoE) passthrough on select 8-port model",
+        "Intuitive and centralized cloud-based network management with ExtremeCloud IQ and ExtremeCloud IQ – Site Engine",
+        "Automated connectivity to Extreme Fabric Connect for simplified and secure network fabric network services",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ],
+      "es": [
+        "8-port and 24-port models with Gigabit Ethernet connectivity",
+        "4x 100M/1Gb/2.5Gb integrated uplink ports",
+        "30W, 60W, and 90W PoE support for powering connected edge devices",
+        "Silent operation with fanless 8-port models for noise-sensitive environments",
+        "Power over Ethernet (PoE) passthrough on select 8-port model",
+        "Intuitive and centralized cloud-based network management with ExtremeCloud IQ and ExtremeCloud IQ – Site Engine",
+        "Automated connectivity to Extreme Fabric Connect for simplified and secure network fabric network services",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/121c009e14e849ea89beda50bb592994?v=bb0040b2",
+    "order": 4,
+    "active": true
+  },
+  {
+    "id": "extreme-x440-g2",
+    "name": {
+      "en": "X440-G2",
+      "es": "X440-G2"
+    },
+    "description": {
+      "en": "The X440-G2 edge switch is designed for next-gen campus edge applications. Powered by ExtremeXOS, the campus switch provides manageable continuous uptime.",
+      "es": "The X440-G2 edge switch is designed for next-gen campus edge applications. Powered by ExtremeXOS, the campus switch provides manageable continuous uptime."
+    },
+    "features": {
+      "en": [
+        "12, 24, and 48-port models with Gigabit Ethernet connectivity",
+        "4x 1Gb uplinks upgradeable to 10Gb",
+        "30W Power over Ethernet (PoE) support for powering edge devices",
+        "Intuitive and centralized cloud-based network management with ExtremeCloud TM IQ and ExtremeCloud IQ – Site Engine",
+        "Automated connectivity to Extreme Fabric Connect for simplified and secure network fabric services",
+        "Choice of AC or DC power option",
+        "Non-blocking, wire-speed design",
+        "Stackable with up to eight switches with 40Gb per unit",
+        "SFP and 100BASE-FX fiber model options",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ],
+      "es": [
+        "12, 24, and 48-port models with Gigabit Ethernet connectivity",
+        "4x 1Gb uplinks upgradeable to 10Gb",
+        "30W Power over Ethernet (PoE) support for powering edge devices",
+        "Intuitive and centralized cloud-based network management with ExtremeCloud TM IQ and ExtremeCloud IQ – Site Engine",
+        "Automated connectivity to Extreme Fabric Connect for simplified and secure network fabric services",
+        "Choice of AC or DC power option",
+        "Non-blocking, wire-speed design",
+        "Stackable with up to eight switches with 40Gb per unit",
+        "SFP and 100BASE-FX fiber model options",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/2b34c19f2c0d4ca792142531244f0f2a?v=ac478bf8",
+    "order": 5,
+    "active": true
+  },
+  {
+    "id": "extreme-x450-g2",
+    "name": {
+      "en": "X450-G2",
+      "es": "X450-G2"
+    },
+    "description": {
+      "en": "Extreme Networks product.",
+      "es": "Extreme Networks product."
+    },
+    "features": {
+      "en": [
+        "Scalable edge switches with ExtremeXOS operating system",
+        "24-port or 48-port Gigabit Ethernet connectivity",
+        "Copper and PoE+ models",
+        "4 x 10Gb SFP+ uplink ports on front faceplate",
+        "Built-in 21 Gbps stacking ports on rear panel for all models (SummitStack-V84)",
+        "Front-to-back airflow",
+        "Modular PoE power supplies",
+        "Hot-swappable fan tray and PoE power supplies",
+        "All configurations non-blocking full duplex",
+        "Role-based policy and Fabric Attach for secure, automated access to network applications or services",
+        "ExtremeCloud IQ for powerful, simple and secure public or private cloud management",
+        "ExtremeCloud IQ – Site Engine for centralized, unified management capabilities",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ],
+      "es": [
+        "Scalable edge switches with ExtremeXOS operating system",
+        "24-port or 48-port Gigabit Ethernet connectivity",
+        "Copper and PoE+ models",
+        "4 x 10Gb SFP+ uplink ports on front faceplate",
+        "Built-in 21 Gbps stacking ports on rear panel for all models (SummitStack-V84)",
+        "Front-to-back airflow",
+        "Modular PoE power supplies",
+        "Hot-swappable fan tray and PoE power supplies",
+        "All configurations non-blocking full duplex",
+        "Role-based policy and Fabric Attach for secure, automated access to network applications or services",
+        "ExtremeCloud IQ for powerful, simple and secure public or private cloud management",
+        "ExtremeCloud IQ – Site Engine for centralized, unified management capabilities",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/f5b1e221b2e84e32ac11ac180167ad20?v=6d8d24ea",
+    "order": 6,
+    "active": true
+  },
+  {
+    "id": "extreme-x460-g2",
+    "name": {
+      "en": "X460-G2",
+      "es": "X460-G2"
+    },
+    "description": {
+      "en": "The X640-G2 fixed-form switch series, powered by ExtremeXOS, is built for high-performance secure routing and switching, flexible stacking, and efficiency.",
+      "es": "The X640-G2 fixed-form switch series, powered by ExtremeXOS, is built for high-performance secure routing and switching, flexible stacking, and efficiency."
+    },
+    "features": {
+      "en": [
+        "Scalable fixed-form switches for advanced edge access and aggregation",
+        "24- and 48-port Gigabit and multi-rate Gigabit connectivity",
+        "Copper, Fiber, and PoE+ models",
+        "4 x 10Gb SFP+ or 4x1Gb SFP ports on front faceplate",
+        "Additional 10Gb or 40Gb uplinks via optional VIM modules",
+        "Upto 8-unit stacking 40Gb or 160Gb stacking",
+        "Non-blocking, wire-speed design",
+        "Hot-swappable power supplies and fan tray",
+        "Front-to-Back or Back-to-Front airflow",
+        "SyncE G.8232 and IEEE 1588 PTP",
+        "Role-based policy and Fabric Attach for secure, automated access to network applications or services",
+        "ExtremeCloud IQ for powerful, simple and secure public or private cloud management",
+        "ExtremeCloud IQ – Site Engine for centralized, unified management capabilities",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ],
+      "es": [
+        "Scalable fixed-form switches for advanced edge access and aggregation",
+        "24- and 48-port Gigabit and multi-rate Gigabit connectivity",
+        "Copper, Fiber, and PoE+ models",
+        "4 x 10Gb SFP+ or 4x1Gb SFP ports on front faceplate",
+        "Additional 10Gb or 40Gb uplinks via optional VIM modules",
+        "Upto 8-unit stacking 40Gb or 160Gb stacking",
+        "Non-blocking, wire-speed design",
+        "Hot-swappable power supplies and fan tray",
+        "Front-to-Back or Back-to-Front airflow",
+        "SyncE G.8232 and IEEE 1588 PTP",
+        "Role-based policy and Fabric Attach for secure, automated access to network applications or services",
+        "ExtremeCloud IQ for powerful, simple and secure public or private cloud management",
+        "ExtremeCloud IQ – Site Engine for centralized, unified management capabilities",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/3b0aea6a70fe4d1292facc9ba990cf85?v=a6adb956",
+    "order": 7,
+    "active": true
+  },
+  {
+    "id": "extreme-x465",
+    "name": {
+      "en": "X465",
+      "es": "X465"
+    },
+    "description": {
+      "en": "Extreme Networks product.",
+      "es": "Extreme Networks product."
+    },
+    "features": {
+      "en": [
+        "24 and 48-port models with gigabit, multi-gigabit, and 1/10Gb fiber Ethernet connectivity",
+        "Choice of 10Gb, 25Gb, and 40Gb modular uplink ports",
+        "30W, 60W, and 90W PoE (Power over Ethernet) support for powering connected edge devices",
+        "Intuitive and centralized cloud-based network management with ExtremeCloud IQ and ExtremeCloud IQ – Site Engine",
+        "Automated connectivity to Extreme Fabric Connect for simplified and secure network fabric services",
+        "MACsec on access and modular uplink ports for secure link encryption",
+        "Integrated Application Hosting of third-party applications without impacting switch performance",
+        "Stackable with up to eight switches with 168Gb per unit",
+        "Hot-swappable, redundant power supplies and fans",
+        "Non-blocking,wire-speed design",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ],
+      "es": [
+        "24 and 48-port models with gigabit, multi-gigabit, and 1/10Gb fiber Ethernet connectivity",
+        "Choice of 10Gb, 25Gb, and 40Gb modular uplink ports",
+        "30W, 60W, and 90W PoE (Power over Ethernet) support for powering connected edge devices",
+        "Intuitive and centralized cloud-based network management with ExtremeCloud IQ and ExtremeCloud IQ – Site Engine",
+        "Automated connectivity to Extreme Fabric Connect for simplified and secure network fabric services",
+        "MACsec on access and modular uplink ports for secure link encryption",
+        "Integrated Application Hosting of third-party applications without impacting switch performance",
+        "Stackable with up to eight switches with 168Gb per unit",
+        "Hot-swappable, redundant power supplies and fans",
+        "Non-blocking,wire-speed design",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/1387a5ff773543ee80355e18fa15f183?v=5508b231",
+    "order": 8,
+    "active": true
+  },
+  {
+    "id": "extreme-x590",
+    "name": {
+      "en": "X590",
+      "es": "X590"
+    },
+    "description": {
+      "en": "Extreme Networks product.",
+      "es": "Extreme Networks product."
+    },
+    "features": {
+      "en": [
+        "Full featured ExtremeXOS operating system with advanced features supporting switching, routing, and VXLAN",
+        "Controlling aggregation switch for V300 and V400 edge devices with Extreme's Extended Edge Switching",
+        "High-density 10Gb aggregation applications",
+        "Non-blocking 880 Gbps switching capacity per system",
+        "ExtremeCloud IQ - Site Engine application support",
+        "Advanced command line interface",
+        "Zero Touch Provisioning (ZTP+)",
+        "Integrated web based management application",
+        "Wide range of port speeds from 1Gb, 10Gb, 25Gb, 40Gb, 50Gb, and 100Gb",
+        "Fiber SFP+ and copper 10GBASE-T models",
+        "Hot-swappable modular power and fans",
+        "AC and DC power supply options",
+        "Front to Back and Back to Front airflow options",
+        "Redundancy options for high availability",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ],
+      "es": [
+        "Full featured ExtremeXOS operating system with advanced features supporting switching, routing, and VXLAN",
+        "Controlling aggregation switch for V300 and V400 edge devices with Extreme's Extended Edge Switching",
+        "High-density 10Gb aggregation applications",
+        "Non-blocking 880 Gbps switching capacity per system",
+        "ExtremeCloud IQ - Site Engine application support",
+        "Advanced command line interface",
+        "Zero Touch Provisioning (ZTP+)",
+        "Integrated web based management application",
+        "Wide range of port speeds from 1Gb, 10Gb, 25Gb, 40Gb, 50Gb, and 100Gb",
+        "Fiber SFP+ and copper 10GBASE-T models",
+        "Hot-swappable modular power and fans",
+        "AC and DC power supply options",
+        "Front to Back and Back to Front airflow options",
+        "Redundancy options for high availability",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/544cfa301de24c03b6640647a3588217?v=4f42edd4",
+    "order": 9,
+    "active": true
+  },
+  {
+    "id": "extreme-x620",
+    "name": {
+      "en": "X620",
+      "es": "X620"
+    },
+    "description": {
+      "en": "Extreme Networks product.",
+      "es": "Extreme Networks product."
+    },
+    "features": {
+      "en": [
+        "Full featured ExtremeXOS operating system",
+        "SummitStack-V flexible stacking",
+        "Integrated web-based management application",
+        "Centralized management via ExtremeCloud IQ - Site Engine",
+        "Advanced command line interface",
+        "10GBASE fiber connectivity",
+        "Wide range of port speeds from 100Mb to 10Gb",
+        "Hot swappable modular systems and compact small form versions",
+        "Redundancy options for high availability",
+        "All systems provide non-blocking, wire-speed performance",
+        "Hot-swappable modular power and fans",
+        "AC and DC power supply options",
+        "Front to Back or Back to Front airflow options",
+        "Integrated power supplies and fans",
+        "External redundant power supply (RPS) options",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ],
+      "es": [
+        "Full featured ExtremeXOS operating system",
+        "SummitStack-V flexible stacking",
+        "Integrated web-based management application",
+        "Centralized management via ExtremeCloud IQ - Site Engine",
+        "Advanced command line interface",
+        "10GBASE fiber connectivity",
+        "Wide range of port speeds from 100Mb to 10Gb",
+        "Hot swappable modular systems and compact small form versions",
+        "Redundancy options for high availability",
+        "All systems provide non-blocking, wire-speed performance",
+        "Hot-swappable modular power and fans",
+        "AC and DC power supply options",
+        "Front to Back or Back to Front airflow options",
+        "Integrated power supplies and fans",
+        "External redundant power supply (RPS) options",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/7c2396a0c9834522ba91926b699075aa?v=85768353",
+    "order": 10,
+    "active": true
+  },
+  {
+    "id": "extreme-x670-g2",
+    "name": {
+      "en": "X670-G2",
+      "es": "X670-G2"
+    },
+    "description": {
+      "en": "Extreme Networks product.",
+      "es": "Extreme Networks product."
+    },
+    "features": {
+      "en": [
+        "X670-G2-48x-4q – 48 ports of 1/10Gb SFP+ with 4 ports of 10/40Gb QSFP+",
+        "X670-G2-72x – 72 ports of 1/10Gb SFP+ in 1 RU form factor",
+        "Full ExtremeXOS® feature set supporting switching, routing, SDN, Data Center Bridging, MPLS, and Audio Video Bridging",
+        "Controlling aggregation switch for V300 and V400 edge devices with Extreme Extended Edge Switching",
+        "SummitStack support enables flexible stacking configurations with other stackable ExtremeXOS product lines",
+        "IEEE 1588 PTP timing with integrated timing output ports",
+        "All configurations provide non- blocking, line rate performance",
+        "Low latency cut-through mode",
+        "Front-to-Back or Back-to-Front airflow",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ],
+      "es": [
+        "X670-G2-48x-4q – 48 ports of 1/10Gb SFP+ with 4 ports of 10/40Gb QSFP+",
+        "X670-G2-72x – 72 ports of 1/10Gb SFP+ in 1 RU form factor",
+        "Full ExtremeXOS® feature set supporting switching, routing, SDN, Data Center Bridging, MPLS, and Audio Video Bridging",
+        "Controlling aggregation switch for V300 and V400 edge devices with Extreme Extended Edge Switching",
+        "SummitStack support enables flexible stacking configurations with other stackable ExtremeXOS product lines",
+        "IEEE 1588 PTP timing with integrated timing output ports",
+        "All configurations provide non- blocking, line rate performance",
+        "Low latency cut-through mode",
+        "Front-to-Back or Back-to-Front airflow",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/047ce651e9b8424fbde3646fb0674c7c?v=67254582",
+    "order": 11,
+    "active": true
+  },
+  {
+    "id": "extreme-x690",
+    "name": {
+      "en": "X690",
+      "es": "X690"
+    },
+    "description": {
+      "en": "Extreme Networks",
+      "es": "Extreme Networks"
+    },
+    "features": {
+      "en": [
+        "Full featured ExtremeXOS operating system with advanced features supporting switching, routing, SDN, and VXLAN",
+        "Controlling aggregation switch for V300 and V400 edge devices with Extreme's Extended Edge Switching",
+        "High-density 10Gb aggregation and leaf applications",
+        "Non-blocking 1.76 Tbps switching capacity per system",
+        "ExtremeCloud IQ - Site Engine application support",
+        "Advanced command line interface",
+        "Zero Touch Provisioning (ZTP+)",
+        "Integrated web based management application",
+        "Wide range of port speeds from 1Gb, 10Gb, 25Gb, 40Gb, 50Gb, and 100Gb",
+        "Fiber SFP+ and copper 10GBASE-T models",
+        "Hot-swappable modular power and fans",
+        "AC and DC power supply options",
+        "Front to Back and Back to Front airflow options",
+        "Redundancy options for high availability",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ],
+      "es": [
+        "Full featured ExtremeXOS operating system with advanced features supporting switching, routing, SDN, and VXLAN",
+        "Controlling aggregation switch for V300 and V400 edge devices with Extreme's Extended Edge Switching",
+        "High-density 10Gb aggregation and leaf applications",
+        "Non-blocking 1.76 Tbps switching capacity per system",
+        "ExtremeCloud IQ - Site Engine application support",
+        "Advanced command line interface",
+        "Zero Touch Provisioning (ZTP+)",
+        "Integrated web based management application",
+        "Wide range of port speeds from 1Gb, 10Gb, 25Gb, 40Gb, 50Gb, and 100Gb",
+        "Fiber SFP+ and copper 10GBASE-T models",
+        "Hot-swappable modular power and fans",
+        "AC and DC power supply options",
+        "Front to Back and Back to Front airflow options",
+        "Redundancy options for high availability",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/9e3651ce972e490696c2f43a06fba3bd?v=a692e960",
+    "order": 12,
+    "active": true
+  },
+  {
+    "id": "extreme-x695",
+    "name": {
+      "en": "X695",
+      "es": "X695"
+    },
+    "description": {
+      "en": "Made for enterprise and aggregation applications, the X695 aggregation switch powered by ExtremeXOS network intelligence supports high-performance stacking.",
+      "es": "Made for enterprise and aggregation applications, the X695 aggregation switch powered by ExtremeXOS network intelligence supports high-performance stacking."
+    },
+    "features": {
+      "en": [
+        "High-Density 25 Gigabit switch for spine/ leaf and aggregation applications",
+        "48 ports of 10/25 Gigabit Ethernet connectivity plus 8 ports of 40/100 Gigabit connectivity",
+        "Compact 1U form factor for reduced power and footprint",
+        "Extreme Integrated Application Hosting enables third-party applications without impact to switch performance",
+        "Hot-swappable modular power supplies and fans",
+        "Front-to-back and back-to-front airflow options",
+        "AC and DC power supply options",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ],
+      "es": [
+        "High-Density 25 Gigabit switch for spine/ leaf and aggregation applications",
+        "48 ports of 10/25 Gigabit Ethernet connectivity plus 8 ports of 40/100 Gigabit connectivity",
+        "Compact 1U form factor for reduced power and footprint",
+        "Extreme Integrated Application Hosting enables third-party applications without impact to switch performance",
+        "Hot-swappable modular power supplies and fans",
+        "Front-to-back and back-to-front airflow options",
+        "AC and DC power supply options",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/449ca2292ff94f578ad2eba66534748a?v=342f0d27",
+    "order": 13,
+    "active": true
+  },
+  {
+    "id": "extreme-x870",
+    "name": {
+      "en": "X870",
+      "es": "X870"
+    },
+    "description": {
+      "en": "The high density, 100Gb spine and 10Gb leaf switches are purpose-built for extreme performance in enterprise and cloud data centers, powered by ExtremeXOS. ",
+      "es": "The high density, 100Gb spine and 10Gb leaf switches are purpose-built for extreme performance in enterprise and cloud data centers, powered by ExtremeXOS. "
+    },
+    "features": {
+      "en": [
+        "Full featured ExtremeXOS operating system with advanced features supporting switching, routing, SDN, and VXLAN",
+        "Spine and high-density and leaf applications",
+        "Non-blocking 6.4 Tbps switching capacity per system",
+        "ExtremeFabric Network Fabric",
+        "ExtremeCloud IQ - Site Engine application support",
+        "Advanced command line interface",
+        "Zero Touch Provisioning (ZTP+)",
+        "Integrated web based management application",
+        "Wide range of port speeds from 10Gb, 25Gb, 40Gb, 50Gb, and 100Gb",
+        "Hot -swappable modular power and fans",
+        "AC and DC power supply options",
+        "Front to Back and Back to Front airflow options",
+        "Redundancy options for high availability",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ],
+      "es": [
+        "Full featured ExtremeXOS operating system with advanced features supporting switching, routing, SDN, and VXLAN",
+        "Spine and high-density and leaf applications",
+        "Non-blocking 6.4 Tbps switching capacity per system",
+        "ExtremeFabric Network Fabric",
+        "ExtremeCloud IQ - Site Engine application support",
+        "Advanced command line interface",
+        "Zero Touch Provisioning (ZTP+)",
+        "Integrated web based management application",
+        "Wide range of port speeds from 10Gb, 25Gb, 40Gb, 50Gb, and 100Gb",
+        "Hot -swappable modular power and fans",
+        "AC and DC power supply options",
+        "Front to Back and Back to Front airflow options",
+        "Redundancy options for high availability",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/50410f4df1b842ab90da741adc2e800c?v=b2c5f78b",
+    "order": 14,
+    "active": true
+  },
+  {
+    "id": "extreme-industrial-switches-isw",
+    "name": {
+      "en": "Industrial Switches (ISW)",
+      "es": "Industrial Switches (ISW)"
+    },
+    "description": {
+      "en": "Extreme Networks product.",
+      "es": "Extreme Networks product."
+    },
+    "features": {
+      "en": [
+        "Ruggedized switches that support operations under harsh industrial conditions and extended temperatures from -40°C to 75°C",
+        "Available in several models that offer DIN Rail, Wall Mount and Rack Mount options",
+        "Ruggedized IP30 enclosure for DIN rail mounted switches",
+        "Fanless operation on both DIN Rail and Rack Mount switches",
+        "Flexible PoE support with IEEE 802.3af, 802.3at and 802.3bt offering up to 90W PoE on select models",
+        "Dual DC power input supported by all switch models",
+        "Full wire speed Layer 2 with highly Resilient LACP, Spanning tree STP, RSTP &amp; MSTP, fast Ring fail-over and G.8032 ERPS protection options",
+        "Integrated Fabric Attach capability for secure, automated connection to Extreme Fabric Connect services",
+        "CLI and web-based configuration support",
+        "ExtremeCloud IQ Site Engine based monitoring",
+        "Features &amp; Benefits",
+        "Resources"
+      ],
+      "es": [
+        "Ruggedized switches that support operations under harsh industrial conditions and extended temperatures from -40°C to 75°C",
+        "Available in several models that offer DIN Rail, Wall Mount and Rack Mount options",
+        "Ruggedized IP30 enclosure for DIN rail mounted switches",
+        "Fanless operation on both DIN Rail and Rack Mount switches",
+        "Flexible PoE support with IEEE 802.3af, 802.3at and 802.3bt offering up to 90W PoE on select models",
+        "Dual DC power input supported by all switch models",
+        "Full wire speed Layer 2 with highly Resilient LACP, Spanning tree STP, RSTP &amp; MSTP, fast Ring fail-over and G.8032 ERPS protection options",
+        "Integrated Fabric Attach capability for secure, automated connection to Extreme Fabric Connect services",
+        "CLI and web-based configuration support",
+        "ExtremeCloud IQ Site Engine based monitoring",
+        "Features &amp; Benefits",
+        "Resources"
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/f64a903c0ab64301a998c9bcd0c9f119?v=c03a863c",
+    "order": 15,
+    "active": true
+  },
+  {
+    "id": "extreme-slx-9240",
+    "name": {
+      "en": "SLX 9240",
+      "es": "SLX 9240"
+    },
+    "description": {
+      "en": "Extreme Networks product.",
+      "es": "Extreme Networks product."
+    },
+    "features": {
+      "en": [
+        "Delivers agility at all layers of the data center stack",
+        "Provides high-density 100/40 GbE spine and leaf connectivity in a 1U fixed form factor",
+        "Includes a programmable ASIC to accelerate adoption of new protocols and technologies",
+        "Utilizes the Integrated Application Hosting Architecture and Extreme SLX Visibility Services for flexible, real-time monitoring of virtualized,dynamic workloads to streamline troubleshooting",
+        "Provides payload timestamping to more accurately set and measure performance SLAs",
+        "Incorporates turnkey and customizable automation for the entire network lifecycle",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ],
+      "es": [
+        "Delivers agility at all layers of the data center stack",
+        "Provides high-density 100/40 GbE spine and leaf connectivity in a 1U fixed form factor",
+        "Includes a programmable ASIC to accelerate adoption of new protocols and technologies",
+        "Utilizes the Integrated Application Hosting Architecture and Extreme SLX Visibility Services for flexible, real-time monitoring of virtualized,dynamic workloads to streamline troubleshooting",
+        "Provides payload timestamping to more accurately set and measure performance SLAs",
+        "Incorporates turnkey and customizable automation for the entire network lifecycle",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/0deed5c5396549bd988433ce49f15925?v=0e014edd",
+    "order": 16,
+    "active": true
+  },
+  {
+    "id": "extreme-8520",
+    "name": {
+      "en": "8520",
+      "es": "8520"
+    },
+    "description": {
+      "en": "Extreme Networks product.",
+      "es": "Extreme Networks product."
+    },
+    "features": {
+      "en": [
+        "High-performance feature-rich, Fixed Form Factor Leaf Switches for Service Provider and Data Center",
+        "Two models – 48 x 25/10/1G + 8 x 100/40G (fiber) and 48 x 10/1G copper connectivity + 6 x 100/40G GbE uplink options in a fixed 1U form factor",
+        "Copper ports support 10G and 1G and Fiber ports support 25G, 10G and 1G",
+        "Supply chain, boot, and runtime protection with Measured Boot",
+        "Baseboard Management Controller (BMC) for lights-out management (LOM) for remote operations such as reboots, shutdowns, and out-of-band troubleshooting",
+        "Full featured SLX operating system with advanced features supporting switching, IP Fabrics, BGP-EVPN and VXLAN",
+        "Supports Integrated Application Hosting to enable organizations to deploy Extreme- provided or third-party applications and tools directly on the switch",
+        "All models offer a choice of AC/DC power supplies and F/R fans",
+        "ExtremeCloud Orchestrator leverages Integrated Application Hosting and enables plug-n-play IP fabrics for infrastructure provisioning and configuration of all tenant services across the entire fabric at no additional cost",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ],
+      "es": [
+        "High-performance feature-rich, Fixed Form Factor Leaf Switches for Service Provider and Data Center",
+        "Two models – 48 x 25/10/1G + 8 x 100/40G (fiber) and 48 x 10/1G copper connectivity + 6 x 100/40G GbE uplink options in a fixed 1U form factor",
+        "Copper ports support 10G and 1G and Fiber ports support 25G, 10G and 1G",
+        "Supply chain, boot, and runtime protection with Measured Boot",
+        "Baseboard Management Controller (BMC) for lights-out management (LOM) for remote operations such as reboots, shutdowns, and out-of-band troubleshooting",
+        "Full featured SLX operating system with advanced features supporting switching, IP Fabrics, BGP-EVPN and VXLAN",
+        "Supports Integrated Application Hosting to enable organizations to deploy Extreme- provided or third-party applications and tools directly on the switch",
+        "All models offer a choice of AC/DC power supplies and F/R fans",
+        "ExtremeCloud Orchestrator leverages Integrated Application Hosting and enables plug-n-play IP fabrics for infrastructure provisioning and configuration of all tenant services across the entire fabric at no additional cost",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5e2a934bba334861bb01ff96b09d41f1?v=b4c6317a",
+    "order": 17,
+    "active": true
+  },
+  {
+    "id": "extreme-8720",
+    "name": {
+      "en": "8720",
+      "es": "8720"
+    },
+    "description": {
+      "en": "Extreme Networks product.",
+      "es": "Extreme Networks product."
+    },
+    "features": {
+      "en": [
+        "High-performance feature-rich, Fixed Form Factor Switch for Service Provider and Data Center",
+        "Compact 1U form factor for reduced power and footprint",
+        "Ability to deliver 100GbE to 4 x 25 GbE or 40GbE to 4 x 10 GbE using breakout cable",
+        "Supply chain, boot, and runtime protection with Measured Boot",
+        "Baseboard Management Controller (BMC) for lights-out management (LOM) for remote operations such as reboots, shutdowns, and out of band troubleshooting",
+        "Redundant management port",
+        "Supports Integrated Application Hosting to enable organizations to deploy Extreme-provided or third-party applications and tools directly on the switch",
+        "Non-blocking, wire-speed switching architecture",
+        "Offers a choice of AC/DC power supplies and F/R fans",
+        "ExtremeCloud Orchestrator leverages Integrated Application Hosting and enables plug-n-play IP fabrics for infrastructure provisioning and configuration of all tenant services across the entire fabric at no additional cost",
+        "Full featured SLX operating system with advanced features supporting switching, IP Fabrics, BGP- EVPN and VXLAN",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ],
+      "es": [
+        "High-performance feature-rich, Fixed Form Factor Switch for Service Provider and Data Center",
+        "Compact 1U form factor for reduced power and footprint",
+        "Ability to deliver 100GbE to 4 x 25 GbE or 40GbE to 4 x 10 GbE using breakout cable",
+        "Supply chain, boot, and runtime protection with Measured Boot",
+        "Baseboard Management Controller (BMC) for lights-out management (LOM) for remote operations such as reboots, shutdowns, and out of band troubleshooting",
+        "Redundant management port",
+        "Supports Integrated Application Hosting to enable organizations to deploy Extreme-provided or third-party applications and tools directly on the switch",
+        "Non-blocking, wire-speed switching architecture",
+        "Offers a choice of AC/DC power supplies and F/R fans",
+        "ExtremeCloud Orchestrator leverages Integrated Application Hosting and enables plug-n-play IP fabrics for infrastructure provisioning and configuration of all tenant services across the entire fabric at no additional cost",
+        "Full featured SLX operating system with advanced features supporting switching, IP Fabrics, BGP- EVPN and VXLAN",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/f06e268eadba43578e52341c004372ed?v=9f8c6c18",
+    "order": 18,
+    "active": true
+  },
+  {
+    "id": "extreme-8730",
+    "name": {
+      "en": "8730",
+      "es": "8730"
+    },
+    "description": {
+      "en": "Data centers today demand secure, scalable, and high-performance switching with efficient power use. The next-gen 400G Extreme 8730 switch delivers exceptional density, power efficiency, and flexible connectivity—ideal for high-performance enterprises, hyperscale cloud, and I/O-intensive environments.",
+      "es": "Data centers today demand secure, scalable, and high-performance switching with efficient power use. The next-gen 400G Extreme 8730 switch delivers exceptional density, power efficiency, and flexible connectivity—ideal for high-performance enterprises, hyperscale cloud, and I/O-intensive environments."
+    },
+    "features": {
+      "en": [
+        "32x400G QSFP-DD with 200G, 100G, 25/10G port speed operations.",
+        "12.8 TB switching capacity with 80 MB shared packet buffer.",
+        "Cloud-native Extreme ONE OS and cloud-native Extreme Fabric Orchestrator.",
+        "Built for modern Enterprise, Artificial Intelligence (AI), Communication Service Provider (CSP) and Telecom Service provider (ISP) applications.",
+        "Support for EVPN, VXLAN, MLAG based L2 and L3 network architectures.",
+        "Advanced Congestion Management for AI and storage workloads.",
+        "Advanced CPU Complex with 24 Cores, 32GB, Dual Management 2x10G SFP+.",
+        "Advanced Timing Circuity & Connectors (IEEE 1588/PTPv2).",
+        "Baseboard management controller (BMC) for remote chassis management.",
+        "Trusted platform module (TPM)-based hardware Root of Trust.",
+        "Power efficient AC and DC power supplies with forward and reverse airflows.",
+        "Features &amp; Benefits",
+        "Resources"
+      ],
+      "es": [
+        "32x400G QSFP-DD with 200G, 100G, 25/10G port speed operations.",
+        "12.8 TB switching capacity with 80 MB shared packet buffer.",
+        "Cloud-native Extreme ONE OS and cloud-native Extreme Fabric Orchestrator.",
+        "Built for modern Enterprise, Artificial Intelligence (AI), Communication Service Provider (CSP) and Telecom Service provider (ISP) applications.",
+        "Support for EVPN, VXLAN, MLAG based L2 and L3 network architectures.",
+        "Advanced Congestion Management for AI and storage workloads.",
+        "Advanced CPU Complex with 24 Cores, 32GB, Dual Management 2x10G SFP+.",
+        "Advanced Timing Circuity & Connectors (IEEE 1588/PTPv2).",
+        "Baseboard management controller (BMC) for remote chassis management.",
+        "Trusted platform module (TPM)-based hardware Root of Trust.",
+        "Power efficient AC and DC power supplies with forward and reverse airflows.",
+        "Features &amp; Benefits",
+        "Resources"
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/322e089fffd64cbe9c3e4adcc15ca345?v=97dca048",
+    "order": 19,
+    "active": true
+  },
+  {
+    "id": "extreme-4000-series",
+    "name": {
+      "en": "4000 Series",
+      "es": "4000 Series"
+    },
+    "description": {
+      "en": "The Extreme IQ managed, 4000 series Layer 2 switches offer enterprises easy-to-manage and cost-effective 24x7 Ethernet connectivity and network reliability.",
+      "es": "The Extreme IQ managed, 4000 series Layer 2 switches offer enterprises easy-to-manage and cost-effective 24x7 Ethernet connectivity and network reliability."
+    },
+    "features": {
+      "en": [
+        "Manageable by Extreme Platform ONE™*, ExtremeCloud™ IQ or ExtremeCloud IQ Site Engine",
+        "Fabric-enabled operations with Extreme Fabric for simplified and secure network provisioning and automation",
+        "Choice of operating system (OS) with dual-persona Universal Hardware",
+        "Reduced mean time to resolution with AI",
+        "ExtremeCloud Universal ZTNA policy enforcement",
+        "Automated and streamlined switch provisioning and day-to-day operations with cloud-based instant actions",
+        "Mobile app to easily onboard, provision, and troubleshoot your switches",
+        "Automated, maintenance-free feature and security updates delivered via the cloud",
+        "12-port, 24-port, and 48-port models with Gigabit and multi-Gigabit Ethernet access port options",
+        "4 x 1/10Gb uplink/stacking ports on all 4220 models",
+        "4 x 1/10/25Gb uplink ports plus 2 x 100Gb uplink/stacking ports on 4120 models",
+        "30W, 60W, 90W PoE options for powered connection of edge devices",
+        "8-port 1/10Gb SFP+ fiber model (4220)",
+        "Silent operation up to 35°C on 12-port PoE, multi-gigabit and non-PoE models (4220)",
+        "Non-blocking, wire-speed design",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources",
+        "One integrated experience that is easy to use.",
+        "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes."
+      ],
+      "es": [
+        "Manageable by Extreme Platform ONE™*, ExtremeCloud™ IQ or ExtremeCloud IQ Site Engine",
+        "Fabric-enabled operations with Extreme Fabric for simplified and secure network provisioning and automation",
+        "Choice of operating system (OS) with dual-persona Universal Hardware",
+        "Reduced mean time to resolution with AI",
+        "ExtremeCloud Universal ZTNA policy enforcement",
+        "Automated and streamlined switch provisioning and day-to-day operations with cloud-based instant actions",
+        "Mobile app to easily onboard, provision, and troubleshoot your switches",
+        "Automated, maintenance-free feature and security updates delivered via the cloud",
+        "12-port, 24-port, and 48-port models with Gigabit and multi-Gigabit Ethernet access port options",
+        "4 x 1/10Gb uplink/stacking ports on all 4220 models",
+        "4 x 1/10/25Gb uplink ports plus 2 x 100Gb uplink/stacking ports on 4120 models",
+        "30W, 60W, 90W PoE options for powered connection of edge devices",
+        "8-port 1/10Gb SFP+ fiber model (4220)",
+        "Silent operation up to 35°C on 12-port PoE, multi-gigabit and non-PoE models (4220)",
+        "Non-blocking, wire-speed design",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources",
+        "One integrated experience that is easy to use.",
+        "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes."
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/e86c0fdeedb44a7cb8a90202efeaa5cc?v=08ed97e6",
+    "order": 20,
+    "active": true
+  },
+  {
+    "id": "extreme-5120",
+    "name": {
+      "en": "5120",
+      "es": "5120"
+    },
+    "description": {
+      "en": "24- and 48-port stackable 10Gb switches designed primarily for solutions requiring basic 10Gb connectivity to end devices and can be deployed in campus networks to aggregate edge stacks while providing high speed uplinks. The switch is powered uniquely by the Switch Engine operating system.",
+      "es": "24- and 48-port stackable 10Gb switches designed primarily for solutions requiring basic 10Gb connectivity to end devices and can be deployed in campus networks to aggregate edge stacks while providing high speed uplinks. The switch is powered uniquely by the Switch Engine operating system."
+    },
+    "features": {
+      "en": [
+        "Manageable by Extreme Platform ONE TM* , ExtremeCloud TM IQ or ExtremeCloud IQ Site Engine",
+        "Powered uniquely by Switch Engine Operating System",
+        "Reduced mean time to resolution with AI",
+        "ExtremeCloud Universal ZTNA policy enforcement",
+        "Automated and streamlined switch provisioning and day-to-day operations with cloud-based instant actions",
+        "24 and 48 port stackable 10Gb aggregation switches with 25Gb and100Gb uplinks",
+        "10Gb copper and 10Gb Fiber models in 24 port switches providing cost-optimized and flexible connectivity options",
+        "24 x 10Gb SFP+ switch with 4 x 25G SFP28 uplinks",
+        "24 x 10GBase-T switch with 4 x 25G SFP28 uplinks",
+        "44 x 10Gb SFP+, 4x10G/25G SFP28 with 2x100G QSFP28 uplinks",
+        "Stacking of up to eight switches",
+        "Hot-swappable, redundant AC power supplies and fans",
+        "Front to Back and Back to Front cooling options",
+        "Line rate MACsec on all ports for secure link encryption**",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources",
+        "One integrated experience that is easy to use.",
+        "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes",
+        "Simplified licensing that makes the solution as easy to buy as it is to use."
+      ],
+      "es": [
+        "Manageable by Extreme Platform ONE TM* , ExtremeCloud TM IQ or ExtremeCloud IQ Site Engine",
+        "Powered uniquely by Switch Engine Operating System",
+        "Reduced mean time to resolution with AI",
+        "ExtremeCloud Universal ZTNA policy enforcement",
+        "Automated and streamlined switch provisioning and day-to-day operations with cloud-based instant actions",
+        "24 and 48 port stackable 10Gb aggregation switches with 25Gb and100Gb uplinks",
+        "10Gb copper and 10Gb Fiber models in 24 port switches providing cost-optimized and flexible connectivity options",
+        "24 x 10Gb SFP+ switch with 4 x 25G SFP28 uplinks",
+        "24 x 10GBase-T switch with 4 x 25G SFP28 uplinks",
+        "44 x 10Gb SFP+, 4x10G/25G SFP28 with 2x100G QSFP28 uplinks",
+        "Stacking of up to eight switches",
+        "Hot-swappable, redundant AC power supplies and fans",
+        "Front to Back and Back to Front cooling options",
+        "Line rate MACsec on all ports for secure link encryption**",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources",
+        "One integrated experience that is easy to use.",
+        "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes",
+        "Simplified licensing that makes the solution as easy to buy as it is to use."
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/14135f61b44b4b3fb4caff00000dfd9b?v=b6c3cf0d",
+    "order": 21,
+    "active": true
+  },
+  {
+    "id": "extreme-5320",
+    "name": {
+      "en": "5320",
+      "es": "5320"
+    },
+    "description": {
+      "en": "Explore the 5320 Universal Switch. Unleash efficient networking with versatile, high-performance solutions for seamless connectivity.",
+      "es": "Explore the 5320 Universal Switch. Unleash efficient networking with versatile, high-performance solutions for seamless connectivity."
+    },
+    "features": {
+      "en": [
+        "Manageable by Extreme Platform ONE&trade;*, ExtremeCloud&trade; IQ or ExtremeCloud IQ Site Engine",
+        "Fabric-enabled operations with Extreme Fabric for simplified and secure network provisioning and automation",
+        "Choice of operating system (OS) with dual-persona Universal Hardware",
+        "Reduced mean time to resolution with AI",
+        "ExtremeCloud Universal ZTNA policy enforcement",
+        "Automated and streamlined switch provisioning and day-to-day operations with cloud-based instant actions",
+        "30W PoE (Power over Ethernet) support for powering connected devices",
+        "4 x 10Gb SFP+ uplink ports on 16-port models / 8 x 10Gb SFP+ uplink ports on 24- and 48-port models",
+        "2 x 10Gb SFP+ uplink ports and 2 x 10Gb (Power over Ethernet) ports that can be used as uplinks on multi-GbE for Fanless model**",
+        "Silent operation at up to 35&deg;C (95&deg;F) on 16-port models and up to 45&deg;C (113&deg;F) for Fanless model**",
+        "Extended temperature range switch models (0&deg;C&ndash;60&deg;C)",
+        "Choice of AC or DC power option on 16-port models, except Fanless model** which only has the AC option",
+        "40Gb per unit stacking of up to eight switches",
+        "Secure link encryption with MACsec across both access and uplink ports",
+        "Non-blocking wire speed design",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources",
+        "One integrated experience that is easy to use.",
+        "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes."
+      ],
+      "es": [
+        "Manageable by Extreme Platform ONE&trade;*, ExtremeCloud&trade; IQ or ExtremeCloud IQ Site Engine",
+        "Fabric-enabled operations with Extreme Fabric for simplified and secure network provisioning and automation",
+        "Choice of operating system (OS) with dual-persona Universal Hardware",
+        "Reduced mean time to resolution with AI",
+        "ExtremeCloud Universal ZTNA policy enforcement",
+        "Automated and streamlined switch provisioning and day-to-day operations with cloud-based instant actions",
+        "30W PoE (Power over Ethernet) support for powering connected devices",
+        "4 x 10Gb SFP+ uplink ports on 16-port models / 8 x 10Gb SFP+ uplink ports on 24- and 48-port models",
+        "2 x 10Gb SFP+ uplink ports and 2 x 10Gb (Power over Ethernet) ports that can be used as uplinks on multi-GbE for Fanless model**",
+        "Silent operation at up to 35&deg;C (95&deg;F) on 16-port models and up to 45&deg;C (113&deg;F) for Fanless model**",
+        "Extended temperature range switch models (0&deg;C&ndash;60&deg;C)",
+        "Choice of AC or DC power option on 16-port models, except Fanless model** which only has the AC option",
+        "40Gb per unit stacking of up to eight switches",
+        "Secure link encryption with MACsec across both access and uplink ports",
+        "Non-blocking wire speed design",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources",
+        "One integrated experience that is easy to use.",
+        "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes."
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/ee879fffcc7b49fab208cb3ba17cf029?v=ae21dc3b",
+    "order": 22,
+    "active": true
+  },
+  {
+    "id": "extreme-5420",
+    "name": {
+      "en": "5420",
+      "es": "5420"
+    },
+    "description": {
+      "en": "The 5240 edge switches series is designed for digital enterprises to address the demands of next-gen devices at great price points. Learn more here.",
+      "es": "The 5240 edge switches series is designed for digital enterprises to address the demands of next-gen devices at great price points. Learn more here."
+    },
+    "features": {
+      "en": [
+        "Manageable by Extreme Platform ONE TM *, ExtremeCloud TM IQ or ExtremeCloud IQ Site Engine",
+        "Fabric-enabled operations with Extreme Fabric for simplified and secure network provisioning and automation",
+        "Choice of operating system (OS) with Universal Hardware",
+        "Reduced mean time to resolution with AI",
+        "ExtremeCloud Universal ZTNA policy enforcement",
+        "Automated and streamlined switch provisioning and day-to-day operations with cloud-based instant actions",
+        "Fixed 24 and 48-port models with gigabit and multi-gigabit support",
+        "30W, 60W, and 90W PoE (Power over Ethernet) support for powering connected devices",
+        "4 x 1/10Gb SFP+ or 4 x 1/10/25Gb built-in uplink ports",
+        "80Gb per unit stacking of up to eight switches",
+        "Secure link encryption with MACsec across both access and uplink ports",
+        "Non-blocking wire speed design",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources",
+        "One integrated experience that is easy to use.",
+        "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes.",
+        "Simplified licensing that makes the solution as easy to buy as it is to use.",
+        "AI-assisted workflows for configuration, deployment, and management.",
+        "Extreme Fabric and third-party switch visualization and management in cloud."
+      ],
+      "es": [
+        "Manageable by Extreme Platform ONE TM *, ExtremeCloud TM IQ or ExtremeCloud IQ Site Engine",
+        "Fabric-enabled operations with Extreme Fabric for simplified and secure network provisioning and automation",
+        "Choice of operating system (OS) with Universal Hardware",
+        "Reduced mean time to resolution with AI",
+        "ExtremeCloud Universal ZTNA policy enforcement",
+        "Automated and streamlined switch provisioning and day-to-day operations with cloud-based instant actions",
+        "Fixed 24 and 48-port models with gigabit and multi-gigabit support",
+        "30W, 60W, and 90W PoE (Power over Ethernet) support for powering connected devices",
+        "4 x 1/10Gb SFP+ or 4 x 1/10/25Gb built-in uplink ports",
+        "80Gb per unit stacking of up to eight switches",
+        "Secure link encryption with MACsec across both access and uplink ports",
+        "Non-blocking wire speed design",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources",
+        "One integrated experience that is easy to use.",
+        "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes.",
+        "Simplified licensing that makes the solution as easy to buy as it is to use.",
+        "AI-assisted workflows for configuration, deployment, and management.",
+        "Extreme Fabric and third-party switch visualization and management in cloud."
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5fc7c8293d97440789935bc946732b89?v=7926bb54",
+    "order": 23,
+    "active": true
+  },
+  {
+    "id": "extreme-5520",
+    "name": {
+      "en": "5520",
+      "es": "5520"
+    },
+    "description": {
+      "en": "Enjoy network reliability with 5220 aggregation switches. With end-to-end secure network augmentation, this hardware offers flagship switch operating.",
+      "es": "Enjoy network reliability with 5220 aggregation switches. With end-to-end secure network augmentation, this hardware offers flagship switch operating."
+    },
+    "features": {
+      "en": [
+        "Manageable by Extreme Platform ONE TM* , ExtremeCloud TM IQ or ExtremeCloud IQ Site Engine",
+        "Fabric-enabled operations with Extreme Fabric for simplified and secure network provisioning and automation",
+        "Choice of operating system (OS) with dual-persona Universal Hardware",
+        "Reduced mean time to resolution with AI",
+        "ExtremeCloud Universal ZTNA policy enforcement",
+        "Automated and streamlined switch provisioning and day-to-day operations with cloud-based instant actions",
+        "Fixed 24 and 48-port switches with gigabit and multi-gigabit support",
+        "Front to back cooling and AC power supply input on all models",
+        "Back to front cooling and DC power supply input option on specific models",
+        "AC and DC Power Supply Unit (PSU) capable SKUs",
+        "Choice of 10Gb and 25Gb modular uplink ports",
+        "30W, 60W and 90W PoE support for powering connected devices",
+        "200Gb per unit stacking of up to eight switches",
+        "Hot-swappable, redundant power supplies and fans",
+        "MACsec on access and modular uplink ports for secure link encryption",
+        "Extended Edge Switching controlling bridge in support of V300/V400 edge devices",
+        "Non-blocking, wire-speed design",
+        "Features &amp; Benefits",
+        "Related Products",
+        "One integrated experience that is easy to use."
+      ],
+      "es": [
+        "Manageable by Extreme Platform ONE TM* , ExtremeCloud TM IQ or ExtremeCloud IQ Site Engine",
+        "Fabric-enabled operations with Extreme Fabric for simplified and secure network provisioning and automation",
+        "Choice of operating system (OS) with dual-persona Universal Hardware",
+        "Reduced mean time to resolution with AI",
+        "ExtremeCloud Universal ZTNA policy enforcement",
+        "Automated and streamlined switch provisioning and day-to-day operations with cloud-based instant actions",
+        "Fixed 24 and 48-port switches with gigabit and multi-gigabit support",
+        "Front to back cooling and AC power supply input on all models",
+        "Back to front cooling and DC power supply input option on specific models",
+        "AC and DC Power Supply Unit (PSU) capable SKUs",
+        "Choice of 10Gb and 25Gb modular uplink ports",
+        "30W, 60W and 90W PoE support for powering connected devices",
+        "200Gb per unit stacking of up to eight switches",
+        "Hot-swappable, redundant power supplies and fans",
+        "MACsec on access and modular uplink ports for secure link encryption",
+        "Extended Edge Switching controlling bridge in support of V300/V400 edge devices",
+        "Non-blocking, wire-speed design",
+        "Features &amp; Benefits",
+        "Related Products",
+        "One integrated experience that is easy to use."
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/76a7415df4b54a00b4f5aefa2d269ac3?v=36f9335d",
+    "order": 24,
+    "active": true
+  },
+  {
+    "id": "extreme-5720",
+    "name": {
+      "en": "5720",
+      "es": "5720"
+    },
+    "description": {
+      "en": "Power your next-gen Ethernet devices for multiple-environment applications with the Extreme 5720 edge and aggregation switches. A compatible solution.",
+      "es": "Power your next-gen Ethernet devices for multiple-environment applications with the Extreme 5720 edge and aggregation switches. A compatible solution."
+    },
+    "features": {
+      "en": [
+        "Manageable by Extreme Platform ONE TM *, ExtremeCloud TM IQ or ExtremeCloud IQ Site Engine",
+        "Fabric-enabled operations with Extreme Fabric for simplified and secure network provisioning and automation",
+        "Choice of operating system (OS) with dual-persona Universal Hardware",
+        "Reduced mean time to resolution with AI",
+        "ExtremeCloud Universal ZTNA policy enforcement",
+        "Automated and streamlined switch provisioning and day-to-day operations with cloud-based instant actions",
+        "24 and 48-port multi-gig models with 100Mb/1Gb/2.5Gb/5Gb /10Gb Ethernet connectivity",
+        "30W, 60W, and 90W PoE (Power over Ethernet) support for powering Ethernet connected devices",
+        "Choice of 6 x 1Gb/10Gb/25Gb port or 2 x 100Gb port modular uplink options",
+        "High-performance 400Gb per unit stacking of up to eight switches",
+        "Hot-swappable, redundant power supplies and fans",
+        "Secure link encryption with MACsec across both access and uplink ports",
+        "Non-blocking wire speed design",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources",
+        "One integrated experience that is easy to use.",
+        "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes.",
+        "Simplified licensing that makes the solution as easy to buy as it is to use.",
+        "AI-assisted workflows for configuration, deployment, and management."
+      ],
+      "es": [
+        "Manageable by Extreme Platform ONE TM *, ExtremeCloud TM IQ or ExtremeCloud IQ Site Engine",
+        "Fabric-enabled operations with Extreme Fabric for simplified and secure network provisioning and automation",
+        "Choice of operating system (OS) with dual-persona Universal Hardware",
+        "Reduced mean time to resolution with AI",
+        "ExtremeCloud Universal ZTNA policy enforcement",
+        "Automated and streamlined switch provisioning and day-to-day operations with cloud-based instant actions",
+        "24 and 48-port multi-gig models with 100Mb/1Gb/2.5Gb/5Gb /10Gb Ethernet connectivity",
+        "30W, 60W, and 90W PoE (Power over Ethernet) support for powering Ethernet connected devices",
+        "Choice of 6 x 1Gb/10Gb/25Gb port or 2 x 100Gb port modular uplink options",
+        "High-performance 400Gb per unit stacking of up to eight switches",
+        "Hot-swappable, redundant power supplies and fans",
+        "Secure link encryption with MACsec across both access and uplink ports",
+        "Non-blocking wire speed design",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources",
+        "One integrated experience that is easy to use.",
+        "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes.",
+        "Simplified licensing that makes the solution as easy to buy as it is to use.",
+        "AI-assisted workflows for configuration, deployment, and management."
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/bdbd364fd9d7431f85aff0f6af0382e4?v=92bacc37",
+    "order": 25,
+    "active": true
+  },
+  {
+    "id": "extreme-7520",
+    "name": {
+      "en": "7520",
+      "es": "7520"
+    },
+    "description": {
+      "en": "Extreme 7520 core switches are designed for power efficient and cost-effective network solutions. A flexible platform for aggregation and core applications.",
+      "es": "Extreme 7520 core switches are designed for power efficient and cost-effective network solutions. A flexible platform for aggregation and core applications."
+    },
+    "features": {
+      "en": [
+        "Manageable by Extreme Platform ONE TM *, ExtremeCloud TM IQ or ExtremeCloud IQ Site Engine",
+        "Fabric-enabled operations with Extreme Fabric for simplified and secure network provisioning and automation",
+        "Choice of operating system (OS) with dual-persona Universal Hardware",
+        "Reduced mean time to resolution with AI",
+        "ExtremeCloud Universal ZTNA policy enforcement",
+        "Automated and streamlined switch provisioning and day-to-day operations with cloud-based instant actions",
+        "High-performance, fixed-form switches for leaf, spine, aggregation, or core applications &nbsp;",
+        "Three models &ndash; two models with no MACsec and one model with MACsec in a fixed 1U form factor",
+        "AC and DC power options",
+        "Back-to-front and front-to-back airflow options",
+        "Up to 8-unit stacking",
+        "Integrated Application Hosting enables 3rd-party applications without impacting switch performance",
+        "Non-blocking, wire-speed design",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources",
+        "One integrated experience that is easy to use.",
+        "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes.",
+        "Simplified licensing that makes the solution as easy to buy as it is to use.",
+        "AI-assisted workflows for configuration, deployment, and management."
+      ],
+      "es": [
+        "Manageable by Extreme Platform ONE TM *, ExtremeCloud TM IQ or ExtremeCloud IQ Site Engine",
+        "Fabric-enabled operations with Extreme Fabric for simplified and secure network provisioning and automation",
+        "Choice of operating system (OS) with dual-persona Universal Hardware",
+        "Reduced mean time to resolution with AI",
+        "ExtremeCloud Universal ZTNA policy enforcement",
+        "Automated and streamlined switch provisioning and day-to-day operations with cloud-based instant actions",
+        "High-performance, fixed-form switches for leaf, spine, aggregation, or core applications &nbsp;",
+        "Three models &ndash; two models with no MACsec and one model with MACsec in a fixed 1U form factor",
+        "AC and DC power options",
+        "Back-to-front and front-to-back airflow options",
+        "Up to 8-unit stacking",
+        "Integrated Application Hosting enables 3rd-party applications without impacting switch performance",
+        "Non-blocking, wire-speed design",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources",
+        "One integrated experience that is easy to use.",
+        "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes.",
+        "Simplified licensing that makes the solution as easy to buy as it is to use.",
+        "AI-assisted workflows for configuration, deployment, and management."
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/e864dd20bbff4cb0b68ab75e8bb98bd1?v=6a0a9854",
+    "order": 26,
+    "active": true
+  },
+  {
+    "id": "extreme-7720",
+    "name": {
+      "en": "7720",
+      "es": "7720"
+    },
+    "description": {
+      "en": "Extreme Networks product.",
+      "es": "Extreme Networks product."
+    },
+    "features": {
+      "en": [
+        "Manageable by Extreme Platform ONE TM* , ExtremeCloud TM IQ or ExtremeCloud IQ Site Engine",
+        "Fabric-enabled operations with Extreme Fabric for simplified and secure network provisioning and automation",
+        "Choice of operating system (OS) with dual-persona Universal Hardware",
+        "Reduced mean time to resolution with AI",
+        "ExtremeCloud Universal ZTNA policy enforcement",
+        "Automated and streamlined switch provisioning and day-to-day operations with cloud-based instant actions",
+        "High-performance, fixed-form switches for leaf, spine, aggregation, or core applications",
+        "32x 40Gb/100Gb fiber ports in a fixed 1U form factor",
+        "AC and DC power options",
+        "Back-to-front and front-to-back airflow options",
+        "Up to 8-unit stacking",
+        "Integrated Application Hosting enables 3rd-party applications without impacting switch performance",
+        "Non-blocking, wire-speed design",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources",
+        "One integrated experience that is easy to use.",
+        "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes.",
+        "Simplified licensing that makes the solution as easy to buy as it is to use.",
+        "AI-assisted workflows for configuration, deployment, and management."
+      ],
+      "es": [
+        "Manageable by Extreme Platform ONE TM* , ExtremeCloud TM IQ or ExtremeCloud IQ Site Engine",
+        "Fabric-enabled operations with Extreme Fabric for simplified and secure network provisioning and automation",
+        "Choice of operating system (OS) with dual-persona Universal Hardware",
+        "Reduced mean time to resolution with AI",
+        "ExtremeCloud Universal ZTNA policy enforcement",
+        "Automated and streamlined switch provisioning and day-to-day operations with cloud-based instant actions",
+        "High-performance, fixed-form switches for leaf, spine, aggregation, or core applications",
+        "32x 40Gb/100Gb fiber ports in a fixed 1U form factor",
+        "AC and DC power options",
+        "Back-to-front and front-to-back airflow options",
+        "Up to 8-unit stacking",
+        "Integrated Application Hosting enables 3rd-party applications without impacting switch performance",
+        "Non-blocking, wire-speed design",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources",
+        "One integrated experience that is easy to use.",
+        "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes.",
+        "Simplified licensing that makes the solution as easy to buy as it is to use.",
+        "AI-assisted workflows for configuration, deployment, and management."
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/ba204413f296455caef4c8e2b9b9d87b?v=4b6ecb29",
+    "order": 27,
+    "active": true
+  },
+  {
+    "id": "extreme-7830",
+    "name": {
+      "en": "7830",
+      "es": "7830"
+    },
+    "description": {
+      "en": "Extreme Networks product.",
+      "es": "Extreme Networks product."
+    },
+    "features": {
+      "en": [
+        "Next-generation high performance core switch offering high density 100G and 400G interfaces and Extreme Fabric in a compact 2RU fixed modular form factor.",
+        "Extreme Platform ONE™ or ExtremeCloud™ IQ management.",
+        "Automated provisioning and secure micro and macrosegmentation, edge to core, with Extreme Fabric.",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources",
+        "A composable workspace with personalized experiences provides the right information and capabilities to the right users.",
+        "Multi-domain, multi-layer physical, access, fabric, RF, and service views for Extreme and third-party devices in cloud make it simpler to monitor, configure, and troubleshoot the network.",
+        "Automation through built-in AI reduces time spent on manual tasks.",
+        "Inventory, subscription, and contract management simplifies budgeting, planning, and compliance.",
+        "Inclusive subscriptions make Extreme Platform ONE as simple to buy and renew as it is to use."
+      ],
+      "es": [
+        "Next-generation high performance core switch offering high density 100G and 400G interfaces and Extreme Fabric in a compact 2RU fixed modular form factor.",
+        "Extreme Platform ONE™ or ExtremeCloud™ IQ management.",
+        "Automated provisioning and secure micro and macrosegmentation, edge to core, with Extreme Fabric.",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources",
+        "A composable workspace with personalized experiences provides the right information and capabilities to the right users.",
+        "Multi-domain, multi-layer physical, access, fabric, RF, and service views for Extreme and third-party devices in cloud make it simpler to monitor, configure, and troubleshoot the network.",
+        "Automation through built-in AI reduces time spent on manual tasks.",
+        "Inventory, subscription, and contract management simplifies budgeting, planning, and compliance.",
+        "Inclusive subscriptions make Extreme Platform ONE as simple to buy and renew as it is to use."
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/dcaaef6d7dd144049af3dc720fd00577?v=ce3a1999",
+    "order": 28,
+    "active": true
+  },
+  {
+    "id": "extreme-optics",
+    "name": {
+      "en": "Optics",
+      "es": "Optics"
+    },
+    "description": {
+      "en": "Extreme Networks product.",
+      "es": "Extreme Networks product."
+    },
+    "features": {
+      "en": [
+        "High system reliability and system compatibility based on rigorous qualification and certification testing",
+        "Hot-swappable flexibility in the field for greater ease and lower total cost of ownership",
+        "Standards-based 802.3z, 802.3ah, 802.3u, 802.3ae, 802.3ak, 802.3ba, 802.3bm, 802.3bs, and 802.3by and compliant as required",
+        "SFP28, SFP+, SFP, and SFPDD modules and cables compliant with SFF-8472, SFF-8432, SFF-8419",
+        "QSFP+, QSFP28, QSFPDD modules compliant with SFF-8636, SFF-8679, SFF-8661, QSFPDD MSA",
+        "Covered by Service Contract of base system (unless otherwise indicated on price list)",
+        "Platform compatibility can be verified using the Extreme Optics Compatibility website",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources",
+        "Extreme Networks 400Gb QSFP-DD Modules",
+        "Extreme Networks 100Gb QSFP28 Modules",
+        "Extreme Networks 40Gb QSFP+ Modules",
+        "Extreme Networks 25Gb SFP28 Modules",
+        "Extreme Networks SFP-DD Cables",
+        "Extreme Networks SFP+ Modules",
+        "Extreme Networks SFP Modules",
+        "QSFP Port"
+      ],
+      "es": [
+        "High system reliability and system compatibility based on rigorous qualification and certification testing",
+        "Hot-swappable flexibility in the field for greater ease and lower total cost of ownership",
+        "Standards-based 802.3z, 802.3ah, 802.3u, 802.3ae, 802.3ak, 802.3ba, 802.3bm, 802.3bs, and 802.3by and compliant as required",
+        "SFP28, SFP+, SFP, and SFPDD modules and cables compliant with SFF-8472, SFF-8432, SFF-8419",
+        "QSFP+, QSFP28, QSFPDD modules compliant with SFF-8636, SFF-8679, SFF-8661, QSFPDD MSA",
+        "Covered by Service Contract of base system (unless otherwise indicated on price list)",
+        "Platform compatibility can be verified using the Extreme Optics Compatibility website",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources",
+        "Extreme Networks 400Gb QSFP-DD Modules",
+        "Extreme Networks 100Gb QSFP28 Modules",
+        "Extreme Networks 40Gb QSFP+ Modules",
+        "Extreme Networks 25Gb SFP28 Modules",
+        "Extreme Networks SFP-DD Cables",
+        "Extreme Networks SFP+ Modules",
+        "Extreme Networks SFP Modules",
+        "QSFP Port"
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/ac2b9101bca44af2b5ed4a9c469ac01b?v=3813ad68",
+    "order": 29,
+    "active": true
+  },
+  {
+    "id": "extreme-vsp-4900",
+    "name": {
+      "en": "VSP 4900",
+      "es": "VSP 4900"
+    },
+    "description": {
+      "en": "Extreme Networks product.",
+      "es": "Extreme Networks product."
+    },
+    "features": {
+      "en": [
+        "Intuitive and centralized cloud-managed switching with ExtremeCloud IQ and ExtremeCloud IQ—Site Engine",
+        "MACsec on 10Mb/100Mb/1000Mb and 10Gb access ports as well as modular uplink ports for secure link encryption",
+        "Leverages Extreme Fabric Connect to simplify your network to meet regulatory and security needs",
+        "Fabric-enabled switch operations with Fabric Extend for transparent extension of Fabric Connect services over third-party networks",
+        "Supports both Fabric Connect and/or conventional Routed IP networking deployments",
+        "Compact 1U form factor",
+        "Non-blocking wire-speed switching architecture",
+        "Hot-swappable, redundant power supplies and fans",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ],
+      "es": [
+        "Intuitive and centralized cloud-managed switching with ExtremeCloud IQ and ExtremeCloud IQ—Site Engine",
+        "MACsec on 10Mb/100Mb/1000Mb and 10Gb access ports as well as modular uplink ports for secure link encryption",
+        "Leverages Extreme Fabric Connect to simplify your network to meet regulatory and security needs",
+        "Fabric-enabled switch operations with Fabric Extend for transparent extension of Fabric Connect services over third-party networks",
+        "Supports both Fabric Connect and/or conventional Routed IP networking deployments",
+        "Compact 1U form factor",
+        "Non-blocking wire-speed switching architecture",
+        "Hot-swappable, redundant power supplies and fans",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/88d48c54414c4e45b36323e848d3379d?v=76047887",
+    "order": 30,
+    "active": true
+  },
+  {
+    "id": "extreme-vsp-7400",
+    "name": {
+      "en": "VSP 7400",
+      "es": "VSP 7400"
+    },
+    "description": {
+      "en": "Extreme Networks product.",
+      "es": "Extreme Networks product."
+    },
+    "features": {
+      "en": [
+        "Supports Fabric Connect and/or conventional Routed IP networking deployments",
+        "Leverages Extreme Fabric Connect to simplify the network while helping segment traffic to meet regulatory/security needs",
+        "Extreme Integrated Application Hosting for third-party application hosting without impacting switch performance.",
+        "Intuitive and centralized cloud-based system management with ExtremeCloud IQ and ExtremeCloud IQ — Site Engine",
+        "Compact 1U form factor",
+        "Non-blocking wire-speed design",
+        "Hot-swappable modular power supplies and fans",
+        "AC and DC power supply options",
+        "Front-to-back and back-to-front air flow options",
+        "Wide range of port speeds for a range of connectivity options, from 1Gb to 100Gb",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ],
+      "es": [
+        "Supports Fabric Connect and/or conventional Routed IP networking deployments",
+        "Leverages Extreme Fabric Connect to simplify the network while helping segment traffic to meet regulatory/security needs",
+        "Extreme Integrated Application Hosting for third-party application hosting without impacting switch performance.",
+        "Intuitive and centralized cloud-based system management with ExtremeCloud IQ and ExtremeCloud IQ — Site Engine",
+        "Compact 1U form factor",
+        "Non-blocking wire-speed design",
+        "Hot-swappable modular power supplies and fans",
+        "AC and DC power supply options",
+        "Front-to-back and back-to-front air flow options",
+        "Wide range of port speeds for a range of connectivity options, from 1Gb to 100Gb",
+        "Features &amp; Benefits",
+        "Related Products",
+        "Resources"
+      ]
+    },
+    "categoryId": "networking",
+    "vendorId": "extreme",
+    "image": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/a44a58e5611147fc9bcccc725b0b6fdd?v=62d1caa5",
+    "order": 31,
+    "active": true
+  }
+]
