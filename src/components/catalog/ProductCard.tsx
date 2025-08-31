@@ -39,7 +39,7 @@ export function ProductCard({ product, onViewDetails, className = '' }: ProductC
     onViewDetails(product)
   }
 
-  const getImageUrl = (media: Media | undefined, fallback: string = '/placeholder-product.jpg') => {
+  const getImageUrl = (media: Media | undefined, fallback: string = '/products/placeholder-product.svg') => {
     if (!media) return fallback
     return media.sizes?.card?.url || media.url || fallback
   }
@@ -81,12 +81,13 @@ export function ProductCard({ product, onViewDetails, className = '' }: ProductC
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           ) : (
-            <div className="flex items-center justify-center h-full bg-muted">
-              <div className="text-center text-muted-foreground">
-                <FileText className="h-12 w-12 mx-auto mb-2 opacity-50" />
-                <p className="text-sm">No image</p>
-              </div>
-            </div>
+            <Image
+              src="/products/placeholder-product.svg"
+              alt="Placeholder"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
           )}
           
           {/* Loading overlay */}

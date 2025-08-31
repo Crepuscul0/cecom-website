@@ -153,8 +153,8 @@ export const getProducts = async (locale: 'en' | 'es' = 'en', categoryId?: strin
       website: product.vendor.website,
       description: getMultilingualText(product.vendor.description, locale)
     } : null,
-    image: product.image ? { url: product.image } : undefined,
-    datasheet: product.datasheet ? { url: product.datasheet } : undefined,
+    image: product.external_image_url ? { url: product.external_image_url } : undefined,
+    datasheet: product.external_datasheet_url ? { url: product.external_datasheet_url } : undefined,
     order: product.order || 0,
     active: product.active,
     createdAt: product.created_at,
@@ -196,8 +196,8 @@ export const getProductById = async (id: string, locale: 'en' | 'es' = 'en') => 
       website: data.vendor.website,
       description: getMultilingualText(data.vendor.description, locale)
     } : null,
-    image: data.image ? { url: data.image } : undefined,
-    datasheet: data.datasheet ? { url: data.datasheet } : undefined,
+    image: data.external_image_url ? { url: data.external_image_url } : undefined,
+    datasheet: data.external_datasheet_url ? { url: data.external_datasheet_url } : undefined,
     order: data.order || 0,
     active: data.active,
     createdAt: data.created_at,
@@ -244,8 +244,8 @@ export const getProductsByVendor = async (vendorId: string, locale: 'en' | 'es' 
       website: product.vendor.website,
       description: getMultilingualText(product.vendor.description, locale)
     } : null,
-    image: product.image ? { url: product.image } : undefined,
-    datasheet: product.datasheet ? { url: product.datasheet } : undefined,
+    image: product.external_image_url ? { url: product.external_image_url } : undefined,
+    datasheet: product.external_datasheet_url ? { url: product.external_datasheet_url } : undefined,
     order: product.order || 0,
     active: product.active,
     createdAt: product.created_at,
@@ -288,8 +288,8 @@ export const searchContent = async (query: string, locale: 'en' | 'es' = 'en') =
       website: product.vendor.website,
       description: getMultilingualText(product.vendor.description, locale)
     } : null,
-    image: product.image ? { url: product.image } : undefined,
-    datasheet: product.datasheet ? { url: product.datasheet } : undefined,
+    image: product.external_image_url ? { url: product.external_image_url } : undefined,
+    datasheet: product.external_datasheet_url ? { url: product.external_datasheet_url } : undefined,
     order: product.order || 0,
     active: product.active,
     createdAt: product.created_at,
