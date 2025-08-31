@@ -130,31 +130,73 @@ function extractTagText(content, tag) {
   return m[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
+// Common patterns to exclude from features
+const EXCLUDED_PATTERNS = [
+  /^resources?$/i,
+  /^related\s+(products?|items?|links?)$/i,
+  /^see\s+also$/i,
+  /^downloads?$/i,
+  /^documents?$/i,
+  /^specifications?$/i,
+  /^contact\s+(us|sales|support)$/i,
+  /^where\s+to\s+buy/i,
+  /^request\s+info/i,
+  /^get\s+started/i,
+  /^learn\s+more/i,
+  /^additional\s+information/i,
+  /^\s*(?:\d+\s*[-–]\s*)?(?:[A-Z][A-Z\s-]*[A-Z]|[A-Z]{2,})(?:\s*\d+)?\s*$/, // All-caps or title-case headings
+  /^[\s\d\W]+$/, // No text, just symbols/numbers
+  /^\s*$/, // Empty or whitespace only
+];
+
+function isFeatureValid(feature) {
+  if (!feature || feature.length < 10) return false; // Too short to be meaningful
+  if (feature.length > 200) return false; // Too long, probably not a feature
+  
+  // Check against exclusion patterns
+  return !EXCLUDED_PATTERNS.some(pattern => pattern.test(feature));
+}
+
+function cleanFeatureText(text) {
+  return text
+    .replace(/<[^>]+>/g, ' ') // Remove HTML tags
+    .replace(/\s+/g, ' ') // Normalize whitespace
+    .replace(/^[\s\d.\-•*]+\s*/, '') // Remove leading bullets/numbers
+    .trim();
+}
+
 function extractListsNearHeadings(content) {
-  // Find headings containing Product Highlights/Benefits/Features and collect nearby list items
   const results = [];
   const headingRe = /<(h1|h2|h3|h4)[^>]*>([\s\S]*?)<\/\1>/gi;
   let hm;
+  
   while ((hm = headingRe.exec(content)) !== null) {
     const txt = hm[2].replace(/<[^>]+>/g, ' ').toLowerCase();
-    if (/product\s*highlights|benefits|features/.test(txt)) {
-      // slice next 4000 chars and pick UL/OL lis
+    if (/product\s*highlights|benefits|features|specifications?/i.test(txt)) {
+      // Look for the next heading to determine the end of this section
       const start = hm.index + hm[0].length;
-      const slice = content.slice(start, start + 4000);
-      const lis = Array.from(slice.matchAll(/<li[^>]*>([\s\S]*?)<\/li>/gi)).map(m => m[1]);
-      for (const li of lis) {
-        const t = li.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-        if (t) results.push(t);
-      }
+      const nextHeadingMatch = content.slice(start).match(/<(h1|h2|h3|h4)[^>]*>/i);
+      const sliceEnd = nextHeadingMatch ? start + nextHeadingMatch.index : start + 4000;
+      
+      // Extract list items within this section
+      const sectionContent = content.slice(start, sliceEnd);
+      const lis = Array.from(sectionContent.matchAll(/<li[^>]*>([\s\S]*?)<\/li>/gi))
+        .map(m => cleanFeatureText(m[1]))
+        .filter(isFeatureValid);
+      
+      results.push(...lis);
     }
   }
-  return uniq(results).slice(0, 20);
+  
+  return uniq(results).slice(0, 15); // Limit to top 15 most relevant features
 }
 
 function extractFirstListItems(content, max = 12) {
-  const lis = Array.from(content.matchAll(/<li[^>]*>([\s\S]*?)<\/li>/gi)).map(m => m[1]);
-  const items = lis.map(li => li.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()).filter(Boolean);
-  return uniq(items).slice(0, max);
+  const lis = Array.from(content.matchAll(/<li[^>]*>([\s\S]*?)<\/li>/gi))
+    .map(m => cleanFeatureText(m[1]))
+    .filter(isFeatureValid);
+    
+  return uniq(lis).slice(0, Math.min(max, 12));
 }
 
 function extractImage(content) {
@@ -223,6 +265,7 @@ function toCatalogItem(prod, index = 0) {
     categoryId: 'networking',
     vendorId: 'extreme',
     image: prod.imageUrl || '/products/placeholder-product.svg',
+    datasheet: prod.datasheetUrl || null,
     order: index + 1,
     active: true,
   };

@@ -9,21 +9,16 @@
       "Static and Dynamic IP Routing",
       "Non-blocking, wire-speed switching performance",
       "High-capacity Stackable Chassis architecture",
-      "24 or 48 ports of Gigabit Ethernet for Access connectivity",
-      "2 ports of 10 Gigabit Ethernet for Network Uplink connectivity",
-      "2 dual-use ports of 10 Gigabit for Stackable Chassis or Network Uplink connectivity",
+      "or 48 ports of Gigabit Ethernet for Access connectivity",
+      "ports of 10 Gigabit Ethernet for Network Uplink connectivity",
+      "dual-use ports of 10 Gigabit for Stackable Chassis or Network Uplink connectivity",
       "Optional support for full-power PoE/PoE+",
       "Ethernet Switches that are simple to operate",
       "Certified 1-Minute plug-and-play for IP Phones",
       "Auto Set-Up for Unified Communications",
       "Intelligent Stacking delivers Enterprise-class scalability",
       "Lifetime Warranty",
-      "Non-blocking, wire-speed",
-      "Integrated design",
-      "Feature-rich",
-      "Extreme Stackable Chassis",
-      "Extreme Fabric Attach",
-      "Features &amp; Benefits"
+      "Non-blocking, wire-speed"
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/28f73064f9f24e97848bb480862ecd42?v=f048f0a4",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/2f5aa7880c8f44e58bac1dc47a57d7bc?v=d141ecb7"
@@ -41,9 +36,6 @@
       "Environmentally hardened options that operate from -40°C to +70°C",
       "System model that draws power from upstream switch – eliminating need for separate PSU",
       "Resilient operations through support of Extended Edge Ring topology",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources",
       "V300-8T-2X: 8 x 10/100/1000-BaseT with 2 x 1/10Gb SFP+ uplinks",
       "V300-8P-2X: 8 x 10/100/1000BaseT with 30W PoE and 2 x 1/10Gb SFP+ uplinks",
       "V300HT-8T-2X: 8 x 10/100/1000-BaseT with 2 x 1/10Gb SFP+uplinks (environmentally hardened unit designed to operate at -40°C to +70°C)",
@@ -62,13 +54,10 @@
       "Seamlessly runs advanced services residing on ExtremeXOS aggregation switch",
       "Centralized, single point of control reduces complexity and operational costs",
       "Plug and play edge installation - just connect and power-up",
-      "24 or 48-port Gigabit Ethernet (non-PoE) models",
-      "24 or 48-port 802.3at PoE models",
-      "2 or 4-port l0Gbase-X SFP+ uplink ports",
-      "Redundant Power Supply (RPS) option",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources"
+      "or 48-port Gigabit Ethernet (non-PoE) models",
+      "or 48-port 802.3at PoE models",
+      "or 4-port l0Gbase-X SFP+ uplink ports",
+      "Redundant Power Supply (RPS) option"
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/49697ee584ab4059a4c573d26a3656ea?v=b0a11afe",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/664b2bf68fcc437bab209e651e72c8ff?v=ccab9da0"
@@ -78,16 +67,13 @@
     "title": "X435",
     "summary": "The economic X435 edge switch series by Extreme Networks is made for enterprises, branches, and small sites, offering cost-effective Ethernet connectivity.",
     "highlights": [
-      "8-port and 24-port models with Gigabit Ethernet connectivity",
-      "4x 100M/1Gb/2.5Gb integrated uplink ports",
-      "30W, 60W, and 90W PoE support for powering connected edge devices",
+      "port and 24-port models with Gigabit Ethernet connectivity",
+      "x 100M/1Gb/2.5Gb integrated uplink ports",
+      "W, 60W, and 90W PoE support for powering connected edge devices",
       "Silent operation with fanless 8-port models for noise-sensitive environments",
       "Power over Ethernet (PoE) passthrough on select 8-port model",
       "Intuitive and centralized cloud-based network management with ExtremeCloud IQ and ExtremeCloud IQ – Site Engine",
-      "Automated connectivity to Extreme Fabric Connect for simplified and secure network fabric network services",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources"
+      "Automated connectivity to Extreme Fabric Connect for simplified and secure network fabric network services"
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/121c009e14e849ea89beda50bb592994?v=bb0040b2",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/844d64c87539434689057f346411f1de?v=9caf161d"
@@ -97,18 +83,15 @@
     "title": "X440-G2",
     "summary": "The X440-G2 edge switch is designed for next-gen campus edge applications. Powered by ExtremeXOS, the campus switch provides manageable continuous uptime.",
     "highlights": [
-      "12, 24, and 48-port models with Gigabit Ethernet connectivity",
-      "4x 1Gb uplinks upgradeable to 10Gb",
-      "30W Power over Ethernet (PoE) support for powering edge devices",
+      ", 24, and 48-port models with Gigabit Ethernet connectivity",
+      "x 1Gb uplinks upgradeable to 10Gb",
+      "W Power over Ethernet (PoE) support for powering edge devices",
       "Intuitive and centralized cloud-based network management with ExtremeCloud TM IQ and ExtremeCloud IQ – Site Engine",
       "Automated connectivity to Extreme Fabric Connect for simplified and secure network fabric services",
       "Choice of AC or DC power option",
       "Non-blocking, wire-speed design",
       "Stackable with up to eight switches with 40Gb per unit",
-      "SFP and 100BASE-FX fiber model options",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources"
+      "SFP and 100BASE-FX fiber model options"
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/2b34c19f2c0d4ca792142531244f0f2a?v=ac478bf8",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5234d7ebd39e4317ac1f2b8a40e314e8?v=6b12ed92"
@@ -119,9 +102,9 @@
     "summary": null,
     "highlights": [
       "Scalable edge switches with ExtremeXOS operating system",
-      "24-port or 48-port Gigabit Ethernet connectivity",
+      "port or 48-port Gigabit Ethernet connectivity",
       "Copper and PoE+ models",
-      "4 x 10Gb SFP+ uplink ports on front faceplate",
+      "x 10Gb SFP+ uplink ports on front faceplate",
       "Built-in 21 Gbps stacking ports on rear panel for all models (SummitStack-V84)",
       "Front-to-back airflow",
       "Modular PoE power supplies",
@@ -129,10 +112,7 @@
       "All configurations non-blocking full duplex",
       "Role-based policy and Fabric Attach for secure, automated access to network applications or services",
       "ExtremeCloud IQ for powerful, simple and secure public or private cloud management",
-      "ExtremeCloud IQ – Site Engine for centralized, unified management capabilities",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources"
+      "ExtremeCloud IQ – Site Engine for centralized, unified management capabilities"
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/f5b1e221b2e84e32ac11ac180167ad20?v=6d8d24ea",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/351a48492366472080c77510225a7ca2?v=914f81ab"
@@ -143,9 +123,9 @@
     "summary": "The X640-G2 fixed-form switch series, powered by ExtremeXOS, is built for high-performance secure routing and switching, flexible stacking, and efficiency.",
     "highlights": [
       "Scalable fixed-form switches for advanced edge access and aggregation",
-      "24- and 48-port Gigabit and multi-rate Gigabit connectivity",
+      "and 48-port Gigabit and multi-rate Gigabit connectivity",
       "Copper, Fiber, and PoE+ models",
-      "4 x 10Gb SFP+ or 4x1Gb SFP ports on front faceplate",
+      "x 10Gb SFP+ or 4x1Gb SFP ports on front faceplate",
       "Additional 10Gb or 40Gb uplinks via optional VIM modules",
       "Upto 8-unit stacking 40Gb or 160Gb stacking",
       "Non-blocking, wire-speed design",
@@ -154,10 +134,7 @@
       "SyncE G.8232 and IEEE 1588 PTP",
       "Role-based policy and Fabric Attach for secure, automated access to network applications or services",
       "ExtremeCloud IQ for powerful, simple and secure public or private cloud management",
-      "ExtremeCloud IQ – Site Engine for centralized, unified management capabilities",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources"
+      "ExtremeCloud IQ – Site Engine for centralized, unified management capabilities"
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/3b0aea6a70fe4d1292facc9ba990cf85?v=a6adb956",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/0d57eced308e4a24986044df40bb15e0?v=423b0e15"
@@ -167,19 +144,16 @@
     "title": "X465",
     "summary": null,
     "highlights": [
-      "24 and 48-port models with gigabit, multi-gigabit, and 1/10Gb fiber Ethernet connectivity",
+      "and 48-port models with gigabit, multi-gigabit, and 1/10Gb fiber Ethernet connectivity",
       "Choice of 10Gb, 25Gb, and 40Gb modular uplink ports",
-      "30W, 60W, and 90W PoE (Power over Ethernet) support for powering connected edge devices",
+      "W, 60W, and 90W PoE (Power over Ethernet) support for powering connected edge devices",
       "Intuitive and centralized cloud-based network management with ExtremeCloud IQ and ExtremeCloud IQ – Site Engine",
       "Automated connectivity to Extreme Fabric Connect for simplified and secure network fabric services",
       "MACsec on access and modular uplink ports for secure link encryption",
       "Integrated Application Hosting of third-party applications without impacting switch performance",
       "Stackable with up to eight switches with 168Gb per unit",
       "Hot-swappable, redundant power supplies and fans",
-      "Non-blocking,wire-speed design",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources"
+      "Non-blocking,wire-speed design"
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/1387a5ff773543ee80355e18fa15f183?v=5508b231",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/8852229434f94501b387bfe314f721ac?v=dc646cad"
@@ -202,10 +176,7 @@
       "Hot-swappable modular power and fans",
       "AC and DC power supply options",
       "Front to Back and Back to Front airflow options",
-      "Redundancy options for high availability",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources"
+      "Redundancy options for high availability"
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/544cfa301de24c03b6640647a3588217?v=4f42edd4",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/f47bdf3388cd4ddeaeb4ccbeff57d832?v=2cc27642"
@@ -220,7 +191,7 @@
       "Integrated web-based management application",
       "Centralized management via ExtremeCloud IQ - Site Engine",
       "Advanced command line interface",
-      "10GBASE fiber connectivity",
+      "GBASE fiber connectivity",
       "Wide range of port speeds from 100Mb to 10Gb",
       "Hot swappable modular systems and compact small form versions",
       "Redundancy options for high availability",
@@ -229,10 +200,7 @@
       "AC and DC power supply options",
       "Front to Back or Back to Front airflow options",
       "Integrated power supplies and fans",
-      "External redundant power supply (RPS) options",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources"
+      "External redundant power supply (RPS) options"
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/7c2396a0c9834522ba91926b699075aa?v=85768353",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/32fb1af4cfb548faa18b3a0414a232b9?v=bf80b6f1"
@@ -250,10 +218,7 @@
       "IEEE 1588 PTP timing with integrated timing output ports",
       "All configurations provide non- blocking, line rate performance",
       "Low latency cut-through mode",
-      "Front-to-Back or Back-to-Front airflow",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources"
+      "Front-to-Back or Back-to-Front airflow"
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/047ce651e9b8424fbde3646fb0674c7c?v=67254582",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/d8cb2ad83ce1438198edbcbd66e880d4?v=a8c34548"
@@ -276,10 +241,7 @@
       "Hot-swappable modular power and fans",
       "AC and DC power supply options",
       "Front to Back and Back to Front airflow options",
-      "Redundancy options for high availability",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources"
+      "Redundancy options for high availability"
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/9e3651ce972e490696c2f43a06fba3bd?v=a692e960",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/031da93f8f1e4f3792f96441bed6eef9?v=9bdf5fc0"
@@ -290,15 +252,15 @@
     "summary": "Made for enterprise and aggregation applications, the X695 aggregation switch powered by ExtremeXOS network intelligence supports high-performance stacking.",
     "highlights": [
       "High-Density 25 Gigabit switch for spine/ leaf and aggregation applications",
-      "48 ports of 10/25 Gigabit Ethernet connectivity plus 8 ports of 40/100 Gigabit connectivity",
+      "ports of 10/25 Gigabit Ethernet connectivity plus 8 ports of 40/100 Gigabit connectivity",
       "Compact 1U form factor for reduced power and footprint",
       "Extreme Integrated Application Hosting enables third-party applications without impact to switch performance",
       "Hot-swappable modular power supplies and fans",
       "Front-to-back and back-to-front airflow options",
       "AC and DC power supply options",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources"
+      "Flexible deployment of VM-based applications within the network using the hardware resources of the X695",
+      "Ability of VM-based applications to extract data without disrupting forwarding or control plane traffic",
+      "Availability of dedicated memory and SSD storage for flexible packet capture and off-line processing"
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/449ca2292ff94f578ad2eba66534748a?v=342f0d27",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/ff8910ad8d0c4b04a8aebaa5bd632dd4?v=ec5b2f78"
@@ -320,10 +282,7 @@
       "Hot -swappable modular power and fans",
       "AC and DC power supply options",
       "Front to Back and Back to Front airflow options",
-      "Redundancy options for high availability",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources"
+      "Redundancy options for high availability"
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/50410f4df1b842ab90da741adc2e800c?v=b2c5f78b",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/da7c262c30284c16a4a988f74e86dc42?v=3e54b486"
@@ -342,9 +301,7 @@
       "Full wire speed Layer 2 with highly Resilient LACP, Spanning tree STP, RSTP &amp; MSTP, fast Ring fail-over and G.8032 ERPS protection options",
       "Integrated Fabric Attach capability for secure, automated connection to Extreme Fabric Connect services",
       "CLI and web-based configuration support",
-      "ExtremeCloud IQ Site Engine based monitoring",
-      "Features &amp; Benefits",
-      "Resources"
+      "ExtremeCloud IQ Site Engine based monitoring"
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/f64a903c0ab64301a998c9bcd0c9f119?v=c03a863c",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/50f8506b287e4bbb831a12fecffe50b1?v=bc464162"
@@ -360,9 +317,9 @@
       "Utilizes the Integrated Application Hosting Architecture and Extreme SLX Visibility Services for flexible, real-time monitoring of virtualized,dynamic workloads to streamline troubleshooting",
       "Provides payload timestamping to more accurately set and measure performance SLAs",
       "Incorporates turnkey and customizable automation for the entire network lifecycle",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources"
+      "Pervasive visibility at scale across the network for seamless support of highly distributed multitier application workloads",
+      "Rich multilayer classification (such as IP and MAC addresses, port numbers, VNIs) and workload matching with network-wide scale",
+      "Automated application of rule-based actions (such as count, drop, mirror) to incoming network traffic"
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/0deed5c5396549bd988433ce49f15925?v=0e014edd",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/17a19ed264e64affb16f6f3803c39dc1?v=e58607bc"
@@ -379,11 +336,7 @@
       "Baseboard Management Controller (BMC) for lights-out management (LOM) for remote operations such as reboots, shutdowns, and out-of-band troubleshooting",
       "Full featured SLX operating system with advanced features supporting switching, IP Fabrics, BGP-EVPN and VXLAN",
       "Supports Integrated Application Hosting to enable organizations to deploy Extreme- provided or third-party applications and tools directly on the switch",
-      "All models offer a choice of AC/DC power supplies and F/R fans",
-      "ExtremeCloud Orchestrator leverages Integrated Application Hosting and enables plug-n-play IP fabrics for infrastructure provisioning and configuration of all tenant services across the entire fabric at no additional cost",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources"
+      "All models offer a choice of AC/DC power supplies and F/R fans"
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5e2a934bba334861bb01ff96b09d41f1?v=b4c6317a",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/6e83c6f3a66f4be69b1bfbcaecc9c1ee?v=b66a8662"
@@ -402,11 +355,7 @@
       "Supports Integrated Application Hosting to enable organizations to deploy Extreme-provided or third-party applications and tools directly on the switch",
       "Non-blocking, wire-speed switching architecture",
       "Offers a choice of AC/DC power supplies and F/R fans",
-      "ExtremeCloud Orchestrator leverages Integrated Application Hosting and enables plug-n-play IP fabrics for infrastructure provisioning and configuration of all tenant services across the entire fabric at no additional cost",
-      "Full featured SLX operating system with advanced features supporting switching, IP Fabrics, BGP- EVPN and VXLAN",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources"
+      "Full featured SLX operating system with advanced features supporting switching, IP Fabrics, BGP- EVPN and VXLAN"
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/f06e268eadba43578e52341c004372ed?v=9f8c6c18",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/d7a91bec2c1d41ae8bcc79b041a0486d?v=ccfa3029"
@@ -416,8 +365,8 @@
     "title": "8730",
     "summary": "Data centers today demand secure, scalable, and high-performance switching with efficient power use. The next-gen 400G Extreme 8730 switch delivers exceptional density, power efficiency, and flexible connectivity—ideal for high-performance enterprises, hyperscale cloud, and I/O-intensive environments.",
     "highlights": [
-      "32x400G QSFP-DD with 200G, 100G, 25/10G port speed operations.",
-      "12.8 TB switching capacity with 80 MB shared packet buffer.",
+      "x400G QSFP-DD with 200G, 100G, 25/10G port speed operations.",
+      "TB switching capacity with 80 MB shared packet buffer.",
       "Cloud-native Extreme ONE OS and cloud-native Extreme Fabric Orchestrator.",
       "Built for modern Enterprise, Artificial Intelligence (AI), Communication Service Provider (CSP) and Telecom Service provider (ISP) applications.",
       "Support for EVPN, VXLAN, MLAG based L2 and L3 network architectures.",
@@ -426,9 +375,7 @@
       "Advanced Timing Circuity & Connectors (IEEE 1588/PTPv2).",
       "Baseboard management controller (BMC) for remote chassis management.",
       "Trusted platform module (TPM)-based hardware Root of Trust.",
-      "Power efficient AC and DC power supplies with forward and reverse airflows.",
-      "Features &amp; Benefits",
-      "Resources"
+      "Power efficient AC and DC power supplies with forward and reverse airflows."
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/322e089fffd64cbe9c3e4adcc15ca345?v=97dca048",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/f5accbdeb18342dd8c714999c2fa613e?v=f04b9104"
@@ -446,18 +393,13 @@
       "Automated and streamlined switch provisioning and day-to-day operations with cloud-based instant actions",
       "Mobile app to easily onboard, provision, and troubleshoot your switches",
       "Automated, maintenance-free feature and security updates delivered via the cloud",
-      "12-port, 24-port, and 48-port models with Gigabit and multi-Gigabit Ethernet access port options",
-      "4 x 1/10Gb uplink/stacking ports on all 4220 models",
-      "4 x 1/10/25Gb uplink ports plus 2 x 100Gb uplink/stacking ports on 4120 models",
-      "30W, 60W, 90W PoE options for powered connection of edge devices",
-      "8-port 1/10Gb SFP+ fiber model (4220)",
+      "port, 24-port, and 48-port models with Gigabit and multi-Gigabit Ethernet access port options",
+      "x 1/10Gb uplink/stacking ports on all 4220 models",
+      "x 1/10/25Gb uplink ports plus 2 x 100Gb uplink/stacking ports on 4120 models",
+      "W, 60W, 90W PoE options for powered connection of edge devices",
+      "port 1/10Gb SFP+ fiber model (4220)",
       "Silent operation up to 35°C on 12-port PoE, multi-gigabit and non-PoE models (4220)",
-      "Non-blocking, wire-speed design",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources",
-      "One integrated experience that is easy to use.",
-      "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes."
+      "Non-blocking, wire-speed design"
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/e86c0fdeedb44a7cb8a90202efeaa5cc?v=08ed97e6",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/c5edf694d12d4e87878489a226e311ec?v=cad9fe7a"
@@ -472,21 +414,16 @@
       "Reduced mean time to resolution with AI",
       "ExtremeCloud Universal ZTNA policy enforcement",
       "Automated and streamlined switch provisioning and day-to-day operations with cloud-based instant actions",
-      "24 and 48 port stackable 10Gb aggregation switches with 25Gb and100Gb uplinks",
-      "10Gb copper and 10Gb Fiber models in 24 port switches providing cost-optimized and flexible connectivity options",
-      "24 x 10Gb SFP+ switch with 4 x 25G SFP28 uplinks",
-      "24 x 10GBase-T switch with 4 x 25G SFP28 uplinks",
-      "44 x 10Gb SFP+, 4x10G/25G SFP28 with 2x100G QSFP28 uplinks",
+      "and 48 port stackable 10Gb aggregation switches with 25Gb and100Gb uplinks",
+      "Gb copper and 10Gb Fiber models in 24 port switches providing cost-optimized and flexible connectivity options",
+      "x 10Gb SFP+ switch with 4 x 25G SFP28 uplinks",
+      "x 10GBase-T switch with 4 x 25G SFP28 uplinks",
+      "x 10Gb SFP+, 4x10G/25G SFP28 with 2x100G QSFP28 uplinks",
       "Stacking of up to eight switches",
       "Hot-swappable, redundant AC power supplies and fans",
       "Front to Back and Back to Front cooling options",
       "Line rate MACsec on all ports for secure link encryption**",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources",
-      "One integrated experience that is easy to use.",
-      "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes",
-      "Simplified licensing that makes the solution as easy to buy as it is to use."
+      "One integrated experience that is easy to use."
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/14135f61b44b4b3fb4caff00000dfd9b?v=b6c3cf0d",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/04cd95f661514931bddab64b59817f7e?v=543eaf2b"
@@ -502,20 +439,15 @@
       "Reduced mean time to resolution with AI",
       "ExtremeCloud Universal ZTNA policy enforcement",
       "Automated and streamlined switch provisioning and day-to-day operations with cloud-based instant actions",
-      "30W PoE (Power over Ethernet) support for powering connected devices",
-      "4 x 10Gb SFP+ uplink ports on 16-port models / 8 x 10Gb SFP+ uplink ports on 24- and 48-port models",
-      "2 x 10Gb SFP+ uplink ports and 2 x 10Gb (Power over Ethernet) ports that can be used as uplinks on multi-GbE for Fanless model**",
+      "W PoE (Power over Ethernet) support for powering connected devices",
+      "x 10Gb SFP+ uplink ports on 16-port models / 8 x 10Gb SFP+ uplink ports on 24- and 48-port models",
+      "x 10Gb SFP+ uplink ports and 2 x 10Gb (Power over Ethernet) ports that can be used as uplinks on multi-GbE for Fanless model**",
       "Silent operation at up to 35&deg;C (95&deg;F) on 16-port models and up to 45&deg;C (113&deg;F) for Fanless model**",
       "Extended temperature range switch models (0&deg;C&ndash;60&deg;C)",
       "Choice of AC or DC power option on 16-port models, except Fanless model** which only has the AC option",
-      "40Gb per unit stacking of up to eight switches",
+      "Gb per unit stacking of up to eight switches",
       "Secure link encryption with MACsec across both access and uplink ports",
-      "Non-blocking wire speed design",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources",
-      "One integrated experience that is easy to use.",
-      "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes."
+      "Non-blocking wire speed design"
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/ee879fffcc7b49fab208cb3ba17cf029?v=ae21dc3b",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/d474173d28554fb5925dc4e26312c8fe?v=4b565367"
@@ -532,19 +464,14 @@
       "ExtremeCloud Universal ZTNA policy enforcement",
       "Automated and streamlined switch provisioning and day-to-day operations with cloud-based instant actions",
       "Fixed 24 and 48-port models with gigabit and multi-gigabit support",
-      "30W, 60W, and 90W PoE (Power over Ethernet) support for powering connected devices",
-      "4 x 1/10Gb SFP+ or 4 x 1/10/25Gb built-in uplink ports",
-      "80Gb per unit stacking of up to eight switches",
+      "W, 60W, and 90W PoE (Power over Ethernet) support for powering connected devices",
+      "x 1/10Gb SFP+ or 4 x 1/10/25Gb built-in uplink ports",
+      "Gb per unit stacking of up to eight switches",
       "Secure link encryption with MACsec across both access and uplink ports",
       "Non-blocking wire speed design",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources",
       "One integrated experience that is easy to use.",
       "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes.",
-      "Simplified licensing that makes the solution as easy to buy as it is to use.",
-      "AI-assisted workflows for configuration, deployment, and management.",
-      "Extreme Fabric and third-party switch visualization and management in cloud."
+      "Simplified licensing that makes the solution as easy to buy as it is to use."
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/5fc7c8293d97440789935bc946732b89?v=7926bb54",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/be49e8a7135143fe85d3d1e6e7879d18?v=ba3f36b7"
@@ -565,15 +492,10 @@
       "Back to front cooling and DC power supply input option on specific models",
       "AC and DC Power Supply Unit (PSU) capable SKUs",
       "Choice of 10Gb and 25Gb modular uplink ports",
-      "30W, 60W and 90W PoE support for powering connected devices",
-      "200Gb per unit stacking of up to eight switches",
+      "W, 60W and 90W PoE support for powering connected devices",
+      "Gb per unit stacking of up to eight switches",
       "Hot-swappable, redundant power supplies and fans",
-      "MACsec on access and modular uplink ports for secure link encryption",
-      "Extended Edge Switching controlling bridge in support of V300/V400 edge devices",
-      "Non-blocking, wire-speed design",
-      "Features &amp; Benefits",
-      "Related Products",
-      "One integrated experience that is easy to use."
+      "MACsec on access and modular uplink ports for secure link encryption"
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/76a7415df4b54a00b4f5aefa2d269ac3?v=36f9335d",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/740df2455fb54c62a0c2b42faa8ecab3?v=8e146620"
@@ -589,20 +511,15 @@
       "Reduced mean time to resolution with AI",
       "ExtremeCloud Universal ZTNA policy enforcement",
       "Automated and streamlined switch provisioning and day-to-day operations with cloud-based instant actions",
-      "24 and 48-port multi-gig models with 100Mb/1Gb/2.5Gb/5Gb /10Gb Ethernet connectivity",
-      "30W, 60W, and 90W PoE (Power over Ethernet) support for powering Ethernet connected devices",
+      "and 48-port multi-gig models with 100Mb/1Gb/2.5Gb/5Gb /10Gb Ethernet connectivity",
+      "W, 60W, and 90W PoE (Power over Ethernet) support for powering Ethernet connected devices",
       "Choice of 6 x 1Gb/10Gb/25Gb port or 2 x 100Gb port modular uplink options",
       "High-performance 400Gb per unit stacking of up to eight switches",
       "Hot-swappable, redundant power supplies and fans",
       "Secure link encryption with MACsec across both access and uplink ports",
       "Non-blocking wire speed design",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources",
       "One integrated experience that is easy to use.",
-      "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes.",
-      "Simplified licensing that makes the solution as easy to buy as it is to use.",
-      "AI-assisted workflows for configuration, deployment, and management."
+      "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes."
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/bdbd364fd9d7431f85aff0f6af0382e4?v=92bacc37",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/979a3f1300054000936182331a617072?v=ff4bb8da"
@@ -625,13 +542,8 @@
       "Up to 8-unit stacking",
       "Integrated Application Hosting enables 3rd-party applications without impacting switch performance",
       "Non-blocking, wire-speed design",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources",
       "One integrated experience that is easy to use.",
-      "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes.",
-      "Simplified licensing that makes the solution as easy to buy as it is to use.",
-      "AI-assisted workflows for configuration, deployment, and management."
+      "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes."
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/e864dd20bbff4cb0b68ab75e8bb98bd1?v=6a0a9854",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/b5da59835f5d4d10b740208284c8bc09?v=1a1ceae6"
@@ -648,19 +560,14 @@
       "ExtremeCloud Universal ZTNA policy enforcement",
       "Automated and streamlined switch provisioning and day-to-day operations with cloud-based instant actions",
       "High-performance, fixed-form switches for leaf, spine, aggregation, or core applications",
-      "32x 40Gb/100Gb fiber ports in a fixed 1U form factor",
+      "x 40Gb/100Gb fiber ports in a fixed 1U form factor",
       "AC and DC power options",
       "Back-to-front and front-to-back airflow options",
       "Up to 8-unit stacking",
       "Integrated Application Hosting enables 3rd-party applications without impacting switch performance",
       "Non-blocking, wire-speed design",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources",
       "One integrated experience that is easy to use.",
-      "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes.",
-      "Simplified licensing that makes the solution as easy to buy as it is to use.",
-      "AI-assisted workflows for configuration, deployment, and management."
+      "Automation through built-in AI that boosts productivity, reducing cycle time for many tasks from hours to minutes."
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/ba204413f296455caef4c8e2b9b9d87b?v=4b6ecb29",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/fe0cd8d0b4824b04a80001a6771e7af9?v=f55e0dac"
@@ -673,9 +580,6 @@
       "Next-generation high performance core switch offering high density 100G and 400G interfaces and Extreme Fabric in a compact 2RU fixed modular form factor.",
       "Extreme Platform ONE™ or ExtremeCloud™ IQ management.",
       "Automated provisioning and secure micro and macrosegmentation, edge to core, with Extreme Fabric.",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources",
       "A composable workspace with personalized experiences provides the right information and capabilities to the right users.",
       "Multi-domain, multi-layer physical, access, fabric, RF, and service views for Extreme and third-party devices in cloud make it simpler to monitor, configure, and troubleshoot the network.",
       "Automation through built-in AI reduces time spent on manual tasks.",
@@ -697,17 +601,13 @@
       "QSFP+, QSFP28, QSFPDD modules compliant with SFF-8636, SFF-8679, SFF-8661, QSFPDD MSA",
       "Covered by Service Contract of base system (unless otherwise indicated on price list)",
       "Platform compatibility can be verified using the Extreme Optics Compatibility website",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources",
       "Extreme Networks 400Gb QSFP-DD Modules",
       "Extreme Networks 100Gb QSFP28 Modules",
       "Extreme Networks 40Gb QSFP+ Modules",
       "Extreme Networks 25Gb SFP28 Modules",
       "Extreme Networks SFP-DD Cables",
       "Extreme Networks SFP+ Modules",
-      "Extreme Networks SFP Modules",
-      "QSFP Port"
+      "Extreme Networks SFP Modules"
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/ac2b9101bca44af2b5ed4a9c469ac01b?v=3813ad68",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/ab2749406d254379a1865ea427fed165?v=ed3b7681"
@@ -724,10 +624,7 @@
       "Supports both Fabric Connect and/or conventional Routed IP networking deployments",
       "Compact 1U form factor",
       "Non-blocking wire-speed switching architecture",
-      "Hot-swappable, redundant power supplies and fans",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources"
+      "Hot-swappable, redundant power supplies and fans"
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/88d48c54414c4e45b36323e848d3379d?v=76047887",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/d5e6b9175a7e4159a02362f5a0b20354?v=a704fbf0"
@@ -746,10 +643,7 @@
       "Hot-swappable modular power supplies and fans",
       "AC and DC power supply options",
       "Front-to-back and back-to-front air flow options",
-      "Wide range of port speeds for a range of connectivity options, from 1Gb to 100Gb",
-      "Features &amp; Benefits",
-      "Related Products",
-      "Resources"
+      "Wide range of port speeds for a range of connectivity options, from 1Gb to 100Gb"
     ],
     "imageUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/a44a58e5611147fc9bcccc725b0b6fdd?v=62d1caa5",
     "datasheetUrl": "https://extr-p-001.sitecorecontenthub.cloud/api/public/content/958f3796e43f402c9ce9534f32499bb6?v=4c0e529f"

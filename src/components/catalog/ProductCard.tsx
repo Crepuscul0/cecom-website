@@ -73,7 +73,7 @@ export function ProductCard({ product, onViewDetails, className = '' }: ProductC
               src={getImageUrl(productImage)}
               alt={product.name || 'Product image'}
               fill
-              className={`object-cover transition-all duration-300 group-hover:scale-105 ${
+              className={`object-contain object-center transition-all duration-300 group-hover:scale-105 ${
                 imageLoading ? 'opacity-0' : 'opacity-100'
               }`}
               onLoad={handleImageLoad}
@@ -85,7 +85,7 @@ export function ProductCard({ product, onViewDetails, className = '' }: ProductC
               src="/products/placeholder-product.svg"
               alt="Placeholder"
               fill
-              className="object-cover"
+              className="object-contain object-center"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           )}
@@ -179,21 +179,21 @@ export function ProductCard({ product, onViewDetails, className = '' }: ProductC
       </CardContent>
 
       <CardFooter className="p-4 pt-0 mt-auto">
-        <div className="flex gap-2 w-full">
+        <div className="flex flex-wrap gap-2 w-full min-w-0">
           <Button 
             onClick={(e) => { e.stopPropagation(); handleViewDetails() }}
-            className="flex-1 relative z-20"
+            className="flex-1 min-w-0 whitespace-nowrap overflow-hidden relative z-20"
             size="sm"
           >
-            <Eye className="h-4 w-4 mr-2" />
-            {t('actions.viewDetails')}
+            <Eye className="h-4 w-4 mr-2 flex-shrink-0" />
+            <span className="truncate">{t('actions.viewDetails')}</span>
           </Button>
           
           {product.datasheet && (
             <Button 
               variant="outline" 
               size="sm"
-              className="relative z-20"
+              className="relative z-20 shrink-0"
               onClick={(e) => {
                 e.stopPropagation()
                 const datasheetUrl = typeof product.datasheet === 'object' 
@@ -212,7 +212,7 @@ export function ProductCard({ product, onViewDetails, className = '' }: ProductC
             <Button 
               variant="outline" 
               size="sm"
-              className="relative z-20"
+              className="relative z-20 shrink-0"
               onClick={(e) => { e.stopPropagation(); window.open(vendor.website, '_blank') }}
             >
               <ExternalLink className="h-4 w-4" />

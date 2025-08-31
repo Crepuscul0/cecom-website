@@ -66,7 +66,7 @@ export function ProductModal({
     setImageError(true)
   }
 
-  const getImageUrl = (media: Media | undefined, fallback: string = '/placeholder-product.jpg') => {
+  const getImageUrl = (media: Media | undefined, fallback: string = '/products/placeholder-product.svg') => {
     if (!media) return fallback
     return media.sizes?.tablet?.url || media.url || fallback
   }
@@ -162,7 +162,7 @@ export function ProductModal({
                   src={getImageUrl(productImage)}
                   alt={product.name || t('modal.productImageAlt')}
                   fill
-                  className={`object-cover transition-opacity duration-300 ${
+                  className={`object-contain object-center transition-opacity duration-300 ${
                     imageLoading ? 'opacity-0' : 'opacity-100'
                   }`}
                   onLoad={handleImageLoad}
@@ -170,12 +170,13 @@ export function ProductModal({
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               ) : (
-                <div className="flex items-center justify-center h-full bg-muted">
-                  <div className="text-center text-muted-foreground">
-                    <Package className="h-16 w-16 mx-auto mb-4 opacity-50" />
-                    <p>{t('modal.noImageAvailable')}</p>
-                  </div>
-                </div>
+                <Image
+                  src="/products/placeholder-product.svg"
+                  alt="Placeholder"
+                  fill
+                  className="object-contain object-center"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
               )}
               
               {/* Loading overlay */}

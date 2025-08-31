@@ -97,14 +97,49 @@ async function scrapeProduct(page, productUrl) {
         paragraph = ps[0] || null;
       }
 
+      // Common patterns to exclude from features
+      const EXCLUDED_PATTERNS = [
+        /^resources?$/i,
+        /^related\s+(products?|items?|links?)$/i,
+        /^see\s+also$/i,
+        /^downloads?$/i,
+        /^documents?$/i,
+        /^specifications?$/i,
+        /^contact\s+(us|sales|support)$/i,
+        /^where\s+to\s+buy/i,
+        /^request\s+info/i,
+        /^get\s+started/i,
+        /^learn\s+more/i,
+        /^additional\s+information/i,
+        /^\s*(?:\d+\s*[-–]\s*)?(?:[A-Z][A-Z\s-]*[A-Z]|[A-Z]{2,})(?:\s*\d+)?\s*$/, // All-caps or title-case headings
+        /^[\s\d\W]+$/, // No text, just symbols/numbers
+        /^\s*$/, // Empty or whitespace only
+      ];
+
+      function cleanFeatureText(text) {
+        if (!text) return '';
+        return text
+          .replace(/<[^>]+>/g, ' ') // Remove HTML tags
+          .replace(/\s+/g, ' ') // Normalize whitespace
+          .replace(/^[\s\d.\-•*]+\s*/, '') // Remove leading bullets/numbers
+          .trim();
+      }
+
+      function isFeatureValid(feature) {
+        if (!feature || feature.length < 10) return false; // Too short to be meaningful
+        if (feature.length > 200) return false; // Too long, probably not a feature
+        
+        // Check against exclusion patterns
+        return !EXCLUDED_PATTERNS.some(pattern => pattern.test(feature));
+      }
+
       // Highlights/Benefits extraction
       function textFromList(root) {
         if (!root) return [];
         const lis = Array.from(root.querySelectorAll('li'));
-        return lis.map(li => (li.textContent || '')
-          .replace(/\s+/g, ' ')
-          .trim())
-          .filter(Boolean);
+        return lis
+          .map(li => cleanFeatureText(li.textContent))
+          .filter(isFeatureValid);
       }
 
       let highlights = [];
@@ -131,9 +166,10 @@ async function scrapeProduct(page, productUrl) {
       if (highlights.length === 0) {
         // generic fallback: pick first UL with enough items
         const anyList = pick('ul, ol');
-        if (anyList) highlights = textFromList(anyList).slice(0, 12);
+        if (anyList) highlights = textFromList(anyList);
       }
-      highlights = Array.from(new Set(highlights)).slice(0, 16);
+      // Deduplicate and limit to 15 most relevant features
+      highlights = Array.from(new Set(highlights)).slice(0, 15);
 
       // Image URL: prefer og:image, else first sitecore content hub image
       const ogImage = getMeta(null, 'og:image');
@@ -198,6 +234,7 @@ function toCatalogItem(prod, index = 0) {
     categoryId: 'networking',
     vendorId: 'extreme',
     image: prod.imageUrl || '/products/placeholder-product.svg',
+    datasheet: prod.datasheetUrl || null,
     order: index + 1,
     active: true,
   };
