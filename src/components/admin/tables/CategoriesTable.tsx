@@ -6,6 +6,7 @@ import { Category } from '@/types/admin';
 import { ScrollableTableContainer } from './ScrollableTableContainer';
 import { DeleteConfirmationDialog, useDeleteConfirmation } from '../DeleteConfirmationDialog';
 import { useErrorHandler } from '@/hooks/useErrorHandler';
+import { useToast } from '@/components/ui/toast';
 
 interface CategoriesTableProps {
   categories: Category[];
@@ -24,6 +25,7 @@ export function CategoriesTable({
   const t = useTranslations('Admin');
   const deleteConfirmation = useDeleteConfirmation();
   const { showError } = useErrorHandler();
+  const { addToast } = useToast();
 
   // Filter categories based on search term
   const filteredCategories = useMemo(() => {
@@ -36,8 +38,35 @@ export function CategoriesTable({
     );
   }, [categories, searchTerm]);
 
+  const checkCategoryUsage = async (categoryId: string): Promise<boolean> => {
+    try {
+      const { count, error } = await supabase
+        .from('products')
+        .select('*', { count: 'exact', head: true })
+        .eq('category_id', categoryId);
+
+      if (error) throw error;
+      return (count || 0) > 0;
+    } catch (error) {
+      console.error('Error checking category usage:', error);
+      return false;
+    }
+  };
+
   const handleDeleteCategory = async (category: Category) => {
     const categoryName = category.name?.en || category.name?.es || category.slug;
+    
+    // Check if category is being used by any products
+    const isCategoryInUse = await checkCategoryUsage(category.id);
+    
+    if (isCategoryInUse) {
+      addToast({
+        title: t('errors.categoryInUseTitle'),
+        description: t('errors.categoryInUseDescription'),
+        variant: 'error',
+      });
+      return;
+    }
     
     deleteConfirmation.showDeleteConfirmation(
       'category',

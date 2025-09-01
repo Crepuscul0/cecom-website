@@ -402,9 +402,11 @@
       "deleteConfirm": "Sí, eliminar"
     },
     "errors": {
-      "deleteCategory": "Error al eliminar la categoría",
-      "deleteVendor": "Error al eliminar el proveedor", 
-      "deleteProduct": "Error al eliminar el producto",
+      "deleteCategory": "Error al eliminar la categoría. Por favor, intente de nuevo.",
+      "deleteVendor": "Error al eliminar el proveedor. Por favor, intente de nuevo.",
+      "deleteProduct": "Error al eliminar el producto. Por favor, intente de nuevo.",
+      "categoryInUseTitle": "No se puede eliminar la categoría",
+      "categoryInUseDescription": "Esta categoría no se puede eliminar porque está siendo utilizada por uno o más productos. Por favor, reasigne o elimine esos productos primero.",
       "loadingCategories": "Error al cargar categorías",
       "loadingVendors": "Error al cargar proveedores",
       "loadingProducts": "Error al cargar productos"

@@ -2,11 +2,10 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import { supabase, getUserProfile, UserProfile, isAdmin, isEmployee } from '@/lib/supabase'
 import { Users, Ticket, FileText, Wifi, Settings, LogOut, Menu, X, BookOpen } from 'lucide-react'
 import { LanguageToggle } from '@/components/admin/LanguageToggle'
-import { useAdminLocale } from '@/contexts/AdminLocaleContext'
 import { ThemeToggle } from '@/components/theme-toggle'
 
 interface AdminPanelLayoutProps {
@@ -21,7 +20,18 @@ export function AdminPanelLayout({ children, activeSection }: AdminPanelLayoutPr
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const router = useRouter()
   const t = useTranslations('AdminPanel')
-  const { locale, setLocale } = useAdminLocale()
+  const locale = useLocale()
+  
+  const handleLocaleChange = (newLocale: string) => {
+    // Update the URL to include the new locale
+    const path = window.location.pathname
+    const newPath = path.startsWith(`/${locale}`) 
+      ? path.replace(`/${locale}`, `/${newLocale}`)
+      : `/${newLocale}${path}`
+    
+    // Force a full page reload to apply the new locale
+    window.location.href = newPath
+  }
 
   useEffect(() => {
     const getUser = async () => {
@@ -137,7 +147,7 @@ export function AdminPanelLayout({ children, activeSection }: AdminPanelLayoutPr
             </div>
             <div className="flex items-center gap-x-4 lg:gap-x-6 ml-auto">
               <ThemeToggle />
-              <LanguageToggle currentLocale={locale} onLocaleChange={setLocale} />
+              <LanguageToggle currentLocale={locale} onLocaleChange={handleLocaleChange} />
             </div>
           </div>
         </div>

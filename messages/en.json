@@ -402,9 +402,11 @@
       "deleteConfirm": "Yes, delete"
     },
     "errors": {
-      "deleteCategory": "Error deleting category",
-      "deleteVendor": "Error deleting vendor",
-      "deleteProduct": "Error deleting product",
+      "deleteCategory": "Error deleting category. Please try again.",
+      "deleteVendor": "Error deleting vendor. Please try again.",
+      "deleteProduct": "Error deleting product. Please try again.",
+      "categoryInUseTitle": "Cannot Delete Category",
+      "categoryInUseDescription": "This category cannot be deleted because it is currently in use by one or more products. Please reassign or delete those products first.",
       "loadingCategories": "Error loading categories",
       "loadingVendors": "Error loading vendors",
       "loadingProducts": "Error loading products"

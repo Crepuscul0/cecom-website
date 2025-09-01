@@ -1,12 +1,15 @@
 'use client';
+import { useEffect } from 'react';
 import { canModifyContent, signOut } from '@/lib/supabase';
 import { useAdminData } from '@/hooks/useAdminData';
-import { AdminIntlProvider } from './AdminIntlProvider';
 import { AdminContent } from './AdminContent';
 import { AdminLoading, AdminAccessDenied } from './AdminStates';
 import { ToastProvider } from '@/components/ui/toast';
+import { useTranslations } from 'next-intl';
 
 export function AdminDashboard() {
+  const t = useTranslations('AdminPanel');
+  
   const {
     categories,
     vendors,
@@ -14,29 +17,28 @@ export function AdminDashboard() {
     loading,
     user,
     userProfile,
-    checkAuth,
     loadData,
     setUser,
     setUserProfile
   } = useAdminData();
 
-  // Auth is gated by AdminPanelLayout; if not authenticated, the layout redirects.
-
+  // Handle sign out
   const handleSignOut = async () => {
-    // Clear development mode
-    localStorage.removeItem('dev_user');
-
-    await signOut();
-    setUser(null);
-    setUserProfile(null);
+    try {
+      // Clear development mode
+      localStorage.removeItem('dev_user');
+      await signOut();
+      setUser(null);
+      setUserProfile(null);
+    } catch (error) {
+      console.error('Error during sign out:', error);
+    }
   };
 
   // Show loading state (also covers the brief moment before user is resolved)
   if (loading || !user) {
     return <AdminLoading />;
   }
-
-  // At this point, user is authenticated by the parent layout
 
   // Check if user has permission to access admin
   if (userProfile && !canModifyContent(userProfile.role)) {
@@ -49,21 +51,24 @@ export function AdminDashboard() {
   }
 
   return (
-    <AdminIntlProvider>
-      <ToastProvider>
-        <div className="w-full h-full flex flex-col">
-          {/* CMS header removed: no sign-out button or user identification in top bar */}
-
-          <div className="flex-1 w-full">
-            <AdminContent
-              categories={categories}
-              vendors={vendors}
-              products={products}
-              onRefresh={loadData}
-            />
-          </div>
-        </div>
-      </ToastProvider>
-    </AdminIntlProvider>
+    <ToastProvider>
+      <div className="min-h-screen bg-background">
+        {loading ? (
+          <AdminLoading />
+        ) : !user || !userProfile ? (
+          <AdminAccessDenied 
+            userProfile={null} 
+            onSignOut={handleSignOut} 
+          />
+        ) : (
+          <AdminContent
+            categories={categories}
+            vendors={vendors}
+            products={products}
+            onRefresh={loadData}
+          />
+        )}
+      </div>
+    </ToastProvider>
   );
 }

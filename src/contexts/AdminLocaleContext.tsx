@@ -4,6 +4,9 @@ import { createContext, useContext, useState, useEffect, ReactNode } from 'react
 import { NextIntlClientProvider } from 'next-intl'
 import { ThemeProvider } from 'next-themes'
 
+// Default timezone for the admin panel
+const TIME_ZONE = 'America/Santo_Domingo'
+
 interface AdminLocaleContextType {
   locale: string
   setLocale: (locale: string) => void
@@ -59,12 +62,17 @@ export function AdminLocaleProvider({
   }, [])
 
   return (
-    <AdminLocaleContext.Provider value={{ locale, setLocale, messages }}>
-      <NextIntlClientProvider messages={messages} locale={locale}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+    <NextIntlClientProvider 
+      locale={locale} 
+      messages={messages}
+      timeZone={TIME_ZONE}
+      now={new Date()}
+    >
+      <AdminLocaleContext.Provider value={{ locale, setLocale, messages }}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
-      </NextIntlClientProvider>
-    </AdminLocaleContext.Provider>
+      </AdminLocaleContext.Provider>
+    </NextIntlClientProvider>
   )
 }

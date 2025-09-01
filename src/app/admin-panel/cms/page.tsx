@@ -1,5 +1,6 @@
 import { AdminPanelLayout } from '@/components/admin/AdminPanelLayout'
 import { AdminDashboard } from '@/components/admin/AdminDashboard'
+import { getTranslations } from 'next-intl/server';
 
 export const dynamic = 'force-dynamic'
 

@@ -42,9 +42,17 @@ function getLocale(request: NextRequest): string {
   return defaultLocale;
 }
 
+// Don't apply the locale prefix for admin panel routes
+const adminPanelPaths = [
+  '/admin-panel',
+  '/login',
+  '/api/auth',
+  '/api/admin'
+];
+
 export const config = {
   matcher: [
-    // Skip all internal paths (_next)
-    '/((?!_next|api|favicon.ico|.*\\..*).*)' 
+    // Skip all internal paths (_next) and static files
+    '/((?!_next|api/auth|api/admin|favicon.ico|.*\\..*).*)' 
   ]
 };
