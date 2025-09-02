@@ -21,6 +21,8 @@ export interface Product {
   features: { en: string[]; es: string[] };
   category_id: string;
   vendor_id: string;
+  external_image_url?: string;
+  external_datasheet_url?: string;
   order: number;
   active: boolean;
 }

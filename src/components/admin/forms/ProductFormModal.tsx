@@ -25,6 +25,7 @@ interface FormData {
   featuresEs: string[];
   categoryId: string;
   vendorId: string;
+  externalImageUrl: string;
   order: number;
   active: boolean;
 }
@@ -47,6 +48,7 @@ export function ProductFormModal({
     featuresEs: [''],
     categoryId: '',
     vendorId: '',
+    externalImageUrl: '',
     order: 0,
     active: true
   });
@@ -64,11 +66,11 @@ export function ProductFormModal({
         featuresEs: product.features?.es || [''],
         categoryId: product.category_id || '',
         vendorId: product.vendor_id || '',
+        externalImageUrl: product.external_image_url || '',
         order: product.order || 0,
-        active: product.active !== false
+        active: product.active !== undefined ? product.active : true
       });
     } else {
-      // Reset form for new product
       setFormData({
         nameEn: '',
         nameEs: '',
@@ -78,12 +80,13 @@ export function ProductFormModal({
         featuresEs: [''],
         categoryId: '',
         vendorId: '',
+        externalImageUrl: '',
         order: 0,
         active: true
       });
     }
     setError('');
-  }, [product, isOpen]);
+  }, [product]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -117,11 +120,12 @@ export function ProductFormModal({
           es: formData.descriptionEs
         },
         features: {
-          en: formData.featuresEn.filter(f => f.trim()),
-          es: formData.featuresEs.filter(f => f.trim())
+          en: formData.featuresEn.filter(f => f.trim() !== ''),
+          es: formData.featuresEs.filter(f => f.trim() !== '')
         },
         category_id: formData.categoryId,
         vendor_id: formData.vendorId,
+        external_image_url: formData.externalImageUrl || null,
         order: formData.order,
         active: formData.active
       };
@@ -195,6 +199,31 @@ export function ProductFormModal({
               required
               placeholder="WatchGuard Firebox T15"
             />
+          </div>
+
+          {/* Image URL */}
+          <div className="space-y-2">
+            <FormInput
+              label={t('imageUrl')}
+              value={formData.externalImageUrl}
+              onChange={(e) => setFormData(prev => ({ ...prev, externalImageUrl: e.target.value }))}
+              placeholder="https://example.com/image.jpg"
+              type="url"
+            />
+            {formData.externalImageUrl && (
+              <div className="mt-2">
+                <p className="text-sm text-muted-foreground mb-1">Preview:</p>
+                <img 
+                  src={formData.externalImageUrl} 
+                  alt="Product preview" 
+                  className="h-20 w-20 object-cover rounded-md border border-border"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
+                />
+              </div>
+            )}
           </div>
 
           {/* Descriptions */}

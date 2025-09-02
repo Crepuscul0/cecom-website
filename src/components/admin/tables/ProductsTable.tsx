@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Search } from 'lucide-react';
+import { Search, Image as ImageIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { supabase } from '@/lib/supabase';
 import { Product, Category, Vendor } from '@/types/admin';
@@ -110,6 +110,9 @@ export function ProductsTable({
         <table className="min-w-full divide-y divide-border">
           <thead className="bg-muted">
             <tr>
+              <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider w-16">
+                {t('tables.image')}
+              </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
                 {t('tables.products')}
               </th>
@@ -130,6 +133,26 @@ export function ProductsTable({
           <tbody className="bg-card divide-y divide-border">
             {filteredProducts.map((product) => (
               <tr key={product.id}>
+                <td className="px-4 py-2 whitespace-nowrap">
+                  <div className="flex items-center justify-center">
+                    {product.external_image_url ? (
+                      <img 
+                        src={product.external_image_url}
+                        alt={product.name?.en || 'Product image'}
+                        className="h-10 w-10 object-cover rounded-md"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.onerror = null;
+                          target.style.display = 'none';
+                        }}
+                      />
+                    ) : (
+                      <div className="h-10 w-10 rounded-md bg-muted flex items-center justify-center">
+                        <ImageIcon className="h-5 w-5 text-muted-foreground" />
+                      </div>
+                    )}
+                  </div>
+                </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div>
                     <div className="text-sm font-medium text-foreground">
