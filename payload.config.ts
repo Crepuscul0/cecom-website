@@ -197,6 +197,13 @@ export default buildConfig({
           relationTo: 'media',
         },
         {
+          name: 'external_datasheet_url',
+          type: 'text',
+          admin: {
+            description: 'URL to the product datasheet PDF.',
+          },
+        },
+        {
           name: 'order',
           type: 'number',
           defaultValue: 0,

@@ -26,6 +26,7 @@ interface FormData {
   categoryId: string;
   vendorId: string;
   externalImageUrl: string;
+  datasheetUrl: string;
   order: number;
   active: boolean;
 }
@@ -49,6 +50,7 @@ export function ProductFormModal({
     categoryId: '',
     vendorId: '',
     externalImageUrl: '',
+    datasheetUrl: '',
     order: 0,
     active: true
   });
@@ -67,6 +69,7 @@ export function ProductFormModal({
         categoryId: product.category_id || '',
         vendorId: product.vendor_id || '',
         externalImageUrl: product.external_image_url || '',
+        datasheetUrl: product.external_datasheet_url || '',
         order: product.order || 0,
         active: product.active !== undefined ? product.active : true
       });
@@ -81,6 +84,7 @@ export function ProductFormModal({
         categoryId: '',
         vendorId: '',
         externalImageUrl: '',
+        datasheetUrl: '',
         order: 0,
         active: true
       });
@@ -126,6 +130,7 @@ export function ProductFormModal({
         category_id: formData.categoryId,
         vendor_id: formData.vendorId,
         external_image_url: formData.externalImageUrl || null,
+        external_datasheet_url: formData.datasheetUrl || null,
         order: formData.order,
         active: formData.active
       };
@@ -208,6 +213,13 @@ export function ProductFormModal({
               value={formData.externalImageUrl}
               onChange={(e) => setFormData(prev => ({ ...prev, externalImageUrl: e.target.value }))}
               placeholder="https://example.com/image.jpg"
+              type="url"
+            />
+            <FormInput
+              label={t('datasheetUrl')}
+              value={formData.datasheetUrl}
+              onChange={(e) => setFormData(prev => ({ ...prev, datasheetUrl: e.target.value }))}
+              placeholder="https://example.com/datasheet.pdf"
               type="url"
             />
             {formData.externalImageUrl && (

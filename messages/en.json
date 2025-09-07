@@ -458,6 +458,7 @@
         "featuresEn": "Features (English)",
         "featuresEs": "Features (Spanish)",
         "imageUrl": "Image URL",
+        "datasheetUrl": "Datasheet URL",
         "category": "Category",
         "vendor": "Vendor",
         "order": "Order",
