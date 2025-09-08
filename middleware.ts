@@ -6,6 +6,15 @@ const defaultLocale = 'en';
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   
+  // Skip locale handling for admin panel routes
+  const isAdminPanelRoute = adminPanelPaths.some(path => 
+    pathname.startsWith(path) || pathname === path
+  );
+  
+  if (isAdminPanelRoute) {
+    return NextResponse.next();
+  }
+  
   // Check if there is any supported locale in the pathname
   const pathnameIsMissingLocale = locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
@@ -45,14 +54,13 @@ function getLocale(request: NextRequest): string {
 // Don't apply the locale prefix for admin panel routes
 const adminPanelPaths = [
   '/admin-panel',
-  '/login',
-  '/api/auth',
-  '/api/admin'
+  '/auth',
+  '/api'
 ];
 
 export const config = {
   matcher: [
-    // Skip all internal paths (_next) and static files
-    '/((?!_next|api/auth|api/admin|favicon.ico|.*\\..*).*)' 
+    // Skip all internal paths (_next), static files, and API routes
+    '/((?!_next|api|favicon.ico|.*\\..*).*)' 
   ]
 };

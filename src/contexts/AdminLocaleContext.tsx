@@ -32,7 +32,7 @@ interface AdminLocaleProviderProps {
 export function AdminLocaleProvider({ 
   children, 
   initialMessages, 
-  initialLocale = 'en' 
+  initialLocale = 'es' 
 }: AdminLocaleProviderProps) {
   const [locale, setLocaleState] = useState(initialLocale)
   const [messages, setMessages] = useState(initialMessages)

@@ -6,8 +6,8 @@ export default async function AdminPanelLayout({
 }: {
   children: React.ReactNode
 }) {
-  // Default to English for admin panel
-  const locale = 'en'
+  // Default to Spanish for admin panel
+  const locale = 'es'
   const messages = await getMessages({ locale })
 
   return (

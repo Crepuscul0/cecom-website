@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { useTranslations, useLocale } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { supabase, getUserProfile, UserProfile, isAdmin, isEmployee } from '@/lib/supabase'
 import { Users, Ticket, FileText, Wifi, Settings, LogOut, Menu, X, BookOpen } from 'lucide-react'
 import { LanguageToggle } from '@/components/admin/LanguageToggle'
 import { ThemeToggle } from '@/components/theme-toggle'
+import { useAdminLocale } from '@/contexts/AdminLocaleContext'
 
 interface AdminPanelLayoutProps {
   children: React.ReactNode
@@ -20,17 +21,10 @@ export function AdminPanelLayout({ children, activeSection }: AdminPanelLayoutPr
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const router = useRouter()
   const t = useTranslations('AdminPanel')
-  const locale = useLocale()
+  const { locale, setLocale } = useAdminLocale()
   
   const handleLocaleChange = (newLocale: string) => {
-    // Update the URL to include the new locale
-    const path = window.location.pathname
-    const newPath = path.startsWith(`/${locale}`) 
-      ? path.replace(`/${locale}`, `/${newLocale}`)
-      : `/${newLocale}${path}`
-    
-    // Force a full page reload to apply the new locale
-    window.location.href = newPath
+    setLocale(newLocale)
   }
 
   useEffect(() => {
@@ -154,7 +148,7 @@ export function AdminPanelLayout({ children, activeSection }: AdminPanelLayoutPr
 
         {/* Page content */}
         <main className="flex-1 h-full">
-          <div className="h-full">
+          <div className="h-full p-6">
             {children}
           </div>
         </main>
