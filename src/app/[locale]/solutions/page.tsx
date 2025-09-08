@@ -163,10 +163,18 @@ function CatalogContent() {
             </div>
           </div>
 
+          {/* Mobile Categories - Horizontal Scrollable */}
+          <div className="lg:hidden mb-4">
+            <CategorySidebar
+              selectedCategoryId={selectedCategoryId || undefined}
+              onCategorySelect={handleCategorySelect}
+            />
+          </div>
+
           {/* Catalog Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 flex-1">
-            {/* Sidebar - Categories */}
-            <div className="lg:col-span-1">
+            {/* Desktop Sidebar - Categories */}
+            <div className="hidden lg:block lg:col-span-1">
               <div className="sticky top-24 h-fit">
                 <CategorySidebar
                   selectedCategoryId={selectedCategoryId || undefined}
@@ -177,7 +185,7 @@ function CatalogContent() {
             </div>
 
             {/* Main Content - Filters and Products */}
-            <div className="lg:col-span-3 flex flex-col space-y-4">
+            <div className="col-span-1 lg:col-span-3 flex flex-col space-y-4">
               {/* Product Filter */}
               <ProductFilter
                 searchQuery={searchQuery}

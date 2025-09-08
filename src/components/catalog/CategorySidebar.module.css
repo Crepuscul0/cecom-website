@@ -1,0 +1,117 @@
+/* Enhanced scrollbar hiding for better cross-browser support */
+.scrollContainer {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.scrollContainer::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+/* Smooth momentum scrolling for iOS */
+.scrollContainer {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Enhanced snap scrolling */
+.scrollContainer {
+  scroll-snap-type: x mandatory;
+  scroll-padding: 16px;
+}
+
+.categoryChip {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+/* Touch-friendly interactions */
+.categoryChip {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Enhanced button states for mobile */
+.scrollButton {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.scrollButton:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Improved gradient overlays */
+.gradientLeft {
+  background: linear-gradient(
+    to right,
+    hsl(var(--background)) 0%,
+    hsl(var(--background) / 0.9) 30%,
+    hsl(var(--background) / 0.6) 60%,
+    hsl(var(--background) / 0.3) 80%,
+    transparent 100%
+  );
+}
+
+.gradientRight {
+  background: linear-gradient(
+    to left,
+    hsl(var(--background)) 0%,
+    hsl(var(--background) / 0.9) 30%,
+    hsl(var(--background) / 0.6) 60%,
+    hsl(var(--background) / 0.3) 80%,
+    transparent 100%
+  );
+}
+
+/* Loading animation improvements */
+.loadingChip {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--muted)) 0%,
+    hsl(var(--muted) / 0.8) 50%,
+    hsl(var(--muted)) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .scrollContainer {
+    scroll-behavior: auto;
+  }
+  
+  .categoryChip,
+  .scrollButton {
+    transition: none;
+  }
+  
+  .loadingChip {
+    animation: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .categoryChip {
+    border-width: 2px;
+  }
+  
+  .scrollButton {
+    border-width: 2px;
+  }
+}
