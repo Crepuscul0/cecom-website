@@ -151,6 +151,7 @@ export function AdminContent({
       <CategoryFormModal
         isOpen={showCategoryForm}
         category={editingItem}
+        categories={categories}
         onClose={handleFormClose}
         onSuccess={handleFormSuccess}
       />

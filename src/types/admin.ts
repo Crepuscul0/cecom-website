@@ -5,6 +5,10 @@ export interface Category {
   slug: string;
   order: number;
   icon: string;
+  parent_id?: string | null;
+  level: number;
+  path?: string;
+  children?: Category[];
 }
 
 export interface Vendor {

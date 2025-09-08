@@ -62,6 +62,78 @@ const categoryIcons: Record<string, React.ComponentType<{ className?: string }>>
   grid: Grid3X3,
 }
 
+interface CategoryItemProps {
+  category: Category
+  selectedCategoryId?: string
+  onCategoryClick: (categoryId: string) => void
+  level: number
+}
+
+function CategoryItem({ category, selectedCategoryId, onCategoryClick, level }: CategoryItemProps) {
+  const [isExpanded, setIsExpanded] = useState(true)
+  const isSelected = selectedCategoryId === category.id
+  const hasChildren = category.children && category.children.length > 0
+  const IconComponent = categoryIcons[category.icon || 'grid'] || Grid3X3
+  
+  const paddingLeft = level * 12 // 12px per level
+  
+  return (
+    <div>
+      <Button
+        variant={isSelected ? "default" : "ghost"}
+        className="w-full justify-start h-auto p-3 text-left"
+        style={{ paddingLeft: `${12 + paddingLeft}px` }}
+        onClick={() => onCategoryClick(category.id)}
+      >
+        <div className="flex items-center w-full">
+          {hasChildren && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                setIsExpanded(!isExpanded)
+              }}
+              className="mr-1 p-0.5 hover:bg-muted rounded"
+            >
+              {isExpanded ? (
+                <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              ) : (
+                <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              )}
+            </button>
+          )}
+          <IconComponent className="h-4 w-4 mr-3 flex-shrink-0" />
+          <div className="flex-1 min-w-0">
+            <div className="font-medium truncate">{category.name}</div>
+            {category.description && level === 0 && (
+              <div className="text-xs text-muted-foreground mt-1 line-clamp-2">
+                {category.description}
+              </div>
+            )}
+          </div>
+        </div>
+      </Button>
+      
+      {hasChildren && isExpanded && (
+        <div className="mt-1">
+          {category.children!.map((child) => (
+            <CategoryItem
+              key={child.id}
+              category={child}
+              selectedCategoryId={selectedCategoryId}
+              onCategoryClick={onCategoryClick}
+              level={level + 1}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
 export function CategorySidebar({ 
   selectedCategoryId, 
   onCategorySelect, 
@@ -157,29 +229,15 @@ export function CategorySidebar({
 
         {/* Category List */}
         <div className="space-y-1">
-          {categories.map((category) => {
-            const isSelected = selectedCategoryId === category.id
-            const IconComponent = categoryIcons[category.icon || 'grid'] || Grid3X3
-            
-            return (
-              <Button
-                key={category.id}
-                variant={isSelected ? "default" : "ghost"}
-                className="w-full justify-start h-auto p-3 text-left"
-                onClick={() => handleCategoryClick(category.id)}
-              >
-                <IconComponent className="h-4 w-4 mr-3 flex-shrink-0" />
-                <div className="flex-1 min-w-0">
-                  <div className="font-medium truncate">{category.name}</div>
-                  {category.description && (
-                    <div className="text-xs text-muted-foreground mt-1 line-clamp-2">
-                      {category.description}
-                    </div>
-                  )}
-                </div>
-              </Button>
-            )
-          })}
+          {categories.map((category) => (
+            <CategoryItem
+              key={category.id}
+              category={category}
+              selectedCategoryId={selectedCategoryId}
+              onCategoryClick={handleCategoryClick}
+              level={0}
+            />
+          ))}
         </div>
 
         {categories.length === 0 && (

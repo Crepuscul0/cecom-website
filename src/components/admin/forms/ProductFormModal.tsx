@@ -161,10 +161,16 @@ export function ProductFormModal({
     }
   };
 
-  const categoryOptions = categories.map(cat => ({
-    value: cat.id,
-    label: cat.name?.en || cat.name?.es || 'Unnamed Category'
-  }));
+  const categoryOptions = categories.map(cat => {
+    const level = cat.level || 0
+    const indent = '  '.repeat(level)
+    const label = cat.name?.en || cat.name?.es || 'Unnamed Category'
+    
+    return {
+      value: cat.id,
+      label: `${indent}${label}${level > 0 ? ` (${cat.parent_id ? 'Subcategory' : 'Category'})` : ''}`
+    }
+  });
 
   const vendorOptions = vendors.map(vendor => ({
     value: vendor.id,

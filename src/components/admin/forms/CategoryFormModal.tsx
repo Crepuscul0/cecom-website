@@ -11,6 +11,7 @@ import { validateCategoryName, validateCategorySlug } from '@/lib/validation/adm
 interface CategoryFormModalProps {
   isOpen: boolean;
   category?: Category | null;
+  categories: Category[];
   onClose: () => void;
   onSuccess: () => void;
 }
@@ -23,11 +24,13 @@ interface FormData {
   slug: string;
   order: number;
   icon: string;
+  parentId: string;
 }
 
 export function CategoryFormModal({ 
   isOpen, 
   category, 
+  categories,
   onClose, 
   onSuccess 
 }: CategoryFormModalProps) {
@@ -39,7 +42,8 @@ export function CategoryFormModal({
     descriptionEs: '',
     slug: '',
     order: 0,
-    icon: ''
+    icon: '',
+    parentId: ''
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -53,7 +57,8 @@ export function CategoryFormModal({
         descriptionEs: category.description?.es || '',
         slug: category.slug || '',
         order: category.order || 0,
-        icon: category.icon || ''
+        icon: category.icon || '',
+        parentId: category.parent_id || ''
       });
     } else {
       // Reset form for new category
@@ -64,7 +69,8 @@ export function CategoryFormModal({
         descriptionEs: '',
         slug: '',
         order: 0,
-        icon: ''
+        icon: '',
+        parentId: ''
       });
     }
     setError('');
@@ -117,6 +123,12 @@ export function CategoryFormModal({
         return;
       }
 
+      const level = formData.parentId ? 1 : 0
+      const parentCategory = formData.parentId ? categories.find(c => c.id === formData.parentId) : null
+      const path = formData.parentId 
+        ? `${parentCategory?.path || formData.parentId}.${formData.slug}`
+        : formData.slug
+
       const categoryData = {
         name: {
           en: formData.nameEn,
@@ -128,7 +140,10 @@ export function CategoryFormModal({
         },
         slug: formData.slug,
         order: formData.order,
-        icon: formData.icon
+        icon: formData.icon,
+        parent_id: formData.parentId || null,
+        level,
+        path
       };
 
       if (category?.id) {
@@ -205,6 +220,28 @@ export function CategoryFormModal({
               onChange={(e) => setFormData(prev => ({ ...prev, descriptionEs: e.target.value }))}
               placeholder="Descripción en español..."
             />
+          </div>
+
+          {/* Parent Category */}
+          <div className="space-y-2">
+            <FormSelect
+              label={t('parentCategory')}
+              value={formData.parentId}
+              onChange={(e) => setFormData(prev => ({ ...prev, parentId: e.target.value }))}
+              options={[
+                { value: '', label: t('noParent') },
+                ...categories
+                  .filter(cat => cat.level === 0 && cat.id !== category?.id) // Only root categories, exclude self
+                  .map(cat => ({
+                    value: cat.id,
+                    label: cat.name?.en || cat.name?.es || 'Unnamed Category'
+                  }))
+              ]}
+              placeholder={t('selectParentCategory')}
+            />
+            <p className="text-xs text-muted-foreground">
+              {t('parentCategoryHelp')}
+            </p>
           </div>
 
           {/* Slug and Order */}

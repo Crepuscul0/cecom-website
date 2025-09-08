@@ -19,10 +19,11 @@ const getMultilingualArray = (field: any, locale: 'en' | 'es' = 'en') => {
 }
 
 // Categories API functions
-export const getCategories = async (locale: 'en' | 'es' = 'en') => {
+export const getCategories = async (locale: 'en' | 'es' = 'en', includeHierarchy: boolean = true) => {
   const { data, error } = await supabase
     .from('categories')
     .select('*')
+    .order('level', { ascending: true })
     .order('order', { ascending: true })
 
   if (error) {
@@ -30,16 +31,48 @@ export const getCategories = async (locale: 'en' | 'es' = 'en') => {
     return []
   }
 
-  return data.map((category: any) => ({
+  const categories = data.map((category: any) => ({
     id: category.id,
     name: getMultilingualText(category.name, locale),
     description: getMultilingualText(category.description, locale),
     slug: category.slug,
     order: category.order || 0,
     icon: category.icon,
+    parent_id: category.parent_id,
+    level: category.level || 0,
+    path: category.path,
+    children: [],
     createdAt: category.created_at,
     updatedAt: category.updated_at,
   }))
+
+  if (!includeHierarchy) {
+    return categories
+  }
+
+  // Build hierarchy
+  const categoryMap = new Map()
+  const rootCategories: any[] = []
+
+  // First pass: create map and identify root categories
+  categories.forEach(category => {
+    categoryMap.set(category.id, category)
+    if (!category.parent_id) {
+      rootCategories.push(category)
+    }
+  })
+
+  // Second pass: build parent-child relationships
+  categories.forEach(category => {
+    if (category.parent_id) {
+      const parent = categoryMap.get(category.parent_id)
+      if (parent) {
+        parent.children.push(category)
+      }
+    }
+  })
+
+  return rootCategories
 }
 
 export const getCategoryById = async (id: string, locale: 'en' | 'es' = 'en') => {
@@ -205,8 +238,66 @@ export const getProductById = async (id: string, locale: 'en' | 'es' = 'en') => 
   }
 }
 
-export const getProductsByCategory = async (categoryId: string, locale: 'en' | 'es' = 'en') => {
-  return getProducts(locale, categoryId)
+export const getProductsByCategory = async (categoryId: string, locale: 'en' | 'es' = 'en', includeSubcategories: boolean = true) => {
+  let query = supabase
+    .from('products')
+    .select(`
+      *,
+      category:categories(*),
+      vendor:vendors(*)
+    `)
+    .eq('active', true)
+    .order('order', { ascending: true })
+
+  if (includeSubcategories) {
+    // Get all subcategories of the selected category
+    const { data: subcategories } = await supabase
+      .from('categories')
+      .select('id')
+      .or(`id.eq.${categoryId},parent_id.eq.${categoryId}`)
+
+    if (subcategories && subcategories.length > 0) {
+      const categoryIds = subcategories.map(cat => cat.id)
+      query = query.in('category_id', categoryIds)
+    } else {
+      query = query.eq('category_id', categoryId)
+    }
+  } else {
+    query = query.eq('category_id', categoryId)
+  }
+
+  const { data, error } = await query
+
+  if (error) {
+    console.error('Error fetching products by category:', error)
+    return []
+  }
+
+  return data.map((product: any) => ({
+    id: product.id,
+    name: getMultilingualText(product.name, locale),
+    description: getMultilingualText(product.description, locale),
+    features: getMultilingualArray(product.features, locale),
+    category: product.category ? {
+      id: product.category.id,
+      name: getMultilingualText(product.category.name, locale),
+      slug: product.category.slug,
+      icon: product.category.icon
+    } : null,
+    vendor: product.vendor ? {
+      id: product.vendor.id,
+      name: product.vendor.name,
+      logo: product.vendor.logo ? { url: product.vendor.logo } : undefined,
+      website: product.vendor.website,
+      description: getMultilingualText(product.vendor.description, locale)
+    } : null,
+    image: product.external_image_url ? { url: product.external_image_url } : undefined,
+    datasheet: product.external_datasheet_url ? { url: product.external_datasheet_url } : undefined,
+    order: product.order || 0,
+    active: product.active,
+    createdAt: product.created_at,
+    updatedAt: product.updated_at,
+  }))
 }
 
 export const getProductsByVendor = async (vendorId: string, locale: 'en' | 'es' = 'en') => {

@@ -39,7 +39,7 @@ export function useAdminData() {
       }
 
       const [categoriesRes, vendorsRes, productsRes] = await Promise.all([
-        supabase.from('categories').select('*').order('order'),
+        supabase.from('categories').select('*').order('level').order('order'),
         supabase.from('vendors').select('*').order('name'),
         supabase.from('products').select('*').order('order')
       ]);
