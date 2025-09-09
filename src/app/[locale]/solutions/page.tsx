@@ -172,14 +172,14 @@ function CatalogContent() {
           </div>
 
           {/* Catalog Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 flex-1">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 flex-1 min-h-0">
             {/* Desktop Sidebar - Categories */}
             <div className="hidden lg:block lg:col-span-1">
-              <div className="sticky top-24 h-fit">
+              <div className="sticky top-4 h-fit">
                 <CategorySidebar
                   selectedCategoryId={selectedCategoryId || undefined}
                   onCategorySelect={handleCategorySelect}
-                  className="mb-4"
+                  className=""
                 />
               </div>
             </div>

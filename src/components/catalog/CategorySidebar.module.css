@@ -105,6 +105,49 @@
   }
 }
 
+/* Desktop sidebar scrolling */
+.desktopScrollContainer {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
+}
+
+.desktopScrollContainer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.desktopScrollContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.desktopScrollContainer::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 3px;
+  transition: background-color 0.2s ease;
+}
+
+.desktopScrollContainer::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Smooth scrolling behavior */
+.desktopScrollContainer {
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+
+/* Prevent layout shift during interactions */
+.desktopScrollContainer * {
+  scroll-margin-top: 1rem;
+  scroll-margin-bottom: 1rem;
+}
+
+/* Enhanced focus states for accessibility */
+.desktopScrollContainer button:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
 /* High contrast mode support */
 @media (prefers-contrast: high) {
   .categoryChip {
@@ -113,5 +156,9 @@
   
   .scrollButton {
     border-width: 2px;
+  }
+  
+  .desktopScrollContainer::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--foreground) / 0.6);
   }
 }

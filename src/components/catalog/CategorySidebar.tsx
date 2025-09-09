@@ -66,7 +66,7 @@ const categoryIcons: Record<string, React.ComponentType<{ className?: string }>>
 interface CategoryItemProps {
   category: Category
   selectedCategoryId?: string
-  onCategoryClick: (categoryId: string) => void
+  onCategoryClick: (categoryId: string, event?: React.MouseEvent) => void
   level: number
 }
 
@@ -76,7 +76,7 @@ function CategoryItem({ category, selectedCategoryId, onCategoryClick, level }: 
   const hasChildren = category.children && category.children.length > 0
   const IconComponent = categoryIcons[category.icon || 'grid'] || Grid3X3
   
-  const paddingLeft = level * 16 // 16px per level for better spacing
+  const paddingLeft = level * 20 // Increased spacing for better hierarchy
   
   const handleToggleExpand = (e: React.MouseEvent) => {
     e.stopPropagation()
@@ -87,46 +87,74 @@ function CategoryItem({ category, selectedCategoryId, onCategoryClick, level }: 
     <div>
       <div 
         className={`
-          w-full flex items-center p-3 rounded-md cursor-pointer transition-colors
+          group w-full flex items-center p-3 rounded-lg cursor-pointer 
+          transition-all duration-200 ease-in-out relative
           ${isSelected 
-            ? 'bg-primary text-primary-foreground' 
-            : 'hover:bg-accent hover:text-accent-foreground'
+            ? 'bg-primary text-primary-foreground shadow-sm ring-1 ring-primary/20' 
+            : 'hover:bg-accent/50 hover:text-accent-foreground hover:shadow-sm'
           }
+          ${level > 0 ? 'ml-2 border-l-2 border-border/30' : ''}
         `}
         style={{ paddingLeft: `${12 + paddingLeft}px` }}
-        onClick={() => onCategoryClick(category.id)}
+        onClick={(e) => onCategoryClick(category.id, e)}
+        data-category-id={category.id}
       >
+        {/* Expand/Collapse Button */}
         {hasChildren && (
-          <div
+          <button
             onClick={handleToggleExpand}
-            className="mr-2 p-1 rounded-sm hover:bg-black/10 hover:dark:bg-white/10 transition-colors"
+            className={`
+              mr-2 p-1.5 rounded-md transition-all duration-200
+              hover:bg-black/10 hover:dark:bg-white/10 
+              focus:outline-none focus:ring-2 focus:ring-primary/50
+              ${isSelected ? 'hover:bg-white/20' : ''}
+            `}
+            aria-label={isExpanded ? 'Collapse category' : 'Expand category'}
           >
-            <div 
+            <svg 
               className={`
-                w-0 h-0 transition-transform duration-200 ease-in-out
+                w-3 h-3 transition-transform duration-200 ease-in-out
                 ${isExpanded ? 'rotate-90' : 'rotate-0'}
               `}
-              style={{
-                borderLeft: '4px solid currentColor',
-                borderTop: '3px solid transparent',
-                borderBottom: '3px solid transparent',
-              }}
-            />
-          </div>
+              fill="currentColor" 
+              viewBox="0 0 20 20"
+            >
+              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+            </svg>
+          </button>
         )}
-        <IconComponent className="h-4 w-4 mr-3 flex-shrink-0" />
+
+        {/* Category Icon */}
+        <div className={`
+          flex items-center justify-center w-8 h-8 rounded-md mr-3 flex-shrink-0
+          ${isSelected 
+            ? 'bg-white/20' 
+            : 'bg-muted/50 group-hover:bg-accent'
+          }
+        `}>
+          <IconComponent className="h-4 w-4" />
+        </div>
+
+        {/* Category Content */}
         <div className="flex-1 min-w-0">
-          <div className="font-medium truncate">{category.name}</div>
+          <div className="font-medium truncate text-sm">{category.name}</div>
           {category.description && level === 0 && (
-            <div className="text-xs opacity-70 mt-1 line-clamp-2">
+            <div className="text-xs opacity-70 mt-0.5 line-clamp-1">
               {category.description}
             </div>
           )}
+
         </div>
+
+        {/* Selection Indicator */}
+        {isSelected && (
+          <div className="w-2 h-2 rounded-full bg-primary-foreground ml-2 flex-shrink-0" />
+        )}
       </div>
       
+      {/* Children */}
       {hasChildren && isExpanded && (
-        <div className="mt-1 space-y-1">
+        <div className="mt-1 space-y-1 animate-in slide-in-from-top-2 duration-200">
           {category.children!.map((child) => (
             <CategoryItem
               key={child.id}
@@ -225,7 +253,10 @@ function MobileCategoryChips({
   }
 
   // Handle category selection with auto-scroll and haptic feedback
-  const handleCategorySelect = (categoryId: string | null) => {
+  const handleCategorySelect = (categoryId: string | null, event?: React.MouseEvent) => {
+    // Prevent default behavior to avoid page jumping
+    event?.preventDefault?.()
+    
     // Add haptic feedback on touch devices
     if (isTouchDevice && 'vibrate' in navigator) {
       navigator.vibrate(10)
@@ -337,7 +368,7 @@ function MobileCategoryChips({
       >
         {/* All Products Chip */}
         <button
-          onClick={() => handleCategorySelect(null)}
+          onClick={(e) => handleCategorySelect(null, e)}
           data-category-id="all"
           className={`
             flex items-center gap-2 px-4 py-2.5 rounded-full whitespace-nowrap text-sm font-medium 
@@ -361,7 +392,7 @@ function MobileCategoryChips({
           return (
             <button
               key={category.id}
-              onClick={() => handleCategorySelect(category.id)}
+              onClick={(e) => handleCategorySelect(category.id, e)}
               data-category-id={category.id}
               className={`
                 flex items-center gap-2 px-4 py-2.5 rounded-full whitespace-nowrap text-sm font-medium 
@@ -375,11 +406,6 @@ function MobileCategoryChips({
             >
               <IconComponent className="h-4 w-4" />
               <span>{category.name}</span>
-              {category.level > 0 && (
-                <span className="text-xs opacity-60 bg-black/10 dark:bg-white/10 px-1.5 py-0.5 rounded ml-1">
-                  Sub
-                </span>
-              )}
             </button>
           )
         })}
@@ -414,7 +440,12 @@ function DesktopCategorySidebar({
   t: any
   className: string
 }) {
-  const handleCategoryClick = (categoryId: string) => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+
+  const handleCategoryClick = (categoryId: string, event?: React.MouseEvent) => {
+    // Prevent default behavior to avoid page jumping
+    event?.preventDefault?.()
+    
     if (selectedCategoryId === categoryId) {
       onCategorySelect(null)
     } else {
@@ -422,19 +453,50 @@ function DesktopCategorySidebar({
     }
   }
 
+  // Auto-scroll to selected category
+  useEffect(() => {
+    if (selectedCategoryId && scrollContainerRef.current) {
+      const selectedElement = scrollContainerRef.current.querySelector(`[data-category-id="${selectedCategoryId}"]`)
+      if (selectedElement) {
+        selectedElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'nearest'
+        })
+      }
+    }
+  }, [selectedCategoryId])
+
   return (
-    <Card className={`p-4 ${className}`}>
-      <div className="space-y-2">
-        <h3 className="font-semibold text-lg mb-4">{t('categories')}</h3>
-        
+    <Card className={`${className} flex flex-col h-[calc(100vh-8rem)] max-h-[800px]`}>
+      {/* Fixed Header */}
+      <div className="p-4 border-b border-border bg-card/50 backdrop-blur-sm">
+        <h3 className="font-semibold text-lg text-foreground">{t('categories')}</h3>
+      </div>
+
+      {/* Scrollable Content */}
+      <div 
+        ref={scrollContainerRef}
+        className={`flex-1 overflow-y-auto p-4 space-y-2 ${styles.desktopScrollContainer}`}
+      >
         {/* Show All Products Button */}
         <Button
           variant={!selectedCategoryId ? "default" : "ghost"}
-          className="w-full justify-start h-auto p-3"
-          onClick={() => onCategorySelect(null)}
+          className={`
+            w-full justify-start h-auto p-3 transition-all duration-200
+            ${!selectedCategoryId ? 'shadow-sm ring-1 ring-primary/20' : 'hover:bg-accent/50'}
+          `}
+          onClick={(e) => {
+            e.preventDefault()
+            onCategorySelect(null)
+          }}
+          data-category-id="all"
         >
           <Grid3X3 className="h-4 w-4 mr-3 flex-shrink-0" />
-          <span className="text-left">{t('allProducts')}</span>
+          <div className="flex-1 text-left">
+            <div className="font-medium">{t('allProducts')}</div>
+            <div className="text-xs opacity-70 mt-0.5">View all available products</div>
+          </div>
         </Button>
 
         {/* Category List */}
@@ -451,12 +513,25 @@ function DesktopCategorySidebar({
         </div>
 
         {categories.length === 0 && (
-          <div className="text-center py-8 text-muted-foreground">
-            <Grid3X3 className="h-8 w-8 mx-auto mb-2 opacity-50" />
-            <p className="text-sm">{t('states.noCategories')}</p>
+          <div className="text-center py-12 text-muted-foreground">
+            <Grid3X3 className="h-12 w-12 mx-auto mb-3 opacity-30" />
+            <p className="text-sm font-medium mb-1">{t('states.noCategories')}</p>
+            <p className="text-xs opacity-70">Categories will appear here when available</p>
           </div>
         )}
+
+        {/* Bottom padding for better scrolling */}
+        <div className="h-4" />
       </div>
+
+      {/* Optional: Category count footer */}
+      {categories.length > 0 && (
+        <div className="p-3 border-t border-border bg-muted/30 text-center">
+          <p className="text-xs text-muted-foreground">
+            {selectedCategoryId ? 'Category selected' : 'Select a category to filter'}
+          </p>
+        </div>
+      )}
     </Card>
   )
 }
@@ -502,11 +577,11 @@ export function CategorySidebar({
         {/* Mobile Loading */}
         <div className="lg:hidden">
           <div className="flex gap-3 pb-3">
-            {[...Array(4)].map((_, i) => (
+            {[80, 95, 110, 88].map((width, i) => (
               <div 
                 key={i} 
                 className={`h-10 rounded-full flex-shrink-0 ${styles.loadingChip}`}
-                style={{ width: `${80 + Math.random() * 40}px` }}
+                style={{ width: `${width}px` }}
               />
             ))}
           </div>
