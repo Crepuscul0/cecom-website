@@ -275,6 +275,7 @@
     }
   },
   "Catalog": {
+    "more": "más",
     "categories": "Categorías",
     "allProducts": "Todos los Productos",
     "searchProducts": "Buscar productos...",

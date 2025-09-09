@@ -1,19 +1,5 @@
 {
   "Common": {
-    "buttons": {
-      "submit": "Submit",
-      "cancel": "Cancel",
-      "save": "Save",
-      "delete": "Delete",
-      "edit": "Edit",
-      "close": "Close",
-      "retry": "Retry",
-      "clearFilters": "Clear filters",
-      "viewDetails": "View Details",
-      "previous": "Previous",
-      "next": "Next",
-      "allVendors": "All Vendors"
-    },
     "states": {
       "loading": "Loading...",
       "error": "Error",
@@ -45,6 +31,21 @@
       "dark": "Dark",
       "system": "System",
       "toggleTheme": "Toggle theme"
+    },
+    "buttons": {
+      "more": "more",
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "save": "Save",
+      "delete": "Delete",
+      "edit": "Edit",
+      "close": "Close",
+      "retry": "Retry",
+      "clearFilters": "Clear filters",
+      "viewDetails": "View Details",
+      "previous": "Previous",
+      "next": "Next",
+      "allVendors": "All Vendors"
     },
     "language": {
       "english": "🇺🇸 English",
@@ -275,6 +276,7 @@
     }
   },
   "Catalog": {
+    "more": "more",
     "categories": "Categories",
     "allProducts": "All Products",
     "searchProducts": "Search products...",

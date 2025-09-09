@@ -160,16 +160,29 @@ export function ProductCard({ product, onViewDetails, className = '' }: ProductC
                 <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
                   {t('features')}
                 </p>
-                <div className="flex flex-wrap gap-1">
-                  {product.features.slice(0, 3).map((feature, index) => (
-                    <Badge key={index} variant="outline" className="text-xs">
-                      {typeof feature === 'string' ? feature : feature.feature || ''}
-                    </Badge>
-                  ))}
+                <div className="flex flex-wrap gap-1.5">
+                  {product.features.slice(0, 3).map((feature, index) => {
+                    const featureText = typeof feature === 'string' ? feature : feature.feature || '';
+                    return (
+                      <div key={index} className="max-w-full">
+                        <Badge 
+                          variant="outline" 
+                          className="text-xs max-w-full break-words text-left whitespace-normal h-auto min-h-6 px-2 py-1"
+                        >
+                          <span className="line-clamp-2">{featureText}</span>
+                        </Badge>
+                      </div>
+                    );
+                  })}
                   {product.features.length > 3 && (
-                    <Badge variant="outline" className="text-xs">
-                      +{product.features.length - 3} more
-                    </Badge>
+                    <div className="max-w-full">
+                      <Badge 
+                        variant="outline" 
+                        className="text-xs max-w-full break-words text-left whitespace-normal h-auto min-h-6 px-2 py-1"
+                      >
+                        +{product.features.length - 3} {t('more')}
+                      </Badge>
+                    </div>
                   )}
                 </div>
               </div>
