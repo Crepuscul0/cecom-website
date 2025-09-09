@@ -34,6 +34,22 @@ export default function Header() {
   const [mounted, setMounted] = useState(false);
   
   const currentLocale = pathname.split('/')[1] || 'en';
+  
+  // Function to check if a link is active
+  const isLinkActive = (href: string) => {
+    // Remove locale part for comparison
+    const pathWithoutLocale = pathname.replace(/^\/[a-z]{2}/, '') || '/';
+    const cleanHref = href.replace(/^\/[a-z]{2}/, '') || '/';
+    
+    // Handle home page
+    if (cleanHref === '/' || cleanHref === '') {
+      return pathWithoutLocale === '/';
+    }
+    
+    // Check if current path starts with the href (for nested routes)
+    return pathWithoutLocale === cleanHref || 
+           (cleanHref !== '/' && pathWithoutLocale.startsWith(cleanHref));
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -81,7 +97,16 @@ export default function Header() {
                 <NavigationMenuItem>
                   <Link 
                     href={`/${currentLocale}`} 
-                    className={cn("px-3 py-2 text-base font-medium text-muted-foreground hover:text-primary transition-colors duration-200 rounded-md hover:bg-accent")}
+                    className={cn(
+                      "px-4 py-2 text-base font-medium transition-all duration-200 rounded-full relative group",
+                      isLinkActive(`/${currentLocale}`)
+                        ? "text-primary-foreground font-semibold"
+                        : "text-muted-foreground hover:text-primary"
+                    )}
+                    style={{
+                      backgroundColor: isLinkActive(`/${currentLocale}`) ? 'hsl(var(--primary))' : 'transparent',
+                      boxShadow: isLinkActive(`/${currentLocale}`) ? '0 2px 10px -2px rgba(0, 0, 0, 0.1)' : 'none',
+                    }}
                     aria-label={t('accessibility.homeLink')}
                     title={t('tooltips.home')}
                   >
@@ -91,7 +116,16 @@ export default function Header() {
                 <NavigationMenuItem>
                   <Link 
                     href={`/${currentLocale}/solutions`} 
-                    className={cn("px-3 py-2 text-base font-medium text-muted-foreground hover:text-primary transition-colors duration-200 rounded-md hover:bg-accent")}
+                    className={cn(
+                      "px-4 py-2 text-base font-medium transition-all duration-200 rounded-full relative group",
+                      isLinkActive(`/${currentLocale}/solutions`)
+                        ? "text-primary-foreground font-semibold"
+                        : "text-muted-foreground hover:text-primary"
+                    )}
+                    style={{
+                      backgroundColor: isLinkActive(`/${currentLocale}/solutions`) ? 'hsl(var(--primary))' : 'transparent',
+                      boxShadow: isLinkActive(`/${currentLocale}/solutions`) ? '0 2px 10px -2px rgba(0, 0, 0, 0.1)' : 'none',
+                    }}
                     aria-label={t('accessibility.solutionsLink')}
                     title={t('tooltips.solutions')}
                   >
@@ -102,7 +136,16 @@ export default function Header() {
                 <NavigationMenuItem>
                   <Link 
                     href={`/${currentLocale}/alliances`} 
-                    className={cn("px-3 py-2 text-base font-medium text-muted-foreground hover:text-primary transition-colors duration-200 rounded-md hover:bg-accent")}
+                    className={cn(
+                      "px-4 py-2 text-base font-medium transition-all duration-200 rounded-full relative group",
+                      isLinkActive(`/${currentLocale}/alliances`)
+                        ? "text-primary-foreground font-semibold"
+                        : "text-muted-foreground hover:text-primary"
+                    )}
+                    style={{
+                      backgroundColor: isLinkActive(`/${currentLocale}/alliances`) ? 'hsl(var(--primary))' : 'transparent',
+                      boxShadow: isLinkActive(`/${currentLocale}/alliances`) ? '0 2px 10px -2px rgba(0, 0, 0, 0.1)' : 'none',
+                    }}
                     aria-label={t('accessibility.alliancesLink')}
                     title={t('tooltips.alliances')}
                   >
@@ -112,7 +155,16 @@ export default function Header() {
                 <NavigationMenuItem>
                   <Link 
                     href={`/${currentLocale}/blog`} 
-                    className={cn("px-3 py-2 text-base font-medium text-muted-foreground hover:text-primary transition-colors duration-200 rounded-md hover:bg-accent")}
+                    className={cn(
+                      "px-4 py-2 text-base font-medium transition-all duration-200 rounded-full relative group",
+                      isLinkActive(`/${currentLocale}/blog`)
+                        ? "text-primary-foreground font-semibold"
+                        : "text-muted-foreground hover:text-primary"
+                    )}
+                    style={{
+                      backgroundColor: isLinkActive(`/${currentLocale}/blog`) ? 'hsl(var(--primary))' : 'transparent',
+                      boxShadow: isLinkActive(`/${currentLocale}/blog`) ? '0 2px 10px -2px rgba(0, 0, 0, 0.1)' : 'none',
+                    }}
                     aria-label={t('accessibility.blogLink')}
                     title={t('tooltips.blog')}
                   >
@@ -122,7 +174,16 @@ export default function Header() {
                 <NavigationMenuItem>
                   <Link 
                     href={`/${currentLocale}/about`} 
-                    className={cn("px-3 py-2 text-base font-medium text-muted-foreground hover:text-primary transition-colors duration-200 rounded-md hover:bg-accent")}
+                    className={cn(
+                      "px-4 py-2 text-base font-medium transition-all duration-200 rounded-full relative group",
+                      isLinkActive(`/${currentLocale}/about`)
+                        ? "text-primary-foreground font-semibold"
+                        : "text-muted-foreground hover:text-primary"
+                    )}
+                    style={{
+                      backgroundColor: isLinkActive(`/${currentLocale}/about`) ? 'hsl(var(--primary))' : 'transparent',
+                      boxShadow: isLinkActive(`/${currentLocale}/about`) ? '0 2px 10px -2px rgba(0, 0, 0, 0.1)' : 'none',
+                    }}
                     aria-label={t('accessibility.aboutUsLink')}
                     title={t('tooltips.aboutUs')}
                   >
@@ -132,7 +193,16 @@ export default function Header() {
                 <NavigationMenuItem>
                   <Link 
                     href={`/${currentLocale}/contact`} 
-                    className={cn("px-3 py-2 text-base font-medium text-muted-foreground hover:text-primary transition-colors duration-200 rounded-md hover:bg-accent")}
+                    className={cn(
+                      "px-4 py-2 text-base font-medium transition-all duration-200 rounded-full relative group",
+                      isLinkActive(`/${currentLocale}/contact`)
+                        ? "text-primary-foreground font-semibold"
+                        : "text-muted-foreground hover:text-primary"
+                    )}
+                    style={{
+                      backgroundColor: isLinkActive(`/${currentLocale}/contact`) ? 'hsl(var(--primary))' : 'transparent',
+                      boxShadow: isLinkActive(`/${currentLocale}/contact`) ? '0 2px 10px -2px rgba(0, 0, 0, 0.1)' : 'none',
+                    }}
                     aria-label={t('accessibility.contactLink')}
                     title={t('tooltips.contact')}
                   >
