@@ -5,7 +5,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Loader2, Grid3X3, Shield, Wifi, Phone, Monitor, Server, Zap, Lock, Network, Router, Cable, Bluetooth, Smartphone, Headphones, Radio, Laptop, Tablet, Cpu, MemoryStick, Database, HardDrive, Cloud, Printer, Camera, Keyboard, Mouse, Usb, Tv, Gamepad2, Watch } from 'lucide-react'
-import { Category } from '@/lib/payload/types'
+import { LocalizedCategory } from '@/types/catalog'
 import styles from './CategorySidebar.module.css'
 
 interface CategorySidebarProps {
@@ -64,13 +64,14 @@ const categoryIcons: Record<string, React.ComponentType<{ className?: string }>>
 }
 
 interface CategoryItemProps {
-  category: Category
+  category: LocalizedCategory
   selectedCategoryId?: string
   onCategoryClick: (categoryId: string, event?: React.MouseEvent) => void
   level: number
+  locale: 'en' | 'es'
 }
 
-function CategoryItem({ category, selectedCategoryId, onCategoryClick, level }: CategoryItemProps) {
+function CategoryItem({ category, selectedCategoryId, onCategoryClick, level, locale }: CategoryItemProps) {
   const [isExpanded, setIsExpanded] = useState(true)
   const isSelected = selectedCategoryId === category.id
   const hasChildren = category.children && category.children.length > 0
@@ -162,6 +163,7 @@ function CategoryItem({ category, selectedCategoryId, onCategoryClick, level }: 
               selectedCategoryId={selectedCategoryId}
               onCategoryClick={onCategoryClick}
               level={level + 1}
+              locale={locale}
             />
           ))}
         </div>
@@ -175,12 +177,14 @@ function MobileCategoryChips({
   categories, 
   selectedCategoryId, 
   onCategorySelect, 
-  t 
+  t,
+  locale
 }: {
-  categories: Category[]
+  categories: LocalizedCategory[]
   selectedCategoryId?: string
   onCategorySelect: (categoryId: string | null) => void
   t: any
+  locale: 'en' | 'es'
 }) {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const [canScrollLeft, setCanScrollLeft] = useState(false)
@@ -189,9 +193,9 @@ function MobileCategoryChips({
   const [isTouchDevice, setIsTouchDevice] = useState(false)
   
   // Flatten categories for mobile view (show all categories and subcategories as chips)
-  const flatCategories: Category[] = []
+  const flatCategories: LocalizedCategory[] = []
   
-  const flattenCategories = (cats: Category[]) => {
+  const flattenCategories = (cats: LocalizedCategory[]) => {
     cats.forEach(cat => {
       flatCategories.push(cat)
       if (cat.children && cat.children.length > 0) {
@@ -432,13 +436,15 @@ function DesktopCategorySidebar({
   selectedCategoryId, 
   onCategorySelect, 
   t,
-  className 
+  className,
+  locale
 }: {
-  categories: Category[]
+  categories: LocalizedCategory[]
   selectedCategoryId?: string
   onCategorySelect: (categoryId: string | null) => void
   t: any
   className: string
+  locale: 'en' | 'es'
 }) {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
 
@@ -508,6 +514,7 @@ function DesktopCategorySidebar({
               selectedCategoryId={selectedCategoryId}
               onCategoryClick={handleCategoryClick}
               level={0}
+              locale={locale}
             />
           ))}
         </div>
@@ -541,7 +548,7 @@ export function CategorySidebar({
   onCategorySelect, 
   className = '' 
 }: CategorySidebarProps) {
-  const [categories, setCategories] = useState<Category[]>([])
+  const [categories, setCategories] = useState<LocalizedCategory[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const locale = useLocale() as 'en' | 'es'
@@ -643,6 +650,7 @@ export function CategorySidebar({
           selectedCategoryId={selectedCategoryId}
           onCategorySelect={onCategorySelect}
           t={t}
+          locale={locale}
         />
       </div>
       
@@ -654,6 +662,7 @@ export function CategorySidebar({
           onCategorySelect={onCategorySelect}
           t={t}
           className={className}
+          locale={locale}
         />
       </div>
     </>

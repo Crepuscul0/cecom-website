@@ -17,6 +17,20 @@ export interface Category {
   children?: Category[];
 }
 
+// Localized category type (used by API responses)
+export interface LocalizedCategory {
+  id: string;
+  name: string; // Already localized
+  description: string; // Already localized
+  slug: string;
+  order: number;
+  icon?: string;
+  parent_id?: string | null;
+  level: number;
+  path?: string;
+  children?: LocalizedCategory[];
+}
+
 export interface Vendor {
   id: string;
   name: string;

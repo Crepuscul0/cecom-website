@@ -210,6 +210,41 @@ Our security expert team is available to help you assess and mitigate this vulne
 *For more technical details, see the [official Extreme Networks advisory](${item.link}).*`
 }
 
+export async function importExtremeNetworksRSS(options: { limit?: number; dryRun?: boolean } = {}) {
+  const { limit = 10, dryRun = false } = options
+  
+  try {
+    const rssItems = await fetchExtremeNetworksRSS()
+    
+    if (dryRun) {
+      return {
+        imported: 0,
+        skipped: rssItems.length,
+        errors: [],
+        preview: rssItems.slice(0, limit).map(item => ({
+          title: item.title,
+          link: item.link,
+          pubDate: item.pubDate
+        }))
+      }
+    }
+    
+    const result = await importRSSToPayload(limit)
+    return {
+      imported: result.imported,
+      skipped: result.total - result.imported,
+      errors: []
+    }
+  } catch (error) {
+    console.error('Error in importExtremeNetworksRSS:', error)
+    return {
+      imported: 0,
+      skipped: 0,
+      errors: [error instanceof Error ? error.message : 'Unknown error']
+    }
+  }
+}
+
 export async function importRSSToPayload(limit: number = 10) {
   try {
     const payload = await getPayload()

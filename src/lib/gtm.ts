@@ -1,6 +1,13 @@
 // Google Tag Manager configuration
 export const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
+// Extend Window interface to include dataLayer
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
+}
+
 export const initGTM = () => {
   if (!GTM_ID) return;
 

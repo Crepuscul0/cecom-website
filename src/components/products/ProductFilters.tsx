@@ -143,7 +143,7 @@ export function ProductFilters({
           )}
           {currentSearch && (
             <span className="px-2 py-1 bg-primary text-primary-foreground rounded text-sm">
-              {isSpanish ? 'Búsqueda:' : 'Search:'} "{currentSearch}"
+              {isSpanish ? 'Búsqueda:' : 'Search:'} &ldquo;{currentSearch}&rdquo;
             </span>
           )}
         </div>

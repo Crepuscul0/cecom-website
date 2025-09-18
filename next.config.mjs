@@ -9,8 +9,8 @@ const withNextIntl = createNextIntlPlugin('./i18n.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  serverExternalPackages: ['@node-rs/argon2'],
   experimental: {
-    serverComponentsExternalPackages: ['@node-rs/argon2'],
     optimizeCss: true,
     optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
     reactCompiler: false,

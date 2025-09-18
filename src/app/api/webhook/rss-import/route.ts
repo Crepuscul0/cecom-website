@@ -7,7 +7,7 @@ export async function POST(request: NextRequest) {
     const { secret, limit = 10 } = body
     
     // Verificar secret
-    const config = require('../../../../automation/webhook-config.json')
+    const config = { secret: process.env.WEBHOOK_SECRET || 'default-secret' }
     if (secret !== config.secret) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Webhook error:', error)
     return NextResponse.json(
-      { error: 'Import failed', message: error.message },
+      { error: 'Import failed', message: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     )
   }
