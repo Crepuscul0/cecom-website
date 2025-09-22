@@ -1,0 +1,1612 @@
+[
+  {
+    "id": "watchguard-network-security",
+    "name": {
+      "en": "Network Security",
+      "es": "Network Security"
+    },
+    "description": {
+      "en": "Safeguard your network from evolving cyberattacks with WatchGuard. Powerful firewalls, access points & advanced security solutions.",
+      "es": "Safeguard your network from evolving cyberattacks with WatchGuard. Powerful firewalls, access points & advanced security solutions."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social_NetSec_0.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/network-security",
+    "order": 1,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.370Z"
+  },
+  {
+    "id": "watchguard-firewalls",
+    "name": {
+      "en": "Firewalls",
+      "es": "Firewalls"
+    },
+    "description": {
+      "en": "WatchGuard's Firebox products offer unparalleled performance and security, whether on-premises or in the Cloud. Discover the WatchGuard difference today.",
+      "es": "WatchGuard's Firebox products offer unparalleled performance and security, whether on-premises or in the Cloud. Discover the WatchGuard difference today."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/Social_Share_Firewall_Appliances_1.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/firewalls",
+    "order": 2,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-firewall-security-services",
+    "name": {
+      "en": "Firewall Security Services",
+      "es": "Firewall Security Services"
+    },
+    "description": {
+      "en": "WatchGuard offers the most comprehensive portfolio of security services in the industry.",
+      "es": "WatchGuard offers the most comprehensive portfolio of security services in the industry."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social_security_services.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/security-services",
+    "order": 3,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-firecloud-internet-access",
+    "name": {
+      "en": "FireCloud Internet Access",
+      "es": "FireCloud Internet Access"
+    },
+    "description": {
+      "en": "Our firewall as a service (FWaaS) and secure web gateway (SWG) services prevent threats before they can reach user devices.",
+      "es": "Our firewall as a service (FWaaS) and secure web gateway (SWG) services prevent threats before they can reach user devices."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/Social_FIA.jpg",
+    "datasheet": "https://watchguard.widen.net/s/gbvvlrmt2z/datasheet_firecloud_internet_access",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/sase/firecloud-internet-access",
+    "order": 4,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-threatsync-ndr",
+    "name": {
+      "en": "ThreatSync+ NDR",
+      "es": "ThreatSync+ NDR"
+    },
+    "description": {
+      "en": "Surface hidden network risks and threats with our AI-powered network detection and response solution",
+      "es": "Surface hidden network risks and threats with our AI-powered network detection and response solution"
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social_ThreatSync_PlusNDR.jpg",
+    "datasheet": "https://watchguard.widen.net/s/mg5sxcq8xv/datasheet_threatsync_plus",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/threatsync-ndr",
+    "order": 5,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-secure-cloud-managed-wi-fi-solutions",
+    "name": {
+      "en": "Secure, Cloud-Managed Wi-Fi Solutions",
+      "es": "Secure, Cloud-Managed Wi-Fi Solutions"
+    },
+    "description": {
+      "en": "Modern Wi-Fi is redefined with airspace monitoring and network access enforcement for unmatched protection. Secure your wireless network!",
+      "es": "Modern Wi-Fi is redefined with airspace monitoring and network access enforcement for unmatched protection. Secure your wireless network!"
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social_Secure_Wifi.jpg",
+    "datasheet": "https://watchguard.widen.net/view/pdf/51dqt3djtv/Datasheet_WG_Cloud.pdf",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/secure-wifi",
+    "order": 6,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-watchguard-endpoint-security",
+    "name": {
+      "en": "WatchGuard Endpoint Security",
+      "es": "WatchGuard Endpoint Security"
+    },
+    "description": {
+      "en": "Take cybersecurity to the next level with WatchGuard Endpoint Security Solutions",
+      "es": "Take cybersecurity to the next level with WatchGuard Endpoint Security Solutions"
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/WESS_Overview_Social_Share.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/endpoint-security",
+    "order": 7,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-endpoint-detection-response-edr",
+    "name": {
+      "en": "Endpoint Detection & Response (EDR)",
+      "es": "Endpoint Detection & Response (EDR)"
+    },
+    "description": {
+      "en": "WatchGuard Endpoint Security offers a comprehensive set of enterprise-grade security services to protect businesses of all sizes.",
+      "es": "WatchGuard Endpoint Security offers a comprehensive set of enterprise-grade security services to protect businesses of all sizes."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/Social_Protection_Detection_Response.jpg",
+    "datasheet": "https://watchguard.widen.net/s/qhmzcvt2sh/datasheet_watchguard_endpoint_edr",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/endpoint-protection-detection-response",
+    "order": 8,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-endpoint-protection-next-gen-antivirus",
+    "name": {
+      "en": "Endpoint Protection & Next-Gen Antivirus",
+      "es": "Endpoint Protection & Next-Gen Antivirus"
+    },
+    "description": {
+      "en": "WatchGuard EPP offers advanced technologies to prevent and protect against the daily barrage of cyber attacks. Level up your security!",
+      "es": "WatchGuard EPP offers advanced technologies to prevent and protect against the daily barrage of cyber attacks. Level up your security!"
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social_EPP_AntiVirus.jpg",
+    "datasheet": "https://watchguard.widen.net/s/pbrnvlzqk2/datasheet_watchguard_endpoint_protection_epp",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/watchguard-endpoint-protection-antivirus",
+    "order": 9,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-patch-management-data-security",
+    "name": {
+      "en": "Patch Management & Data Security",
+      "es": "Patch Management & Data Security"
+    },
+    "description": {
+      "en": "Deploy updates and patches to prevent cyberattacks while protecting data from internal and external threats with WatchGuard Endpoint Security Modules.",
+      "es": "Deploy updates and patches to prevent cyberattacks while protecting data from internal and external threats with WatchGuard Endpoint Security Modules."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/Sec_Ops_Social_Share.jpg",
+    "datasheet": "https://watchguard.widen.net/s/x8m5msjhwt/datasheet_endpoint_patch_management",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/endpoint-security-modules",
+    "order": 10,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-dnswatchgo",
+    "name": {
+      "en": "DNSWatchGO",
+      "es": "DNSWatchGO"
+    },
+    "description": {
+      "en": "WatchGuard DNSWatchGO provides DNS-level protection and content filtering that keeps your business safe from phishing, ransomware, and more.",
+      "es": "WatchGuard DNSWatchGO provides DNS-level protection and content filtering that keeps your business safe from phishing, ransomware, and more."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/dnswatchgo_social_share.jpg",
+    "datasheet": "https://p.widencdn.net/8fvawl/Datasheet_DNSWatchGO",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/dnswatchgo",
+    "order": 11,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-identity-security",
+    "name": {
+      "en": "Identity Security",
+      "es": "Identity Security"
+    },
+    "description": {
+      "en": "AuthPoint Identity Security provides the security you need to protect identities, assets, accounts, and information. Try it now.",
+      "es": "AuthPoint Identity Security provides the security you need to protect identities, assets, accounts, and information. Try it now."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/AuthPoint_Overview_Social_Share.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/authpoint",
+    "order": 12,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-multi-factor-authentication",
+    "name": {
+      "en": "Multi-Factor Authentication",
+      "es": "Multi-Factor Authentication"
+    },
+    "description": {
+      "en": "Go beyond 2FA and keep criminals outside your network with AuthPoint MFA. Delivered entirely from the Cloud. Try today.",
+      "es": "Go beyond 2FA and keep criminals outside your network with AuthPoint MFA. Delivered entirely from the Cloud. Try today."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social_MFA.jpg",
+    "datasheet": "https://p.widencdn.net/vvrgea/Datasheet_AuthPoint",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/authpoint/multi-factor-authentication",
+    "order": 13,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-single-sign-on-sso",
+    "name": {
+      "en": "Single Sign-On (SSO)",
+      "es": "Single Sign-On (SSO)"
+    },
+    "description": {
+      "en": "SSO authentication gives users a seamless login experience across diverse applications and enhances security",
+      "es": "SSO authentication gives users a seamless login experience across diverse applications and enhances security"
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social-SSO.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/authpoint/sso",
+    "order": 14,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-authpoint-hardware-token",
+    "name": {
+      "en": "AuthPoint Hardware Token",
+      "es": "AuthPoint Hardware Token"
+    },
+    "description": {
+      "en": "Our hardware tokens are ready to use and can provide an additional source of protection for businesses when mobile device use is limited or restricted.",
+      "es": "Our hardware tokens are ready to use and can provide an additional source of protection for businesses when mobile device use is limited or restricted."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social_AuthPointHardwareToken.jpg",
+    "datasheet": "https://p.widencdn.net/al4iid/Datasheet_HW_Token",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/authpoint/hardware-tokens",
+    "order": 15,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-platform-security-capabilities",
+    "name": {
+      "en": "Platform Security Capabilities",
+      "es": "Platform Security Capabilities"
+    },
+    "description": {
+      "en": "Platform tools, reports and interfaces that equip IT Security Teams to centralize and control policies across all environments.",
+      "es": "Platform tools, reports and interfaces that equip IT Security Teams to centralize and control policies across all environments."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social_Platform.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/platform",
+    "order": 16,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-ai-powered-xdr",
+    "name": {
+      "en": "AI-Powered XDR",
+      "es": "AI-Powered XDR"
+    },
+    "description": {
+      "en": "AI-driven, automated solutions to enable rapid threat detection and response for advanced threats, ransomware, zero-day, and supply chain attacks",
+      "es": "AI-driven, automated solutions to enable rapid threat detection and response for advanced threats, ransomware, zero-day, and supply chain attacks"
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social_AI_Powered_XDR.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/threatsync-family",
+    "order": 17,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-cloud-management",
+    "name": {
+      "en": "Cloud Management",
+      "es": "Cloud Management"
+    },
+    "description": {
+      "en": "Enhance your security management using WatchGuard Cloud. Ensure smooth administration and consistent security policies.",
+      "es": "Enhance your security management using WatchGuard Cloud. Ensure smooth administration and consistent security policies."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social_WatchGuard_Cloud.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/watchguard-cloud",
+    "order": 18,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-compliance-reports",
+    "name": {
+      "en": "Compliance Reports",
+      "es": "Compliance Reports"
+    },
+    "description": {
+      "en": "Cutting-edge compliance reporting to simplify regulatory compliance, increase accuracy, and save IT hours.",
+      "es": "Cutting-edge compliance reporting to simplify regulatory compliance, increase accuracy, and save IT hours."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social_compliance_reporting.jpg",
+    "datasheet": "https://watchguard.widen.net/s/qbsnsbhg5r/datasheet_compliance_reporting",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/compliance-reports",
+    "order": 19,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-security-operations-center-soc",
+    "name": {
+      "en": "Security Operations Center (SOC)",
+      "es": "Security Operations Center (SOC)"
+    },
+    "description": {
+      "en": "Learn how WatchGuard empowers your Security Operations Center (SOC) to fight ever-changing sophisticated cyber threats and keep your customers safe.",
+      "es": "Learn how WatchGuard empowers your Security Operations Center (SOC) to fight ever-changing sophisticated cyber threats and keep your customers safe."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/SOC_Social_Share.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/security-operations-center-soc",
+    "order": 20,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-managed-security-services-for-msps",
+    "name": {
+      "en": "Managed Security Services for MSPs",
+      "es": "Managed Security Services for MSPs"
+    },
+    "description": {
+      "en": "Empowering partners to deliver streamlined, profitable, and effective managed security services.",
+      "es": "Empowering partners to deliver streamlined, profitable, and effective managed security services."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/WatchGuard_MSS_Social_Share.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/managed-services",
+    "order": 21,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-watchguard-managed-detection-response-mdr",
+    "name": {
+      "en": "WatchGuard Managed Detection & Response (MDR)",
+      "es": "WatchGuard Managed Detection & Response (MDR)"
+    },
+    "description": {
+      "en": "WatchGuard MDR is a cybersecurity service operated by our expert team and tailored for MSPs. Optimize your managed security offerings!",
+      "es": "WatchGuard MDR is a cybersecurity service operated by our expert team and tailored for MSPs. Optimize your managed security offerings!"
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social_watchguard_mdr.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/managed-services/mdr",
+    "order": 22,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-compare-firewall-appliances",
+    "name": {
+      "en": "Compare Firewall Appliances",
+      "es": "Compare Firewall Appliances"
+    },
+    "description": {
+      "en": "Compare up to three products to find the firewall that best meets your network security needs.",
+      "es": "Compare up to three products to find the firewall that best meets your network security needs."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social-default-img.png",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/appliances-compare",
+    "order": 23,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-how-to-buy",
+    "name": {
+      "en": "How to Buy",
+      "es": "How to Buy"
+    },
+    "description": {
+      "en": "Ready to protect your network with WatchGuard? Find a reseller or contact our sales team today.",
+      "es": "Ready to protect your network with WatchGuard? Find a reseller or contact our sales team today."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/Social_How_to_Buy.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/how-to-buy-watchguard",
+    "order": 24,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-demos-trials",
+    "name": {
+      "en": "Demos & Trials",
+      "es": "Demos & Trials"
+    },
+    "description": {
+      "en": "Get hands-on with WatchGuard Cloud - launch a demo or start your 30-day free trial. No setup required!",
+      "es": "Get hands-on with WatchGuard Cloud - launch a demo or start your 30-day free trial. No setup required!"
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/Social-demos-trials-top.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/demos-free-trials",
+    "order": 25,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-basic-security-services",
+    "name": {
+      "en": "Basic Security Services",
+      "es": "Basic Security Services"
+    },
+    "description": {
+      "en": "The Basic Security Suite includes best-of-breed network security services, including GAV, IPS, URL filtering, app control, spam blocking and more.",
+      "es": "The Basic Security Suite includes best-of-breed network security services, including GAV, IPS, URL filtering, app control, spam blocking and more."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social-default-img.png",
+    "datasheet": "https://p.widencdn.net/zpnfs6/wg_support_ds",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/basic-security-suite",
+    "order": 26,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-apt-blocker",
+    "name": {
+      "en": "APT Blocker",
+      "es": "APT Blocker"
+    },
+    "description": {
+      "en": "WatchGuard APT Blocker provides advanced protection against ransomware, zero-day threats, and evolving malware",
+      "es": "WatchGuard APT Blocker provides advanced protection against ransomware, zero-day threats, and evolving malware"
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social-APTBlocker.jpg",
+    "datasheet": "https://p.widencdn.net/olznfo/wg_APTBlocker_ds",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/security-services/apt-blocker",
+    "order": 27,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-dnswatch",
+    "name": {
+      "en": "DNSWatch",
+      "es": "DNSWatch"
+    },
+    "description": {
+      "en": "Block malicious DNS connections & protect against phishing attacks",
+      "es": "Block malicious DNS connections & protect against phishing attacks"
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/Social_DNSWatch.jpg",
+    "datasheet": "https://p.widencdn.net/kcqflr/Datasheet_DNSWatch",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/security-services/dnswatch",
+    "order": 28,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-edr-core",
+    "name": {
+      "en": "EDR Core",
+      "es": "EDR Core"
+    },
+    "description": {
+      "en": "WatchGuard EDR Core complements other next-gen antivirus solutions by adding endpoint detection and response capabilities to automate the detection and response to any advanced threat.",
+      "es": "WatchGuard EDR Core complements other next-gen antivirus solutions by adding endpoint detection and response capabilities to automate the detection and response to any advanced threat."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social-share_EDR_Core.jpg",
+    "datasheet": "https://watchguard.widen.net/s/smmtwvtf6p/datasheet_threatsync",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/security-services/edr-core",
+    "order": 29,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-watchguard-firebox-cloud",
+    "name": {
+      "en": "WatchGuard Firebox Cloud",
+      "es": "WatchGuard Firebox Cloud"
+    },
+    "description": {
+      "en": "Extend the security perimeter to the cloud and protect servers running within a public cloud environment with WatchGaurd's Firebox Cloud.",
+      "es": "Extend the security perimeter to the cloud and protect servers running within a public cloud environment with WatchGaurd's Firebox Cloud."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social-default-img.png",
+    "datasheet": "https://p.widencdn.net/gdhgio/Datasheet_Firebox_Cloud",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/virtual-and-cloud/firebox-cloud",
+    "order": 30,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-firebox-rackmount-appliances",
+    "name": {
+      "en": "Firebox Rackmount Appliances",
+      "es": "Firebox Rackmount Appliances"
+    },
+    "description": {
+      "en": "WatchGuard's Firebox M-Series rackmount firewall appliances deliver blazing fast speed for growing businesses. Browse our products today.",
+      "es": "WatchGuard's Firebox M-Series rackmount firewall appliances deliver blazing fast speed for growing businesses. Browse our products today."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/Social_m_series.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/rack-mount/m-series",
+    "order": 31,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-watchguard-firebox-m290-m390",
+    "name": {
+      "en": "WatchGuard Firebox M290 & M390",
+      "es": "WatchGuard Firebox M290 & M390"
+    },
+    "description": {
+      "en": "The Firebox M290 and M390 firewall appliances offer enterprise-grade network security for small and medium-sized businesses. Compare models today.",
+      "es": "The Firebox M290 and M390 firewall appliances offer enterprise-grade network security for small and medium-sized businesses. Compare models today."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/product-photo-m290-m390.png",
+    "datasheet": "https://watchguard.widen.net/s/lpqx7bssfb/datasheet_m290-m390",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/rack-mount/firebox-m290-m390",
+    "order": 32,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-watchguard-firebox-m590-m690",
+    "name": {
+      "en": "WatchGuard Firebox M590 & M690",
+      "es": "WatchGuard Firebox M590 & M690"
+    },
+    "description": {
+      "en": "Firebox M590 and M690 are for midsize and distributed enterprises that need to secure their networks in the face of growth. Compare models today.",
+      "es": "Firebox M590 and M690 are for midsize and distributed enterprises that need to secure their networks in the face of growth. Compare models today."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/product-photo-m590-m690.png",
+    "datasheet": "https://watchguard.widen.net/s/zvl5xtqmr7/datasheet_m590-m690",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/rack-mount/firebox-m590-m690",
+    "order": 33,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-watchguard-firebox-m4800-m5800",
+    "name": {
+      "en": "WatchGuard Firebox M4800 & M5800",
+      "es": "WatchGuard Firebox M4800 & M5800"
+    },
+    "description": {
+      "en": "Firebox M4800 and M5800 are our fastest Firebox appliances ever, providing top of the line security and performance at corporate HQs. Compare models today.",
+      "es": "Firebox M4800 and M5800 are our fastest Firebox appliances ever, providing top of the line security and performance at corporate HQs. Compare models today."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/m4800-5800-modules.jpg",
+    "datasheet": "https://watchguard.widen.net/view/pdf/x461559c9g/Datasheet_M4800_M5800.pdf",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/rack-mount/firebox-m4800-m5800",
+    "order": 34,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-firebox-tabletop-appliances",
+    "name": {
+      "en": "Firebox Tabletop Appliances",
+      "es": "Firebox Tabletop Appliances"
+    },
+    "description": {
+      "en": "Get the firewall security your modern network deserves. Tabletop Firebox appliances deliver fast UTM, BOVPN, and AI-powered threat detection.",
+      "es": "Get the firewall security your modern network deserves. Tabletop Firebox appliances deliver fast UTM, BOVPN, and AI-powered threat detection."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social_tabletop_firewalls.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/tabletop",
+    "order": 35,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-watchguard-fireboxv",
+    "name": {
+      "en": "WatchGuard FireboxV",
+      "es": "WatchGuard FireboxV"
+    },
+    "description": {
+      "en": "WatchGuard FireboxV brings best-in-class network security to the world of virtualization. Compare models to find the right one for your unique needs today.",
+      "es": "WatchGuard FireboxV brings best-in-class network security to the world of virtualization. Compare models to find the right one for your unique needs today."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social_FireboxV.jpg",
+    "datasheet": "https://p.widencdn.net/izxgpl/Datasheet_FireboxV",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/virtual-and-cloud/fireboxv",
+    "order": 36,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-intelligentav",
+    "name": {
+      "en": "IntelligentAV",
+      "es": "IntelligentAV"
+    },
+    "description": {
+      "en": "WatchGuard's IntelligentAV makes it possible to predict threats months before they are released, providing powerful predictive protection.",
+      "es": "WatchGuard's IntelligentAV makes it possible to predict threats months before they are released, providing powerful predictive protection."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social_intelligentav_0.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/security-services/intelligentav",
+    "order": 37,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-firewall-security-package-options",
+    "name": {
+      "en": "Firewall Security Package Options",
+      "es": "Firewall Security Package Options"
+    },
+    "description": {
+      "en": "Compare WatchGuard firewall security packages to find the right features for your business needs and ensure strong, future-proof firewall security",
+      "es": "Compare WatchGuard firewall security packages to find the right features for your business needs and ensure strong, future-proof firewall security"
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social-default-img.png",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/firewall-security/package-options",
+    "order": 38,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-on-premises-management-visibility",
+    "name": {
+      "en": "On-Premises Management & Visibility",
+      "es": "On-Premises Management & Visibility"
+    },
+    "description": {
+      "en": "WatchGuard offers scalable solutions for businesses of all sizes. Experience unparalleled security and control for your onsite network.",
+      "es": "WatchGuard offers scalable solutions for businesses of all sizes. Experience unparalleled security and control for your onsite network."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social_WGCloud_on-prem.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/reporting-visibility",
+    "order": 39,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-threatsync-core",
+    "name": {
+      "en": "ThreatSync Core",
+      "es": "ThreatSync Core"
+    },
+    "description": {
+      "en": "Equip your enterprise with a foundational XDR engine to unify cross-product detections and orchestrate automated response to threats",
+      "es": "Equip your enterprise with a foundational XDR engine to unify cross-product detections and orchestrate automated response to threats"
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/ThreatSync_2023_social-share_0.jpg",
+    "datasheet": "https://watchguard.widen.net/s/smmtwvtf6p/datasheet_threatsync",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/security-services/threatsync",
+    "order": 40,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-advanced-security-services",
+    "name": {
+      "en": "Advanced Security Services",
+      "es": "Advanced Security Services"
+    },
+    "description": {
+      "en": "Total Security Suite from WatchGuard puts IT professionals back in charge of their networks with enterprise-grade security and threat visibility tools.",
+      "es": "Total Security Suite from WatchGuard puts IT professionals back in charge of their networks with enterprise-grade security and threat visibility tools."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social-default-img.png",
+    "datasheet": "https://p.widencdn.net/olznfo/wg_APTBlocker_ds",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/total-security-suite",
+    "order": 41,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.371Z"
+  },
+  {
+    "id": "watchguard-network-security-in-watchguard-cloud",
+    "name": {
+      "en": "Network Security in WatchGuard Cloud",
+      "es": "Network Security in WatchGuard Cloud"
+    },
+    "description": {
+      "en": "WatchGuard Cloud is centralized network security management and visibility. Simplify your network security.",
+      "es": "WatchGuard Cloud is centralized network security management and visibility. Simplify your network security."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/Social_netsec_WGC.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/network-security/cloud-management",
+    "order": 42,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-watchguard-system-manager",
+    "name": {
+      "en": "WatchGuard System Manager",
+      "es": "WatchGuard System Manager"
+    },
+    "description": {
+      "en": "WatchGuard System Manager lets you centrally manage all the Firebox appliances in your network with one easy-to-use console. Visit today to learn more.",
+      "es": "WatchGuard System Manager lets you centrally manage all the Firebox appliances in your network with one easy-to-use console. Visit today to learn more."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social-default-img.png",
+    "datasheet": "https://p.widencdn.net/zpnfs6/wg_support_ds",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/network-security/management-wsm",
+    "order": 43,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-wi-fi-6-access-points",
+    "name": {
+      "en": "Wi-Fi 6 Access Points",
+      "es": "Wi-Fi 6 Access Points"
+    },
+    "description": {
+      "en": "Wi-Fi 6 access points deliver fast speeds and secure WPA3 encryption. Wireless connectivity for remote workers, IoT, offices, and rugged deployments.",
+      "es": "Wi-Fi 6 access points deliver fast speeds and secure WPA3 encryption. Wireless connectivity for remote workers, IoT, offices, and rugged deployments."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social_share_ap_wifi_6_family_0.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/access-points",
+    "order": 44,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-watchguard-ap130",
+    "name": {
+      "en": "WatchGuard AP130",
+      "es": "WatchGuard AP130"
+    },
+    "description": {
+      "en": "Learn more about Wi-Fi 6 access points with fast speeds, secure encryption, and easy management in WatchGuard Cloud. Zero Touch Indoor Deployment.",
+      "es": "Learn more about Wi-Fi 6 access points with fast speeds, secure encryption, and easy management in WatchGuard Cloud. Zero Touch Indoor Deployment."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social-share-ap130.jpg",
+    "datasheet": "https://watchguard.widen.net/s/ktkr29mx8q/datasheet_ap130",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/access-points/ap130",
+    "order": 45,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-watchguard-ap230w",
+    "name": {
+      "en": "WatchGuard AP230W",
+      "es": "WatchGuard AP230W"
+    },
+    "description": {
+      "en": "The AP230W is a wall-mount access point designed for low-density environments like co-working spaces, conference rooms, or your home office.",
+      "es": "The AP230W is a wall-mount access point designed for low-density environments like co-working spaces, conference rooms, or your home office."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social_share_AP230W.jpg",
+    "datasheet": "https://watchguard.widen.net/s/tj5gxqtc9g/datasheet_ap230w",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/access-points/ap230w",
+    "order": 46,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-watchguard-ap330",
+    "name": {
+      "en": "WatchGuard AP330",
+      "es": "WatchGuard AP330"
+    },
+    "description": {
+      "en": "Learn more about fast Wi-Fi 6 indoor access points with secure WPA3 encryption and easy Cloud management. Zero Touch deployment for offices, healthcare, and retail.",
+      "es": "Learn more about fast Wi-Fi 6 indoor access points with secure WPA3 encryption and easy Cloud management. Zero Touch deployment for offices, healthcare, and retail."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social-share-ap330.jpg",
+    "datasheet": "https://watchguard.widen.net/s/x2xfz6j58g/datasheet_ap330",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/access-points/ap330",
+    "order": 47,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-watchguard-ap332cr",
+    "name": {
+      "en": "WatchGuard AP332CR",
+      "es": "WatchGuard AP332CR"
+    },
+    "description": {
+      "en": "Learn more about Rugged Wi-Fi 6 access points with fast speeds, secure encryption, and easy management in WatchGuard Cloud. Zero touch outdoor deployment.",
+      "es": "Learn more about Rugged Wi-Fi 6 access points with fast speeds, secure encryption, and easy management in WatchGuard Cloud. Zero touch outdoor deployment."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social-share-ap332cr.jpg",
+    "datasheet": "https://watchguard.widen.net/s/jk88mxdbnk/datasheet_ap332cr",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/access-points/ap332cr",
+    "order": 48,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-watchguard-ap430cr",
+    "name": {
+      "en": "WatchGuard AP430CR",
+      "es": "WatchGuard AP430CR"
+    },
+    "description": {
+      "en": "Learn more about Rugged Wi-Fi 6 access points with fast speeds, secure encryption, and easy management in WatchGuard Cloud. Zero touch outdoor deployment.",
+      "es": "Learn more about Rugged Wi-Fi 6 access points with fast speeds, secure encryption, and easy management in WatchGuard Cloud. Zero touch outdoor deployment."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social-share-ap430cr.jpg",
+    "datasheet": "https://watchguard.widen.net/s/lqjtdcsssv/datasheet_ap430cr",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/access-points/ap430cr",
+    "order": 49,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-watchguard-ap432",
+    "name": {
+      "en": "WatchGuard AP432",
+      "es": "WatchGuard AP432"
+    },
+    "description": {
+      "en": "Learn more about high performance indoor Wi-Fi 6 access points with fast speeds, secure encryption, and easy management in WatchGuard Cloud. Zero touch deployment.",
+      "es": "Learn more about high performance indoor Wi-Fi 6 access points with fast speeds, secure encryption, and easy management in WatchGuard Cloud. Zero touch deployment."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social-share-ap432.jpg",
+    "datasheet": "https://watchguard.widen.net/s/swlwdwwfb9/datasheet_ap432",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/access-points/ap432",
+    "order": 50,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-secure-wi-fi-in-watchguard-cloud",
+    "name": {
+      "en": "Secure Wi-Fi in WatchGuard Cloud",
+      "es": "Secure Wi-Fi in WatchGuard Cloud"
+    },
+    "description": {
+      "en": "Centralized control of your Wi-Fi network. Quickly deploy, configure, and report on your access points with WatchGuard Cloud.",
+      "es": "Centralized control of your Wi-Fi network. Quickly deploy, configure, and report on your access points with WatchGuard Cloud."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social-share-wifi-in-wgc-mgmt.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/secure-wifi/cloud-management",
+    "order": 51,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-wi-fi-package-options",
+    "name": {
+      "en": "Wi-Fi Package Options",
+      "es": "Wi-Fi Package Options"
+    },
+    "description": {
+      "en": "At WatchGuard, our Wi-Fi packages allow you to quickly and easily find the right set of features for your business needs. Compare our Wi-Fi packages today.",
+      "es": "At WatchGuard, our Wi-Fi packages allow you to quickly and easily find the right set of features for your business needs. Compare our Wi-Fi packages today."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social_share_ap_wifi_6_family_1.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/secure-wifi/package-options",
+    "order": 52,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-watchguard-advanced-epdr",
+    "name": {
+      "en": "WatchGuard Advanced EPDR",
+      "es": "WatchGuard Advanced EPDR"
+    },
+    "description": {
+      "en": "Discover the advanced version of WatchGuard EPDR that provides additional features to harden devices and uncover threats with IoCs and Yara rules.",
+      "es": "Discover the advanced version of WatchGuard EPDR that provides additional features to harden devices and uncover threats with IoCs and Yara rules."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/SOC_Social_Share_Adv_EDR_EPDR.jpg",
+    "datasheet": "https://watchguard.widen.net/s/zwdxqvfpbb/datasheet_advanced_endpoint_epdr_soc",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/endpoint-security/advanced-epdr",
+    "order": 53,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-watchguard-advanced-reporting-tool",
+    "name": {
+      "en": "WatchGuard Advanced Reporting Tool",
+      "es": "WatchGuard Advanced Reporting Tool"
+    },
+    "description": {
+      "en": "WatchGuard Advanced Reporting Tool automatically generates security intelligence and provides tools to pinpoint attacks, unusual behaviors, and detects internal misuse of the corporate network.",
+      "es": "WatchGuard Advanced Reporting Tool automatically generates security intelligence and provides tools to pinpoint attacks, unusual behaviors, and detects internal misuse of the corporate network."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/advanced_Reporting_Tool_Social_Share.jpg",
+    "datasheet": "https://watchguard.widen.net/s/7pxmpncq7p/datasheet_endpoint_art",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/endpoint-security/advanced-reporting-tool",
+    "order": 54,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-endpoint-security-in-watchguard-cloud",
+    "name": {
+      "en": "Endpoint Security in WatchGuard Cloud",
+      "es": "Endpoint Security in WatchGuard Cloud"
+    },
+    "description": {
+      "en": "Simplify management, strengthen protection, and deliver real-time insights. Take control of device security with WatchGuard Cloud.",
+      "es": "Simplify management, strengthen protection, and deliver real-time insights. Take control of device security with WatchGuard Cloud."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social_WGCloud_Endpoint.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/endpoint-security/cloud-management",
+    "order": 55,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-watchguard-data-control",
+    "name": {
+      "en": "WatchGuard Data Control",
+      "es": "WatchGuard Data Control"
+    },
+    "description": {
+      "en": "Designed to help organizations with GDPR regulation, Data Control discovers and monitors personal and sensitive data across computers and servers",
+      "es": "Designed to help organizations with GDPR regulation, Data Control discovers and monitors personal and sensitive data across computers and servers"
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/Social_Share_Data_Control.jpg",
+    "datasheet": "https://watchguard.widen.net/s/mjdcvwgl2j/datasheet_endpoint_full_encryption",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/endpoint-security/watchguard-data-control",
+    "order": 56,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-watchguard-edr",
+    "name": {
+      "en": "WatchGuard EDR",
+      "es": "WatchGuard EDR"
+    },
+    "description": {
+      "en": "Upgrade your antivirus with WatchGuard EDR to harness AI-powered threat detection technology for enhanced protection beyond traditional endpoint security",
+      "es": "Upgrade your antivirus with WatchGuard EDR to harness AI-powered threat detection technology for enhanced protection beyond traditional endpoint security"
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/EDR_Social_Share.jpg",
+    "datasheet": "https://watchguard.widen.net/s/qhmzcvt2sh/datasheet_watchguard_endpoint_edr",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/watchguard-edr",
+    "order": 57,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-endpoint-protection-detection-and-response",
+    "name": {
+      "en": "Endpoint Protection, Detection and Response",
+      "es": "Endpoint Protection, Detection and Response"
+    },
+    "description": {
+      "en": "WatchGuard EPDR combines the widest range of EPP technologies with EDR capabilities for the endpoint that detect what traditional solutions cannot even see",
+      "es": "WatchGuard EPDR combines the widest range of EPP technologies with EDR capabilities for the endpoint that detect what traditional solutions cannot even see"
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/Social_Share_EPDR.jpg",
+    "datasheet": "https://watchguard.widen.net/s/tswlh27mt2/datasheet_watchguard_endpoint_epdr",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/watchguard-endpoint-epdr",
+    "order": 58,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-watchguard-full-encryption",
+    "name": {
+      "en": "WatchGuard Full Encryption",
+      "es": "WatchGuard Full Encryption"
+    },
+    "description": {
+      "en": "WatchGuard Full Encryption keeps your data secure from physical and cyber threats. Protect sensitive data against unauthorized access and leakage.",
+      "es": "WatchGuard Full Encryption keeps your data secure from physical and cyber threats. Protect sensitive data against unauthorized access and leakage."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/Social_Share_Full_Encryption.jpg",
+    "datasheet": "https://watchguard.widen.net/s/cjd5xlspjm/datasheet_endpoint_data_control",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/endpoint-security/watchguard-full-encryption",
+    "order": 59,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-watchguard-orion",
+    "name": {
+      "en": "WatchGuard Orion",
+      "es": "WatchGuard Orion"
+    },
+    "description": {
+      "en": "Find out how to optimize your security operations to detect, hunt, investigate, and respond to unknown, sophisticated threats faster and more efficiently.",
+      "es": "Find out how to optimize your security operations to detect, hunt, investigate, and respond to unknown, sophisticated threats faster and more efficiently."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/SOC_Social_Share_Orion_0.jpg",
+    "datasheet": "https://watchguard.widen.net/s/8ssm5qzwkb/datasheet_watchguard_orion",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/endpoint-security/watchguard-orion",
+    "order": 60,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-watchguard-patch-management",
+    "name": {
+      "en": "WatchGuard Patch Management",
+      "es": "WatchGuard Patch Management"
+    },
+    "description": {
+      "en": "Centrally manage updates and patches for operating systems and hundreds of third-party applications with WatchGuard Patch Management.",
+      "es": "Centrally manage updates and patches for operating systems and hundreds of third-party applications with WatchGuard Patch Management."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/Patch_Management_Social_Share.jpg",
+    "datasheet": "https://watchguard.widen.net/s/7pxmpncq7p/datasheet_endpoint_art",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/endpoint-security/patch-management",
+    "order": 61,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-watchguard-managed-detection-response-mdr",
+    "name": {
+      "en": "WatchGuard Managed Detection & Response (MDR)",
+      "es": "WatchGuard Managed Detection & Response (MDR)"
+    },
+    "description": {
+      "en": "WatchGuard MDR is a cybersecurity service operated by our expert team and tailored for MSPs. Optimize your managed security offerings!",
+      "es": "WatchGuard MDR is a cybersecurity service operated by our expert team and tailored for MSPs. Optimize your managed security offerings!"
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social_watchguard_mdr.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/endpoint-security/premium-threat-hunting",
+    "order": 62,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-passport",
+    "name": {
+      "en": "Passport",
+      "es": "Passport"
+    },
+    "description": {
+      "en": "WatchGuard Passport gives your employees the security they need to work freely from the office, at home or on the go. Try it free today.",
+      "es": "WatchGuard Passport gives your employees the security they need to work freely from the office, at home or on the go. Try it free today."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social-default-img.png",
+    "datasheet": "https://p.widencdn.net/itafwf/Datasheet_Passport",
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/watchguard-passport",
+    "order": 63,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-totalidentitysecurity",
+    "name": {
+      "en": "TotalIdentitySecurity",
+      "es": "TotalIdentitySecurity"
+    },
+    "description": {
+      "en": "Multi-factor Authentication protects against attacks using compromised passwords. Try AuthPoint free today.",
+      "es": "Multi-factor Authentication protects against attacks using compromised passwords. Try AuthPoint free today."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/Total_Identity_Security_Social_Share.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/total-identity-security",
+    "order": 64,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-identity-security-in-watchguard-cloud",
+    "name": {
+      "en": "Identity Security in WatchGuard Cloud",
+      "es": "Identity Security in WatchGuard Cloud"
+    },
+    "description": {
+      "en": "Integrate centralized identity security and MFA solutions into your infrastructure with WatchGuard Cloud.",
+      "es": "Integrate centralized identity security and MFA solutions into your infrastructure with WatchGuard Cloud."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social_auth_risk.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/authpoint/cloud-management",
+    "order": 65,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-panda-endpoint-security",
+    "name": {
+      "en": "Panda Endpoint Security",
+      "es": "Panda Endpoint Security"
+    },
+    "description": {
+      "en": "Our Cloud-native endpoint security integrates the technology and intelligence for advanced prevention, detection, containment and response capabilities.",
+      "es": "Our Cloud-native endpoint security integrates the technology and intelligence for advanced prevention, detection, containment and response capabilities."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/Social_Endpoint_Main.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/panda-endpoint-security",
+    "order": 66,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-panda-advanced-endpoint-security",
+    "name": {
+      "en": "Panda Advanced Endpoint Security",
+      "es": "Panda Advanced Endpoint Security"
+    },
+    "description": {
+      "en": "Unified Endpoint Protection (EPP) and Endpoint Detection and Response (EDR) capabilities, with our unique Zero-Trust Application Service and Threat Hunting",
+      "es": "Unified Endpoint Protection (EPP) and Endpoint Detection and Response (EDR) capabilities, with our unique Zero-Trust Application Service and Threat Hunting"
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/Social_Advanced_endpoint_security.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/panda-advanced-endpoint-security",
+    "order": 67,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-panda-security-operations",
+    "name": {
+      "en": "Panda Security Operations",
+      "es": "Panda Security Operations"
+    },
+    "description": {
+      "en": "Identify and block malicious behaviors or noncompliant activity, manage your vulnerabilities, deploy patches and updates, encrypt your data, and manage you",
+      "es": "Identify and block malicious behaviors or noncompliant activity, manage your vulnerabilities, deploy patches and updates, encrypt your data, and manage you"
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/Social_SecOPs.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/panda-security-operations",
+    "order": 68,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-endpoint-antivirus",
+    "name": {
+      "en": "Endpoint Antivirus",
+      "es": "Endpoint Antivirus"
+    },
+    "description": {
+      "en": "Our endpoint protection stops malware, ransomware and threats that leverage unknown (zero day) vulnerabilities using an easy-to-manage Cloud-based console and a lightweight agent that doesn’t interfere with performance of the endpoints.",
+      "es": "Our endpoint protection stops malware, ransomware and threats that leverage unknown (zero day) vulnerabilities using an easy-to-manage Cloud-based console and a lightweight agent that doesn’t interfere with performance of the endpoints."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/Social_endpoint-AntiVirus.jpg",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/panda-endpoint-antivirus",
+    "order": 69,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  },
+  {
+    "id": "watchguard-product-list-and-skus",
+    "name": {
+      "en": "Product List and SKUs",
+      "es": "Product List and SKUs"
+    },
+    "description": {
+      "en": "Log in to your WatchGuard partner portal account to access SKU information.",
+      "es": "Log in to your WatchGuard partner portal account to access SKU information."
+    },
+    "features": {
+      "en": [],
+      "es": []
+    },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://www.watchguard.com/sites/default/files/social-default-img.png",
+    "datasheet": null,
+    "sourceUrl": "https://www.watchguard.com/wgrd-products/purchase-options",
+    "order": 70,
+    "active": true,
+    "scrapedAt": "2025-09-22T19:25:57.372Z"
+  }
+]
