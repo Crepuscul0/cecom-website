@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { Logo } from '@/components/common/Logo';
 import { useTranslations } from 'next-intl';
 import {
   Card,
@@ -17,7 +18,7 @@ const alliances = [
   },
   {
     name: 'Avaya',
-    logo: '/logos/avaya.png',
+    logo: '/logos/avaya.jpg',
     descriptionKey: 'alliances.avaya',
   },
   {
@@ -47,37 +48,32 @@ const alliances = [
   },
   {
     name: 'Hewlett Packard',
-    logo: '/logos/hp.png',
+    logo: '/logos/hp.svg',
     descriptionKey: 'alliances.hp',
   },
   {
-    name: 'Jabra',
-    logo: '/logos/jabra.png',
-    descriptionKey: 'alliances.jabra',
-  },
-  {
     name: 'Lenovo',
-    logo: '/logos/lenovo.png',
+    logo: '/logos/lenovo.svg',
     descriptionKey: 'alliances.lenovo',
   },
   {
     name: 'Panduit',
-    logo: '/logos/panduit.png',
+    logo: '/logos/panduit.svg',
     descriptionKey: 'alliances.panduit',
   },
   {
     name: 'Vertiv',
-    logo: '/logos/vertiv.png',
+    logo: '/logos/vertiv.svg',
     descriptionKey: 'alliances.vertiv',
   },
   {
     name: 'WatchGuard',
-    logo: '/logos/watchguard.png',
+    logo: '/logos/watchguard.svg',
     descriptionKey: 'alliances.watchguard',
   },
   {
     name: 'weBoost',
-    logo: '/logos/weboost.png',
+    logo: '/logos/weboost.svg',
     descriptionKey: 'alliances.weboost',
   },
 ];
@@ -100,13 +96,7 @@ export default function Alliances() {
           {alliances.map((alliance) => (
             <Card key={alliance.name} className="group hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-0 shadow-lg">
               <CardHeader className="p-6">
-                <div className="relative w-full h-40 bg-gradient-to-br from-muted to-accent rounded-lg overflow-hidden flex items-center justify-center p-4 group-hover:from-primary/10 group-hover:to-primary/20 transition-all duration-300">
-                  <img
-                    src={alliance.logo}
-                    alt={alliance.name}
-                    className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                  />
-                </div>
+                <Logo logo={alliance.logo} name={alliance.name} />
                 <CardTitle className="mt-4 text-lg font-bold text-foreground text-center">
                   <Link href="./contact" className="hover:text-primary transition-colors duration-200">
                     {alliance.name}

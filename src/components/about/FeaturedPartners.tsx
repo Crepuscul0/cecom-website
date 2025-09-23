@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Logo } from '@/components/common/Logo';
 import { useTranslations } from 'next-intl';
 
 export function FeaturedPartners() {
@@ -8,9 +9,9 @@ export function FeaturedPartners() {
 
   const featuredPartners = [
     { name: 'Extreme Networks', logo: '/logos/extreme.png', key: 'extreme' },
-    { name: 'WatchGuard', logo: '/logos/watchguard.png', key: 'watchguard' },
-    { name: 'Vertiv', logo: '/logos/vertiv.png', key: 'vertiv' },
-    { name: 'Avaya', logo: '/logos/avaya.png', key: 'avaya' }
+    { name: 'WatchGuard', logo: '/logos/watchguard.svg', key: 'watchguard' },
+    { name: 'Vertiv', logo: '/logos/vertiv.svg', key: 'vertiv' },
+    { name: 'Avaya', logo: '/logos/avaya.jpg', key: 'avaya' }
   ];
 
   return (
@@ -32,15 +33,11 @@ export function FeaturedPartners() {
             <div className="bg-muted rounded-xl p-6 border border-border shadow-lg hover:shadow-xl transition-all duration-300 h-full">
               <div className="absolute inset-0 bg-primary/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               
-              <div className="relative z-10 text-center">
-                <div className="w-full h-20 flex items-center justify-center mb-4">
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                  />
+              <div className="relative z-10 flex flex-col items-center justify-center h-full">
+                <div className="w-full flex-grow flex items-center justify-center">
+                  <Logo logo={partner.logo} name={partner.name} />
                 </div>
-                <h5 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                <h5 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-300 mt-4">
                   {partner.name}
                 </h5>
               </div>

@@ -2,7 +2,7 @@
   {
     "id": "watchguard",
     "name": "WatchGuard",
-    "logo": "/logos/watchguard.png",
+    "logo": "/logos/watchguard.svg",
     "website": "https://www.watchguard.com",
     "rssUrl": "https://feeds.bbci.co.uk/news/rss.xml",
     "description": {
@@ -13,7 +13,7 @@
   {
     "id": "hp",
     "name": "HP",
-    "logo": "/logos/hp.png",
+    "logo": "/logos/hp.svg",
     "website": "https://www.hp.com",
     "rssUrl": "https://feeds.bbci.co.uk/news/technology/rss.xml",
     "description": {
@@ -24,7 +24,7 @@
   {
     "id": "avaya",
     "name": "Avaya",
-    "logo": "/logos/avaya.png",
+    "logo": "/logos/avaya.jpg",
     "website": "https://www.avaya.com",
     "description": {
       "en": "Business communications and collaboration solutions",
