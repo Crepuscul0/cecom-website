@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Copy, Check } from 'lucide-react';
+import { sanitizeHTML } from '@/utils/sanitize';
 
 interface BlogContentProps {
   content: string;
@@ -10,31 +11,6 @@ interface BlogContentProps {
 export function BlogContent({ content }: BlogContentProps) {
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
 
-  // Convert markdown-like content to HTML
-  const processContent = (text: string) => {
-    return text
-      // Headers
-      .replace(/^### (.*$)/gim, '<h3 class="text-xl font-semibold text-foreground mt-8 mb-4">$1</h3>')
-      .replace(/^## (.*$)/gim, '<h2 class="text-2xl font-bold text-foreground mt-10 mb-6">$1</h2>')
-      .replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold text-foreground mt-12 mb-8">$1</h1>')
-      
-      // Bold and italic
-      .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-foreground">$1</strong>')
-      .replace(/\*(.*?)\*/g, '<em class="italic">$1</em>')
-      
-      // Links
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-primary hover:text-primary/80 underline transition-colors" target="_blank" rel="noopener noreferrer">$1</a>')
-      
-      // Lists
-      .replace(/^- (.*$)/gim, '<li class="mb-2">$1</li>')
-      .replace(/(<li.*<\/li>)/g, '<ul class="list-disc list-inside mb-6 space-y-2 text-muted-foreground ml-4">$1</ul>')
-      
-      // Paragraphs
-      .replace(/^(?!<[h|u|l])(.*$)/gim, '<p class="mb-6 text-muted-foreground leading-relaxed">$1</p>')
-      
-      // Clean up empty paragraphs
-      .replace(/<p class="mb-6 text-muted-foreground leading-relaxed"><\/p>/g, '');
-  };
 
   const copyToClipboard = async (text: string, id: string) => {
     try {
@@ -83,7 +59,7 @@ export function BlogContent({ content }: BlogContentProps) {
               </div>
               <pre className="p-4 overflow-x-auto">
                 <code className="text-sm text-foreground font-mono">
-                  {code}
+                  <div dangerouslySetInnerHTML={{ __html: sanitizeHTML(code) }} />
                 </code>
               </pre>
             </div>
@@ -93,7 +69,7 @@ export function BlogContent({ content }: BlogContentProps) {
         return (
           <div
             key={index}
-            dangerouslySetInnerHTML={{ __html: processContent(part) }}
+            dangerouslySetInnerHTML={{ __html: sanitizeHTML(part) }}
           />
         );
       }

@@ -7,7 +7,12 @@ export async function POST(request: NextRequest) {
     const { secret, limit = 10 } = body
     
     // Verificar secret
-    const config = { secret: process.env.WEBHOOK_SECRET || 'default-secret' }
+        if (!process.env.WEBHOOK_SECRET) {
+      console.error('WEBHOOK_SECRET is not set. Aborting webhook processing.');
+      return NextResponse.json({ error: 'Configuration error' }, { status: 500 });
+    }
+
+    const config = { secret: process.env.WEBHOOK_SECRET }
     if (secret !== config.secret) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }

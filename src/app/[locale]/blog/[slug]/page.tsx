@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { BlogPost } from '@/types/blog';
 import { getBlogPost } from '@/lib/supabase-blog';
 import { parseDate, formatDate } from '@/utils/blog';
+import { sanitizeHTML } from '@/utils/sanitize';
 
 interface BlogPostPageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -151,7 +152,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         {/* Article Content */}
         <div className="prose prose-lg max-w-none dark:prose-invert">
-          <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          <div dangerouslySetInnerHTML={{ __html: sanitizeHTML(post.content) }} />
         </div>
 
         {/* Article Footer */}

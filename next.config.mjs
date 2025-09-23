@@ -24,13 +24,21 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '**',
+        hostname: 'extr-p-001.sitecorecontenthub.cloud',
       },
       {
         protocol: 'https',
         hostname: '*.supabase.co',
         port: '',
         pathname: '/storage/v1/object/public/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'encrypted-tbn0.gstatic.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.watchguard.com',
       },
     ],
   },

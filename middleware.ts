@@ -1,9 +1,14 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
+import { updateSession } from '@/utils/supabase/middleware';
 
 const locales = ['en', 'es'];
 const defaultLocale = 'en';
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
+  // First, handle the Supabase session. This will return a response object
+  // with the updated session cookies.
+  const response = await updateSession(request);
+
   const pathname = request.nextUrl.pathname;
   
   // Skip locale handling for admin panel routes
@@ -12,7 +17,7 @@ export function middleware(request: NextRequest) {
   );
   
   if (isAdminPanelRoute) {
-    return NextResponse.next();
+    return response;
   }
   
   // Check if there is any supported locale in the pathname
@@ -23,10 +28,18 @@ export function middleware(request: NextRequest) {
   // Redirect if there is no locale
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request);
-    return NextResponse.redirect(
-      new URL(`/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`, request.url)
+    const redirectUrl = new URL(
+      `/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
+      request.url
     );
+
+    // When redirecting, we must use the response object created by `updateSession`
+    // to ensure the session cookies are forwarded.
+    return NextResponse.redirect(redirectUrl, response);
   }
+
+  // If no redirect is needed, return the response from `updateSession`.
+  return response;
 }
 
 function getLocale(request: NextRequest): string {
@@ -60,7 +73,13 @@ const adminPanelPaths = [
 
 export const config = {
   matcher: [
-    // Skip all internal paths (_next), static files, and API routes
-    '/((?!_next|api|favicon.ico|.*\\..*).*)' 
-  ]
+    /*
+     * Match all request paths except for the ones starting with:
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     * Feel free to modify this pattern to include more paths.
+     */
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+  ],
 };
