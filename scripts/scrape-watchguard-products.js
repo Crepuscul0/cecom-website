@@ -139,6 +139,138 @@ async function extractProductDetails(page, productUrl) {
       }
     }
 
+    // Extract features from the page content (improved filtering)
+    let features = [];
+    
+    // Helper function to check if text is likely navigation/menu content
+    const isNavigationNoise = (text) => {
+      const noisePatterns = [
+        /›/,
+        /\n\s*\n/,
+        /close\s+search/i,
+        /products?\s*&?\s*services?/i,
+        /partner\s+program/i,
+        /portal\s+login/i,
+        /media\s*&?\s*brand/i,
+        /privacy\s+policy/i,
+        /cookie\s+policy/i,
+        /trust\s+center/i,
+        /manage\s+email/i,
+        /find\s+a\s+(reseller|partner|distributor)/i,
+        /become\s+a\s+partner/i,
+        /training\s+schedule/i,
+        /support\s+levels/i,
+        /press\s+(releases|coverage)/i,
+        /about\s+watchguard/i,
+        /technical\s+resources/i,
+        /user\s+forums/i,
+        /video\s+tutorials/i,
+        /status\s+dashboard/i
+      ];
+      
+      return noisePatterns.some(pattern => pattern.test(text)) || 
+             text.includes('›') || 
+             text.includes('\n\n') ||
+             text.length < 8 ||
+             text.length > 150;
+    };
+    
+    // Method 1: Look for product-specific content areas first
+    const productContentSelectors = [
+      '.product-overview ul li',
+      '.product-features ul li', 
+      '.key-features ul li',
+      '.benefits ul li',
+      '.specifications ul li',
+      '.highlights ul li',
+      '[class*="product"] ul li',
+      'main ul li',
+      '.content ul li'
+    ];
+    
+    for (const selector of productContentSelectors) {
+      const items = document.querySelectorAll(selector);
+      items.forEach(item => {
+        // Skip if parent contains navigation indicators
+        const parent = item.closest('nav, .nav, .menu, .navigation, header, footer');
+        if (parent) return;
+        
+        const text = item.textContent?.trim();
+        if (text && !isNavigationNoise(text)) {
+          const cleanText = text.replace(/^\s*[•·▪▫◦‣⁃]\s*/, '').trim();
+          if (cleanText && cleanText.length >= 15 && cleanText.length <= 120) {
+            // Additional filtering for product features
+            if (cleanText.match(/\b(firewall|security|protection|detection|management|support|port|ethernet|vpn|threat|encryption|authentication|monitoring|compliance|performance|throughput|capacity|interface|protocol)\b/i)) {
+              if (!features.includes(cleanText)) {
+                features.push(cleanText);
+              }
+            }
+          }
+        }
+      });
+      if (features.length >= 12) break;
+    }
+    
+    // Method 2: Extract from specification tables if we don't have enough features
+    if (features.length < 8) {
+      const tableRows = document.querySelectorAll('table:not([class*="nav"]) tr, .specifications table tr, .specs table tr');
+      tableRows.forEach(row => {
+        const cells = row.querySelectorAll('td, th');
+        if (cells.length >= 2) {
+          const key = cells[0].textContent?.trim();
+          const value = cells[1].textContent?.trim();
+          if (key && value && 
+              key.length < 40 && value.length < 80 && 
+              !isNavigationNoise(key) && !isNavigationNoise(value)) {
+            const feature = `${key}: ${value}`;
+            if (!features.includes(feature) && features.length < 15) {
+              features.push(feature);
+            }
+          }
+        }
+      });
+    }
+    
+    // Method 3: Extract key sentences from product descriptions
+    if (features.length < 5) {
+      const descriptionSelectors = [
+        '.product-description p',
+        '.overview p',
+        '.description p',
+        'main .content p'
+      ];
+      
+      for (const selector of descriptionSelectors) {
+        const paragraphs = document.querySelectorAll(selector);
+        paragraphs.forEach(p => {
+          // Skip if in navigation area
+          if (p.closest('nav, .nav, .menu, header, footer')) return;
+          
+          const text = p.textContent?.trim();
+          if (text && text.length > 30 && text.length < 200 && !isNavigationNoise(text)) {
+            // Extract sentences that mention technical features
+            const sentences = text.split(/[.!?]+/).filter(s => {
+              const sentence = s.trim();
+              return sentence.length > 20 && 
+                     sentence.length < 120 &&
+                     sentence.match(/\b(firewall|security|protection|ports?|ethernet|vpn|threat|users?|devices?|performance|throughput|management|support)\b/i);
+            });
+            
+            sentences.forEach(sentence => {
+              const cleanSentence = sentence.trim();
+              if (cleanSentence && !features.includes(cleanSentence) && features.length < 10) {
+                features.push(cleanSentence);
+              }
+            });
+          }
+        });
+        if (features.length >= 8) break;
+      }
+    }
+    
+    // Limit and clean final features
+    features = features.slice(0, 12).map(f => f.replace(/\s+/g, ' ').trim());
+
     // Comprehensive datasheet detection (streamlined for production)
     const allImages = document.querySelectorAll('img');
     const allLinks = document.querySelectorAll('a[href]');
@@ -186,6 +318,7 @@ async function extractProductDetails(page, productUrl) {
       description: description || null,
       imageUrl: imageUrl || null,
       datasheetLink: datasheetLink || null,
+      features: features || []
     };
   });
 
@@ -278,6 +411,13 @@ function cleanDatasheetUrl(url) {
 function toCatalogItem(product, index) {
   const id = `watchguard-${slugify(product.title)}`;
   const cleanedDatasheet = cleanDatasheetUrl(product.datasheetPdfUrl);
+  
+  // Ensure we have a good description
+  let description = product.description || 'WatchGuard security product';
+  if (description.length < 50 && product.features && product.features.length > 0) {
+    // Use first feature as description if description is too short
+    description = product.features[0] || description;
+  }
 
   return {
     id,
@@ -286,21 +426,19 @@ function toCatalogItem(product, index) {
       es: product.title,
     },
     description: {
-      en: product.description || 'WatchGuard security product',
-      es: product.description || 'Producto de seguridad WatchGuard',
+      en: description,
+      es: description, // Could be translated in the future
     },
     features: {
-      en: [], // Could be enhanced to extract features from product pages
-      es: [],
+      en: product.features || [],
+      es: product.features || [], // Could be translated in the future
     },
     categoryId: 'security',
     vendorId: 'watchguard',
     image: product.imageUrl || '/products/placeholder-product.svg',
     datasheet: cleanedDatasheet,
-    sourceUrl: product.sourceUrl, // Keep track of where this came from
     order: index + 1,
-    active: true,
-    scrapedAt: new Date().toISOString(),
+    active: true
   };
 }
 
@@ -416,11 +554,13 @@ function toCatalogItem(product, index) {
     // Step 5: Generate summary
     const withDatasheets = catalog.filter(item => item.datasheet);
     const withImages = catalog.filter(item => item.image && !item.image.includes('placeholder'));
+    const withFeatures = catalog.filter(item => item.features.en && item.features.en.length > 0);
 
     console.log(`\n=== SCRAPING SUMMARY ===`);
     console.log(`Total products in catalog: ${catalog.length}`);
     console.log(`Products with datasheets: ${withDatasheets.length} (${Math.round(withDatasheets.length / catalog.length * 100)}%)`);
     console.log(`Products with images: ${withImages.length} (${Math.round(withImages.length / catalog.length * 100)}%)`);
+    console.log(`Products with features: ${withFeatures.length} (${Math.round(withFeatures.length / catalog.length * 100)}%)`);
     console.log(`Catalog saved to: ${CATALOG_OUT}`);
 
     // Show some examples of successful extractions
@@ -429,7 +569,7 @@ function toCatalogItem(product, index) {
       withDatasheets.slice(0, 3).forEach((item, i) => {
         console.log(`  ${i + 1}. ${item.name.en}`);
         console.log(`     Datasheet: ${item.datasheet}`);
-        console.log(`     Source: ${item.sourceUrl}`);
+        console.log(`     Features: ${item.features.en.length} extracted`);
       });
     }
   } catch (e) {

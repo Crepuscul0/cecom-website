@@ -1,0 +1,14 @@
+[
+  {
+    "id": "sample-watchguard-item",
+    "name": { "en": "Sample Product", "es": "Producto de Ejemplo" },
+    "description": { "en": "Replace this file with your real watchguard-catalog.json.", "es": "Reemplace este archivo con su watchguard-catalog.json real." },
+    "features": { "en": ["Feature A"], "es": ["Característica A"] },
+    "categoryId": "security",
+    "vendorId": "watchguard",
+    "image": "https://example.com/image.jpg",
+    "datasheet": "https://example.com/datasheet.pdf",
+    "order": 1,
+    "active": true
+  }
+]
