@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { Building, Users, Award, CheckCircle, Calendar, TrendingUp, Trophy, Star, Building2 } from 'lucide-react';
+import { Users, CheckCircle, Calendar, Trophy, Star, Building2 } from 'lucide-react';
 import { FeaturedPartners } from './FeaturedPartners';
 import { AdditionalCertifications } from './AdditionalCertifications';
 
@@ -58,7 +58,7 @@ export function CompanyCredibility() {
   return (
     <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
       {/* Company History */}
-      <motion.div 
+      <motion.div
         className="mb-16"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -84,7 +84,7 @@ export function CompanyCredibility() {
       </motion.div>
 
       {/* Statistics */}
-      <motion.div 
+      <motion.div
         className="mb-16"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -102,14 +102,14 @@ export function CompanyCredibility() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   transition: { duration: 0.3 }
                 }}
               >
                 <div className="relative bg-card rounded-xl p-6 border border-border shadow-lg hover:shadow-xl transition-all duration-300 text-center h-full">
                   <div className="absolute inset-0 bg-primary/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
+
                   <div className="relative z-10">
                     <div className="flex justify-center mb-4">
                       <div className="relative">
@@ -119,11 +119,11 @@ export function CompanyCredibility() {
                         </div>
                       </div>
                     </div>
-                    
+
                     <div className="text-3xl font-bold text-foreground mb-2">
                       {stat.value}{stat.suffix}
                     </div>
-                    
+
                     <p className="text-muted-foreground font-medium">
                       {t(`stats.${stat.key}`)}
                     </p>
@@ -136,7 +136,7 @@ export function CompanyCredibility() {
       </motion.div>
 
       {/* Timeline */}
-      <motion.div 
+      <motion.div
         className="mb-16"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -153,20 +153,45 @@ export function CompanyCredibility() {
         </div>
 
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-border"></div>
-          
-          <div className="space-y-12">
+          {/* Timeline line - hidden on mobile, visible on desktop */}
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-border"></div>
+          {/* Mobile timeline line - left aligned */}
+          <div className="md:hidden absolute left-6 top-0 w-1 h-full bg-border"></div>
+
+          <div className="space-y-8 md:space-y-12">
             {milestones.map((milestone, index) => (
               <motion.div
                 key={milestone.key}
-                className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+                className={`flex items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
               >
-                <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
+                {/* Mobile layout */}
+                <div className="md:hidden flex items-start space-x-4 w-full">
+                  {/* Timeline dot for mobile */}
+                  <div className="relative z-10 flex items-center justify-center w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg mt-2 flex-shrink-0">
+                    <div className="w-2 h-2 bg-primary-foreground rounded-full"></div>
+                  </div>
+
+                  <div className="flex-1">
+                    <div className="bg-card rounded-lg p-4 border border-border shadow-lg">
+                      <div className="text-xl font-bold text-primary mb-2">
+                        {milestone.year}
+                      </div>
+                      <h4 className="text-base font-semibold text-foreground mb-2">
+                        {t(`timeline.milestones.${milestone.key}.title`)}
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        {t(`timeline.milestones.${milestone.key}.description`)}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Desktop layout */}
+                <div className={`hidden md:block w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
                   <div className="bg-card rounded-lg p-6 border border-border shadow-lg">
                     <div className="text-2xl font-bold text-primary mb-2">
                       {milestone.year}
@@ -179,13 +204,13 @@ export function CompanyCredibility() {
                     </p>
                   </div>
                 </div>
-                
-                {/* Timeline dot */}
-                <div className="relative z-10 flex items-center justify-center w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg">
+
+                {/* Timeline dot for desktop */}
+                <div className="hidden md:flex relative z-10 items-center justify-center w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg">
                   <div className="w-2 h-2 bg-primary-foreground rounded-full"></div>
                 </div>
-                
-                <div className="w-5/12"></div>
+
+                <div className="hidden md:block w-5/12"></div>
               </motion.div>
             ))}
           </div>
@@ -193,7 +218,7 @@ export function CompanyCredibility() {
       </motion.div>
 
       {/* Certifications & Achievements */}
-      <motion.div 
+      <motion.div
         className="text-center"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -212,7 +237,7 @@ export function CompanyCredibility() {
               {t('achievements.title')}
             </h3>
           </div>
-          
+
           <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
             {t('achievements.description')}
           </p>
