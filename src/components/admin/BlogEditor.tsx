@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl'
 import { Save, X, Eye } from 'lucide-react'
 import { supabase, UserProfile, isAdmin } from '@/lib/supabase'
 import { BlogPost } from '@/types/blog'
+import { RichTextEditor } from '@/components/ui/RichTextEditor'
 
 interface BlogEditorProps {
   post: BlogPost | null
@@ -175,7 +176,12 @@ export function BlogEditor({ post, categories, userProfile, onSave, onCancel }: 
           <article className="prose prose-gray dark:prose-invert max-w-none">
             <h1>{formData.title}</h1>
             <p className="lead text-muted-foreground">{formData.excerpt}</p>
-            <div className="whitespace-pre-wrap">{formData.content}</div>
+            <div 
+              className="prose-content"
+              dangerouslySetInnerHTML={{ 
+                __html: formData.content || '' 
+              }}
+            />
           </article>
         </div>
       </div>
@@ -269,13 +275,11 @@ export function BlogEditor({ post, categories, userProfile, onSave, onCancel }: 
           <label className="block text-sm font-medium text-foreground mb-2">
             {t('blogs.formContent')} *
           </label>
-          <textarea
+          <RichTextEditor
             value={formData.content}
-            onChange={(e) => handleInputChange('content', e.target.value)}
-            rows={15}
-            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-vertical font-mono"
+            onChange={(value) => handleInputChange('content', value)}
             placeholder={t('blogs.contentPlaceholder')}
-            required
+            className="w-full"
           />
         </div>
 

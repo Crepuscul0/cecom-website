@@ -51,6 +51,26 @@
       "english": "🇺🇸 English",
       "spanish": "🇩🇴 Español",
       "toggleLanguage": "Toggle language"
+    },
+    "imageDialog": {
+      "title": "Insert Image",
+      "imageUrl": "Image URL",
+      "imageUrlRequired": "Image URL *",
+      "altText": "Alt Text (optional)",
+      "urlPlaceholder": "https://example.com/image.jpg",
+      "altPlaceholder": "Describe the image for accessibility",
+      "preview": "Preview:",
+      "failedToLoad": "Failed to load image",
+      "insertImage": "Insert Image"
+    },
+    "linkDialog": {
+      "insertLink": "Insert Link",
+      "editLink": "Edit Link",
+      "updateLink": "Update Link",
+      "urlRequired": "URL *",
+      "linkText": "Link Text (optional)",
+      "urlPlaceholder": "https://example.com",
+      "linkPlaceholder": "Link description"
     }
   },
   "Validation": {

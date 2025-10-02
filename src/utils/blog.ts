@@ -1,17 +1,15 @@
 import { BlogPost } from '@/types/blog';
-import { marked } from 'marked';
 
 /**
- * Convert Markdown content to HTML
+ * Sanitize HTML content (basic sanitization)
  */
-export function markdownToHtml(markdown: string): string {
-  try {
-    const html = marked(markdown);
-    return typeof html === 'string' ? html : markdown;
-  } catch (error) {
-    console.error('Error converting markdown to HTML:', error);
-    return markdown;
-  }
+export function sanitizeHtml(html: string): string {
+  // Basic HTML sanitization - in production, consider using a library like DOMPurify
+  return html
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+    .replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, '')
+    .replace(/javascript:/gi, '')
+    .replace(/on\w+\s*=/gi, '');
 }
 
 /**
@@ -49,17 +47,19 @@ export function formatDate(date: Date, locale: string): string {
 }
 
 /**
- * Generate excerpt from content if not provided
+ * Generate excerpt from HTML content if not provided
  */
 export function generateExcerpt(content: string, maxLength: number = 160): string {
-  // Remove markdown formatting
+  // Remove HTML tags to get plain text
   const plainText = content
-    .replace(/#{1,6}\s+/g, '') // Remove headers
-    .replace(/\*\*(.*?)\*\*/g, '$1') // Remove bold
-    .replace(/\*(.*?)\*/g, '$1') // Remove italic
-    .replace(/\[(.*?)\]\(.*?\)/g, '$1') // Remove links
-    .replace(/```[\s\S]*?```/g, '') // Remove code blocks
-    .replace(/`(.*?)`/g, '$1') // Remove inline code
+    .replace(/<[^>]*>/g, '') // Remove all HTML tags
+    .replace(/&nbsp;/g, ' ') // Replace non-breaking spaces
+    .replace(/&amp;/g, '&') // Replace HTML entities
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, ' ') // Replace multiple spaces with single space
     .trim();
 
   if (plainText.length <= maxLength) {
@@ -86,7 +86,7 @@ export function normalizeBlogPost(rawPost: any): BlogPost {
     id: rawPost.id,
     title: title,
     excerpt: excerpt,
-    content: markdownToHtml(rawPost.content || ''), // Convert Markdown to HTML
+    content: sanitizeHtml(rawPost.content || ''), // Sanitize HTML content
     slug: rawPost.slug,
     category: rawPost.category,
     tags: rawPost.tags || [],
