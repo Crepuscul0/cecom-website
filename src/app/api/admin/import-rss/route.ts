@@ -1,11 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient as createServerClient } from '@/utils/supabase/server';
-import { createClient } from '@supabase/supabase-js';
-
-// Initialize Supabase client with service role key
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
-const supabase = createClient(supabaseUrl, supabaseServiceKey)
+import { supabase } from '@/lib/supabase';
 
 interface RSSItem {
   title: string
@@ -105,7 +100,7 @@ ${saMatch ? `- **Security Advisory:** ${saMatch[0]}` : ''}
 }
 
 export async function POST(request: NextRequest) {
-  const supabaseAuth = createServerClient();
+  const supabaseAuth = await createServerClient();
   const { data: { user } } = await supabaseAuth.auth.getUser();
 
   if (!user) {

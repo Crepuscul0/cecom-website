@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { submitContactForm } from '@/lib/email';
+import { subscribeToNewsletter } from '@/lib/email';
 
 // Optional rate limiting - only if Redis is configured
 let ratelimit: any = null;
@@ -11,7 +11,7 @@ try {
     
     ratelimit = new Ratelimit({
       redis: Redis.fromEnv(),
-      limiter: Ratelimit.slidingWindow(5, '60 s'),
+      limiter: Ratelimit.slidingWindow(3, '60 s'), // 3 subscriptions per minute
       analytics: true,
     });
   }
@@ -19,36 +19,15 @@ try {
   console.warn('Rate limiting disabled - Redis not configured');
 }
 
-// Basic validation schema for API route (without translations)
-const contactFormSchema = z.object({
-  fullName: z
-    .string()
-    .min(1, 'Name is required')
-    .min(2, 'Name must be at least 2 characters')
-    .max(100, 'Name must be less than 100 characters')
-    .regex(/^[a-zA-ZÀ-ÿ\u00f1\u00d1\s]+$/, 'Name can only contain letters and spaces'),
-  
+// Validation schema for newsletter subscription
+const subscriptionSchema = z.object({
   email: z
     .string()
     .min(1, 'Email is required')
     .email('Please enter a valid email address')
     .max(255, 'Email must be less than 255 characters'),
-  
-  phone: z
-    .string()
-    .min(1, 'Phone is required')
-    .min(10, 'Phone number must be at least 10 digits')
-    .max(20, 'Phone number must be less than 20 characters')
-    .regex(/^[\+]?[0-9\s\-\(\)]+$/, 'Please enter a valid phone number'),
-  
-  message: z
-    .string()
-    .min(1, 'Message is required')
-    .min(10, 'Message must be at least 10 characters')
-    .max(1000, 'Message must be less than 1000 characters'),
+  locale: z.enum(['en', 'es']).optional().default('es'),
 });
-
-
 
 export async function POST(request: NextRequest) {
   // Optional rate limiting - only if configured
@@ -56,6 +35,7 @@ export async function POST(request: NextRequest) {
     try {
       const ip = request.headers.get('x-forwarded-for') ?? request.headers.get('x-real-ip') ?? '127.0.0.1';
       const { success } = await ratelimit.limit(ip);
+      
       if (!success) {
         return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
       }
@@ -64,34 +44,34 @@ export async function POST(request: NextRequest) {
       // Continue without rate limiting
     }
   }
+
   try {
     const body = await request.json();
     
-    // Validate the form data
-    const validatedData = contactFormSchema.parse(body);
+    // Validate the subscription data
+    const validatedData = subscriptionSchema.parse(body);
     
-    // Get locale from headers
-    const locale = request.headers.get('accept-language')?.includes('en') ? 'en' : 'es';
-    
-    // Submit contact form (this handles email sending and database storage)
-    console.log('📝 Processing contact form submission:', {
-      name: validatedData.fullName,
-      email: validatedData.email,
-      locale: locale as 'en' | 'es'
-    });
-    
-    const result = await submitContactForm({
-      ...validatedData,
-      locale: locale as 'en' | 'es',
-    });
-    
-    console.log('📝 Contact form result:', result);
+    // Subscribe to newsletter
+    const result = await subscribeToNewsletter(
+      validatedData.email,
+      validatedData.locale
+    );
     
     if (!result.success) {
+      if (result.error === 'Already subscribed') {
+        return NextResponse.json(
+          { 
+            error: 'Email already subscribed',
+            code: 'ALREADY_SUBSCRIBED' 
+          },
+          { status: 409 }
+        );
+      }
+      
       return NextResponse.json(
         { 
-          error: result.error || 'Failed to submit contact form',
-          code: 'SUBMISSION_FAILED' 
+          error: result.error || 'Failed to subscribe',
+          code: 'SUBSCRIPTION_FAILED' 
         },
         { status: 500 }
       );
@@ -100,11 +80,11 @@ export async function POST(request: NextRequest) {
     // Return success response
     return NextResponse.json({
       success: true,
-      message: 'Contact form submitted successfully',
+      message: 'Successfully subscribed to newsletter',
     });
     
   } catch (error) {
-    console.error('Contact form submission error:', error);
+    console.error('Newsletter subscription error:', error);
     
     if (error instanceof z.ZodError) {
       // Return validation errors

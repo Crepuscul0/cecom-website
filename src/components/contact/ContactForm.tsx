@@ -49,13 +49,19 @@ export default function ContactForm() {
         body: JSON.stringify(data),
       });
 
-      const result = await response.json();
+      let result;
+      try {
+        result = await response.json();
+      } catch (jsonError) {
+        console.error('Failed to parse JSON response:', jsonError);
+        throw new Error('Server error - invalid response format');
+      }
 
       if (response.ok) {
         setSubmitStatus('success');
         reset(); // Clear the form
       } else {
-        throw new Error(result.error || 'Failed to send message');
+        throw new Error(result?.error || 'Failed to send message');
       }
     } catch (error) {
       console.error('Form submission error:', error);

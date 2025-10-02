@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Folder, TrendingUp, Calendar } from 'lucide-react';
 import { getBlogCategories, getBlogPosts } from '@/lib/supabase-blog';
+import { NewsletterForm } from './NewsletterForm';
 
 interface BlogSidebarProps {
   locale: string;
@@ -130,19 +131,7 @@ export async function BlogSidebar({ locale, activeCategory, activeTag }: BlogSid
             : 'Get the latest news and technical articles delivered to your inbox.'
           }
         </p>
-        <form className="space-y-3">
-          <input
-            type="email"
-            placeholder={isSpanish ? 'Tu email' : 'Your email'}
-            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-          />
-          <button
-            type="submit"
-            className="w-full px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors"
-          >
-            {isSpanish ? 'Suscribirse' : 'Subscribe'}
-          </button>
-        </form>
+        <NewsletterForm locale={locale} />
       </div>
 
       {/* Contact CTA */}

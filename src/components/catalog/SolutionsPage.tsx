@@ -90,9 +90,9 @@ export function SolutionsPage({ initialProducts, initialHasMore, searchParams }:
 
       <div className="flex-1 min-h-0">
         <ProductGrid
-          initialProducts={products}
-          initialHasMore={hasMore}
-          searchParams={searchParams}
+          categoryId={searchParams.category}
+          searchQuery={searchParams.search}
+          vendorFilter={searchParams.vendor}
           onProductSelect={handleProductSelect}
         />
       </div>
