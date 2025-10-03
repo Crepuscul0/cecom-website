@@ -19,35 +19,41 @@ export function BlogCard({ post, locale }: BlogCardProps) {
   const parsedDate = parseDate(post.publishedDate);
   const formattedDate = formatDate(parsedDate, locale);
 
-  // Determine if image is external or local
-  const rawImageUrl = post.featuredImage || '/blog/cybersecurity-placeholder.svg';
-  const isExternalImage = rawImageUrl.startsWith('http://') || rawImageUrl.startsWith('https://');
+  // Check if post has a valid featured image
+  const hasValidImage = post.featuredImage &&
+    !post.featuredImage.includes('example.com') &&
+    !post.featuredImage.includes('placeholder');
 
-  // Fix incorrect URLs (example.com or .jpg placeholder)
-  const imageUrl = (rawImageUrl.includes('example.com') || rawImageUrl.endsWith('cybersecurity-placeholder.jpg'))
-    ? '/blog/cybersecurity-placeholder.svg'
-    : rawImageUrl;
+  const isExternalImage = hasValidImage &&
+    (post.featuredImage!.startsWith('http://') || post.featuredImage!.startsWith('https://'));
 
   return (
     <Link href={`/${locale}/blog/${post.slug}`}>
       <article className="group bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 hover:border-primary/20 h-full flex flex-col">
-        {/* Image */}
-        <div className="relative h-48 overflow-hidden bg-muted">
-          {isExternalImage && !imageUrl.includes('example.com') ? (
-            <Image
-              src={imageUrl}
-              alt={title}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-300"
-            />
+        {/* Image or Gradient */}
+        <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary/10 via-primary/5 to-background">
+          {hasValidImage ? (
+            isExternalImage ? (
+              <Image
+                src={post.featuredImage!}
+                alt={title}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            ) : (
+              <Image
+                src={post.featuredImage!}
+                alt={title}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                unoptimized
+              />
+            )
           ) : (
-            <Image
-              src={imageUrl}
-              alt={title}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-300"
-              unoptimized
-            />
+            // Show icon for posts without images
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Tag className="w-16 h-16 text-primary/20 group-hover:text-primary/30 transition-colors" />
+            </div>
           )}
         </div>
 

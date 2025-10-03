@@ -1,4 +1,5 @@
 import { XMLParser } from 'fast-xml-parser'
+import { marked } from 'marked'
 import { getPayload } from './payload'
 
 interface RSSItem {
@@ -45,7 +46,7 @@ export async function fetchExtremeNetworksRSS(): Promise<RSSItem[]> {
   }
 }
 
-export function parseRSSItemToPost(item: RSSItem, locale: 'en' | 'es' = 'en') {
+export async function parseRSSItemToPost(item: RSSItem, locale: 'en' | 'es' = 'en') {
   // Clean HTML from description
   const cleanDescription = item.description
     .replace(/<[^>]*>/g, '')
@@ -74,12 +75,12 @@ export function parseRSSItemToPost(item: RSSItem, locale: 'en' | 'es' = 'en') {
   const translatedContent = locale === 'es' ? {
     title: translateSecurityTitle(item.title),
     excerpt: translateSecurityDescription(cleanDescription),
-    content: generateSpanishContent(item, cleanDescription),
+    content: await generateSpanishContent(item, cleanDescription),
     category: 'ciberseguridad'
   } : {
     title: item.title,
     excerpt: cleanDescription.substring(0, 200) + '...',
-    content: generateEnglishContent(item, cleanDescription),
+    content: await generateEnglishContent(item, cleanDescription),
     category: 'cybersecurity'
   }
 
@@ -94,6 +95,7 @@ export function parseRSSItemToPost(item: RSSItem, locale: 'en' | 'es' = 'en') {
     tags: locale === 'es' ? tags : ['security', 'extreme-networks', 'vulnerability', ...(cveMatch ? [cveMatch[0].toLowerCase()] : [])],
     sourceUrl: item.link,
     readingTime: Math.ceil(translatedContent.content.length / 1000), // Rough estimate
+    featuredImage: null, // Don't set placeholder images for RSS posts
     seo: {
       metaTitle: translatedContent.title,
       metaDescription: translatedContent.excerpt,
@@ -126,11 +128,11 @@ function translateSecurityDescription(description: string): string {
   return translated.substring(0, 200) + '...'
 }
 
-function generateSpanishContent(item: RSSItem, description: string): string {
+async function generateSpanishContent(item: RSSItem, description: string): Promise<string> {
   const cveMatch = item.title.match(/CVE-\d{4}-\d+/)
   const saMatch = item.title.match(/SA-\d{4}-\d+/)
   
-  return `# ${translateSecurityTitle(item.title)}
+  const markdown = `# ${translateSecurityTitle(item.title)}
 
 ## Resumen de la Vulnerabilidad
 
@@ -166,13 +168,16 @@ Nuestro equipo de expertos en seguridad está disponible para ayudarle a evaluar
 ---
 
 *Para más detalles técnicos, consulte el [aviso oficial de Extreme Networks](${item.link}).*`
+  
+  // Convert markdown to HTML
+  return await marked(markdown)
 }
 
-function generateEnglishContent(item: RSSItem, description: string): string {
+async function generateEnglishContent(item: RSSItem, description: string): Promise<string> {
   const cveMatch = item.title.match(/CVE-\d{4}-\d+/)
   const saMatch = item.title.match(/SA-\d{4}-\d+/)
   
-  return `# ${item.title}
+  const markdown = `# ${item.title}
 
 ## Vulnerability Summary
 
@@ -208,6 +213,9 @@ Our security expert team is available to help you assess and mitigate this vulne
 ---
 
 *For more technical details, see the [official Extreme Networks advisory](${item.link}).*`
+  
+  // Convert markdown to HTML
+  return await marked(markdown)
 }
 
 export async function importExtremeNetworksRSS(options: { limit?: number; dryRun?: boolean } = {}) {
@@ -275,7 +283,7 @@ export async function importRSSToPayload(limit: number = 10) {
     for (const item of newItems) {
       try {
         // Create Spanish version
-        const spanishPost = parseRSSItemToPost(item, 'es')
+        const spanishPost = await parseRSSItemToPost(item, 'es')
         const spanishResult = await payload.create({
           collection: 'blog-posts',
           data: {
@@ -286,7 +294,7 @@ export async function importRSSToPayload(limit: number = 10) {
         })
         
         // Create English version
-        const englishPost = parseRSSItemToPost(item, 'en')
+        const englishPost = await parseRSSItemToPost(item, 'en')
         const englishResult = await payload.create({
           collection: 'blog-posts',
           data: {

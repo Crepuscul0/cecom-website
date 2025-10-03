@@ -9,6 +9,7 @@ import { BlogPost } from '@/types/blog';
 import { getBlogPost } from '@/lib/supabase-blog';
 import { parseDate, formatDate } from '@/utils/blog';
 import { sanitizeHTML } from '@/utils/sanitize';
+import { markdownToHTML, isMarkdown } from '@/utils/markdown';
 
 interface BlogPostPageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -67,6 +68,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const parsedDate = parseDate(post.publishedDate);
   const formattedDate = formatDate(parsedDate, locale);
+  
+  // Convert markdown to HTML if needed
+  const content = isMarkdown(post.content) 
+    ? await markdownToHTML(post.content)
+    : post.content;
 
   return (
     <div className="min-h-screen bg-background">
@@ -139,8 +145,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </header>
 
-        {/* Featured Image */}
-        {post.featuredImage && (
+        {/* Featured Image - Only show if valid image exists */}
+        {post.featuredImage && 
+         !post.featuredImage.includes('example.com') && 
+         !post.featuredImage.includes('placeholder') && (
           <div className="mb-8">
             <img
               src={post.featuredImage}
@@ -152,7 +160,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         {/* Article Content */}
         <div className="prose prose-lg max-w-none dark:prose-invert">
-          <div dangerouslySetInnerHTML={{ __html: sanitizeHTML(post.content) }} />
+          <div dangerouslySetInnerHTML={{ __html: sanitizeHTML(content) }} />
         </div>
 
         {/* Article Footer */}
