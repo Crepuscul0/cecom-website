@@ -5,10 +5,17 @@ scripts/node_modules/
 
 # Build artifacts and logs
 *.log
+logs/
 .DS_Store
 .vscode/settings.json
+tsconfig.tsbuildinfo
 
 # Sensitive files
 .env
 .env.production
 .env.staging
+
+# Development artifacts
+/dist
+/coverage
+.nyc_output

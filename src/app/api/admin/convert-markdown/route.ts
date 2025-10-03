@@ -1,18 +1,19 @@
 import { NextResponse } from 'next/server'
-import { createClient } from '@/lib/supabase/server'
+import { createClient } from '@supabase/supabase-js'
 import { marked } from 'marked'
 
 // Configure marked for better HTML output
 marked.setOptions({
   breaks: true,
-  gfm: true,
-  headerIds: true,
-  mangle: false
+  gfm: true
 })
 
 export async function POST(request: Request) {
   try {
-    const supabase = await createClient()
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    )
     
     // Check authentication
     const { data: { user }, error: authError } = await supabase.auth.getUser()

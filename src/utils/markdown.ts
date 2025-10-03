@@ -3,9 +3,7 @@ import { marked } from 'marked'
 // Configure marked for better HTML output
 marked.setOptions({
   breaks: true,
-  gfm: true,
-  headerIds: true,
-  mangle: false
+  gfm: true
 })
 
 /**

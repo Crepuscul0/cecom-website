@@ -1,6 +1,9 @@
 # Exclude sensitive folders from Vercel deployment
 scripts/
 docs/
+automation/
+data/
+logs/
 *.log
 .DS_Store
 .vscode/
@@ -10,6 +13,16 @@ docs/
 *.md
 !README.md
 
+# Test files
+**/__tests__/
+**/*.test.*
+**/*.spec.*
+coverage/
+
 # Environment files (except production)
 .env.local
 .env.example
+
+# Build artifacts
+tsconfig.tsbuildinfo
+.nyc_output
