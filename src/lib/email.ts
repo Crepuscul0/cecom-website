@@ -107,6 +107,60 @@ const emailTemplates = {
         </div>
       `
     }
+  },
+  blog_notification: {
+    subject: {
+      en: (title: string) => `New Blog Post: ${title}`,
+      es: (title: string) => `Nuevo Artículo: ${title}`
+    },
+    html: {
+      en: (title: string, excerpt: string, slug: string, featuredImage: string, unsubscribeUrl: string) => `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #2563eb;">New Blog Post from CECOM</h2>
+          ${featuredImage ? `<img src="${featuredImage}" alt="${title}" style="width: 100%; max-width: 600px; height: 200px; object-fit: cover; border-radius: 8px; margin: 20px 0;">` : ''}
+          <h3 style="color: #1f2937; margin: 20px 0 10px 0;">${title}</h3>
+          <p style="color: #6b7280; line-height: 1.6; margin: 15px 0;">${excerpt}</p>
+          <div style="text-align: center; margin: 30px 0;">
+            <a href="${process.env.NEXT_PUBLIC_SERVER_URL}/en/blog/${slug}" 
+               style="display: inline-block; background: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 500;">
+              Read Full Article
+            </a>
+          </div>
+          <hr style="margin: 30px 0; border: none; border-top: 1px solid #e5e7eb;">
+          <p style="font-size: 12px; color: #6b7280;">
+            You received this email because you subscribed to CECOM's newsletter.<br>
+            <a href="${unsubscribeUrl}">Unsubscribe</a> | 
+            <a href="${process.env.NEXT_PUBLIC_SERVER_URL}/en/blog">View All Posts</a><br><br>
+            CECOM - Technology Solutions<br>
+            Av. Pasteur 11, Santo Domingo, Dominican Republic<br>
+            Phone: +1-809-688-4491 | Email: info@cecom.do
+          </p>
+        </div>
+      `,
+      es: (title: string, excerpt: string, slug: string, featuredImage: string, unsubscribeUrl: string) => `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #2563eb;">Nuevo Artículo de CECOM</h2>
+          ${featuredImage ? `<img src="${featuredImage}" alt="${title}" style="width: 100%; max-width: 600px; height: 200px; object-fit: cover; border-radius: 8px; margin: 20px 0;">` : ''}
+          <h3 style="color: #1f2937; margin: 20px 0 10px 0;">${title}</h3>
+          <p style="color: #6b7280; line-height: 1.6; margin: 15px 0;">${excerpt}</p>
+          <div style="text-align: center; margin: 30px 0;">
+            <a href="${process.env.NEXT_PUBLIC_SERVER_URL}/es/blog/${slug}" 
+               style="display: inline-block; background: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 500;">
+              Leer Artículo Completo
+            </a>
+          </div>
+          <hr style="margin: 30px 0; border: none; border-top: 1px solid #e5e7eb;">
+          <p style="font-size: 12px; color: #6b7280;">
+            Recibiste este email porque te suscribiste al newsletter de CECOM.<br>
+            <a href="${unsubscribeUrl}">Darse de baja</a> | 
+            <a href="${process.env.NEXT_PUBLIC_SERVER_URL}/es/blog">Ver Todos los Artículos</a><br><br>
+            CECOM - Soluciones Tecnológicas<br>
+            Av. Pasteur 11, Santo Domingo, República Dominicana<br>
+            Teléfono: +1-809-688-4491 | Email: info@cecom.do
+          </p>
+        </div>
+      `
+    }
   }
 };
 
@@ -314,5 +368,75 @@ export async function submitContactForm(formData: {
   } catch (error) {
     console.error('Error submitting contact form:', error);
     return { success: false, error: 'Failed to submit form' };
+  }
+}
+
+// Send blog post notification to all subscribers
+export async function sendBlogNotification(blogPost: {
+  title: string;
+  excerpt: string;
+  slug: string;
+  featuredImage?: string;
+}): Promise<{ success: boolean; sent: number; errors: number }> {
+  try {
+    console.log('📧 Sending blog notification:', blogPost.title);
+    
+    // Get all active subscribers
+    const { data: subscribers, error } = await supabase
+      .from('newsletter_subscribers')
+      .select('email, locale')
+      .eq('status', 'active');
+
+    if (error) {
+      console.error('❌ Error fetching subscribers:', error);
+      return { success: false, sent: 0, errors: 1 };
+    }
+
+    if (!subscribers || subscribers.length === 0) {
+      console.log('📭 No active subscribers found');
+      return { success: true, sent: 0, errors: 0 };
+    }
+
+    console.log(`📧 Sending to ${subscribers.length} subscribers`);
+
+    const template = emailTemplates.blog_notification;
+    let sent = 0;
+    let errors = 0;
+
+    // Send emails to all subscribers
+    for (const subscriber of subscribers) {
+      try {
+        const locale = (subscriber.locale as 'en' | 'es') || 'es';
+        const unsubscribeUrl = `${process.env.NEXT_PUBLIC_SERVER_URL}/api/newsletter/unsubscribe?email=${encodeURIComponent(subscriber.email)}`;
+        
+        const result = await sendEmail({
+          to: subscriber.email,
+          subject: template.subject[locale](blogPost.title),
+          html: template.html[locale](
+            blogPost.title,
+            blogPost.excerpt,
+            blogPost.slug,
+            blogPost.featuredImage || '',
+            unsubscribeUrl
+          ),
+        });
+
+        if (result.success) {
+          sent++;
+        } else {
+          errors++;
+          console.error(`❌ Failed to send to ${subscriber.email}:`, result.error);
+        }
+      } catch (error) {
+        errors++;
+        console.error(`❌ Error sending to ${subscriber.email}:`, error);
+      }
+    }
+
+    console.log(`✅ Blog notification complete: ${sent} sent, ${errors} errors`);
+    return { success: true, sent, errors };
+  } catch (error) {
+    console.error('❌ Error in sendBlogNotification:', error);
+    return { success: false, sent: 0, errors: 1 };
   }
 }

@@ -28,6 +28,7 @@ export function BlogEditor({ post, categories, userProfile, onSave, onCancel }: 
   })
   const [loading, setLoading] = useState(false)
   const [showPreview, setShowPreview] = useState(false)
+  const [sendNewsletter, setSendNewsletter] = useState(false)
 
   const t = useTranslations('AdminPanel')
 
@@ -119,6 +120,8 @@ export function BlogEditor({ post, categories, userProfile, onSave, onCancel }: 
         updated_at: new Date().toISOString()
       }
 
+      let savedPostId = post?.id;
+
       if (post) {
         // Update existing post
         const { error } = await supabase
@@ -129,14 +132,43 @@ export function BlogEditor({ post, categories, userProfile, onSave, onCancel }: 
         if (error) throw error
       } else {
         // Create new post
-        const { error } = await supabase
+        const { data: newPost, error } = await supabase
           .from('blog_posts')
           .insert({
             ...postData,
             created_at: new Date().toISOString()
           })
+          .select('id')
+          .single()
 
         if (error) throw error
+        savedPostId = newPost.id
+      }
+
+      // Send newsletter if checkbox is checked and post is published
+      if (sendNewsletter && status === 'published') {
+        try {
+          console.log('📧 Sending newsletter for published post...');
+          const response = await fetch('/api/blog/notify', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+              blogPostId: savedPostId,
+              title: formData.title,
+              excerpt: formData.excerpt,
+              slug: slug,
+              featuredImage: formData.featured_image
+            }),
+          });
+          const result = await response.json();
+          if (result.success) {
+            console.log(`✅ Newsletter sent to ${result.sent} subscribers`);
+          } else {
+            console.warn('⚠️ Newsletter sending failed:', result.error);
+          }
+        } catch (error) {
+          console.error('❌ Error sending newsletter:', error);
+        }
       }
 
       onSave()
@@ -343,6 +375,22 @@ export function BlogEditor({ post, categories, userProfile, onSave, onCancel }: 
               <option value="draft">{t('blogs.statusDraft')}</option>
               <option value="published">{t('blogs.statusPublished')}</option>
             </select>
+          </div>
+        )}
+
+        {/* Newsletter Checkbox */}
+        {userProfile && isAdmin(userProfile.role) && formData.status === 'published' && (
+          <div className="flex items-center space-x-3 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+            <input
+              type="checkbox"
+              id="sendNewsletter"
+              checked={sendNewsletter}
+              onChange={(e) => setSendNewsletter(e.target.checked)}
+              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+            />
+            <label htmlFor="sendNewsletter" className="text-sm font-medium text-foreground">
+              📧 Send newsletter to subscribers when saving
+            </label>
           </div>
         )}
 
