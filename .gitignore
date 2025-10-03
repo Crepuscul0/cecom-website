@@ -2,3 +2,13 @@
 /node_modules
 scripts/node_modules/
 .env.local
+
+# Build artifacts and logs
+*.log
+.DS_Store
+.vscode/settings.json
+
+# Sensitive files
+.env
+.env.production
+.env.staging

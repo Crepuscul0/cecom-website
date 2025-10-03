@@ -1,48 +1,72 @@
-# Scripts
+# Scripts Directory
 
-This directory contains utility scripts for the project.
+This directory contains utility scripts for the CECOM website project.
 
-## HEIC to PNG Converter
+## ⚠️ Security Warning
 
-A Python script to convert HEIC images to PNG format.
+**This entire folder is excluded from production builds for security reasons.**
 
-### Installation
+Scripts contain sensitive operations including:
+- Database management
+- User administration  
+- System configuration
+- Data migration
 
-```bash
-pip install -r scripts/requirements.txt
+## Structure
+
+```
+scripts/
+├── maintenance/     # Active maintenance scripts
+├── archive/         # Deprecated/unused scripts
+├── node_modules/    # Script dependencies
+├── package.json     # Script dependencies
+└── README.md        # This file
 ```
 
-### Usage
+### Active Maintenance Scripts (`/maintenance/`)
+- Database operations (markdown conversion, image cleanup)
+- RSS import and management
+- Translation validation
+- Content management utilities
 
+### Archived Scripts (`/archive/`)
+- Legacy migration scripts
+- Deprecated utilities
+- One-time setup scripts
+- Historical reference
+
+## Security Measures
+
+✅ **Build Exclusion**: Excluded from Next.js builds via webpack config
+✅ **Deployment Exclusion**: Excluded from Vercel deployments via .vercelignore  
+✅ **Access Control**: Requires admin privileges and environment variables
+✅ **Separation**: Active vs archived scripts clearly separated
+
+## Usage
+
+### For Maintenance Scripts
 ```bash
-# Convert all HEIC files in current directory
-python scripts/convert_heic.py
-
-# Convert all HEIC files in a specific directory
-python scripts/convert_heic.py ./images
-
-# Convert all HEIC files with custom output directory
-python scripts/convert_heic.py ./images ./converted
-
-# Convert a single file
-python scripts/convert_heic.py ./photo.heic ./photo.png
+cd scripts/maintenance
+node script-name.js
 ```
 
-### Features
-
-- Converts HEIC files to PNG format
-- Handles both single files and entire directories
-- Preserves image quality
-- Automatic output directory creation
-- Progress reporting and error handling
-
-## Other Scripts
-
-- `migrate-data.js` - Data migration utilities
-- `setup-supabase.js` - Supabase setup and configuration
-- `setup-storage.js` - Storage setup utilities 
-- `standardize-dark-theme.js` - Rewrites hardcoded light classes to theme tokens. Run with:
-
-```bash
-npm run theme:standardize
+### For SQL Scripts
+Run in database management tool (Supabase SQL Editor):
+```sql
+\i script-name.sql
 ```
+
+## Dependencies
+
+Install script dependencies:
+```bash
+cd scripts
+npm install
+```
+
+## Environment Requirements
+
+Scripts require environment variables:
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `SUPABASE_SERVICE_ROLE_KEY` (for admin operations)
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY` (for read operations)

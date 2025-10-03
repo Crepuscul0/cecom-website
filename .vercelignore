@@ -1,0 +1,15 @@
+# Exclude sensitive folders from Vercel deployment
+scripts/
+docs/
+*.log
+.DS_Store
+.vscode/
+.git/
+
+# Development files
+*.md
+!README.md
+
+# Environment files (except production)
+.env.local
+.env.example

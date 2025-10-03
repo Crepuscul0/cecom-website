@@ -2,6 +2,10 @@
 
 This folder contains scripts that are no longer actively used but are kept for historical reference.
 
+## ⚠️ Security Note
+
+These scripts are archived and excluded from production builds for security reasons.
+
 ## Contents
 
 ### Database Migration Scripts (Legacy)

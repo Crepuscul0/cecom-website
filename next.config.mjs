@@ -15,6 +15,15 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
     reactCompiler: false,
   },
+  // Exclude sensitive folders from build
+  webpack: (config, { isServer }) => {
+    // Ignore scripts folder to prevent exposure of sensitive scripts
+    config.watchOptions = {
+      ...config.watchOptions,
+      ignored: ['**/scripts/**', '**/docs/**', '**/.git/**', '**/node_modules/**'],
+    };
+    return config;
+  },
   images: {
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
