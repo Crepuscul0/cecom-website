@@ -20,25 +20,15 @@ const nextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     domains: ['cecom.do', 'localhost'],
-    // Add Supabase storage domain when available
+    // Allow images from any domain
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'extr-p-001.sitecorecontenthub.cloud',
+        hostname: '**',
       },
       {
-        protocol: 'https',
-        hostname: '*.supabase.co',
-        port: '',
-        pathname: '/storage/v1/object/public/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'encrypted-tbn0.gstatic.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'www.watchguard.com',
+        protocol: 'http',
+        hostname: '**',
       },
     ],
   },

@@ -234,7 +234,7 @@ export async function importRSSToSupabase(limit: number = 10): Promise<{
             excerpt: post.excerpt,
             slug: post.slug,
             category_id: categoryId,
-            featured_image: '/blog/cybersecurity-placeholder.jpg',
+            featured_image: '/blog/cybersecurity-placeholder.svg',
             published_date: post.publishedDate.toISOString(),
             status: 'published',
             author: 'Equipo CECOM',
