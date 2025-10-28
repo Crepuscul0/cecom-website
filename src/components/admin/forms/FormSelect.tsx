@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef } from 'react';
+import { forwardRef, memo } from 'react';
 
 interface FormSelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   label: string;
@@ -10,7 +10,7 @@ interface FormSelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> 
   placeholder?: string;
 }
 
-export const FormSelect = forwardRef<HTMLSelectElement, FormSelectProps>(
+export const FormSelect = memo(forwardRef<HTMLSelectElement, FormSelectProps>(
   ({ label, error, required, options, placeholder, className = '', ...props }, ref) => {
     return (
       <div className="space-y-2">
@@ -40,6 +40,6 @@ export const FormSelect = forwardRef<HTMLSelectElement, FormSelectProps>(
       </div>
     );
   }
-);
+));
 
 FormSelect.displayName = 'FormSelect';

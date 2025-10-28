@@ -298,6 +298,7 @@
   "Catalog": {
     "more": "more",
     "categories": "Categories",
+    "allCategories": "All Categories",
     "allProducts": "All Products",
     "searchProducts": "Search products...",
     "filterByVendor": "Filter by vendor",
@@ -321,6 +322,8 @@
     "filter": {
       "allVendors": "All Vendors",
       "filterByVendor": "Filter by vendor",
+      "findVendor": "Search vendor...",
+      "findCategory": "Search category...",
       "clearFilters": "Clear filters",
       "activeSearch": "\"{query}\"",
       "activeVendor": "{vendor}"
@@ -334,7 +337,8 @@
       "loadingProducts": "Loading products...",
       "errorLoadingProducts": "Error loading products",
       "noProducts": "No products found",
-      "noProductsInCategory": "No products found in this category"
+      "noProductsInCategory": "No products found in this category",
+      "noResults": "No results found"
     },
     "actions": {
       "viewDetails": "View Details",
@@ -484,6 +488,11 @@
         "featuresEn": "Features (English)",
         "featuresEs": "Features (Spanish)",
         "imageUrl": "Image URL",
+        "imageUrlOrUpload": "Image URL (or use upload above)",
+        "uploadImage": "Upload",
+        "uploading": "Uploading...",
+        "uploadHelp": "Upload a local image or enter URL below",
+        "removeImage": "Remove image",
         "datasheetUrl": "Datasheet URL",
         "category": "Category",
         "vendor": "Vendor",

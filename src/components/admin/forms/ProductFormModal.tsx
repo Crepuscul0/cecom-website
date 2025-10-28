@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { supabase } from '@/lib/supabase';
 import { Product, Category, Vendor } from '@/types/admin';
@@ -56,6 +56,8 @@ export function ProductFormModal({
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [uploadingImage, setUploadingImage] = useState(false);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   useEffect(() => {
     if (product) {
@@ -161,21 +163,118 @@ export function ProductFormModal({
     }
   };
 
-  const categoryOptions = categories.map(cat => {
-    const level = cat.level || 0
-    const indent = '  '.repeat(level)
-    const label = cat.name?.en || cat.name?.es || 'Unnamed Category'
-    
-    return {
-      value: cat.id,
-      label: `${indent}${label}${level > 0 ? ` (${cat.parent_id ? 'Subcategory' : 'Category'})` : ''}`
-    }
-  });
+  const categoryOptions = useMemo(() => {
+    return categories.map(cat => {
+      const level = cat.level || 0
+      const indent = '  '.repeat(level)
+      const label = cat.name?.en || cat.name?.es || 'Unnamed Category'
+      
+      return {
+        value: cat.id,
+        label: `${indent}${label}${level > 0 ? ` (${cat.parent_id ? 'Subcategory' : 'Category'})` : ''}`
+      }
+    });
+  }, [categories]);
 
-  const vendorOptions = vendors.map(vendor => ({
-    value: vendor.id,
-    label: vendor.name
-  }));
+  const vendorOptions = useMemo(() => {
+    return vendors.map(vendor => ({
+      value: vendor.id,
+      label: vendor.name
+    }));
+  }, [vendors]);
+
+  const handleFileSelect = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setSelectedFile(file);
+    }
+  }, []);
+
+  const handleImageUpload = useCallback(async () => {
+    if (!selectedFile) return;
+
+    setUploadingImage(true);
+    setError('');
+
+    try {
+      const uploadFormData = new FormData();
+      uploadFormData.append('image', selectedFile);
+
+      const response = await fetch('/api/admin/upload-product-image', {
+        method: 'POST',
+        body: uploadFormData
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to upload image');
+      }
+
+      setFormData(prev => ({ ...prev, externalImageUrl: data.imageUrl }));
+      setSelectedFile(null);
+      // Reset file input
+      const fileInput = document.querySelector('input[type="file"]') as HTMLInputElement;
+      if (fileInput) fileInput.value = '';
+    } catch (err: any) {
+      setError(err.message || 'Error uploading image');
+    } finally {
+      setUploadingImage(false);
+    }
+  }, [selectedFile]);
+
+  // Memoized change handlers
+  const handleNameEnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData(prev => ({ ...prev, nameEn: e.target.value }));
+  }, []);
+
+  const handleNameEsChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData(prev => ({ ...prev, nameEs: e.target.value }));
+  }, []);
+
+  const handleDescriptionEnChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setFormData(prev => ({ ...prev, descriptionEn: e.target.value }));
+  }, []);
+
+  const handleDescriptionEsChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setFormData(prev => ({ ...prev, descriptionEs: e.target.value }));
+  }, []);
+
+  const handleImageUrlChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData(prev => ({ ...prev, externalImageUrl: e.target.value }));
+  }, []);
+
+  const handleDatasheetUrlChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData(prev => ({ ...prev, datasheetUrl: e.target.value }));
+  }, []);
+
+  const handleCategoryChange = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFormData(prev => ({ ...prev, categoryId: e.target.value }));
+  }, []);
+
+  const handleVendorChange = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFormData(prev => ({ ...prev, vendorId: e.target.value }));
+  }, []);
+
+  const handleOrderChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData(prev => ({ ...prev, order: parseInt(e.target.value) || 0 }));
+  }, []);
+
+  const handleActiveChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData(prev => ({ ...prev, active: e.target.checked }));
+  }, []);
+
+  const handleFeaturesEnChange = useCallback((items: string[]) => {
+    setFormData(prev => ({ ...prev, featuresEn: items }));
+  }, []);
+
+  const handleFeaturesEsChange = useCallback((items: string[]) => {
+    setFormData(prev => ({ ...prev, featuresEs: items }));
+  }, []);
+
+  const handleRemoveImage = useCallback(() => {
+    setFormData(prev => ({ ...prev, externalImageUrl: '' }));
+  }, []);
 
   const title = product ? t('editTitle') : t('newTitle');
 
@@ -199,38 +298,62 @@ export function ProductFormModal({
             <FormInput
               label={t('nameEn')}
               value={formData.nameEn}
-              onChange={(e) => setFormData(prev => ({ ...prev, nameEn: e.target.value }))}
+              onChange={handleNameEnChange}
               required
               placeholder="WatchGuard Firebox T15"
             />
             <FormInput
               label={t('nameEs')}
               value={formData.nameEs}
-              onChange={(e) => setFormData(prev => ({ ...prev, nameEs: e.target.value }))}
+              onChange={handleNameEsChange}
               required
               placeholder="WatchGuard Firebox T15"
             />
           </div>
 
-          {/* Image URL */}
-          <div className="space-y-2">
+          {/* Image Upload */}
+          <div className="space-y-3">
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-2">
+                {t('imageUrl')}
+              </label>
+              <div className="flex gap-2 items-start">
+                <input
+                  type="file"
+                  accept="image/jpeg,image/jpg,image/png,image/webp,image/svg+xml"
+                  onChange={handleFileSelect}
+                  className="flex-1 px-3 py-2 border border-border rounded-md bg-background text-sm file:mr-4 file:py-1 file:px-3 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                />
+                <button
+                  type="button"
+                  onClick={handleImageUpload}
+                  disabled={!selectedFile || uploadingImage}
+                  className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed text-sm whitespace-nowrap font-medium"
+                >
+                  {uploadingImage ? t('uploading') : t('uploadImage')}
+                </button>
+              </div>
+              <p className="text-xs text-muted-foreground mt-1">{t('uploadHelp')}</p>
+            </div>
+            
             <FormInput
-              label={t('imageUrl')}
+              label={t('imageUrlOrUpload')}
               value={formData.externalImageUrl}
-              onChange={(e) => setFormData(prev => ({ ...prev, externalImageUrl: e.target.value }))}
-              placeholder="https://example.com/image.jpg"
-              type="url"
+              onChange={handleImageUrlChange}
+              placeholder="https://example.com/image.jpg or /products/image.jpg"
+              type="text"
             />
+            
             <FormInput
               label={t('datasheetUrl')}
               value={formData.datasheetUrl}
-              onChange={(e) => setFormData(prev => ({ ...prev, datasheetUrl: e.target.value }))}
+              onChange={handleDatasheetUrlChange}
               placeholder="https://example.com/datasheet.pdf"
               type="url"
             />
+            
             {formData.externalImageUrl && (
-              <div className="mt-2">
-                <p className="text-sm text-muted-foreground mb-1">Preview:</p>
+              <div className="flex items-center gap-3 p-3 bg-muted/50 rounded-md">
                 <img 
                   src={formData.externalImageUrl} 
                   alt="Product preview" 
@@ -240,6 +363,16 @@ export function ProductFormModal({
                     target.style.display = 'none';
                   }}
                 />
+                <div className="flex-1">
+                  <p className="text-xs text-muted-foreground break-all">{formData.externalImageUrl}</p>
+                  <button
+                    type="button"
+                    onClick={handleRemoveImage}
+                    className="text-xs text-red-600 hover:text-red-800 mt-1 font-medium"
+                  >
+                    {t('removeImage')}
+                  </button>
+                </div>
               </div>
             )}
           </div>
@@ -249,13 +382,13 @@ export function ProductFormModal({
             <FormTextarea
               label={t('descriptionEn')}
               value={formData.descriptionEn}
-              onChange={(e) => setFormData(prev => ({ ...prev, descriptionEn: e.target.value }))}
+              onChange={handleDescriptionEnChange}
               placeholder="Product description in English..."
             />
             <FormTextarea
               label={t('descriptionEs')}
               value={formData.descriptionEs}
-              onChange={(e) => setFormData(prev => ({ ...prev, descriptionEs: e.target.value }))}
+              onChange={handleDescriptionEsChange}
               placeholder="Descripción del producto en español..."
             />
           </div>
@@ -265,7 +398,7 @@ export function ProductFormModal({
             <FormList
               label={t('featuresEn')}
               items={formData.featuresEn}
-              onItemsChange={(items) => setFormData(prev => ({ ...prev, featuresEn: items }))}
+              onItemsChange={handleFeaturesEnChange}
               addButtonText={t('addFeature')}
               removeButtonText={t('removeFeature')}
               placeholder="Advanced threat protection"
@@ -273,7 +406,7 @@ export function ProductFormModal({
             <FormList
               label={t('featuresEs')}
               items={formData.featuresEs}
-              onItemsChange={(items) => setFormData(prev => ({ ...prev, featuresEs: items }))}
+              onItemsChange={handleFeaturesEsChange}
               addButtonText={t('addFeature')}
               removeButtonText={t('removeFeature')}
               placeholder="Protección avanzada contra amenazas"
@@ -285,7 +418,7 @@ export function ProductFormModal({
             <FormSelect
               label={t('category')}
               value={formData.categoryId}
-              onChange={(e) => setFormData(prev => ({ ...prev, categoryId: e.target.value }))}
+              onChange={handleCategoryChange}
               options={categoryOptions}
               placeholder={t('selectCategory')}
               required
@@ -293,7 +426,7 @@ export function ProductFormModal({
             <FormSelect
               label={t('vendor')}
               value={formData.vendorId}
-              onChange={(e) => setFormData(prev => ({ ...prev, vendorId: e.target.value }))}
+              onChange={handleVendorChange}
               options={vendorOptions}
               placeholder={t('selectVendor')}
               required
@@ -302,7 +435,7 @@ export function ProductFormModal({
               label={t('order')}
               type="number"
               value={formData.order.toString()}
-              onChange={(e) => setFormData(prev => ({ ...prev, order: parseInt(e.target.value) || 0 }))}
+              onChange={handleOrderChange}
               min="0"
             />
             <div className="space-y-2">
@@ -313,7 +446,7 @@ export function ProductFormModal({
                 <input
                   type="checkbox"
                   checked={formData.active}
-                  onChange={(e) => setFormData(prev => ({ ...prev, active: e.target.checked }))}
+                  onChange={handleActiveChange}
                   className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-border rounded"
                 />
                 <span className="ml-2 text-sm text-muted-foreground">

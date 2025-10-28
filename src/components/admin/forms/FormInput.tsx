@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef } from 'react';
+import { forwardRef, memo } from 'react';
 
 interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
@@ -8,7 +8,7 @@ interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   required?: boolean;
 }
 
-export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
+export const FormInput = memo(forwardRef<HTMLInputElement, FormInputProps>(
   ({ label, error, required, className = '', ...props }, ref) => {
     return (
       <div className="space-y-2">
@@ -29,6 +29,6 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
       </div>
     );
   }
-);
+));
 
 FormInput.displayName = 'FormInput';

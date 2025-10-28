@@ -297,6 +297,7 @@
   "Catalog": {
     "more": "más",
     "categories": "Categorías",
+    "allCategories": "Todas las Categorías",
     "allProducts": "Todos los Productos",
     "searchProducts": "Buscar productos...",
     "filterByVendor": "Filtrar por proveedor",
@@ -320,6 +321,8 @@
     "filter": {
       "allVendors": "Todos los Proveedores",
       "filterByVendor": "Filtrar por proveedor",
+      "findVendor": "Buscar proveedor...",
+      "findCategory": "Buscar categoría...",
       "clearFilters": "Limpiar filtros",
       "activeSearch": "\"{query}\"",
       "activeVendor": "{vendor}"
@@ -333,7 +336,8 @@
       "loadingProducts": "Cargando productos...",
       "errorLoadingProducts": "Error al cargar productos",
       "noProducts": "No se encontraron productos",
-      "noProductsInCategory": "No se encontraron productos en esta categoría"
+      "noProductsInCategory": "No se encontraron productos en esta categoría",
+      "noResults": "No se encontraron resultados"
     },
     "actions": {
       "viewDetails": "Ver Detalles",
@@ -483,6 +487,11 @@
         "featuresEn": "Características (Inglés)",
         "featuresEs": "Características (Español)",
         "imageUrl": "URL de la imagen",
+        "imageUrlOrUpload": "URL de la imagen (o usa subir arriba)",
+        "uploadImage": "Subir",
+        "uploading": "Subiendo...",
+        "uploadHelp": "Sube una imagen local o ingresa la URL abajo",
+        "removeImage": "Eliminar imagen",
         "datasheetUrl": "URL de la Hoja de Datos",
         "category": "Categoría",
         "vendor": "Proveedor",

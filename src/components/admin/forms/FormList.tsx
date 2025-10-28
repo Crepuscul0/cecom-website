@@ -1,6 +1,7 @@
 'use client';
 
 import { Plus, X } from 'lucide-react';
+import { useCallback, memo } from 'react';
 
 interface FormListProps {
   label: string;
@@ -13,7 +14,7 @@ interface FormListProps {
   error?: string;
 }
 
-export function FormList({
+export const FormList = memo(function FormList({
   label,
   items,
   onItemsChange,
@@ -23,20 +24,20 @@ export function FormList({
   required = false,
   error
 }: FormListProps) {
-  const addItem = () => {
+  const addItem = useCallback(() => {
     onItemsChange([...items, '']);
-  };
+  }, [items, onItemsChange]);
 
-  const removeItem = (index: number) => {
+  const removeItem = useCallback((index: number) => {
     const newItems = items.filter((_, i) => i !== index);
     onItemsChange(newItems);
-  };
+  }, [items, onItemsChange]);
 
-  const updateItem = (index: number, value: string) => {
+  const updateItem = useCallback((index: number, value: string) => {
     const newItems = [...items];
     newItems[index] = value;
     onItemsChange(newItems);
-  };
+  }, [items, onItemsChange]);
 
   return (
     <div className="space-y-2">
@@ -81,4 +82,4 @@ export function FormList({
       )}
     </div>
   );
-}
+});

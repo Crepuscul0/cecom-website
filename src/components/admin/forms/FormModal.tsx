@@ -48,7 +48,7 @@ export function FormModal({
           </div>
           
           {/* Content */}
-          <div className="max-h-[70vh] overflow-y-auto">
+          <div className="max-h-[70vh] overflow-y-auto" style={{ willChange: 'scroll-position' }}>
             {children}
           </div>
         </div>

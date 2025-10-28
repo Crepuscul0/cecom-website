@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef } from 'react';
+import { forwardRef, memo } from 'react';
 
 interface FormTextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   label: string;
@@ -8,7 +8,7 @@ interface FormTextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaEle
   required?: boolean;
 }
 
-export const FormTextarea = forwardRef<HTMLTextAreaElement, FormTextareaProps>(
+export const FormTextarea = memo(forwardRef<HTMLTextAreaElement, FormTextareaProps>(
   ({ label, error, required, className = '', ...props }, ref) => {
     return (
       <div className="space-y-2">
@@ -29,6 +29,6 @@ export const FormTextarea = forwardRef<HTMLTextAreaElement, FormTextareaProps>(
       </div>
     );
   }
-);
+));
 
 FormTextarea.displayName = 'FormTextarea';

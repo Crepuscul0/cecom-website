@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl'
 import { useSearchParams, useRouter, usePathname } from 'next/navigation'
 import { CategorySidebar } from '@/components/catalog/CategorySidebar'
 import { ProductGrid } from '@/components/catalog/ProductGrid'
-import { ProductFilter } from '@/components/catalog/ProductFilter'
+import { ComprehensiveFilter } from '@/components/catalog/ComprehensiveFilter'
 import { ProductModal } from '@/components/catalog/ProductModal'
 import { Product } from '@/lib/payload/types'
 import { Suspense } from 'react'
@@ -100,6 +100,12 @@ function CatalogContent() {
     updateURL(selectedCategoryId, searchQuery, vendorId)
   }
 
+  // Handle category filter change
+  const handleCategoryFilterChange = (categoryId: string | null) => {
+    setSelectedCategoryId(categoryId)
+    updateURL(categoryId, searchQuery, selectedVendor)
+  }
+
   // Handle clear filters
   const handleClearFilters = () => {
     setSearchQuery('')
@@ -186,12 +192,14 @@ function CatalogContent() {
 
             {/* Main Content - Filters and Products */}
             <div className="col-span-1 lg:col-span-3 flex flex-col space-y-4">
-              {/* Product Filter */}
-              <ProductFilter
+              {/* Comprehensive Filter */}
+              <ComprehensiveFilter
                 searchQuery={searchQuery}
                 selectedVendor={selectedVendor}
+                selectedCategoryId={selectedCategoryId}
                 onSearchChange={handleSearchChange}
                 onVendorChange={handleVendorChange}
+                onCategoryChange={handleCategoryFilterChange}
                 onClearFilters={handleClearFilters}
               />
 
