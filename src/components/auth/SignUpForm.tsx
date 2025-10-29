@@ -121,7 +121,7 @@ export function SignUpForm({ onSuccess, onToggleMode }: SignUpFormProps) {
               onChange={handleChange}
               required
               className="w-full px-3 py-2 border border-border rounded-md bg-background dark:bg-[#0a1222] focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
-              placeholder="usuario@cecom.com.do"
+              placeholder="correo@ejemplo.com"
             />
           </div>
 

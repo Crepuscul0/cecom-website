@@ -118,6 +118,16 @@
       "description": "We offer scalable and secure storage solutions for your data."
     }
   },
+  "Products": {
+    "home": "Home",
+    "products": "Products",
+    "noImage": "No image available",
+    "description": "Description",
+    "pricing": "Pricing",
+    "requestQuote": "Request Quote",
+    "downloadDatasheet": "Download Datasheet",
+    "contactExpert": "Contact an Expert"
+  },
   "Alliances": {
     "title": "Alliances",
     "ourAlliances": "Our Alliances",
@@ -384,6 +394,13 @@
       "searchCategories": "Search categories...",
       "searchVendors": "Search vendors...",
       "searchProducts": "Search products..."
+    },
+    "filters": {
+      "allCategories": "All Categories",
+      "allVendors": "All Vendors",
+      "allStatus": "All Status",
+      "active": "Active",
+      "inactive": "Inactive"
     },
     "tables": {
       "categories": "Categories",

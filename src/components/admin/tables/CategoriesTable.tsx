@@ -21,7 +21,12 @@ export function CategoriesTable({
   onAdd, 
   onEdit 
 }: CategoriesTableProps) {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('categories-search') || '';
+    }
+    return '';
+  });
   const t = useTranslations('Admin');
   const deleteConfirmation = useDeleteConfirmation();
   const { showError } = useErrorHandler();
@@ -109,13 +114,16 @@ export function CategoriesTable({
             type="text"
             placeholder={t('search.searchCategories')}
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              localStorage.setItem('categories-search', e.target.value);
+            }}
             className="w-full pl-10 pr-4 py-2 border border-border rounded-md search-input bg-background text-foreground placeholder:text-muted-foreground"
           />
         </div>
       </div>
       
-      <ScrollableTableContainer>
+      <ScrollableTableContainer scrollKey="categories-table">
         <table className="min-w-full divide-y divide-border">
           <thead className="bg-muted">
             <tr>

@@ -321,9 +321,12 @@ export function BlogEditor({ post, categories, userProfile, onSave, onCancel }: 
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-foreground mb-2">
+              <label className="block text-sm font-medium text-foreground mb-1">
                 {t('blogs.metaTitle')}
               </label>
+              <p className="text-xs text-muted-foreground mb-2">
+                Appears in search results. Keep under 60 characters.
+              </p>
               <input
                 type="text"
                 value={formData.meta_title}
@@ -334,9 +337,12 @@ export function BlogEditor({ post, categories, userProfile, onSave, onCancel }: 
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-foreground mb-2">
+              <label className="block text-sm font-medium text-foreground mb-1">
                 {t('blogs.featuredImage')}
               </label>
+              <p className="text-xs text-muted-foreground mb-2">
+                Shown in social media shares and blog listings.
+              </p>
               <input
                 type="url"
                 value={formData.featured_image}
@@ -344,13 +350,37 @@ export function BlogEditor({ post, categories, userProfile, onSave, onCancel }: 
                 className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 placeholder={t('blogs.imagePlaceholder')}
               />
+              
+              {/* Image Preview */}
+              {formData.featured_image && (
+                <div className="mt-3 p-3 bg-muted/50 rounded-lg border border-border">
+                  <p className="text-xs font-medium text-foreground mb-2">Preview:</p>
+                  <img 
+                    src={formData.featured_image} 
+                    alt="Featured image preview" 
+                    className="w-full max-w-md h-48 object-cover rounded-md border border-border"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      const errorMsg = target.nextElementSibling as HTMLElement;
+                      if (errorMsg) errorMsg.style.display = 'block';
+                    }}
+                  />
+                  <p className="text-xs text-red-600 mt-2 hidden">
+                    ⚠️ Failed to load image. Please check the URL.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
 
           <div className="mt-4">
-            <label className="block text-sm font-medium text-foreground mb-2">
+            <label className="block text-sm font-medium text-foreground mb-1">
               {t('blogs.metaDescription')}
             </label>
+            <p className="text-xs text-muted-foreground mb-2">
+              Summary shown in search results. Aim for 150-160 characters for best display.
+            </p>
             <textarea
               value={formData.meta_description}
               onChange={(e) => handleInputChange('meta_description', e.target.value)}
@@ -358,6 +388,71 @@ export function BlogEditor({ post, categories, userProfile, onSave, onCancel }: 
               className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-vertical"
               placeholder={t('blogs.metaDescriptionPlaceholder')}
             />
+          </div>
+
+          {/* Google Search Preview */}
+          <div className="mt-6 p-4 bg-muted/50 rounded-lg border border-border">
+            <h4 className="text-sm font-medium text-foreground mb-3 flex items-center gap-2">
+              <Eye className="w-4 h-4" />
+              Google Search Preview
+            </h4>
+            <div className="bg-background p-4 rounded border border-border max-w-2xl">
+              {/* URL */}
+              <div className="flex items-center gap-1 mb-1">
+                <span className="text-xs text-muted-foreground">cecom.com.do › blog ›</span>
+                <span className="text-xs text-foreground truncate">
+                  {post?.slug || (formData.title ? generateSlug(formData.title) : 'your-post-slug')}
+                </span>
+              </div>
+              
+              {/* Title */}
+              <h3 className="text-blue-600 dark:text-blue-400 text-xl font-normal hover:underline cursor-pointer mb-1 break-words">
+                {(() => {
+                  const title = formData.meta_title || formData.title || 'Your Blog Post Title';
+                  return title.length > 60 ? title.substring(0, 60) + '...' : title;
+                })()}
+              </h3>
+              
+              {/* Description */}
+              <p className="text-sm text-muted-foreground line-clamp-2 break-words">
+                {(() => {
+                  const desc = formData.meta_description || formData.excerpt || 'Your blog post description will appear here. Make it compelling to increase click-through rates from search results.';
+                  return desc.length > 160 ? desc.substring(0, 160) + '...' : desc;
+                })()}
+              </p>
+
+              {/* Character count hints */}
+              <div className="mt-3 pt-3 border-t border-border flex flex-wrap gap-4 text-xs">
+                <span className={`${
+                  (formData.meta_title || formData.title).length > 60 
+                    ? 'text-orange-500 font-medium' 
+                    : (formData.meta_title || formData.title).length > 0 
+                      ? 'text-green-600 dark:text-green-400' 
+                      : 'text-muted-foreground'
+                }`}>
+                  Title: {(formData.meta_title || formData.title).length}/60 chars
+                  {(formData.meta_title || formData.title).length > 60 && ' ⚠️'}
+                </span>
+                <span className={`${
+                  (formData.meta_description || formData.excerpt).length > 160 
+                    ? 'text-orange-500 font-medium' 
+                    : (formData.meta_description || formData.excerpt).length > 0 
+                      ? 'text-green-600 dark:text-green-400' 
+                      : 'text-muted-foreground'
+                }`}>
+                  Description: {(formData.meta_description || formData.excerpt).length}/160 chars
+                  {(formData.meta_description || formData.excerpt).length > 160 && ' ⚠️'}
+                </span>
+              </div>
+
+              {/* Warning for URLs in fields */}
+              {((formData.meta_title || formData.title).includes('http') || 
+                (formData.meta_description || formData.excerpt).includes('http')) && (
+                <div className="mt-3 p-2 bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded text-xs text-orange-700 dark:text-orange-300">
+                  ⚠️ Warning: URLs detected in SEO fields. Use descriptive text instead of links.
+                </div>
+              )}
+            </div>
           </div>
         </div>
 

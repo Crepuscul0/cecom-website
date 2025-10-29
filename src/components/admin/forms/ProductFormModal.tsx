@@ -353,26 +353,32 @@ export function ProductFormModal({
             />
             
             {formData.externalImageUrl && (
-              <div className="flex items-center gap-3 p-3 bg-muted/50 rounded-md">
-                <img 
-                  src={formData.externalImageUrl} 
-                  alt="Product preview" 
-                  className="h-20 w-20 object-cover rounded-md border border-border"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                  }}
-                />
-                <div className="flex-1">
-                  <p className="text-xs text-muted-foreground break-all">{formData.externalImageUrl}</p>
+              <div className="p-4 bg-muted/50 rounded-md border border-border space-y-3">
+                <div className="flex items-start justify-between">
+                  <p className="text-xs font-medium text-foreground">Image Preview:</p>
                   <button
                     type="button"
                     onClick={handleRemoveImage}
-                    className="text-xs text-red-600 hover:text-red-800 mt-1 font-medium"
+                    className="text-xs text-red-600 hover:text-red-800 font-medium"
                   >
                     {t('removeImage')}
                   </button>
                 </div>
+                <img 
+                  src={formData.externalImageUrl} 
+                  alt="Product preview" 
+                  className="w-full max-w-sm h-48 object-contain rounded-md border border-border bg-background"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    const errorMsg = target.nextElementSibling as HTMLElement;
+                    if (errorMsg) errorMsg.style.display = 'block';
+                  }}
+                />
+                <p className="text-xs text-red-600 mt-2 hidden">
+                  ⚠️ Failed to load image. Please check the URL.
+                </p>
+                <p className="text-xs text-muted-foreground break-all">{formData.externalImageUrl}</p>
               </div>
             )}
           </div>

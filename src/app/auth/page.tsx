@@ -38,8 +38,13 @@ function AuthPageContent() {
   }
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div className="min-h-screen bg-[url('/background.svg')] bg-cover bg-center bg-no-repeat dark:brightness-90 dark:contrast-110 relative">
+      <div
+        className="absolute inset-0 z-0 bg-gradient-to-br from-background/70 via-background/60 to-background/70 dark:from-background/80 dark:via-background/70 dark:to-background/80"
+        aria-hidden="true"
+      />
+      <div className="relative z-10 min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-md w-full space-y-8">
         {message && (
           <div className="bg-blue-50 border border-blue-200 text-blue-700 px-4 py-3 rounded-md text-sm text-center">
             {message}
@@ -57,6 +62,7 @@ function AuthPageContent() {
             onToggleMode={() => setMode('login')}
           />
         )}
+        </div>
       </div>
     </div>
   )

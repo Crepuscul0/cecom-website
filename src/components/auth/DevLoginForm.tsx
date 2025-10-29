@@ -20,7 +20,7 @@ export function DevLoginForm({ onSuccess }: DevLoginFormProps) {
  // This completely bypasses Supabase authentication
  const mockAdminUser = {
  id: '2b59e7ae-277f-40f2-b777-c09ec8542609',
- email: 'admin@cecom.com.do',
+ email: 'dev@ejemplo.com',
  role: 'administrator',
  first_name: 'Admin',
  last_name: 'CECOM',
@@ -82,13 +82,6 @@ export function DevLoginForm({ onSuccess }: DevLoginFormProps) {
  {loading ? 'Accediendo...' : 'Acceso de Desarrollo'}
  </button>
 
- <div className="mt-4 p-3 bg-background rounded-md">
- <p className="text-xs text-muted-foreground text-center">
- <strong>Usuario:</strong> admin@cecom.com.do<br />
- <strong>Rol:</strong> Administrator<br />
- <strong>Modo:</strong> Desarrollo (sin autenticación)
- </p>
- </div>
  </div>
  </div>
  );

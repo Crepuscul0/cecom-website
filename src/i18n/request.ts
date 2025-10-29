@@ -1,10 +1,17 @@
 import { getRequestConfig } from 'next-intl/server';
-import { timeZone } from './config';
+import { timeZone, locales, defaultLocale } from './config';
 import { getCurrentTime } from '../lib/timezone';
 
-export default getRequestConfig(async ({ locale }) => ({
-  locale: locale ?? 'en',
-  messages: (await import(`../../messages/${locale ?? 'en'}.json`)).default,
-  timeZone,
-  now: getCurrentTime(),
-}));
+export default getRequestConfig(async ({ locale }) => {
+  // Validate and sanitize locale to prevent invalid imports
+  const validLocale = locale && locales.includes(locale as any) 
+    ? locale 
+    : defaultLocale;
+  
+  return {
+    locale: validLocale,
+    messages: (await import(`../../messages/${validLocale}.json`)).default,
+    timeZone,
+    now: getCurrentTime(),
+  };
+});

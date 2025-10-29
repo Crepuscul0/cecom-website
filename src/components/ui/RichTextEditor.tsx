@@ -140,9 +140,9 @@ export function RichTextEditor({ value, onChange, placeholder, className }: Rich
 
     return (
         <div className={className}>
-            <div className="border border-border rounded-lg bg-background overflow-hidden relative">
+            <div className="border border-border rounded-lg bg-background relative max-h-[600px] overflow-y-auto">
                 {/* Toolbar */}
-                <div className="border-b border-border p-2 flex flex-wrap gap-1 bg-background shadow-sm">
+                <div className="sticky top-0 z-10 border-b border-border p-2 flex flex-wrap gap-1 bg-background shadow-sm">
                     {/* Text Formatting */}
                     <div className="flex gap-1 border-r border-border pr-2 mr-2">
                         <button
@@ -347,7 +347,7 @@ export function RichTextEditor({ value, onChange, placeholder, className }: Rich
         .prose-editor .ProseMirror {
           outline: none;
           padding: 1rem;
-          min-height: 200px;
+          min-height: 500px;
           color: hsl(var(--foreground));
           background: hsl(var(--background));
         }

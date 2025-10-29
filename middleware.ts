@@ -11,12 +11,13 @@ export async function middleware(request: NextRequest) {
 
   const pathname = request.nextUrl.pathname;
   
-  // Skip locale handling for admin panel routes
+  // Skip locale handling for admin panel routes and public assets
   const isAdminPanelRoute = adminPanelPaths.some(path => 
     pathname.startsWith(path) || pathname === path
   );
   
-  if (isAdminPanelRoute) {
+  // Skip locale handling for public directory
+  if (isAdminPanelRoute || pathname.startsWith('/public')) {
     return response;
   }
   
@@ -78,8 +79,9 @@ export const config = {
      * - _next/static (static files)
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
-     * Feel free to modify this pattern to include more paths.
+     * - public (public assets directory)
+     * - static file extensions
      */
-    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+    '/((?!_next/static|_next/image|favicon.ico|public/|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
   ],
 };

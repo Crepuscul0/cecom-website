@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { writeFile, mkdir } from 'fs/promises';
 import { join } from 'path';
 import { existsSync } from 'fs';
+import crypto from 'crypto';
 
 export async function POST(request: NextRequest) {
   try {
@@ -24,10 +25,31 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create unique filename
+    // Validate file size (max 5MB)
+    const maxSize = 5 * 1024 * 1024; // 5MB in bytes
+    if (file.size > maxSize) {
+      return NextResponse.json(
+        { error: 'File size exceeds 5MB limit. Please compress your image.' },
+        { status: 400 }
+      );
+    }
+
+    // Create unique filename with multiple layers of uniqueness
     const timestamp = Date.now();
-    const extension = file.name.split('.').pop();
-    const filename = `product-${timestamp}.${extension}`;
+    const randomString = crypto.randomBytes(8).toString('hex'); // 16 character random string
+    const extension = file.name.split('.').pop()?.toLowerCase() || 'jpg';
+    
+    // Sanitize original filename (remove special chars, keep only alphanumeric and hyphens)
+    const originalName = file.name
+      .replace(/\.[^/.]+$/, '') // Remove extension
+      .toLowerCase()
+      .replace(/[^a-z0-9]/g, '-') // Replace non-alphanumeric with hyphens
+      .replace(/-+/g, '-') // Replace multiple hyphens with single
+      .replace(/^-|-$/g, '') // Remove leading/trailing hyphens
+      .substring(0, 30); // Limit length
+    
+    // Format: product-{sanitized-name}-{timestamp}-{random}.{ext}
+    let filename = `product-${originalName}-${timestamp}-${randomString}.${extension}`;
 
     // Ensure the products directory exists
     const productsDir = join(process.cwd(), 'public', 'products');
@@ -35,10 +57,26 @@ export async function POST(request: NextRequest) {
       await mkdir(productsDir, { recursive: true });
     }
 
+    // Extra safety: Check if file exists and generate new name if needed (extremely unlikely)
+    let filepath = join(productsDir, filename);
+    let attempts = 0;
+    while (existsSync(filepath) && attempts < 5) {
+      const newRandomString = crypto.randomBytes(8).toString('hex');
+      filename = `product-${originalName}-${timestamp}-${newRandomString}.${extension}`;
+      filepath = join(productsDir, filename);
+      attempts++;
+    }
+
+    if (existsSync(filepath)) {
+      return NextResponse.json(
+        { error: 'Unable to generate unique filename after multiple attempts' },
+        { status: 500 }
+      );
+    }
+
     // Convert file to buffer and save
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
-    const filepath = join(productsDir, filename);
     
     await writeFile(filepath, buffer);
 

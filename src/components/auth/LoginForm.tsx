@@ -54,7 +54,7 @@ export function LoginForm({ onSuccess, onToggleMode }: LoginFormProps) {
  onChange={(e) => setEmail(e.target.value)}
  required
  className="w-full px-3 py-2 border border-border rounded-md bg-background dark:bg-[#0a1222] focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
- placeholder="admin@cecom.com.do"
+ placeholder="correo@ejemplo.com"
  />
  </div>
 
@@ -100,13 +100,6 @@ export function LoginForm({ onSuccess, onToggleMode }: LoginFormProps) {
  </p>
  </div>
 
- <div className="mt-4 p-3 bg-background rounded-md">
- <p className="text-xs text-muted-foreground text-center">
- <strong>Cuenta de prueba:</strong><br />
- Email: admin@cecom.com.do<br />
- Contraseña: admin123
- </p>
- </div>
  </div>
  </div>
  );

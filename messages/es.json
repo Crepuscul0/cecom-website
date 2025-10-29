@@ -117,6 +117,16 @@
       "description": "Ofrecemos soluciones de almacenamiento escalables y seguras para sus datos."
     }
   },
+  "Products": {
+    "home": "Inicio",
+    "products": "Productos",
+    "noImage": "Imagen no disponible",
+    "description": "Descripción",
+    "pricing": "Precio",
+    "requestQuote": "Solicitar Cotización",
+    "downloadDatasheet": "Descargar Ficha Técnica",
+    "contactExpert": "Contactar un Experto"
+  },
   "Alliances": {
     "title": "Alianzas",
     "ourAlliances": "Nuestras Alianzas",
@@ -383,6 +393,13 @@
       "searchCategories": "Buscar categorías...",
       "searchVendors": "Buscar proveedores...",
       "searchProducts": "Buscar productos..."
+    },
+    "filters": {
+      "allCategories": "Todas las Categorías",
+      "allVendors": "Todos los Proveedores",
+      "allStatus": "Todos los Estados",
+      "active": "Activo",
+      "inactive": "Inactivo"
     },
     "tables": {
       "categories": "Categorías",
