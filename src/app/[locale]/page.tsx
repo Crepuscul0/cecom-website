@@ -3,6 +3,11 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
+import FeaturesSection from '@/components/home/FeaturesSection';
+import StatsSection from '@/components/home/StatsSection';
+import PartnersSection from '@/components/home/PartnersSection';
+import SolutionsSection from '@/components/home/SolutionsSection';
+import CTASection from '@/components/home/CTASection';
 
 export default function Home() {
   const t = useTranslations('Home');
@@ -11,6 +16,7 @@ export default function Home() {
 
   return (
     <div className="bg-background">
+      {/* Hero Section */}
       <div className="relative bg-[url('/background.svg')] bg-cover bg-center bg-no-repeat dark:brightness-90 dark:contrast-110">
         <div
           className="absolute inset-0 z-0 bg-gradient-to-br from-background/70 via-background/60 to-background/70 dark:from-background/80 dark:via-background/70 dark:to-background/80"
@@ -61,6 +67,21 @@ export default function Home() {
           </div>
         </main>
       </div>
+
+      {/* Features Section */}
+      <FeaturesSection />
+
+      {/* Stats Section */}
+      <StatsSection />
+
+      {/* Solutions Section */}
+      <SolutionsSection />
+
+      {/* Partners Section */}
+      <PartnersSection />
+
+      {/* CTA Section */}
+      <CTASection />
     </div>
   );
 }

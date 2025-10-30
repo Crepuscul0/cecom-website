@@ -8,10 +8,10 @@ export function FeaturedPartners() {
   const t = useTranslations('CompanyCredibility');
 
   const featuredPartners = [
-    { name: 'Extreme Networks', logo: '/logos/extreme.png', key: 'extreme' },
+    { name: 'Extreme Networks', logo: '/logos/extreme.svg', key: 'extreme' },
     { name: 'WatchGuard', logo: '/logos/watchguard.svg', key: 'watchguard' },
     { name: 'Vertiv', logo: '/logos/vertiv.svg', key: 'vertiv' },
-    { name: 'Avaya', logo: '/logos/avaya.jpg', key: 'avaya' }
+    { name: 'Avaya', logo: '/logos/avaya.svg', key: 'avaya' }
   ];
 
   return (

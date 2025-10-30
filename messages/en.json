@@ -94,7 +94,65 @@
     "getStarted": "View Catalog",
     "liveDemo": "Our Solutions",
     "productsShowcase": "Featured Products",
-    "exploreProducts": "Explore our complete catalog of technology products from the best brands in the market."
+    "exploreProducts": "Explore our complete catalog of technology products from the best brands in the market.",
+    "features": {
+      "title": "Why Choose CECOM?",
+      "subtitle": "We deliver comprehensive technology solutions tailored to your business needs",
+      "expertSupport": {
+        "title": "Expert Support",
+        "description": "24/7 technical support from certified professionals ready to assist you"
+      },
+      "trustedBrands": {
+        "title": "Trusted Brands",
+        "description": "We partner with industry-leading manufacturers to bring you the best products"
+      },
+      "customSolutions": {
+        "title": "Custom Solutions",
+        "description": "Tailored technology solutions designed specifically for your business requirements"
+      },
+      "fastDelivery": {
+        "title": "Fast Delivery",
+        "description": "Quick and reliable delivery across the Dominican Republic"
+      }
+    },
+    "stats": {
+      "title": "Our Impact",
+      "subtitle": "Numbers that speak for themselves",
+      "yearsExperience": "Years of Experience",
+      "happyClients": "Happy Clients",
+      "projectsCompleted": "Projects Completed",
+      "productsCatalog": "Products in Catalog"
+    },
+    "partners": {
+      "title": "Our Technology Partners",
+      "subtitle": "We work with the world's leading technology brands"
+    },
+    "solutions": {
+      "title": "Complete Technology Solutions",
+      "subtitle": "Everything your business needs in one place",
+      "networking": {
+        "title": "Networking",
+        "description": "Enterprise-grade switches, routers, and wireless solutions"
+      },
+      "security": {
+        "title": "Cybersecurity",
+        "description": "Firewalls, antivirus, and comprehensive security solutions"
+      },
+      "communications": {
+        "title": "Communications",
+        "description": "VoIP systems, video conferencing, and unified communications"
+      },
+      "infrastructure": {
+        "title": "Infrastructure",
+        "description": "Servers, storage, and data center solutions"
+      }
+    },
+    "cta": {
+      "title": "Ready to Transform Your Business?",
+      "subtitle": "Let's discuss how our technology solutions can help you achieve your goals",
+      "contactUs": "Contact Us Today",
+      "viewCatalog": "Browse Our Catalog"
+    }
   },
   "Solutions": {
     "title": "Solutions",

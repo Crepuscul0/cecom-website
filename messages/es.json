@@ -93,7 +93,65 @@
     "getStarted": "Ver Catálogo",
     "liveDemo": "Nuestras Soluciones",
     "productsShowcase": "Productos Destacados",
-    "exploreProducts": "Explora nuestro catálogo completo de productos tecnológicos de las mejores marcas del mercado."
+    "exploreProducts": "Explora nuestro catálogo completo de productos tecnológicos de las mejores marcas del mercado.",
+    "features": {
+      "title": "¿Por Qué Elegir CECOM?",
+      "subtitle": "Entregamos soluciones tecnológicas integrales adaptadas a las necesidades de su negocio",
+      "expertSupport": {
+        "title": "Soporte Experto",
+        "description": "Soporte técnico 24/7 de profesionales certificados listos para asistirle"
+      },
+      "trustedBrands": {
+        "title": "Marcas Confiables",
+        "description": "Nos asociamos con fabricantes líderes de la industria para ofrecerle los mejores productos"
+      },
+      "customSolutions": {
+        "title": "Soluciones Personalizadas",
+        "description": "Soluciones tecnológicas a medida diseñadas específicamente para los requisitos de su negocio"
+      },
+      "fastDelivery": {
+        "title": "Entrega Rápida",
+        "description": "Entrega rápida y confiable en toda la República Dominicana"
+      }
+    },
+    "stats": {
+      "title": "Nuestro Impacto",
+      "subtitle": "Números que hablan por sí mismos",
+      "yearsExperience": "Años de Experiencia",
+      "happyClients": "Clientes Satisfechos",
+      "projectsCompleted": "Proyectos Completados",
+      "productsCatalog": "Productos en Catálogo"
+    },
+    "partners": {
+      "title": "Nuestros Socios Tecnológicos",
+      "subtitle": "Trabajamos con las marcas tecnológicas líderes del mundo"
+    },
+    "solutions": {
+      "title": "Soluciones Tecnológicas Completas",
+      "subtitle": "Todo lo que su negocio necesita en un solo lugar",
+      "networking": {
+        "title": "Redes",
+        "description": "Switches, routers y soluciones inalámbricas de nivel empresarial"
+      },
+      "security": {
+        "title": "Ciberseguridad",
+        "description": "Firewalls, antivirus y soluciones de seguridad integrales"
+      },
+      "communications": {
+        "title": "Comunicaciones",
+        "description": "Sistemas VoIP, videoconferencia y comunicaciones unificadas"
+      },
+      "infrastructure": {
+        "title": "Infraestructura",
+        "description": "Servidores, almacenamiento y soluciones de centro de datos"
+      }
+    },
+    "cta": {
+      "title": "¿Listo para Transformar su Negocio?",
+      "subtitle": "Conversemos sobre cómo nuestras soluciones tecnológicas pueden ayudarle a alcanzar sus objetivos",
+      "contactUs": "Contáctenos Hoy",
+      "viewCatalog": "Ver Nuestro Catálogo"
+    }
   },
   "Solutions": {
     "title": "Soluciones",

@@ -24,7 +24,7 @@
   {
     "id": "avaya",
     "name": "Avaya",
-    "logo": "/logos/avaya.jpg",
+    "logo": "/logos/avaya.svg",
     "website": "https://www.avaya.com",
     "description": {
       "en": "Business communications and collaboration solutions",
@@ -44,11 +44,91 @@
   {
     "id": "extreme",
     "name": "Extreme Networks",
-    "logo": "/logos/extreme.png",
+    "logo": "/logos/extreme.svg",
     "website": "https://www.extremenetworks.com",
     "description": {
       "en": "Enterprise networking solutions including wired and wireless access, fabric, and cloud management.",
       "es": "Soluciones de redes empresariales incluyendo acceso cableado e inalámbrico, fabric y gestión en la nube."
+    }
+  },
+  {
+    "id": "lenovo",
+    "name": "Lenovo",
+    "logo": "/logos/lenovo.svg",
+    "website": "https://www.lenovo.com",
+    "description": {
+      "en": "Personal computers, laptops, and enterprise solutions",
+      "es": "Computadoras personales, laptops y soluciones empresariales"
+    }
+  },
+  {
+    "id": "panduit",
+    "name": "Panduit",
+    "logo": "/logos/panduit.svg",
+    "website": "https://www.panduit.com",
+    "description": {
+      "en": "Network infrastructure and industrial automation solutions",
+      "es": "Infraestructura de red y soluciones de automatización industrial"
+    }
+  },
+  {
+    "id": "vertiv",
+    "name": "Vertiv",
+    "logo": "/logos/vertiv.svg",
+    "website": "https://www.vertiv.com",
+    "description": {
+      "en": "Critical digital infrastructure and continuity solutions",
+      "es": "Infraestructura digital crítica y soluciones de continuidad"
+    }
+  },
+  {
+    "id": "eset",
+    "name": "ESET",
+    "logo": "/logos/eset.svg",
+    "website": "https://www.eset.com",
+    "description": {
+      "en": "Cybersecurity and antivirus solutions",
+      "es": "Soluciones de ciberseguridad y antivirus"
+    }
+  },
+  {
+    "id": "axis",
+    "name": "Axis Communications",
+    "logo": "/logos/axis.svg",
+    "website": "https://www.axis.com",
+    "description": {
+      "en": "Network video and security solutions",
+      "es": "Soluciones de video en red y seguridad"
+    }
+  },
+  {
+    "id": "cambium",
+    "name": "Cambium Networks",
+    "logo": "/logos/cambium.svg",
+    "website": "https://www.cambiumnetworks.com",
+    "description": {
+      "en": "Wireless broadband solutions",
+      "es": "Soluciones de banda ancha inalámbrica"
+    }
+  },
+  {
+    "id": "dahua",
+    "name": "Dahua",
+    "logo": "/logos/dahua.svg",
+    "website": "https://www.dahuasecurity.com",
+    "description": {
+      "en": "Video surveillance and security solutions",
+      "es": "Soluciones de videovigilancia y seguridad"
+    }
+  },
+  {
+    "id": "weboost",
+    "name": "weBoost",
+    "logo": "/logos/weboost.svg",
+    "website": "https://www.weboost.com",
+    "description": {
+      "en": "Cell phone signal boosters",
+      "es": "Amplificadores de señal celular"
     }
   }
 ]

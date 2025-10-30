@@ -18,32 +18,32 @@ const alliances = [
   },
   {
     name: 'Avaya',
-    logo: '/logos/avaya.jpg',
+    logo: '/logos/avaya.svg',
     descriptionKey: 'alliances.avaya',
   },
   {
     name: 'Axis',
-    logo: '/logos/axis.png',
+    logo: '/logos/axis.svg',
     descriptionKey: 'alliances.axis',
   },
   {
     name: 'Cambium Networks',
-    logo: '/logos/cambium.png',
+    logo: '/logos/cambium.svg',
     descriptionKey: 'alliances.cambium',
   },
   {
     name: 'Dahua',
-    logo: '/logos/dahua.png',
+    logo: '/logos/dahua.svg',
     descriptionKey: 'alliances.dahua',
   },
   {
     name: 'Eset',
-    logo: '/logos/eset.png',
+    logo: '/logos/eset.svg',
     descriptionKey: 'alliances.eset',
   },
   {
     name: 'Extreme Networks',
-    logo: '/logos/extreme.png',
+    logo: '/logos/extreme.svg',
     descriptionKey: 'alliances.extreme',
   },
   {

@@ -161,7 +161,7 @@ export default function ContactForm() {
             {...register('message')}
             id="message"
             rows={4}
-            className={`block w-full shadow-sm py-3 px-4 placeholder-muted-foreground border rounded-md focus:ring-2 focus:ring-offset-2 transition-colors ${
+            className={`block w-full shadow-sm py-3 px-4 placeholder-muted-foreground bg-background text-foreground border rounded-md focus:ring-2 focus:ring-offset-2 transition-colors ${
               errors.message 
                 ? 'border-red-500 focus:border-red-500 focus:ring-red-500' 
                 : 'border-input focus:ring-primary focus:border-primary'
