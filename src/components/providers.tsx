@@ -8,10 +8,9 @@ export function Providers({ children, messages, locale, timeZone, now }: { child
     <NextIntlClientProvider messages={messages} locale={locale} timeZone={timeZone} now={now}>
       <ThemeProvider 
         attribute="class" 
-        defaultTheme="dark" 
-        enableSystem={false}
+        defaultTheme="system" 
+        enableSystem={true}
         disableTransitionOnChange
-
       >
         {children}
       </ThemeProvider>

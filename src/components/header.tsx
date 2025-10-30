@@ -32,6 +32,7 @@ export default function Header() {
   const router = useRouter();
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   const currentLocale = pathname.split('/')[1] || 'en';
   
@@ -246,7 +247,7 @@ export default function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
             <div className="lg:hidden">
-              <Sheet>
+              <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                 <SheetTrigger asChild>
                   <Button 
                     variant="outline" 
@@ -272,6 +273,7 @@ export default function Header() {
                     <Link 
                       href={`/${currentLocale}`}
                       className="flex items-center"
+                      onClick={() => setMobileMenuOpen(false)}
                     >
                       <img
                         className="h-12 w-auto logo"
@@ -291,6 +293,7 @@ export default function Header() {
                       className="group flex items-center px-4 py-3 text-base font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 border border-transparent hover:border-primary/20"
                       aria-label={t('accessibility.homeLink')}
                       title={t('tooltips.home')}
+                      onClick={() => setMobileMenuOpen(false)}
                     >
                       <div className="flex items-center">
                         <div className="w-2 h-2 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
@@ -303,6 +306,7 @@ export default function Header() {
                       className="group flex items-center px-4 py-3 text-base font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 border border-transparent hover:border-primary/20"
                       aria-label={t('accessibility.solutionsLink')}
                       title={t('tooltips.solutions')}
+                      onClick={() => setMobileMenuOpen(false)}
                     >
                       <div className="flex items-center">
                         <div className="w-2 h-2 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
@@ -315,6 +319,7 @@ export default function Header() {
                       className="group flex items-center px-4 py-3 text-base font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 border border-transparent hover:border-primary/20"
                       aria-label={t('accessibility.alliancesLink')}
                       title={t('tooltips.alliances')}
+                      onClick={() => setMobileMenuOpen(false)}
                     >
                       <div className="flex items-center">
                         <div className="w-2 h-2 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
@@ -327,6 +332,7 @@ export default function Header() {
                       className="group flex items-center px-4 py-3 text-base font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 border border-transparent hover:border-primary/20"
                       aria-label={t('accessibility.blogLink')}
                       title={t('tooltips.blog')}
+                      onClick={() => setMobileMenuOpen(false)}
                     >
                       <div className="flex items-center">
                         <div className="w-2 h-2 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
@@ -339,6 +345,7 @@ export default function Header() {
                       className="group flex items-center px-4 py-3 text-base font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 border border-transparent hover:border-primary/20"
                       aria-label={t('accessibility.aboutUsLink')}
                       title={t('tooltips.aboutUs')}
+                      onClick={() => setMobileMenuOpen(false)}
                     >
                       <div className="flex items-center">
                         <div className="w-2 h-2 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
@@ -351,6 +358,7 @@ export default function Header() {
                       className="group flex items-center px-4 py-3 text-base font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 border border-transparent hover:border-primary/20"
                       aria-label={t('accessibility.contactLink')}
                       title={t('tooltips.contact')}
+                      onClick={() => setMobileMenuOpen(false)}
                     >
                       <div className="flex items-center">
                         <div className="w-2 h-2 bg-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
