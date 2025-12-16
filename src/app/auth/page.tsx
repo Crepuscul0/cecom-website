@@ -5,9 +5,10 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 import { LoginForm } from '@/components/auth/LoginForm'
 import { SignUpForm } from '@/components/auth/SignUpForm'
+import { ForgotPasswordForm } from '@/components/auth/ForgotPasswordForm'
 
 function AuthPageContent() {
-  const [mode, setMode] = useState<'login' | 'signup'>('login')
+  const [mode, setMode] = useState<'login' | 'signup' | 'forgot'>('login')
   const [message, setMessage] = useState('')
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -55,6 +56,11 @@ function AuthPageContent() {
           <LoginForm 
             onSuccess={handleSuccess}
             onToggleMode={() => setMode('signup')}
+            onForgotPassword={() => setMode('forgot')}
+          />
+        ) : mode === 'forgot' ? (
+          <ForgotPasswordForm 
+            onBack={() => setMode('login')}
           />
         ) : (
           <SignUpForm 

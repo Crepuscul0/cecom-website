@@ -927,5 +927,78 @@
         "item6": "Dominican Republic IT Excellence Award 2022"
       }
     }
+  },
+  "Auth": {
+    "login": {
+      "title": "Sign In",
+      "subtitle": "Access the administration panel",
+      "email": "Email Address",
+      "emailPlaceholder": "email@example.com",
+      "password": "Password",
+      "passwordPlaceholder": "••••••••",
+      "forgotPassword": "Forgot your password?",
+      "submitButton": "Sign In",
+      "submitting": "Signing in...",
+      "noAccount": "Don't have an account?",
+      "createAccount": "Create account"
+    },
+    "signup": {
+      "title": "Create Account",
+      "subtitle": "Register to access the platform",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "John",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Doe",
+      "email": "Email Address",
+      "emailPlaceholder": "email@example.com",
+      "password": "Password",
+      "passwordPlaceholder": "Minimum 6 characters",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "submitButton": "Create Account",
+      "submitting": "Creating account...",
+      "haveAccount": "Already have an account?",
+      "signIn": "Sign in"
+    },
+    "forgotPassword": {
+      "title": "Recover Password",
+      "subtitle": "Enter your email address and we'll send you a link to reset your password",
+      "email": "Email Address",
+      "emailPlaceholder": "email@example.com",
+      "submitButton": "Send recovery link",
+      "submitting": "Sending...",
+      "backToLogin": "← Back to sign in",
+      "successTitle": "Email sent!",
+      "successMessage": "Check your inbox and follow the instructions to reset your password."
+    },
+    "resetPassword": {
+      "title": "Reset Password",
+      "subtitle": "Enter your new password",
+      "newPassword": "New Password",
+      "newPasswordPlaceholder": "Minimum 6 characters",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "submitButton": "Update Password",
+      "submitting": "Updating...",
+      "backToLogin": "← Back to sign in",
+      "successTitle": "Password Updated!",
+      "successMessage": "Your password has been successfully updated.",
+      "redirecting": "Redirecting to sign in..."
+    },
+    "errors": {
+      "invalidCredentials": "Invalid credentials. Check your email and password.",
+      "emailNotConfirmed": "Email not confirmed. Contact the system administrator.",
+      "userNotFound": "User not found. Check your email address.",
+      "networkError": "Connection error. Check your internet connection.",
+      "passwordTooShort": "Password must be at least 6 characters",
+      "passwordsDontMatch": "Passwords don't match",
+      "invalidLink": "Invalid or expired recovery link.",
+      "unexpectedError": "Unexpected error occurred"
+    },
+    "messages": {
+      "pendingApproval": "Your account is pending administrator approval.",
+      "accountCreated": "Account created successfully. Awaiting administrator approval.",
+      "sessionExpired": "Your session has expired. Please sign in again."
+    }
   }
 }

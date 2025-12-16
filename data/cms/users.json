@@ -1,8 +1,0 @@
-[
-  {
-    "id": "admin-1",
-    "email": "admin@cecom.com.do",
-    "role": "admin",
-    "hashedPassword": "$2b$10$placeholder.hash.will.be.generated.on.first.login"
-  }
-]

@@ -29,26 +29,62 @@ export function AdminPanelLayout({ children, activeSection }: AdminPanelLayoutPr
 
   useEffect(() => {
     const getUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser()
-      if (user) {
+      try {
+        // Get the current authenticated user
+        const { data: { user }, error: authError } = await supabase.auth.getUser()
+        
+        if (authError) {
+          console.error('Error getting authenticated user:', authError)
+          router.push('/auth?error=auth_failed')
+          return
+        }
+
+        if (!user) {
+          console.log('No authenticated user, redirecting to login')
+          router.push('/auth')
+          return
+        }
+
+        // Set the user in state
         setUser(user)
+        
+        // Get the user's profile
         const profile = await getUserProfile(user.id)
+        
+        if (!profile) {
+          console.warn(`User profile not found for user ID: ${user.id}`)
+          
+          // Sign out the user since their profile is missing
+          await supabase.auth.signOut()
+          
+          // Clear any existing session data
+          await supabase.auth.getSession()
+          
+          // Redirect to login with a specific error message
+          router.push('/auth?error=profile_not_found&message=Your+account+could+not+be+verified')
+          return
+        }
+        
+        // Set the profile in state
         setUserProfile(profile)
         
         // Check if user is approved
-        if (profile && profile.approval_status !== 'approved') {
+        if (profile.approval_status !== 'approved') {
+          console.log(`User not approved, status: ${profile.approval_status}`)
           router.push('/auth?message=pending_approval')
           return
         }
-      } else {
-        router.push('/auth')
+      } catch (error) {
+        console.error('Error in getUser:', error)
+        router.push('/auth?error=unexpected_error')
+      } finally {
+        setLoading(false)
       }
-      setLoading(false)
     }
 
     getUser()
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
       if (event === 'SIGNED_OUT') {
         router.push('/auth')
       }

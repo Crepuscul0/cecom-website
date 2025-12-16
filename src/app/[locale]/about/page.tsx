@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { getPageBySlug, getTeamMembers, getVendors } from '@/lib/payload/api';
+import { getPageBySlug, getTeamMembers } from '@/lib/payload/api';
+import { getVendors } from '@/lib/supabase/api';
 import { RichTextRenderer } from '@/components/about/RichTextRenderer';
 import { TeamMember } from '@/components/about/TeamMember';
 import { VendorGrid } from '@/components/about/VendorGrid';

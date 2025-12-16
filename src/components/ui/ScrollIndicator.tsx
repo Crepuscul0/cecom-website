@@ -5,7 +5,7 @@ import { ChevronDown } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 interface ScrollIndicatorProps {
-  containerRef: React.RefObject<HTMLDivElement>;
+  containerRef: React.RefObject<HTMLDivElement | null>;
   className?: string;
   text?: string;
   variant?: 'default' | 'minimal' | 'arrow-only';

@@ -1,0 +1,10 @@
+---
+# cPanel deployment configuration
+# This file automates the deployment process when using cPanel's Git Version Control
+
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/username/public_html/
+    - /bin/cp -R * $DEPLOYPATH
+    - /bin/cp .env.local $DEPLOYPATH
+    - /bin/cp .htaccess $DEPLOYPATH

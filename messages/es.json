@@ -926,5 +926,78 @@
         "item6": "Premio de Excelencia en TI República Dominicana 2022"
       }
     }
+  },
+  "Auth": {
+    "login": {
+      "title": "Iniciar Sesión",
+      "subtitle": "Accede al panel de administración",
+      "email": "Correo Electrónico",
+      "emailPlaceholder": "correo@ejemplo.com",
+      "password": "Contraseña",
+      "passwordPlaceholder": "••••••••",
+      "forgotPassword": "¿Olvidaste tu contraseña?",
+      "submitButton": "Iniciar Sesión",
+      "submitting": "Iniciando sesión...",
+      "noAccount": "¿No tienes cuenta?",
+      "createAccount": "Crear cuenta"
+    },
+    "signup": {
+      "title": "Crear Cuenta",
+      "subtitle": "Regístrate para acceder a la plataforma",
+      "firstName": "Nombre",
+      "firstNamePlaceholder": "Juan",
+      "lastName": "Apellido",
+      "lastNamePlaceholder": "Pérez",
+      "email": "Correo Electrónico",
+      "emailPlaceholder": "correo@ejemplo.com",
+      "password": "Contraseña",
+      "passwordPlaceholder": "Mínimo 6 caracteres",
+      "confirmPassword": "Confirmar Contraseña",
+      "confirmPasswordPlaceholder": "Confirma tu contraseña",
+      "submitButton": "Crear Cuenta",
+      "submitting": "Creando cuenta...",
+      "haveAccount": "¿Ya tienes cuenta?",
+      "signIn": "Iniciar sesión"
+    },
+    "forgotPassword": {
+      "title": "Recuperar Contraseña",
+      "subtitle": "Ingresa tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña",
+      "email": "Correo Electrónico",
+      "emailPlaceholder": "correo@ejemplo.com",
+      "submitButton": "Enviar enlace de recuperación",
+      "submitting": "Enviando...",
+      "backToLogin": "← Volver al inicio de sesión",
+      "successTitle": "¡Correo enviado!",
+      "successMessage": "Revisa tu bandeja de entrada y sigue las instrucciones para restablecer tu contraseña."
+    },
+    "resetPassword": {
+      "title": "Restablecer Contraseña",
+      "subtitle": "Ingresa tu nueva contraseña",
+      "newPassword": "Nueva Contraseña",
+      "newPasswordPlaceholder": "Mínimo 6 caracteres",
+      "confirmPassword": "Confirmar Contraseña",
+      "confirmPasswordPlaceholder": "Confirma tu contraseña",
+      "submitButton": "Actualizar Contraseña",
+      "submitting": "Actualizando...",
+      "backToLogin": "← Volver al inicio de sesión",
+      "successTitle": "¡Contraseña Actualizada!",
+      "successMessage": "Tu contraseña ha sido actualizada exitosamente.",
+      "redirecting": "Redirigiendo al inicio de sesión..."
+    },
+    "errors": {
+      "invalidCredentials": "Credenciales inválidas. Verifica tu correo y contraseña.",
+      "emailNotConfirmed": "Email no confirmado. Contacta al administrador del sistema.",
+      "userNotFound": "Usuario no encontrado. Verifica tu correo electrónico.",
+      "networkError": "Error de conexión. Verifica tu conexión a internet.",
+      "passwordTooShort": "La contraseña debe tener al menos 6 caracteres",
+      "passwordsDontMatch": "Las contraseñas no coinciden",
+      "invalidLink": "Enlace de recuperación inválido o expirado.",
+      "unexpectedError": "Error inesperado al autenticar"
+    },
+    "messages": {
+      "pendingApproval": "Tu cuenta está pendiente de aprobación por un administrador.",
+      "accountCreated": "Cuenta creada exitosamente. Esperando aprobación del administrador.",
+      "sessionExpired": "Tu sesión ha expirado. Por favor, inicia sesión nuevamente."
+    }
   }
 }

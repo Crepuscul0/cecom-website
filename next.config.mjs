@@ -9,6 +9,7 @@ const withNextIntl = createNextIntlPlugin('./i18n.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
   serverExternalPackages: ['@node-rs/argon2'],
   experimental: {
     optimizeCss: true,
@@ -25,6 +26,7 @@ const nextConfig = {
     return config;
   },
   images: {
+    unoptimized: true, // Disable image optimization for cPanel performance
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],

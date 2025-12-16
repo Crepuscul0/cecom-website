@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getVendors } from '@/lib/payload/api'
+import { getVendors } from '@/lib/supabase/api'
 import { testRSSFeed, isValidRSSUrl } from '@/lib/rss-parser'
 import type { Vendor } from '@/lib/payload/types'
 
@@ -34,7 +34,7 @@ export async function GET(request: NextRequest) {
     
     // Get vendors with RSS URLs
     const vendors = await getVendors()
-    const vendorsWithRSS = vendors.filter((vendor: Vendor) => Boolean(vendor.rssUrl))
+    const vendorsWithRSS = vendors.filter((vendor: any) => Boolean(vendor.rssUrl))
     
     if (vendorsWithRSS.length === 0) {
       return NextResponse.json({ 
@@ -44,8 +44,8 @@ export async function GET(request: NextRequest) {
     }
 
     // If specific vendor requested, filter to that vendor
-    const targetVendors: Vendor[] = vendorId 
-      ? vendorsWithRSS.filter((v: Vendor) => v.id === vendorId)
+    const targetVendors: any[] = vendorId 
+      ? vendorsWithRSS.filter((v: any) => v.id === vendorId)
       : vendorsWithRSS
 
     if (vendorId && targetVendors.length === 0) {

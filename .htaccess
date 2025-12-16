@@ -1,0 +1,21 @@
+# .htaccess for Next.js on cPanel
+# This file redirects all requests to the Node.js application
+
+# Prevent directory listing
+Options -Indexes
+
+# Enable rewrite engine
+RewriteEngine On
+
+# Redirect all requests to the Node.js app
+# Replace 'localhost:3000' with your actual Node.js app URL from cPanel
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ http://localhost:3000/$1 [P,L]
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>

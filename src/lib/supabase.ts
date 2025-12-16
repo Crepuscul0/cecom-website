@@ -11,9 +11,30 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: {
     autoRefreshToken: true,
     persistSession: true,
-    detectSessionInUrl: false
+    detectSessionInUrl: true, // Enable to detect password reset tokens
+    storage: typeof window !== 'undefined' ? window.localStorage : undefined,
+    storageKey: 'cecom-auth-token',
+    flowType: 'pkce'
   }
 });
+
+// Handle auth state changes and clear invalid tokens
+if (typeof window !== 'undefined') {
+  supabase.auth.onAuthStateChange((event, session) => {
+    if (event === 'TOKEN_REFRESHED') {
+      console.log('Token refreshed successfully');
+    }
+    
+    if (event === 'SIGNED_OUT') {
+      console.log('User signed out');
+    }
+    
+    // Clear invalid refresh tokens
+    if (event === 'USER_UPDATED' && !session) {
+      localStorage.removeItem('cecom-auth-token');
+    }
+  });
+}
 
 export type UserRole = 'admin' | 'employee' | 'user';
 
@@ -90,24 +111,94 @@ export const signOut = async () => {
   return await supabase.auth.signOut();
 };
 
+export const resetPassword = async (email: string) => {
+  const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: `${window.location.origin}/auth/reset-password`,
+  });
+  
+  return { data, error };
+};
+
 export const getCurrentUser = async () => {
   const { data: { user } } = await supabase.auth.getUser();
   return user;
 };
 
+/**
+ * Fetches a user profile from the database
+ * @param userId The ID of the user to fetch
+ * @returns UserProfile if found, null otherwise
+ */
 export const getUserProfile = async (userId: string): Promise<UserProfile | null> => {
-  const { data, error } = await supabase
-    .from('user_profiles')
-    .select('*')
-    .eq('id', userId)
-    .single();
-  
-  if (error) {
-    console.error('Error fetching user profile:', error);
+  if (!userId) {
+    console.error('❌ No user ID provided to getUserProfile');
     return null;
   }
-  
-  return data;
+
+  try {
+    console.log(`🔍 Fetching user profile for ID: ${userId}`);
+    
+    // Create a promise that rejects after a timeout
+    const timeoutPromise = new Promise((_, reject) => {
+      setTimeout(() => {
+        reject(new Error('Request timed out after 10 seconds'));
+      }, 10000);
+    });
+
+    // Create the Supabase query promise
+    const queryPromise = supabase
+      .from('user_profiles')
+      .select('*')
+      .eq('id', userId)
+      .single();
+
+    // Race the query against the timeout
+    const { data, error } = await Promise.race([
+      queryPromise,
+      timeoutPromise.then(() => ({ data: null, error: { code: 'TIMEOUT', message: 'Request timed out' } }))
+    ]);
+    
+    if (error) {
+      // Handle specific error cases
+      switch (error.code) {
+        case '42P01': // Table doesn't exist
+          console.error('❌ The user_profiles table does not exist. Please run your database migrations.');
+          break;
+          
+        case '42501': // Permission denied
+          console.error('🔒 Permission denied when accessing user_profiles table. Check RLS policies.');
+          break;
+          
+        case 'PGRST116': // Not found
+          console.warn(`ℹ️ User profile not found for ID: ${userId}`);
+          break;
+          
+        case 'ABORT_ERR':
+          console.error('⏱️ Request timed out while fetching user profile');
+          break;
+          
+        default:
+          console.error('❌ Error fetching user profile:', {
+            code: error.code,
+            message: error.message,
+            details: error.details,
+            hint: error.hint
+          });
+      }
+      return null;
+    }
+    
+    if (!data) {
+      console.warn(`ℹ️ No data returned for user ID: ${userId}`);
+      return null;
+    }
+    
+    console.log(`✅ Successfully retrieved profile for user: ${data.email || userId}`);
+    return data;
+  } catch (error) {
+    console.error('Unexpected error in getUserProfile:', error);
+    return null;
+  }
 };
 
 export const hasPermission = (userRole: UserRole, requiredRoles: UserRole[]): boolean => {

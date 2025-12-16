@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './[locale]/globals.css';
 import { Analytics } from '@/components/Analytics';
 import { WebVitals } from '@/components/performance/WebVitals';
+import { AuthErrorBoundary } from '@/components/auth/AuthErrorBoundary';
 
 export const metadata: Metadata = {
   title: {
@@ -100,7 +101,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
-        {children}
+        <AuthErrorBoundary>
+          {children}
+        </AuthErrorBoundary>
         <WebVitals />
       </body>
     </html>

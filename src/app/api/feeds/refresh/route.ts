@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getVendors } from '@/lib/payload/api'
+import { getVendors } from '@/lib/supabase/api'
 import type { Vendor } from '@/lib/payload/types'
 import { parseRSSFeedToArticles, ParsedArticle } from '@/lib/rss-parser'
 import fs from 'fs'
@@ -89,7 +89,7 @@ export async function POST(request: NextRequest) {
     
     // Get vendors with RSS URLs
     const vendors = await getVendors()
-    const vendorsWithRSS = vendors.filter((vendor: Vendor) => Boolean(vendor.rssUrl))
+    const vendorsWithRSS = vendors.filter((vendor: any) => Boolean(vendor.rssUrl))
     
     if (vendorsWithRSS.length === 0) {
       return NextResponse.json({ 
@@ -99,8 +99,8 @@ export async function POST(request: NextRequest) {
     }
 
     // If specific vendor requested, filter to that vendor
-    const targetVendors: Vendor[] = vendorId 
-      ? vendorsWithRSS.filter((v: Vendor) => v.id === vendorId)
+    const targetVendors: any[] = vendorId 
+      ? vendorsWithRSS.filter((v: any) => v.id === vendorId)
       : vendorsWithRSS
 
     if (vendorId && targetVendors.length === 0) {
@@ -183,7 +183,7 @@ export async function GET(request: NextRequest) {
       : null
 
     const vendors = await getVendors()
-    const vendorsWithRSS = vendors.filter((vendor: Vendor) => Boolean(vendor.rssUrl))
+    const vendorsWithRSS = vendors.filter((vendor: any) => Boolean(vendor.rssUrl))
 
     return NextResponse.json({
       success: true,
@@ -191,7 +191,7 @@ export async function GET(request: NextRequest) {
         totalArticles: existingArticles.length,
         lastRefresh: lastRefresh ? new Date(lastRefresh).toISOString() : null,
         vendorsWithRSS: vendorsWithRSS.length,
-        vendors: vendorsWithRSS.map((v: Vendor) => ({
+        vendors: vendorsWithRSS.map((v: any) => ({
           id: v.id,
           name: v.name,
           rssUrl: v.rssUrl
