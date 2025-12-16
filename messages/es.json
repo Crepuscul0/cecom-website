@@ -208,7 +208,7 @@
   },
   "AboutUs": {
     "title": "Nosotros",
-    "description": "CECOM, S.A.S. es una empresa ubicada en Santo Domingo, República Dominicana, que opera en los campos de reparación de computadoras y servicios de tecnología de la información. Llevamos más de 20 años en el negocio y nos dedicamos a brindar las mejores soluciones para su negocio.",
+    "description": "Fundados el 24 de marzo de 1972 como CECOM Procesamiento de Datos C. por A., fuimos pioneros en la enseñanza de procesamiento de datos en República Dominicana. Hoy, como CECOM S.A.S., combinamos décadas de experiencia en centros de servicio con tecnología empresarial moderna para acompañar la modernización de organizaciones con confianza.",
     "contactUs": "Contáctenos",
     "ourTeam": "Nuestro Equipo",
     "ourPartners": "Nuestros Socios",
@@ -219,29 +219,29 @@
     "learnMore": "Conoce más sobre nuestra empresa, nuestro equipo y nuestros valores.",
     "mission": {
       "title": "Nuestra Misión",
-      "description": "En CECOM, nos dedicamos a proporcionar soluciones tecnológicas innovadoras y servicios de calidad superior que impulsen el crecimiento y la eficiencia de nuestros clientes. Nuestra misión es ser el socio tecnológico de confianza que transforma los desafíos empresariales en oportunidades de éxito."
+      "description": "Proveer soluciones dirigidas a satisfacer las necesidades del mercado, incorporando de manera permanente innovaciones tecnológicas a nuestros procesos que nos permitan estar a la vanguardia."
     },
     "vision": {
       "title": "Nuestra Visión",
-      "description": "Ser reconocidos como la empresa líder en soluciones de tecnología de la información en la República Dominicana, destacándonos por nuestra excelencia en el servicio, innovación constante y compromiso con el desarrollo tecnológico de nuestros clientes y la comunidad."
+      "description": "Ser una empresa líder en la integración de soluciones tecnológicas, manteniendo una alta fortaleza técnica y empresarial, con un constante crecimiento que proporcione innovación y calidad de servicio a nuestros clientes."
     },
     "values": {
       "title": "Nuestros Valores",
-      "excellence": {
-        "title": "Excelencia",
-        "description": "Nos esforzamos por superar las expectativas en cada proyecto."
+      "loyalty": {
+        "title": "Lealtad",
+        "description": "Honramos la confianza de nuestros clientes con relaciones de largo plazo y apoyo constante."
       },
-      "innovation": {
-        "title": "Innovación",
-        "description": "Adoptamos las últimas tecnologías para ofrecer soluciones vanguardistas."
-      },
-      "integrity": {
-        "title": "Integridad",
-        "description": "Actuamos con honestidad y transparencia en todas nuestras relaciones."
+      "honesty": {
+        "title": "Honestidad",
+        "description": "Actuamos con transparencia y ética firme en cada decisión."
       },
       "commitment": {
         "title": "Compromiso",
-        "description": "Nos dedicamos completamente al éxito de nuestros clientes."
+        "description": "Nos entregamos a cada proyecto como si fuera propio, asegurando resultados que generan valor."
+      },
+      "sustainability": {
+        "title": "Sustentabilidad",
+        "description": "Impulsamos el crecimiento sostenible de nuestros clientes, equipo y comunidad mediante innovación responsable."
       }
     }
   },
@@ -880,7 +880,7 @@
   "CompanyCredibility": {
     "history": {
       "title": "Nuestra Historia",
-      "description": "Desde 2004, CECOM ha estado a la vanguardia de las soluciones tecnológicas en la República Dominicana. Lo que comenzó como un pequeño servicio de reparación de computadoras ha evolucionado hasta convertirse en un proveedor integral de soluciones de TI, sirviendo a empresas de diversas industrias con tecnología de vanguardia y experiencia incomparable."
+      "description": "El 24 de marzo de 1972 abrimos nuestras puertas como CECOM Procesamiento de Datos C. por A., formando a las primeras generaciones de programadores y analistas en la República Dominicana. Con el tiempo evolucionamos a CECOM S.A.S., pioneros en centros de servicio, plataformas empresariales y soluciones tecnológicas integradas que mantienen a las organizaciones en la vanguardia."
     },
     "stats": {
       "yearsExperience": "Años de Experiencia",
@@ -892,21 +892,25 @@
       "title": "Hitos Clave",
       "description": "Logros importantes que han moldeado nuestro camino y fortalecido nuestra posición como líder tecnológico.",
       "milestones": {
-        "founded": {
-          "title": "Fundación de la Empresa",
-          "description": "CECOM fue establecida en Santo Domingo, comenzando con reparación de computadoras y servicios básicos de TI."
+        "founding": {
+          "title": "Pioneros en Procesamiento de Datos",
+          "description": "Iniciamos operaciones en 1972 ofreciendo formación y servicios en lenguajes de programación como RPG, posicionándonos como pioneros en la industria."
         },
-        "firstExpansion": {
-          "title": "Expansión de Servicios",
-          "description": "Se expandió hacia infraestructura de redes y soluciones empresariales, sirviendo a medianas y grandes empresas."
+        "serviceBureau": {
+          "title": "Transición a Centro de Servicio",
+          "description": "En 1973 nos convertimos en uno de los primeros centros de servicio del país, procesando información crítica para grandes organizaciones."
         },
-        "majorContract": {
-          "title": "Alianza Gubernamental",
-          "description": "Aseguró contratos importantes con instituciones gubernamentales, estableciendo credibilidad en el sector público."
+        "maiDistribution": {
+          "title": "Alianza con MAI Basic Four",
+          "description": "A finales de los años 70 nos unimos a Mai System Corp. como distribuidores de los sistemas MAI Basic Four, ampliando nuestro alcance empresarial."
         },
-        "modernization": {
-          "title": "Transformación Digital",
-          "description": "Adoptó tecnologías en la nube y soluciones de TI modernas, convirtiéndose en líder en servicios de transformación digital."
+        "businessServices": {
+          "title": "Expansión de Servicios Empresariales",
+          "description": "Durante la década de 1980 fortalecimos nuestro portafolio corporativo, integrando tecnología y consultoría especializada."
+        },
+        "networkServices": {
+          "title": "Redes e Infraestructura",
+          "description": "Desde 1996 lideramos transformaciones en redes, almacenamiento y servicios gestionados para respaldar a organizaciones modernas."
         }
       }
     },

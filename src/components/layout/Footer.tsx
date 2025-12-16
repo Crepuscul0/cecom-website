@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
-import { Instagram, Facebook, Twitter } from "lucide-react";
+import { Instagram, Facebook } from "lucide-react";
 
 export function Footer() {
   const locale = useLocale() as "en" | "es";
@@ -60,7 +60,7 @@ export function Footer() {
             </h3>
             <div className="flex items-center gap-4">
               <a
-                href="#"
+                href="https://www.instagram.com/cecom_sas?igsh=b3oybHBwNWY5NXpq"
                 aria-label={tFooter("social.instagram")}
                 className="p-2 rounded-md border border-transparent hover:border-primary/30 hover:bg-accent/40 transition-colors"
                 target="_blank"
@@ -69,22 +69,13 @@ export function Footer() {
                 <Instagram className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/share/1A8pWFDibS/"
                 aria-label={tFooter("social.facebook")}
                 className="p-2 rounded-md border border-transparent hover:border-primary/30 hover:bg-accent/40 transition-colors"
                 target="_blank"
                 rel="noreferrer noopener"
               >
                 <Facebook className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                aria-label={tFooter("social.x")}
-                className="p-2 rounded-md border border-transparent hover:border-primary/30 hover:bg-accent/40 transition-colors"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                <Twitter className="h-5 w-5" />
               </a>
             </div>
           </div>

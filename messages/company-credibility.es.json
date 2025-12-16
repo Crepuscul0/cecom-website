@@ -2,7 +2,7 @@
   "CompanyCredibility": {
     "history": {
       "title": "Nuestra Historia",
-      "description": "Desde 2004, CECOM ha estado a la vanguardia de las soluciones tecnológicas en la República Dominicana. Lo que comenzó como un pequeño servicio de reparación de computadoras ha evolucionado hasta convertirse en un proveedor integral de soluciones de TI, sirviendo a empresas de diversas industrias con tecnología de vanguardia y experiencia incomparable."
+      "description": "El 24 de marzo de 1972 abrimos nuestras puertas como CECOM Procesamiento de Datos C. por A., formando a las primeras generaciones de programadores y analistas en la República Dominicana. Con el tiempo evolucionamos a CECOM S.A.S., pioneros en centros de servicio, plataformas empresariales y soluciones tecnológicas integradas que mantienen a las organizaciones en la vanguardia."
     },
     "stats": {
       "yearsExperience": "Años de Experiencia",
@@ -14,21 +14,25 @@
       "title": "Hitos Clave",
       "description": "Logros importantes que han moldeado nuestro camino y fortalecido nuestra posición como líder tecnológico.",
       "milestones": {
-        "founded": {
-          "title": "Fundación de la Empresa",
-          "description": "CECOM fue establecida en Santo Domingo, comenzando con reparación de computadoras y servicios básicos de TI."
+        "founding": {
+          "title": "Pioneros en Procesamiento de Datos",
+          "description": "Iniciamos operaciones en 1972 ofreciendo formación y servicios en lenguajes de programación como RPG, posicionándonos como pioneros en la industria."
         },
-        "firstExpansion": {
-          "title": "Expansión de Servicios",
-          "description": "Se expandió hacia infraestructura de redes y soluciones empresariales, sirviendo a medianas y grandes empresas."
+        "serviceBureau": {
+          "title": "Transición a Centro de Servicio",
+          "description": "En 1973 nos convertimos en uno de los primeros centros de servicio del país, procesando información crítica para grandes organizaciones."
         },
-        "majorContract": {
-          "title": "Alianza Gubernamental",
-          "description": "Aseguró contratos importantes con instituciones gubernamentales, estableciendo credibilidad en el sector público."
+        "maiDistribution": {
+          "title": "Alianza con MAI Basic Four",
+          "description": "A finales de los años 70 nos unimos a Mai System Corp. como distribuidores de los sistemas MAI Basic Four, ampliando nuestro alcance empresarial."
         },
-        "modernization": {
-          "title": "Transformación Digital",
-          "description": "Adoptó tecnologías en la nube y soluciones de TI modernas, convirtiéndose en líder en servicios de transformación digital."
+        "businessServices": {
+          "title": "Expansión de Servicios Empresariales",
+          "description": "Durante la década de 1980 fortalecimos nuestro portafolio corporativo, integrando tecnología y consultoría especializada."
+        },
+        "networkServices": {
+          "title": "Redes e Infraestructura",
+          "description": "Desde 1996 lideramos transformaciones en redes, almacenamiento y servicios gestionados para respaldar a organizaciones modernas."
         }
       }
     },

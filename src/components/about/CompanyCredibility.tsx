@@ -13,45 +13,49 @@ export function CompanyCredibility() {
     {
       key: 'yearsExperience',
       icon: Calendar,
-      value: '20+',
+      value: '50+',
       suffix: ''
     },
     {
       key: 'successfulProjects',
       icon: Trophy,
-      value: '500+',
+      value: '1,000+',
       suffix: ''
     },
     {
       key: 'satisfiedClients',
       icon: Users,
-      value: '200+',
+      value: '300+',
       suffix: ''
     },
     {
       key: 'certifications',
       icon: Star,
-      value: '15+',
+      value: '25+',
       suffix: ''
     }
   ];
 
   const milestones = [
     {
-      key: 'founded',
-      year: '2004'
+      key: 'founding',
+      year: '1972'
     },
     {
-      key: 'firstExpansion',
-      year: '2010'
+      key: 'serviceBureau',
+      year: '1973'
     },
     {
-      key: 'majorContract',
-      year: '2015'
+      key: 'maiDistribution',
+      year: 'Late 1970s'
     },
     {
-      key: 'modernization',
-      year: '2020'
+      key: 'businessServices',
+      year: '1980s'
+    },
+    {
+      key: 'networkServices',
+      year: '1996'
     }
   ];
 

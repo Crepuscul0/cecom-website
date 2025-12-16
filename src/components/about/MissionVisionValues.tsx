@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { Target, Eye, Heart, Award, Lightbulb, Shield, Users } from 'lucide-react';
+import { Target, Eye, Heart, Handshake, Scale, HeartHandshake, Leaf } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export function MissionVisionValues() {
@@ -9,28 +9,28 @@ export function MissionVisionValues() {
 
   const values = [
     {
-      key: 'excellence',
-      icon: Award,
+      key: 'loyalty',
+      icon: Handshake,
       color: 'from-blue-500 to-blue-600',
       shadowColor: 'shadow-blue-500/25'
     },
     {
-      key: 'innovation',
-      icon: Lightbulb,
+      key: 'honesty',
+      icon: Scale,
       color: 'from-yellow-500 to-orange-500',
       shadowColor: 'shadow-yellow-500/25'
     },
     {
-      key: 'integrity',
-      icon: Shield,
-      color: 'from-green-500 to-green-600',
-      shadowColor: 'shadow-green-500/25'
-    },
-    {
       key: 'commitment',
-      icon: Users,
+      icon: HeartHandshake,
       color: 'from-purple-500 to-purple-600',
       shadowColor: 'shadow-purple-500/25'
+    },
+    {
+      key: 'sustainability',
+      icon: Leaf,
+      color: 'from-green-500 to-green-600',
+      shadowColor: 'shadow-green-500/25'
     }
   ];
 
