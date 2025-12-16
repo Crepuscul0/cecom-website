@@ -1,7 +1,7 @@
-import { Product } from '@/lib/supabase-blog';
+import { CatalogProduct } from '@/lib/supabase/api';
 
 interface ProductSchemaProps {
-  product: Product;
+  product: CatalogProduct;
   locale: string;
 }
 
@@ -10,18 +10,18 @@ export function ProductSchema({ product, locale }: ProductSchemaProps) {
     "@context": "https://schema.org/",
     "@type": "Product",
     "name": product.name,
-    "description": product.description || `${product.name} - ${product.brand}`,
+    "description": product.description || `${product.name} - ${product.brand ?? product.vendor?.name ?? ''}`,
     "brand": {
       "@type": "Brand",
-      "name": product.brand
+      "name": product.brand ?? product.vendor?.name ?? 'CECOM'
     },
-    "model": product.model,
-    "category": product.category,
-    "image": product.image_url || product.external_image_url,
-    "offers": product.price ? {
+    "model": product.model ?? undefined,
+    "category": product.category?.name,
+    "image": product.image?.url,
+    "offers": product.price != null ? {
       "@type": "Offer",
       "price": product.price,
-      "priceCurrency": product.currency || "DOP",
+      "priceCurrency": product.currency || 'DOP',
       "availability": "https://schema.org/InStock",
       "seller": {
         "@type": "Organization",
@@ -31,7 +31,7 @@ export function ProductSchema({ product, locale }: ProductSchemaProps) {
     } : undefined,
     "manufacturer": {
       "@type": "Organization",
-      "name": product.brand
+      "name": product.brand ?? product.vendor?.name ?? 'CECOM'
     },
     "aggregateRating": {
       "@type": "AggregateRating",

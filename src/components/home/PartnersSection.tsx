@@ -35,9 +35,9 @@ export default function PartnersSection() {
           {partners.map((partner, index) => (
             <div
               key={index}
-              className="flex items-center justify-center p-4 bg-background rounded-lg border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-md group"
+              className="flex items-center justify-center p-4 bg-background rounded-lg border border-border transition-all duration-300"
             >
-              <div className="relative w-full h-16 grayscale group-hover:grayscale-0 dark:brightness-0 dark:invert dark:group-hover:brightness-100 dark:group-hover:invert-0 transition-all duration-300">
+              <div className="relative w-full h-16 grayscale dark:brightness-0 dark:invert">
                 <Image
                   src={partner.logo}
                   alt={`${partner.name} logo`}

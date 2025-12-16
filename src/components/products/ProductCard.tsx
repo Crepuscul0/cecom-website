@@ -1,17 +1,20 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Product } from '@/lib/supabase-blog';
+import { CatalogProduct } from '@/lib/supabase/api';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
 interface ProductCardProps {
-  product: Product;
+  product: CatalogProduct;
   locale: 'es' | 'en';
 }
 
 export function ProductCard({ product, locale }: ProductCardProps) {
   const isSpanish = locale === 'es';
+  const brandLabel = product.brand || product.vendor?.name;
+  const categoryLabel = product.category?.name;
+  const imageSrc = product.image?.url;
 
   return (
     <Card className="relative h-full flex flex-col hover:shadow-lg transition-shadow cursor-pointer group">
@@ -23,9 +26,9 @@ export function ProductCard({ product, locale }: ProductCardProps) {
       />
       <CardHeader className="p-4">
         <div className="aspect-square relative bg-muted rounded-lg overflow-hidden mb-3">
-          {(product.image_url || product.external_image_url) ? (
+          {imageSrc ? (
             <Image
-              src={product.image_url || product.external_image_url || ''}
+              src={imageSrc}
               alt={product.name}
               fill
               className="object-contain p-2"
@@ -52,12 +55,16 @@ export function ProductCard({ product, locale }: ProductCardProps) {
           </h3>
           
           <div className="flex flex-wrap gap-1">
-            <Badge variant="secondary" className="text-xs">
-              {product.brand}
-            </Badge>
-            <Badge variant="outline" className="text-xs">
-              {product.category}
-            </Badge>
+            {brandLabel && (
+              <Badge variant="secondary" className="text-xs">
+                {brandLabel}
+              </Badge>
+            )}
+            {categoryLabel && (
+              <Badge variant="outline" className="text-xs">
+                {categoryLabel}
+              </Badge>
+            )}
           </div>
         </div>
       </CardHeader>
@@ -69,7 +76,7 @@ export function ProductCard({ product, locale }: ProductCardProps) {
           </p>
         )}
 
-        {product.price && (
+        {product.price != null && (
           <div className="mb-4">
             <span className="text-lg font-bold text-primary">
               {product.currency || 'DOP'} ${product.price.toLocaleString()}

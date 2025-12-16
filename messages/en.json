@@ -90,7 +90,7 @@
   "Home": {
     "title": "Cutting-Edge",
     "welcome": "Technology Solutions",
-    "description": "Discover our wide range of technology products: from network equipment and servers to storage and energy solutions. Everything you need to power your business.",
+    "description": "Founded on March 24, 1972 as CECOM Procesamiento de Datos C. por A., we pioneered data processing education in the Dominican Republic. Today as CECOM S.A.S. we combine decades of service-bureau experience with modern enterprise technology, helping organizations modernize their operations with trusted expertise.",
     "getStarted": "View Catalog",
     "liveDemo": "Our Solutions",
     "productsShowcase": "Featured Products",
@@ -119,6 +119,9 @@
       "title": "Our Impact",
       "subtitle": "Numbers that speak for themselves",
       "yearsExperience": "Years of Experience",
+      "successfulProjects": "Successful Projects",
+      "satisfiedClients": "Satisfied Clients",
+      "certifications": "Industry Certifications",
       "happyClients": "Happy Clients",
       "projectsCompleted": "Projects Completed",
       "productsCatalog": "Products in Catalog"
@@ -923,12 +926,12 @@
       "viewMore": "View More",
       "showLess": "Show Less",
       "items": {
-        "item1": "ISO 9001:2015 Quality Management Certification",
-        "item2": "Microsoft Gold Partner Status",
-        "item3": "Cisco Certified Partner",
-        "item4": "VMware Authorized Partner",
-        "item5": "HP Enterprise Preferred Partner",
-        "item6": "Dominican Republic IT Excellence Award 2022"
+        "item1": "WatchGuardOne Partner Gold",
+        "item2": "Extreme Networks Gold Partner",
+        "item3": "Avaya Professional Sales",
+        "item4": "Vertiv Diamond Partner",
+        "item5": "3CX Advanced",
+        "item6": "Panduit Silver Partner"
       }
     }
   },

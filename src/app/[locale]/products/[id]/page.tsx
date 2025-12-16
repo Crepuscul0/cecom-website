@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
-import { getProduct } from '@/lib/supabase-blog';
+import { getProductById } from '@/lib/supabase/api';
 import { ProductSchema } from '@/components/seo/ProductSchema';
 import { BreadcrumbSchema } from '@/components/seo/BreadcrumbSchema';
 import { trackProductEvent } from '@/lib/analytics';
@@ -17,7 +17,7 @@ interface ProductPageProps {
 
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
   const { locale, id } = await params;
-  const product = await getProduct(id);
+  const product = await getProductById(id, locale as 'es' | 'en');
   
   if (!product) {
     return {
@@ -28,15 +28,15 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 
   return {
     title: `${product.name} | CECOM - Soluciones Tecnológicas`,
-    description: product.description || `${product.name} - ${product.brand}`,
-    keywords: `${product.name}, ${product.brand}, ${product.category}, equipos de red, tecnología empresarial`,
+    description: product.description || `${product.name} - ${product.brand ?? product.vendor?.name ?? ''}`,
+    keywords: `${product.name}, ${product.brand ?? product.vendor?.name ?? ''}, ${product.category?.name ?? ''}, equipos de red, tecnología empresarial`,
     openGraph: {
       title: `${product.name} | CECOM`,
-      description: product.description || `${product.name} - ${product.brand}`,
+      description: product.description || `${product.name} - ${product.brand ?? product.vendor?.name ?? ''}`,
       type: 'website',
       locale: locale,
-      images: product.image_url || product.external_image_url ? [{
-        url: product.image_url || product.external_image_url || '',
+      images: product.image?.url ? [{
+        url: product.image.url,
         width: 800,
         height: 600,
         alt: product.name,
@@ -54,9 +54,9 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 
 export default async function ProductPage({ params }: ProductPageProps) {
   const { locale, id } = await params;
-  const product = await getProduct(id);
+  const product = await getProductById(id, locale as 'es' | 'en');
   const t = await getTranslations({ locale, namespace: 'Products' });
-  
+
   if (!product) {
     notFound();
   }
@@ -106,9 +106,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
             {/* Product Image */}
             <div className="space-y-4">
               <div className="aspect-square relative bg-muted rounded-lg overflow-hidden">
-                {(product.image_url || product.external_image_url) ? (
+                {product.image?.url ? (
                   <Image
-                    src={product.image_url || product.external_image_url || ''}
+                    src={product.image.url}
                     alt={product.name}
                     fill
                     className="object-contain p-4"
@@ -130,8 +130,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   {product.name}
                 </h1>
                 <div className="flex items-center gap-2 mb-4">
-                  <Badge variant="secondary">{product.brand}</Badge>
-                  <Badge variant="outline">{product.category}</Badge>
+                  {(product.brand || product.vendor?.name) && (
+                    <Badge variant="secondary">{product.brand || product.vendor?.name}</Badge>
+                  )}
+                  {product.category && (
+                    <Badge variant="outline">{product.category.name}</Badge>
+                  )}
                   {product.model && <Badge variant="outline">{product.model}</Badge>}
                 </div>
               </div>
@@ -168,7 +172,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   {t('requestQuote')}
                 </Button>
                 
-                {product.datasheet_url && (
+                {product.datasheet?.url && (
                   <Button 
                     variant="outline" 
                     size="lg" 
@@ -176,7 +180,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     asChild
                     onClick={() => trackProductEvent('download', product.id, product.name)}
                   >
-                    <Link href={product.datasheet_url} target="_blank">
+                    <Link href={product.datasheet.url} target="_blank">
                       {t('downloadDatasheet')}
                     </Link>
                   </Button>

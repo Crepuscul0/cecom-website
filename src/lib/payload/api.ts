@@ -268,12 +268,15 @@ export const getTeamMembers = async (locale: 'en' | 'es' = 'en') => {
   return [
     {
       id: 'team-1',
-      name: 'Carlos Rodríguez',
-      position: locale === 'es' ? 'Director General' : 'General Manager',
+      name: 'Andrés Campos',
+      position: locale === 'es' ? 'Director Ejecutivo' : 'Chief Executive Officer',
       bio: locale === 'es' 
-        ? 'Con más de 15 años de experiencia en tecnología empresarial, Carlos lidera nuestra visión estratégica y el crecimiento de la empresa.'
-        : 'With over 15 years of experience in enterprise technology, Carlos leads our strategic vision and company growth.',
-      image: undefined,
+        ? 'Con más de 30 años de experiencia liderando organizaciones tecnológicas, Andrés impulsa la visión estratégica de CECOM y fortalece nuestras relaciones con socios globales.'
+        : 'With over 30 years of experience leading technology organizations, Andrés drives CECOM’s strategic vision and strengthens our relationships with global partners.',
+      image: {
+        url: '/team/ac.jpeg',
+        alt: 'Andrés Campos'
+      },
       order: 1,
       active: true,
       createdAt: new Date().toISOString(),
@@ -281,11 +284,11 @@ export const getTeamMembers = async (locale: 'en' | 'es' = 'en') => {
     },
     {
       id: 'team-2',
-      name: 'María González',
-      position: locale === 'es' ? 'Directora Técnica' : 'Technical Director',
+      name: 'Francisco Rodríguez',
+      position: locale === 'es' ? 'Director' : 'Director',
       bio: locale === 'es'
-        ? 'Especialista en infraestructura de redes y ciberseguridad, María supervisa la implementación técnica de todos nuestros proyectos.'
-        : 'Specialist in network infrastructure and cybersecurity, María oversees the technical implementation of all our projects.',
+        ? 'Con más de 20 años de experiencia en TI, Francisco lidera nuestras operaciones para garantizar proyectos eficientes y clientes satisfechos.'
+        : 'With more than 20 years in IT, Francisco guides our operations to deliver efficient projects and satisfied clients.',
       image: undefined,
       order: 2,
       active: true,
@@ -294,12 +297,15 @@ export const getTeamMembers = async (locale: 'en' | 'es' = 'en') => {
     },
     {
       id: 'team-3',
-      name: 'Luis Martínez',
+      name: 'Bolívar Castillo',
       position: locale === 'es' ? 'Gerente de Ventas' : 'Sales Manager',
       bio: locale === 'es'
-        ? 'Experto en soluciones empresariales, Luis ayuda a nuestros clientes a encontrar las mejores opciones tecnológicas para sus necesidades.'
-        : 'Expert in enterprise solutions, Luis helps our clients find the best technology options for their needs.',
-      image: undefined,
+        ? 'Experto en soluciones empresariales, Bolívar ayuda a nuestros clientes a encontrar las mejores opciones tecnológicas para sus necesidades.'
+        : 'Expert in enterprise solutions, Bolívar helps our clients find the best technology options for their needs.',
+      image: {
+        url: '/team/bc.jpg',
+        alt: 'Bolívar Castillo'
+      },
       order: 3,
       active: true,
       createdAt: new Date().toISOString(),

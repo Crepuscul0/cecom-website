@@ -177,13 +177,18 @@ export const getUserProfile = async (userId: string): Promise<UserProfile | null
           console.error('⏱️ Request timed out while fetching user profile');
           break;
           
-        default:
+        default: {
+          const details = 'details' in error ? error.details : undefined;
+          const hint = 'hint' in error ? error.hint : undefined;
+
           console.error('❌ Error fetching user profile:', {
             code: error.code,
             message: error.message,
-            details: error.details,
-            hint: error.hint
+            ...(details ? { details } : {}),
+            ...(hint ? { hint } : {})
           });
+          break;
+        }
       }
       return null;
     }

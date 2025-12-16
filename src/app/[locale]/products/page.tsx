@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import { getProducts } from '@/lib/supabase-blog';
+import { getProducts as fetchProducts } from '@/lib/supabase/api';
 import { ProductCard } from '@/components/products/ProductCard';
 import { ProductFilters } from '@/components/products/ProductFilters';
 
@@ -39,11 +39,7 @@ export default async function ProductsPage({ params, searchParams }: ProductsPag
   const t = await getTranslations({ locale, namespace: 'Products' });
   
   // Load products from Supabase
-  const products = await getProducts({
-    category,
-    brand,
-    status: 'active'
-  });
+  const products = await fetchProducts(locale as 'es' | 'en');
 
   // Filter by search if provided
   const filteredProducts = search 
@@ -52,6 +48,17 @@ export default async function ProductsPage({ params, searchParams }: ProductsPag
         product.description?.toLowerCase().includes(search.toLowerCase())
       )
     : products;
+
+  const categorizedProducts = filteredProducts.filter((product) => {
+    if (!category) return true;
+    const categorySlug = product.category?.slug || '';
+    const categoryName = product.category?.name?.toLowerCase?.() || '';
+    return categorySlug === category || categoryName === category.toLowerCase();
+  }).filter((product) => {
+    if (!brand) return true;
+    const vendorName = product.vendor?.name || '';
+    return vendorName.toLowerCase() === brand.toLowerCase();
+  });
 
   return (
     <div className="min-h-screen bg-background">
@@ -74,9 +81,9 @@ export default async function ProductsPage({ params, searchParams }: ProductsPag
         />
 
         {/* Products Grid */}
-        {filteredProducts.length > 0 ? (
+        {categorizedProducts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredProducts.map((product) => (
+            {categorizedProducts.map((product) => (
               <ProductCard 
                 key={product.id} 
                 product={product} 

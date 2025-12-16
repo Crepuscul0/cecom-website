@@ -89,7 +89,7 @@
   "Home": {
     "title": "Soluciones Tecnológicas",
     "welcome": "de Vanguardia",
-    "description": "Descubre nuestra amplia gama de productos tecnológicos: desde equipos de red y servidores hasta soluciones de almacenamiento y energía. Todo lo que necesitas para impulsar tu negocio.",
+    "description": "Fundados el 24 de marzo de 1972 como CECOM Procesamiento de Datos C. por A., fuimos pioneros en la enseñanza de procesamiento de datos en República Dominicana. Hoy, como CECOM S.A.S., combinamos décadas de experiencia en centros de servicio con tecnología empresarial moderna para acompañar la modernización de organizaciones con confianza.",
     "getStarted": "Ver Catálogo",
     "liveDemo": "Nuestras Soluciones",
     "productsShowcase": "Productos Destacados",
@@ -118,6 +118,9 @@
       "title": "Nuestro Impacto",
       "subtitle": "Números que hablan por sí mismos",
       "yearsExperience": "Años de Experiencia",
+      "successfulProjects": "Proyectos Exitosos",
+      "satisfiedClients": "Clientes Satisfechos",
+      "certifications": "Certificaciones de la Industria",
       "happyClients": "Clientes Satisfechos",
       "projectsCompleted": "Proyectos Completados",
       "productsCatalog": "Productos en Catálogo"
@@ -922,12 +925,12 @@
       "viewMore": "Ver Más",
       "showLess": "Ver Menos",
       "items": {
-        "item1": "Certificación ISO 9001:2015 de Gestión de Calidad",
-        "item2": "Estatus de Microsoft Gold Partner",
-        "item3": "Socio Certificado de Cisco",
-        "item4": "Socio Autorizado de VMware",
-        "item5": "Socio Preferido de HP Enterprise",
-        "item6": "Premio de Excelencia en TI República Dominicana 2022"
+        "item1": "WatchGuardOne Partner Gold",
+        "item2": "Extreme Networks Gold Partner",
+        "item3": "Avaya Professional Sales",
+        "item4": "Vertiv Diamond Partner",
+        "item5": "3CX Advanced",
+        "item6": "Panduit Silver Partner"
       }
     }
   },

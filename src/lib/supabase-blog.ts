@@ -40,17 +40,15 @@ export interface BlogPostDB {
 
 export interface Product {
   id: string;
-  name: string;
-  description?: string;
-  category: string;
-  brand: string;
-  model?: string;
-  price?: number;
-  currency?: string;
-  image_url?: string;
-  external_image_url?: string;
-  datasheet_url?: string;
-  status: 'active' | 'inactive' | 'discontinued';
+  name: any;
+  description?: any;
+  features?: any;
+  category_id: string | null;
+  vendor_id?: string | null;
+  order?: number | null;
+  active: boolean;
+  external_image_url?: string | null;
+  external_datasheet_url?: string | null;
   created_at: string;
   updated_at: string;
 }
@@ -222,39 +220,37 @@ export async function getBlogTagsWithCounts(): Promise<Array<BlogTag & { post_co
 
 // Products
 export async function getProducts(options?: {
-  category?: string;
-  brand?: string;
-  status?: 'active' | 'inactive' | 'discontinued';
+  categoryId?: string;
+  vendorId?: string;
+  activeOnly?: boolean;
   limit?: number;
   offset?: number;
 }): Promise<Product[]> {
   let query = supabase
     .from('products')
-    .select('*');
+    .select('*')
+    .order('order', { ascending: true });
 
-  if (options?.category) {
-    query = query.eq('category', options.category);
+  if (options?.categoryId) {
+    query = query.eq('category_id', options.categoryId);
   }
 
-  if (options?.brand) {
-    query = query.eq('brand', options.brand);
+  if (options?.vendorId) {
+    query = query.eq('vendor_id', options.vendorId);
   }
 
-  if (options?.status) {
-    query = query.eq('status', options.status);
-  } else {
-    query = query.eq('status', 'active'); // Default to active products
+  if (options?.activeOnly !== false) {
+    query = query.eq('active', true);
   }
 
   if (options?.limit) {
     query = query.limit(options.limit);
   }
 
-  if (options?.offset) {
-    query = query.range(options.offset, options.offset + (options.limit || 10) - 1);
+  if (typeof options?.offset === 'number') {
+    const limit = options?.limit || 10;
+    query = query.range(options.offset, options.offset + limit - 1);
   }
-
-  query = query.order('name');
 
   const { data, error } = await query;
 
@@ -271,7 +267,7 @@ export async function getProduct(id: string): Promise<Product | null> {
     .from('products')
     .select('*')
     .eq('id', id)
-    .eq('status', 'active')
+    .eq('active', true)
     .single();
 
   if (error || !data) {
@@ -300,7 +296,7 @@ export async function getAllProductIds(): Promise<string[]> {
   const { data, error } = await supabase
     .from('products')
     .select('id')
-    .eq('status', 'active');
+    .eq('active', true);
 
   if (error) {
     console.error('Error fetching product IDs:', error);

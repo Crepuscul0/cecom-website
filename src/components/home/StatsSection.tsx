@@ -12,10 +12,10 @@ export default function StatsSection() {
   }, []);
 
   const stats = [
-    { value: '15+', label: t('yearsExperience') },
-    { value: '500+', label: t('happyClients') },
-    { value: '1000+', label: t('projectsCompleted') },
-    { value: '2000+', label: t('productsCatalog') },
+    { value: '50+', label: t('yearsExperience') },
+    { value: '1,000+', label: t('successfulProjects') },
+    { value: '300+', label: t('satisfiedClients') },
+    { value: '25+', label: t('certifications') },
   ];
 
   return (

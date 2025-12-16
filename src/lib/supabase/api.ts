@@ -18,6 +18,86 @@ const getMultilingualArray = (field: any, locale: 'en' | 'es' = 'en') => {
   return []
 }
 
+export interface CatalogAsset {
+  url: string
+}
+
+export interface CatalogCategory {
+  id: string
+  name: string
+  slug: string
+  icon?: string | null
+}
+
+export interface CatalogVendor {
+  id: string
+  name: string
+  logo?: CatalogAsset
+  website?: string | null
+  description?: string
+}
+
+export interface CatalogProduct {
+  id: string
+  name: string
+  description: string
+  features: string[]
+  category: CatalogCategory | null
+  vendor: CatalogVendor | null
+  image?: CatalogAsset
+  datasheet?: CatalogAsset
+  brand?: string | null
+  model?: string | null
+  price?: number | null
+  currency?: string | null
+  order: number
+  active: boolean
+  createdAt: string
+  updatedAt: string
+}
+
+const mapSupabaseProduct = (product: any, locale: 'en' | 'es'): CatalogProduct => {
+  const category = product.category
+    ? {
+        id: product.category.id,
+        name: getMultilingualText(product.category.name, locale),
+        slug: product.category.slug,
+        icon: product.category.icon
+      }
+    : null
+
+  const vendor = product.vendor
+    ? {
+        id: product.vendor.id,
+        name: product.vendor.name,
+        logo: product.vendor.logo ? { url: product.vendor.logo } : undefined,
+        website: product.vendor.website,
+        description: getMultilingualText(product.vendor.description, locale)
+      }
+    : null
+
+  const features = getMultilingualArray(product.features, locale) as string[]
+
+  return {
+    id: product.id,
+    name: getMultilingualText(product.name, locale),
+    description: getMultilingualText(product.description, locale),
+    features,
+    category,
+    vendor,
+    image: product.external_image_url ? { url: product.external_image_url } : undefined,
+    datasheet: product.external_datasheet_url ? { url: product.external_datasheet_url } : undefined,
+    brand: product.brand ?? vendor?.name ?? null,
+    model: product.model ?? null,
+    price: typeof product.price === 'number' ? product.price : null,
+    currency: product.currency ?? null,
+    order: product.order || 0,
+    active: product.active ?? true,
+    createdAt: product.created_at,
+    updatedAt: product.updated_at
+  }
+}
+
 // Categories API functions
 export const getCategories = async (locale: 'en' | 'es' = 'en', includeHierarchy: boolean = true) => {
   const { data, error } = await supabase
@@ -148,7 +228,10 @@ export const getVendorById = async (id: string) => {
 }
 
 // Products API functions
-export const getProducts = async (locale: 'en' | 'es' = 'en', categoryId?: string) => {
+export const getProducts = async (
+  locale: 'en' | 'es' = 'en',
+  categoryId?: string
+): Promise<CatalogProduct[]> => {
   let query = supabase
     .from('products')
     .select(`
@@ -170,34 +253,13 @@ export const getProducts = async (locale: 'en' | 'es' = 'en', categoryId?: strin
     return []
   }
 
-  return data.map((product: any) => ({
-    id: product.id,
-    name: getMultilingualText(product.name, locale),
-    description: getMultilingualText(product.description, locale),
-    features: getMultilingualArray(product.features, locale),
-    category: product.category ? {
-      id: product.category.id,
-      name: getMultilingualText(product.category.name, locale),
-      slug: product.category.slug,
-      icon: product.category.icon
-    } : null,
-    vendor: product.vendor ? {
-      id: product.vendor.id,
-      name: product.vendor.name,
-      logo: product.vendor.logo ? { url: product.vendor.logo } : undefined,
-      website: product.vendor.website,
-      description: getMultilingualText(product.vendor.description, locale)
-    } : null,
-    image: product.external_image_url ? { url: product.external_image_url } : undefined,
-    datasheet: product.external_datasheet_url ? { url: product.external_datasheet_url } : undefined,
-    order: product.order || 0,
-    active: product.active,
-    createdAt: product.created_at,
-    updatedAt: product.updated_at,
-  }))
+  return data.map((product: any) => mapSupabaseProduct(product, locale))
 }
 
-export const getProductById = async (id: string, locale: 'en' | 'es' = 'en') => {
+export const getProductById = async (
+  id: string,
+  locale: 'en' | 'es' = 'en'
+): Promise<CatalogProduct | null> => {
   const { data, error } = await supabase
     .from('products')
     .select(`
@@ -213,34 +275,14 @@ export const getProductById = async (id: string, locale: 'en' | 'es' = 'en') => 
     return null
   }
 
-  return {
-    id: data.id,
-    name: getMultilingualText(data.name, locale),
-    description: getMultilingualText(data.description, locale),
-    features: getMultilingualArray(data.features, locale),
-    category: data.category ? {
-      id: data.category.id,
-      name: getMultilingualText(data.category.name, locale),
-      slug: data.category.slug,
-      icon: data.category.icon
-    } : null,
-    vendor: data.vendor ? {
-      id: data.vendor.id,
-      name: data.vendor.name,
-      logo: data.vendor.logo ? { url: data.vendor.logo } : undefined,
-      website: data.vendor.website,
-      description: getMultilingualText(data.vendor.description, locale)
-    } : null,
-    image: data.external_image_url ? { url: data.external_image_url } : undefined,
-    datasheet: data.external_datasheet_url ? { url: data.external_datasheet_url } : undefined,
-    order: data.order || 0,
-    active: data.active,
-    createdAt: data.created_at,
-    updatedAt: data.updated_at,
-  }
+  return mapSupabaseProduct(data, locale)
 }
 
-export const getProductsByCategory = async (categoryId: string, locale: 'en' | 'es' = 'en', includeSubcategories: boolean = true) => {
+export const getProductsByCategory = async (
+  categoryId: string,
+  locale: 'en' | 'es' = 'en',
+  includeSubcategories: boolean = true
+): Promise<CatalogProduct[]> => {
   let query = supabase
     .from('products')
     .select(`
@@ -275,34 +317,13 @@ export const getProductsByCategory = async (categoryId: string, locale: 'en' | '
     return []
   }
 
-  return data.map((product: any) => ({
-    id: product.id,
-    name: getMultilingualText(product.name, locale),
-    description: getMultilingualText(product.description, locale),
-    features: getMultilingualArray(product.features, locale),
-    category: product.category ? {
-      id: product.category.id,
-      name: getMultilingualText(product.category.name, locale),
-      slug: product.category.slug,
-      icon: product.category.icon
-    } : null,
-    vendor: product.vendor ? {
-      id: product.vendor.id,
-      name: product.vendor.name,
-      logo: product.vendor.logo ? { url: product.vendor.logo } : undefined,
-      website: product.vendor.website,
-      description: getMultilingualText(product.vendor.description, locale)
-    } : null,
-    image: product.external_image_url ? { url: product.external_image_url } : undefined,
-    datasheet: product.external_datasheet_url ? { url: product.external_datasheet_url } : undefined,
-    order: product.order || 0,
-    active: product.active,
-    createdAt: product.created_at,
-    updatedAt: product.updated_at,
-  }))
+  return data.map((product: any) => mapSupabaseProduct(product, locale))
 }
 
-export const getProductsByVendor = async (vendorId: string, locale: 'en' | 'es' = 'en') => {
+export const getProductsByVendor = async (
+  vendorId: string,
+  locale: 'en' | 'es' = 'en'
+): Promise<CatalogProduct[]> => {
   const { data, error } = await supabase
     .from('products')
     .select(`
@@ -319,35 +340,14 @@ export const getProductsByVendor = async (vendorId: string, locale: 'en' | 'es' 
     return []
   }
 
-  return data.map((product: any) => ({
-    id: product.id,
-    name: getMultilingualText(product.name, locale),
-    description: getMultilingualText(product.description, locale),
-    features: getMultilingualArray(product.features, locale),
-    category: product.category ? {
-      id: product.category.id,
-      name: getMultilingualText(product.category.name, locale),
-      slug: product.category.slug,
-      icon: product.category.icon
-    } : null,
-    vendor: product.vendor ? {
-      id: product.vendor.id,
-      name: product.vendor.name,
-      logo: product.vendor.logo ? { url: product.vendor.logo } : undefined,
-      website: product.vendor.website,
-      description: getMultilingualText(product.vendor.description, locale)
-    } : null,
-    image: product.external_image_url ? { url: product.external_image_url } : undefined,
-    datasheet: product.external_datasheet_url ? { url: product.external_datasheet_url } : undefined,
-    order: product.order || 0,
-    active: product.active,
-    createdAt: product.created_at,
-    updatedAt: product.updated_at,
-  }))
+  return data.map((product: any) => mapSupabaseProduct(product, locale))
 }
 
 // Search function
-export const searchContent = async (query: string, locale: 'en' | 'es' = 'en') => {
+export const searchContent = async (
+  query: string,
+  locale: 'en' | 'es' = 'en'
+): Promise<{ products: CatalogProduct[]; pages: any[] }> => {
   const { data, error } = await supabase
     .from('products')
     .select(`
@@ -363,31 +363,7 @@ export const searchContent = async (query: string, locale: 'en' | 'es' = 'en') =
     return { products: [], pages: [] }
   }
 
-  const products = data.map((product: any) => ({
-    id: product.id,
-    name: getMultilingualText(product.name, locale),
-    description: getMultilingualText(product.description, locale),
-    features: getMultilingualArray(product.features, locale),
-    category: product.category ? {
-      id: product.category.id,
-      name: getMultilingualText(product.category.name, locale),
-      slug: product.category.slug,
-      icon: product.category.icon
-    } : null,
-    vendor: product.vendor ? {
-      id: product.vendor.id,
-      name: product.vendor.name,
-      logo: product.vendor.logo ? { url: product.vendor.logo } : undefined,
-      website: product.vendor.website,
-      description: getMultilingualText(product.vendor.description, locale)
-    } : null,
-    image: product.external_image_url ? { url: product.external_image_url } : undefined,
-    datasheet: product.external_datasheet_url ? { url: product.external_datasheet_url } : undefined,
-    order: product.order || 0,
-    active: product.active,
-    createdAt: product.created_at,
-    updatedAt: product.updated_at,
-  }))
+  const products = data.map((product: any) => mapSupabaseProduct(product, locale))
 
   return {
     products,
