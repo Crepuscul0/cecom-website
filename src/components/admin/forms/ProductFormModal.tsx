@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { supabase } from '@/lib/supabase';
@@ -58,8 +59,9 @@ export function ProductFormModal({
   const [error, setError] = useState('');
   const [uploadingImage, setUploadingImage] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [imagePreviewError, setImagePreviewError] = useState(false);
 
-  useEffect(() => {
+  const resetForm = useCallback(() => {
     if (product) {
       setFormData({
         nameEn: product.name?.en || '',
@@ -91,8 +93,21 @@ export function ProductFormModal({
         active: true
       });
     }
+
     setError('');
+    setSelectedFile(null);
+    setImagePreviewError(false);
   }, [product]);
+
+  useEffect(() => {
+    if (isOpen) {
+      resetForm();
+    }
+  }, [isOpen, resetForm]);
+
+  useEffect(() => {
+    setImagePreviewError(false);
+  }, [formData.externalImageUrl]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -364,20 +379,23 @@ export function ProductFormModal({
                     {t('removeImage')}
                   </button>
                 </div>
-                <img 
-                  src={formData.externalImageUrl} 
-                  alt="Product preview" 
-                  className="w-full max-w-sm h-48 object-contain rounded-md border border-border bg-background"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    const errorMsg = target.nextElementSibling as HTMLElement;
-                    if (errorMsg) errorMsg.style.display = 'block';
-                  }}
-                />
-                <p className="text-xs text-red-600 mt-2 hidden">
-                  ⚠️ Failed to load image. Please check the URL.
-                </p>
+                <div className="relative w-full max-w-sm h-48">
+                  {!imagePreviewError ? (
+                    <Image
+                      src={formData.externalImageUrl}
+                      alt="Product preview"
+                      fill
+                      className="object-contain rounded-md border border-border bg-background"
+                      sizes="(min-width: 768px) 384px, 100vw"
+                      onError={() => setImagePreviewError(true)}
+                      onLoadingComplete={() => setImagePreviewError(false)}
+                    />
+                  ) : (
+                    <div className="flex h-full items-center justify-center rounded-md border border-border bg-muted text-xs text-red-600">
+                      ⚠️ Failed to load image. Please check the URL.
+                    </div>
+                  )}
+                </div>
                 <p className="text-xs text-muted-foreground break-all">{formData.externalImageUrl}</p>
               </div>
             )}

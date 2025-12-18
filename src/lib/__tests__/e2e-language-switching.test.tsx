@@ -50,7 +50,10 @@ vi.mock('next-intl', () => ({
 
 // Mock Next.js Image component
 vi.mock('next/image', () => ({
-  default: ({ src, alt, ...props }: any) => <img src={src} alt={alt} {...props} />,
+  __esModule: true,
+  default: ({ alt, ...props }: any) => (
+    <div data-testid="next-image-mock" aria-label={alt} {...props} />
+  ),
 }));
 
 // Mock fetch for API calls

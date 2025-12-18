@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
@@ -191,20 +191,22 @@ function MobileCategoryChips({
   const [canScrollRight, setCanScrollRight] = useState(false)
   const [isScrolling, setIsScrolling] = useState(false)
   const [isTouchDevice, setIsTouchDevice] = useState(false)
-  
-  // Flatten categories for mobile view (show all categories and subcategories as chips)
-  const flatCategories: LocalizedCategory[] = []
-  
-  const flattenCategories = (cats: LocalizedCategory[]) => {
-    cats.forEach(cat => {
-      flatCategories.push(cat)
-      if (cat.children && cat.children.length > 0) {
-        flattenCategories(cat.children)
-      }
-    })
-  }
-  
-  flattenCategories(categories)
+
+  const flatCategories = useMemo(() => {
+    const list: LocalizedCategory[] = []
+
+    const traverse = (cats: LocalizedCategory[]) => {
+      cats.forEach((cat) => {
+        list.push(cat)
+        if (cat.children && cat.children.length > 0) {
+          traverse(cat.children)
+        }
+      })
+    }
+
+    traverse(categories)
+    return list
+  }, [categories])
 
   // Check scroll position and update button states
   const checkScrollButtons = () => {

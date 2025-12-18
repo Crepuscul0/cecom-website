@@ -1,5 +1,6 @@
 import createNextIntlPlugin from 'next-intl/plugin';
 import { withPayload } from '@payloadcms/next/withPayload';
+import webpack from 'next/dist/compiled/webpack/webpack-lib.js';
 
 // Ensure timezone is set at process level for SSR and tooling
 process.env.TZ = process.env.TZ || 'America/Santo_Domingo';
@@ -17,12 +18,28 @@ const nextConfig = {
     reactCompiler: false,
   },
   // Exclude sensitive folders from build
-  webpack: (config, { isServer }) => {
+  webpack: (config) => {
     // Ignore scripts folder to prevent exposure of sensitive scripts
     config.watchOptions = {
       ...config.watchOptions,
       ignored: ['**/scripts/**', '**/docs/**', '**/.git/**', '**/node_modules/**'],
     };
+
+    config.plugins = config.plugins || [];
+    config.plugins.push(
+      new webpack.IgnorePlugin({
+        resourceRegExp: /^(?:\.\.\/)+scripts\//,
+      }),
+      new webpack.IgnorePlugin({
+        resourceRegExp: /^scripts\//,
+      }),
+      new webpack.IgnorePlugin({
+        resourceRegExp: /^docs\//,
+      }),
+      new webpack.IgnorePlugin({
+        resourceRegExp: /^automation\//,
+      })
+    );
     return config;
   },
   images: {

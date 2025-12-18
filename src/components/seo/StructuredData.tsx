@@ -122,7 +122,7 @@ export function LocalBusinessSchema({ locale }: LocalBusinessSchemaProps) {
       ? "Soluciones tecnológicas profesionales en República Dominicana"
       : "Professional technology solutions in Dominican Republic",
     "url": `${baseUrl}/${locale}`,
-    "telephone": "+1-809-XXX-XXXX", // TODO: Add real phone number
+    "telephone": "+1 809 688 4491",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Calle Principal #123", // TODO: Add real address

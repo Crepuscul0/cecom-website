@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
@@ -102,10 +103,12 @@ export async function RelatedPosts({ currentPostId, category, locale }: RelatedP
               {/* Featured Image */}
               {post.featured_image && (
                 <div className="relative h-40 overflow-hidden">
-                  <img
+                  <Image
                     src={post.featured_image}
                     alt={post.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                   />
                   
                   {/* Category Badge */}

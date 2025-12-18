@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
+import { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react'
 import { NextIntlClientProvider } from 'next-intl'
 import { ThemeProvider } from 'next-themes'
 
@@ -37,7 +37,7 @@ export function AdminLocaleProvider({
   const [locale, setLocaleState] = useState(initialLocale)
   const [messages, setMessages] = useState(initialMessages)
 
-  const setLocale = async (newLocale: string) => {
+  const setLocale = useCallback(async (newLocale: string) => {
     try {
       // Fetch messages for the new locale
       const response = await fetch(`/api/messages?locale=${newLocale}`)
@@ -51,7 +51,7 @@ export function AdminLocaleProvider({
     } catch (error) {
       console.error('Failed to load messages for locale:', newLocale, error)
     }
-  }
+  }, [])
 
   // Load saved locale preference on mount
   useEffect(() => {
@@ -59,7 +59,7 @@ export function AdminLocaleProvider({
     if (savedLocale && savedLocale !== locale) {
       setLocale(savedLocale)
     }
-  }, [])
+  }, [locale, setLocale])
 
   return (
     <NextIntlClientProvider 

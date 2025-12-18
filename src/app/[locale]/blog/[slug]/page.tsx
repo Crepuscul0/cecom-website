@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
@@ -149,11 +150,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         {post.featuredImage && 
          !post.featuredImage.includes('example.com') && 
          !post.featuredImage.includes('placeholder') && (
-          <div className="mb-8">
-            <img
+          <div className="relative mb-8 h-64 md:h-96">
+            <Image
               src={post.featuredImage}
               alt={post.title}
-              className="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
+              fill
+              className="object-cover rounded-lg shadow-lg"
+              sizes="(min-width: 768px) 768px, 100vw"
+              priority
             />
           </div>
         )}

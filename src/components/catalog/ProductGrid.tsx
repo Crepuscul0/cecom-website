@@ -74,7 +74,7 @@ export function ProductGrid({
     }
 
     fetchProducts()
-  }, [locale, categoryId, searchQuery, vendorFilter])
+  }, [locale, categoryId, searchQuery, vendorFilter, onProductsLoad])
 
   if (loading) {
     return (

@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react';
+import Image from 'next/image';
+import { useState, useMemo, useCallback } from 'react';
 import { Search, Image as ImageIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { supabase } from '@/lib/supabase';
@@ -48,19 +49,20 @@ export function ProductsTable({
     }
     return 'all';
   });
+  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
   const t = useTranslations('Admin');
   const deleteConfirmation = useDeleteConfirmation();
   const { showError } = useErrorHandler();
 
-  const getCategoryName = (categoryId: string) => {
+  const getCategoryName = useCallback((categoryId: string) => {
     const category = categories.find(c => c.id === categoryId);
     return category?.name?.en || t('tables.noCategory');
-  };
+  }, [categories, t]);
 
-  const getVendorName = (vendorId: string) => {
+  const getVendorName = useCallback((vendorId: string) => {
     const vendor = vendors.find(v => v.id === vendorId);
     return vendor?.name || t('tables.noVendor');
-  };
+  }, [vendors, t]);
 
   // Filter products based on search term and filters
   const filteredProducts = useMemo(() => {
@@ -89,7 +91,7 @@ export function ProductsTable({
       
       return matchesSearch && matchesCategory && matchesVendor && matchesStatus;
     });
-  }, [products, searchTerm, categoryFilter, vendorFilter, statusFilter, categories, vendors, t]);
+  }, [products, searchTerm, categoryFilter, vendorFilter, statusFilter, getCategoryName, getVendorName]);
 
   const handleDeleteProduct = async (product: Product) => {
     const productName = product.name?.en || product.name?.es;
@@ -225,17 +227,19 @@ export function ProductsTable({
               <tr key={product.id}>
                 <td className="px-4 py-2 whitespace-nowrap">
                   <div className="flex items-center justify-center">
-                    {product.external_image_url ? (
-                      <img 
-                        src={product.external_image_url}
-                        alt={product.name?.en || 'Product image'}
-                        className="h-10 w-10 object-cover rounded-md"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.onerror = null;
-                          target.style.display = 'none';
-                        }}
-                      />
+                    {product.external_image_url && !imageErrors[product.id] ? (
+                      <div className="relative h-10 w-10">
+                        <Image
+                          src={product.external_image_url}
+                          alt={product.name?.en || 'Product image'}
+                          fill
+                          className="object-cover rounded-md"
+                          sizes="40px"
+                          onError={() =>
+                            setImageErrors((prev) => ({ ...prev, [product.id]: true }))
+                          }
+                        />
+                      </div>
                     ) : (
                       <div className="h-10 w-10 rounded-md bg-muted flex items-center justify-center">
                         <ImageIcon className="h-5 w-5 text-muted-foreground" />

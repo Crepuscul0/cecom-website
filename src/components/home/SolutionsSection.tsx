@@ -1,10 +1,11 @@
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { Network, Shield, Phone, Server } from 'lucide-react';
 import Link from 'next/link';
 
 export default function SolutionsSection() {
   const t = useTranslations('Home.solutions');
   const tCommon = useTranslations('Home');
+  const locale = useLocale();
 
   const solutions = [
     {
@@ -67,7 +68,7 @@ export default function SolutionsSection() {
 
         <div className="mt-12 text-center">
           <Link
-            href="/solutions"
+            href={`/${locale}/solutions`}
             className="inline-flex items-center px-6 py-3 border border-primary text-base font-medium rounded-md text-primary bg-background hover:bg-primary hover:text-primary-foreground transition-all duration-200"
           >
             {tCommon('liveDemo')}

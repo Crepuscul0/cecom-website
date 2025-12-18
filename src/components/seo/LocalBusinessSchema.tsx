@@ -15,8 +15,8 @@ export function LocalBusinessSchema({ locale }: LocalBusinessSchemaProps) {
     "url": "https://cecom.com.do",
     "logo": "https://cecom.com.do/logos/cecom-logo.svg",
     "image": "https://cecom.com.do/hero-image.jpg",
-    "telephone": "+1-809-688-4491", // Replace with actual phone
-    "email": "info@cecom.do",
+    "telephone": "+1 809 688 4491",
+    "email": "info@cecom.com.do",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Calle Principal #123", // Replace with actual address

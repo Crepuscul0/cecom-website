@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -119,10 +119,11 @@ export function ComprehensiveFilter({
     fetchAvailableCategories()
   }, [selectedVendor, allCategories, locale, selectedCategoryId, onCategoryChange])
 
-  const debouncedSearch = useCallback(
-    debounce((query: string) => {
-      onSearchChange(query)
-    }, 300),
+  const debouncedSearch = useMemo(
+    () =>
+      debounce((query: string) => {
+        onSearchChange(query)
+      }, 300),
     [onSearchChange]
   )
 

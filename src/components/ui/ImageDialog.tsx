@@ -1,8 +1,9 @@
 'use client';
 
+import NextImage from 'next/image';
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import { X, Image, Upload, Link } from 'lucide-react';
+import { X, Image as ImageIcon, Upload, Link as LinkIcon } from 'lucide-react';
 
 interface ImageDialogProps {
   isOpen: boolean;
@@ -64,7 +65,7 @@ export function ImageDialog({ isOpen, onClose, onConfirm }: ImageDialogProps) {
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <Image className="w-5 h-5 text-primary" />
+            <ImageIcon className="w-5 h-5 text-primary" />
             <h3 className="text-lg font-semibold text-foreground">
               {t('imageDialog.title')}
             </h3>
@@ -85,7 +86,7 @@ export function ImageDialog({ isOpen, onClose, onConfirm }: ImageDialogProps) {
               {t('imageDialog.imageUrlRequired')}
             </label>
             <div className="relative">
-              <Link className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <LinkIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <input
                 type="url"
                 value={src}
@@ -127,13 +128,17 @@ export function ImageDialog({ isOpen, onClose, onConfirm }: ImageDialogProps) {
             <div className="border border-border rounded-md p-3 bg-muted/30">
               <p className="text-sm font-medium text-foreground mb-2">{t('imageDialog.preview')}</p>
               {!previewError ? (
-                <img
-                  src={src}
-                  alt={alt || 'Preview'}
-                  onLoad={handleImageLoad}
-                  onError={handleImageError}
-                  className="max-w-full h-auto max-h-48 rounded border object-contain mx-auto"
-                />
+                <div className="relative mx-auto h-48 w-full max-w-sm">
+                  <NextImage
+                    src={src}
+                    alt={alt || 'Preview'}
+                    fill
+                    className="rounded border object-contain"
+                    sizes="(min-width: 768px) 320px, 100vw"
+                    onError={handleImageError}
+                    onLoadingComplete={handleImageLoad}
+                  />
+                </div>
               ) : (
                 <div className="flex items-center justify-center h-24 bg-muted rounded border">
                   <div className="text-center text-muted-foreground">

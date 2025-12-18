@@ -89,7 +89,7 @@ export function useDeleteConfirmation() {
     } finally {
       setLoading(false)
     }
-  }, [config.onConfirm])
+  }, [config])
 
   const hideConfirmation = React.useCallback(() => {
     setIsOpen(false)

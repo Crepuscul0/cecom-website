@@ -1,5 +1,6 @@
 "use client"
 
+import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
 import { Save, X, Eye } from 'lucide-react'
@@ -29,6 +30,7 @@ export function BlogEditor({ post, categories, userProfile, onSave, onCancel }: 
   const [loading, setLoading] = useState(false)
   const [showPreview, setShowPreview] = useState(false)
   const [sendNewsletter, setSendNewsletter] = useState(false)
+  const [featuredImageError, setFeaturedImageError] = useState(false)
 
   const t = useTranslations('AdminPanel')
 
@@ -49,6 +51,10 @@ export function BlogEditor({ post, categories, userProfile, onSave, onCancel }: 
       })
     }
   }, [post, categories])
+
+  useEffect(() => {
+    setFeaturedImageError(false)
+  }, [formData.featured_image])
 
   const generateSlug = (title: string) => {
     return title
@@ -355,20 +361,22 @@ export function BlogEditor({ post, categories, userProfile, onSave, onCancel }: 
               {formData.featured_image && (
                 <div className="mt-3 p-3 bg-muted/50 rounded-lg border border-border">
                   <p className="text-xs font-medium text-foreground mb-2">Preview:</p>
-                  <img 
-                    src={formData.featured_image} 
-                    alt="Featured image preview" 
-                    className="w-full max-w-md h-48 object-cover rounded-md border border-border"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      const errorMsg = target.nextElementSibling as HTMLElement;
-                      if (errorMsg) errorMsg.style.display = 'block';
-                    }}
-                  />
-                  <p className="text-xs text-red-600 mt-2 hidden">
-                    ⚠️ Failed to load image. Please check the URL.
-                  </p>
+                  {featuredImageError ? (
+                    <p className="text-xs text-red-600 mt-2">
+                      ⚠️ Failed to load image. Please check the URL.
+                    </p>
+                  ) : (
+                    <div className="relative w-full max-w-md h-48">
+                      <Image
+                        src={formData.featured_image}
+                        alt="Featured image preview"
+                        fill
+                        className="object-cover rounded-md border border-border"
+                        sizes="(min-width: 768px) 448px, 100vw"
+                        onError={() => setFeaturedImageError(true)}
+                      />
+                    </div>
+                  )}
                 </div>
               )}
             </div>

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { ThemeToggle } from './theme-toggle';
 import { useTranslations } from 'next-intl';
@@ -87,11 +88,16 @@ export default function Header() {
               title={t('tooltips.home')}
             >
               <span className="sr-only">{t('accessibility.logoLink')}</span>
-              <img
-                className="h-16 w-auto logo"
-                src="/logos/cecom-logo.svg"
-                alt={t('accessibility.logoAlt')}
-              />
+              <div className="relative h-16 w-auto">
+                <Image
+                  src="/logos/cecom-logo.svg"
+                  alt={t('accessibility.logoAlt')}
+                  width={160}
+                  height={64}
+                  className="h-16 w-auto logo object-contain"
+                  priority
+                />
+              </div>
             </Link>
             <NavigationMenu className="hidden ml-12 lg:block">
               <NavigationMenuList className="flex space-x-8">
@@ -275,11 +281,15 @@ export default function Header() {
                       className="flex items-center"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      <img
-                        className="h-12 w-auto logo"
-                        src="/logos/cecom-logo.svg"
-                        alt={t('accessibility.logoAlt')}
-                      />
+                      <div className="relative h-12 w-auto">
+                        <Image
+                          src="/logos/cecom-logo.svg"
+                          alt={t('accessibility.logoAlt')}
+                          width={140}
+                          height={56}
+                          className="h-12 w-auto logo object-contain"
+                        />
+                      </div>
                     </Link>
                   </div>
 

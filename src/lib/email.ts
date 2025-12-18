@@ -12,7 +12,7 @@ const emailConfig = {
   },
   from: {
     name: process.env.SMTP_FROM_NAME || 'CECOM',
-    address: process.env.SMTP_FROM_EMAIL || 'info@cecom.do',
+    address: process.env.SMTP_FROM_EMAIL || 'info@cecom.com.do',
   },
 };
 
@@ -38,7 +38,7 @@ const emailTemplates = {
           <p style="font-size: 12px; color: #6b7280;">
             CECOM - Technology Solutions<br>
             Av. Pasteur 11, Santo Domingo, Dominican Republic<br>
-            Phone: +1-809-688-4491 | Email: info@cecom.do
+            Phone: +1 809 688 4491 | Email: info@cecom.com.do
           </p>
         </div>
       `,
@@ -56,7 +56,7 @@ const emailTemplates = {
           <p style="font-size: 12px; color: #6b7280;">
             CECOM - Soluciones Tecnológicas<br>
             Av. Pasteur 11, Santo Domingo, República Dominicana<br>
-            Teléfono: +1-809-688-4491 | Email: info@cecom.do
+            Teléfono: +1 809 688 4491 | Email: info@cecom.com.do
           </p>
         </div>
       `

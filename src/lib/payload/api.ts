@@ -133,7 +133,7 @@ export const getPageBySlug = async (slug: string, locale: 'en' | 'es' = 'en') =>
             ? 'Av. Pasteur N.11, Gazcue, Santo Domingo, República Dominicana'
             : 'Av. Pasteur N.11, Gazcue, Santo Domingo, Dominican Republic'
         },
-        phone: '+1 (809) 555-0123',
+        phone: '+1 809 688 4491',
         email: 'info@cecom.com.do',
         businessHours: {
           weekdays: locale === 'es' ? 'Lunes - Viernes: 8:00 AM - 6:00 PM' : 'Monday - Friday: 8:00 AM - 6:00 PM',
@@ -289,7 +289,10 @@ export const getTeamMembers = async (locale: 'en' | 'es' = 'en') => {
       bio: locale === 'es'
         ? 'Con más de 20 años de experiencia en TI, Francisco lidera nuestras operaciones para garantizar proyectos eficientes y clientes satisfechos.'
         : 'With more than 20 years in IT, Francisco guides our operations to deliver efficient projects and satisfied clients.',
-      image: undefined,
+      image: {
+        url: '/team/pf.jpg',
+        alt: 'Francisco Rodríguez'
+      },
       order: 2,
       active: true,
       createdAt: new Date().toISOString(),
