@@ -11,6 +11,10 @@ logs/
 .DS_Store
 .vscode/settings.json
 tsconfig.tsbuildinfo
+.htaccess-for-parent
+cpanel-deployment-package/
+reports/
+DEPLOY-INSTRUCTIONS-*.txt
 
 # Sensitive files
 .env
