@@ -15,6 +15,7 @@ import {
   SheetContent,
   SheetTrigger,
   SheetTitle,
+  SheetDescription,
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Menu, Languages } from 'lucide-react';
@@ -34,23 +35,23 @@ export default function Header() {
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
+
   const currentLocale = pathname.split('/')[1] || 'en';
-  
+
   // Function to check if a link is active
   const isLinkActive = (href: string) => {
     // Remove locale part for comparison
     const pathWithoutLocale = pathname.replace(/^\/[a-z]{2}/, '') || '/';
     const cleanHref = href.replace(/^\/[a-z]{2}/, '') || '/';
-    
+
     // Handle home page
     if (cleanHref === '/' || cleanHref === '') {
       return pathWithoutLocale === '/';
     }
-    
+
     // Check if current path starts with the href (for nested routes)
-    return pathWithoutLocale === cleanHref || 
-           (cleanHref !== '/' && pathWithoutLocale.startsWith(cleanHref));
+    return pathWithoutLocale === cleanHref ||
+      (cleanHref !== '/' && pathWithoutLocale.startsWith(cleanHref));
   };
 
   useEffect(() => {
@@ -61,7 +62,7 @@ export default function Header() {
     if (mounted) {
       // Set cookie to remember locale preference
       document.cookie = `NEXT_LOCALE=${locale}; path=/; max-age=31536000`; // 1 year
-      
+
       const currentPath = pathname.replace(/^\/[a-z]{2}/, '');
       router.push(`/${locale}${currentPath}`);
     }
@@ -82,19 +83,18 @@ export default function Header() {
       >
         <div className="w-full py-2 flex items-center justify-between">
           <div className="flex items-center">
-            <Link 
+            <Link
               href={`/${currentLocale}`}
               aria-label={t('accessibility.logoLink')}
               title={t('tooltips.home')}
             >
               <span className="sr-only">{t('accessibility.logoLink')}</span>
-              <div className="relative h-16 w-auto">
+              <div className="relative h-16 w-40">
                 <Image
                   src="/logos/cecom-logo.svg"
                   alt={t('accessibility.logoAlt')}
-                  width={160}
-                  height={64}
-                  className="h-16 w-auto logo object-contain"
+                  fill
+                  className="logo object-contain"
                   priority
                 />
               </div>
@@ -102,8 +102,8 @@ export default function Header() {
             <NavigationMenu className="hidden ml-12 lg:block">
               <NavigationMenuList className="flex space-x-8">
                 <NavigationMenuItem>
-                  <Link 
-                    href={`/${currentLocale}`} 
+                  <Link
+                    href={`/${currentLocale}`}
                     className={cn(
                       "px-4 py-2 text-base font-medium transition-all duration-200 rounded-full relative group",
                       isLinkActive(`/${currentLocale}`)
@@ -121,8 +121,8 @@ export default function Header() {
                   </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link 
-                    href={`/${currentLocale}/solutions`} 
+                  <Link
+                    href={`/${currentLocale}/solutions`}
                     className={cn(
                       "px-4 py-2 text-base font-medium transition-all duration-200 rounded-full relative group",
                       isLinkActive(`/${currentLocale}/solutions`)
@@ -141,8 +141,8 @@ export default function Header() {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <Link 
-                    href={`/${currentLocale}/alliances`} 
+                  <Link
+                    href={`/${currentLocale}/alliances`}
                     className={cn(
                       "px-4 py-2 text-base font-medium transition-all duration-200 rounded-full relative group",
                       isLinkActive(`/${currentLocale}/alliances`)
@@ -160,8 +160,8 @@ export default function Header() {
                   </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link 
-                    href={`/${currentLocale}/blog`} 
+                  <Link
+                    href={`/${currentLocale}/blog`}
                     className={cn(
                       "px-4 py-2 text-base font-medium transition-all duration-200 rounded-full relative group",
                       isLinkActive(`/${currentLocale}/blog`)
@@ -179,8 +179,8 @@ export default function Header() {
                   </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link 
-                    href={`/${currentLocale}/about`} 
+                  <Link
+                    href={`/${currentLocale}/about`}
                     className={cn(
                       "px-4 py-2 text-base font-medium transition-all duration-200 rounded-full relative group",
                       isLinkActive(`/${currentLocale}/about`)
@@ -198,8 +198,8 @@ export default function Header() {
                   </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link 
-                    href={`/${currentLocale}/contact`} 
+                  <Link
+                    href={`/${currentLocale}/contact`}
                     className={cn(
                       "px-4 py-2 text-base font-medium transition-all duration-200 rounded-full relative group",
                       isLinkActive(`/${currentLocale}/contact`)
@@ -223,9 +223,9 @@ export default function Header() {
             <ThemeToggle />
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button 
-                  variant="outline" 
-                  size="icon" 
+                <Button
+                  variant="outline"
+                  size="icon"
                   className="ml-2"
                   aria-label={t('accessibility.languageSelectorButton')}
                   title={t('tooltips.languageSelector')}
@@ -234,17 +234,17 @@ export default function Header() {
                   <span className="sr-only">{t('accessibility.languageSelector')}</span>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent 
+              <DropdownMenuContent
                 align="end"
                 aria-label={t('accessibility.languageSelectorMenu')}
               >
-                <DropdownMenuItem 
+                <DropdownMenuItem
                   onClick={() => changeLocale('en')}
                   aria-label={t('accessibility.selectEnglish')}
                 >
                   {tCommon('language.english')}
                 </DropdownMenuItem>
-                <DropdownMenuItem 
+                <DropdownMenuItem
                   onClick={() => changeLocale('es')}
                   aria-label={t('accessibility.selectSpanish')}
                 >
@@ -255,8 +255,8 @@ export default function Header() {
             <div className="lg:hidden">
               <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                 <SheetTrigger asChild>
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     size="icon"
                     aria-label={t('accessibility.mobileMenuButton')}
                     title={t('tooltips.mobileMenu')}
@@ -265,7 +265,7 @@ export default function Header() {
                     <span className="sr-only">{t('accessibility.mobileMenuButton')}</span>
                   </Button>
                 </SheetTrigger>
-                <SheetContent 
+                <SheetContent
                   side="right"
                   className="w-80 sm:w-96"
                   aria-label={t('accessibility.mobileNavigation')}
@@ -273,33 +273,35 @@ export default function Header() {
                   <SheetTitle className="sr-only">
                     {t('accessibility.mobileNavigation')}
                   </SheetTitle>
-                  
+                  <SheetDescription className="sr-only">
+                    {t('accessibility.mobileNavigation')}
+                  </SheetDescription>
+
                   {/* Header with Logo */}
                   <div className="flex items-center justify-between pb-6 border-b border-border">
-                    <Link 
+                    <Link
                       href={`/${currentLocale}`}
                       className="flex items-center"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      <div className="relative h-12 w-auto">
+                      <div className="relative h-12 w-[120px]">
                         <Image
                           src="/logos/cecom-logo.svg"
                           alt={t('accessibility.logoAlt')}
-                          width={140}
-                          height={56}
-                          className="h-12 w-auto logo object-contain"
+                          fill
+                          className="logo object-contain"
                         />
                       </div>
                     </Link>
                   </div>
 
                   {/* Navigation Links */}
-                  <nav 
+                  <nav
                     className="flex flex-col space-y-2 mt-8"
                     aria-label={t('accessibility.mobileNavigation')}
                   >
-                    <Link 
-                      href={`/${currentLocale}`} 
+                    <Link
+                      href={`/${currentLocale}`}
                       className="group flex items-center px-4 py-3 text-base font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 border border-transparent hover:border-primary/20"
                       aria-label={t('accessibility.homeLink')}
                       title={t('tooltips.home')}
@@ -310,9 +312,9 @@ export default function Header() {
                         {t('home')}
                       </div>
                     </Link>
-                    
-                    <Link 
-                      href={`/${currentLocale}/solutions`} 
+
+                    <Link
+                      href={`/${currentLocale}/solutions`}
                       className="group flex items-center px-4 py-3 text-base font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 border border-transparent hover:border-primary/20"
                       aria-label={t('accessibility.solutionsLink')}
                       title={t('tooltips.solutions')}
@@ -324,8 +326,8 @@ export default function Header() {
                       </div>
                     </Link>
 
-                    <Link 
-                      href={`/${currentLocale}/alliances`} 
+                    <Link
+                      href={`/${currentLocale}/alliances`}
                       className="group flex items-center px-4 py-3 text-base font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 border border-transparent hover:border-primary/20"
                       aria-label={t('accessibility.alliancesLink')}
                       title={t('tooltips.alliances')}
@@ -336,9 +338,9 @@ export default function Header() {
                         {t('alliances')}
                       </div>
                     </Link>
-                    
-                    <Link 
-                      href={`/${currentLocale}/blog`} 
+
+                    <Link
+                      href={`/${currentLocale}/blog`}
                       className="group flex items-center px-4 py-3 text-base font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 border border-transparent hover:border-primary/20"
                       aria-label={t('accessibility.blogLink')}
                       title={t('tooltips.blog')}
@@ -349,9 +351,9 @@ export default function Header() {
                         {t('blog')}
                       </div>
                     </Link>
-                    
-                    <Link 
-                      href={`/${currentLocale}/about`} 
+
+                    <Link
+                      href={`/${currentLocale}/about`}
                       className="group flex items-center px-4 py-3 text-base font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 border border-transparent hover:border-primary/20"
                       aria-label={t('accessibility.aboutUsLink')}
                       title={t('tooltips.aboutUs')}
@@ -362,9 +364,9 @@ export default function Header() {
                         {t('aboutUs')}
                       </div>
                     </Link>
-                    
-                    <Link 
-                      href={`/${currentLocale}/contact`} 
+
+                    <Link
+                      href={`/${currentLocale}/contact`}
                       className="group flex items-center px-4 py-3 text-base font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 border border-transparent hover:border-primary/20"
                       aria-label={t('accessibility.contactLink')}
                       title={t('tooltips.contact')}
@@ -385,8 +387,8 @@ export default function Header() {
                           <ThemeToggle />
                           <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                              <Button 
-                                variant="outline" 
+                              <Button
+                                variant="outline"
                                 size="sm"
                                 className="h-9 px-3"
                                 aria-label={t('accessibility.languageSelectorButton')}
@@ -398,17 +400,17 @@ export default function Header() {
                                 </span>
                               </Button>
                             </DropdownMenuTrigger>
-                            <DropdownMenuContent 
+                            <DropdownMenuContent
                               align="start"
                               aria-label={t('accessibility.languageSelectorMenu')}
                             >
-                              <DropdownMenuItem 
+                              <DropdownMenuItem
                                 onClick={() => changeLocale('en')}
                                 aria-label={t('accessibility.selectEnglish')}
                               >
                                 {tCommon('language.english')}
                               </DropdownMenuItem>
-                              <DropdownMenuItem 
+                              <DropdownMenuItem
                                 onClick={() => changeLocale('es')}
                                 aria-label={t('accessibility.selectSpanish')}
                               >

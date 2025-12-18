@@ -12,7 +12,7 @@ interface ProductsPageProps {
 export async function generateMetadata({ params }: ProductsPageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Products' });
-  
+
   return {
     title: `${t('title')} | CECOM - Soluciones Tecnológicas`,
     description: t('description'),
@@ -37,16 +37,16 @@ export default async function ProductsPage({ params, searchParams }: ProductsPag
   const { locale } = await params;
   const { category, brand, search } = await searchParams;
   const t = await getTranslations({ locale, namespace: 'Products' });
-  
+
   // Load products from Supabase
   const products = await fetchProducts(locale as 'es' | 'en');
 
   // Filter by search if provided
-  const filteredProducts = search 
-    ? products.filter(product => 
-        product.name.toLowerCase().includes(search.toLowerCase()) ||
-        product.description?.toLowerCase().includes(search.toLowerCase())
-      )
+  const filteredProducts = search
+    ? products.filter(product =>
+      product.name.toLowerCase().includes(search.toLowerCase()) ||
+      product.description?.toLowerCase().includes(search.toLowerCase())
+    )
     : products;
 
   const categorizedProducts = filteredProducts.filter((product) => {
@@ -73,7 +73,7 @@ export default async function ProductsPage({ params, searchParams }: ProductsPag
         </div>
 
         {/* Filters */}
-        <ProductFilters 
+        <ProductFilters
           locale={locale}
           currentCategory={category}
           currentBrand={brand}
@@ -83,11 +83,12 @@ export default async function ProductsPage({ params, searchParams }: ProductsPag
         {/* Products Grid */}
         {categorizedProducts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {categorizedProducts.map((product) => (
-              <ProductCard 
-                key={product.id} 
-                product={product} 
-                locale={locale as 'es' | 'en'} 
+            {categorizedProducts.map((product, index) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                locale={locale as 'es' | 'en'}
+                priority={index < 4}
               />
             ))}
           </div>

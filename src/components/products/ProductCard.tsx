@@ -8,9 +8,10 @@ import { Button } from '@/components/ui/button';
 interface ProductCardProps {
   product: CatalogProduct;
   locale: 'es' | 'en';
+  priority?: boolean;
 }
 
-export function ProductCard({ product, locale }: ProductCardProps) {
+export function ProductCard({ product, locale, priority = false }: ProductCardProps) {
   const isSpanish = locale === 'es';
   const brandLabel = product.brand || product.vendor?.name;
   const categoryLabel = product.category?.name;
@@ -33,6 +34,7 @@ export function ProductCard({ product, locale }: ProductCardProps) {
               fill
               className="object-contain p-2"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority={priority}
             />
           ) : (
             <div className="flex items-center justify-center h-full">
@@ -42,7 +44,7 @@ export function ProductCard({ product, locale }: ProductCardProps) {
             </div>
           )}
         </div>
-        
+
         <div className="space-y-2">
           <h3 className="font-semibold text-lg leading-tight line-clamp-2">
             <Link
@@ -53,7 +55,7 @@ export function ProductCard({ product, locale }: ProductCardProps) {
               {product.name}
             </Link>
           </h3>
-          
+
           <div className="flex flex-wrap gap-1">
             {brandLabel && (
               <Badge variant="secondary" className="text-xs">
@@ -90,7 +92,7 @@ export function ProductCard({ product, locale }: ProductCardProps) {
               {isSpanish ? 'Ver detalles' : 'View details'}
             </Link>
           </Button>
-          
+
           <Button variant="outline" size="sm" className="w-full">
             {isSpanish ? 'Solicitar cotización' : 'Request quote'}
           </Button>

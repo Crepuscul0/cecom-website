@@ -14,9 +14,22 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
     detectSessionInUrl: true, // Enable to detect password reset tokens
     storage: typeof window !== 'undefined' ? window.localStorage : undefined,
     storageKey: 'cecom-auth-token',
-    flowType: 'pkce'
+    flowType: 'implicit'
   }
 });
+
+// Helper to get the base URL for redirects
+export const getBaseUrl = () => {
+  if (typeof window !== 'undefined') {
+    return window.location.origin;
+  }
+
+  const url = process.env.NEXT_PUBLIC_SITE_URL ||
+    process.env.NEXT_PUBLIC_SERVER_URL ||
+    'http://localhost:3000';
+
+  return url.startsWith('http') ? url : `https://${url}`;
+};
 
 // Handle auth state changes and clear invalid tokens
 if (typeof window !== 'undefined') {
@@ -24,11 +37,11 @@ if (typeof window !== 'undefined') {
     if (event === 'TOKEN_REFRESHED') {
       console.log('Token refreshed successfully');
     }
-    
+
     if (event === 'SIGNED_OUT') {
       console.log('User signed out');
     }
-    
+
     // Clear invalid refresh tokens
     if (event === 'USER_UPDATED' && !session) {
       localStorage.removeItem('cecom-auth-token');
@@ -62,10 +75,11 @@ export const signUp = async (email: string, password: string, userData: {
     email,
     password,
     options: {
-      data: userData
+      data: userData,
+      emailRedirectTo: `${getBaseUrl()}/auth`
     }
   });
-  
+
   if (data.user && !error) {
     // Create user profile
     const { error: profileError } = await supabase
@@ -78,12 +92,12 @@ export const signUp = async (email: string, password: string, userData: {
         role: userData.role || 'user',
         approval_status: 'pending'
       });
-    
+
     if (profileError) {
       console.error('Error creating user profile:', profileError);
     }
   }
-  
+
   return { data, error };
 };
 
@@ -92,7 +106,7 @@ export const signIn = async (email: string, password: string) => {
     email,
     password
   });
-  
+
   // If email not confirmed, provide helpful error message
   if (result.error && result.error.message === 'Email not confirmed') {
     return {
@@ -103,7 +117,7 @@ export const signIn = async (email: string, password: string) => {
       }
     };
   }
-  
+
   return result;
 };
 
@@ -113,9 +127,9 @@ export const signOut = async () => {
 
 export const resetPassword = async (email: string) => {
   const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: `${window.location.origin}/auth/reset-password`,
+    redirectTo: `${getBaseUrl()}/auth/reset-password`,
   });
-  
+
   return { data, error };
 };
 
@@ -137,7 +151,7 @@ export const getUserProfile = async (userId: string): Promise<UserProfile | null
 
   try {
     console.log(`🔍 Fetching user profile for ID: ${userId}`);
-    
+
     // Create a promise that rejects after a timeout
     const timeoutPromise = new Promise((_, reject) => {
       setTimeout(() => {
@@ -157,26 +171,26 @@ export const getUserProfile = async (userId: string): Promise<UserProfile | null
       queryPromise,
       timeoutPromise.then(() => ({ data: null, error: { code: 'TIMEOUT', message: 'Request timed out' } }))
     ]);
-    
+
     if (error) {
       // Handle specific error cases
       switch (error.code) {
         case '42P01': // Table doesn't exist
           console.error('❌ The user_profiles table does not exist. Please run your database migrations.');
           break;
-          
+
         case '42501': // Permission denied
           console.error('🔒 Permission denied when accessing user_profiles table. Check RLS policies.');
           break;
-          
+
         case 'PGRST116': // Not found
           console.warn(`ℹ️ User profile not found for ID: ${userId}`);
           break;
-          
+
         case 'ABORT_ERR':
           console.error('⏱️ Request timed out while fetching user profile');
           break;
-          
+
         default: {
           const details = 'details' in error ? error.details : undefined;
           const hint = 'hint' in error ? error.hint : undefined;
@@ -192,12 +206,12 @@ export const getUserProfile = async (userId: string): Promise<UserProfile | null
       }
       return null;
     }
-    
+
     if (!data) {
       console.warn(`ℹ️ No data returned for user ID: ${userId}`);
       return null;
     }
-    
+
     console.log(`✅ Successfully retrieved profile for user: ${data.email || userId}`);
     return data;
   } catch (error) {

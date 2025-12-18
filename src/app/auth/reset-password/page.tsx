@@ -14,19 +14,39 @@ function ResetPasswordContent() {
   const searchParams = useSearchParams()
 
   useEffect(() => {
-    // Verify we have a valid session (Supabase handles URL detection automatically)
+    // Listen for auth state changes (Implicit flow handles URL hash automatically)
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+      if (event === 'PASSWORD_RECOVERY') {
+        // Valid recovery flow
+        return
+      }
+
+      if (session) {
+        // Valid session established
+        return
+      }
+    })
+
+    // Check if we already have a session
     const checkSession = async () => {
       // Give Supabase a moment to process the URL hash
       await new Promise(resolve => setTimeout(resolve, 500))
-      
+
       const { data: { session }, error: sessionError } = await supabase.auth.getSession()
-      
+
       if (sessionError || !session) {
+        // If no session found after timeout, check if we're maybe just waiting for hash processing
+        // But if we're here, likely the link is invalid or we need to wait more
+        // For implicit flow, the hash is processed immediately by the client
         setError('Enlace de recuperación inválido o expirado.')
       }
     }
 
     checkSession()
+
+    return () => {
+      subscription.unsubscribe()
+    }
   }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
