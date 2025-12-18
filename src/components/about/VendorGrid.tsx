@@ -25,7 +25,7 @@ const vendorLogos: Record<string, string> = {
   'lenovo': '/logos/lenovo.svg',
   'panduit': '/logos/panduit.svg',
   'vertiv': '/logos/vertiv.svg',
-  '3cx': '/logos/3cx.png',
+  '3cx': '/logos/3cx.svg',
   'eset': '/logos/eset.svg',
   'axis': '/logos/axis.svg',
   'cambium': '/logos/cambium.svg',
@@ -38,7 +38,7 @@ const vendorLogos: Record<string, string> = {
 function getVendorLogo(vendorName: string, logoUrl?: string): string | null {
   // If logo URL is provided, use it
   if (logoUrl) return logoUrl
-  
+
   // Otherwise, try to find a static logo by vendor name
   const normalizedName = vendorName.toLowerCase().trim()
   return vendorLogos[normalizedName] || null
@@ -49,9 +49,9 @@ export function VendorGrid({ vendors }: VendorGridProps) {
     <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
       {vendors.map((vendor) => {
         const logoPath = getVendorLogo(vendor.name, vendor.logo?.url)
-        
+
         return (
-          <Card 
+          <Card
             key={vendor.id}
             className="group hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-0 shadow-lg"
           >

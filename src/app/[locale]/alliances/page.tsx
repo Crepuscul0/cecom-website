@@ -13,7 +13,7 @@ import {
 const alliances = [
   {
     name: '3CX',
-    logo: '/logos/3cx.png',
+    logo: '/logos/3cx.svg',
     descriptionKey: 'alliances.3cx',
   },
   {

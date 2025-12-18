@@ -21,15 +21,15 @@ interface LocalBusinessSchemaProps {
 
 export function OrganizationSchema({ locale }: OrganizationSchemaProps) {
   const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://cecom.do'
-  
+
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "CECOM",
     "alternateName": "CECOM Technology Solutions",
     "url": `${baseUrl}/${locale}`,
-    "logo": `${baseUrl}/logos/cecom-logo.png`,
-    "description": locale === 'es' 
+    "logo": `${baseUrl}/logos/cecom-logo.svg`,
+    "description": locale === 'es'
       ? "Proveedor líder de soluciones tecnológicas profesionales, ciberseguridad, redes e infraestructura TI para empresas en República Dominicana."
       : "Leading provider of professional technology solutions, cybersecurity, networking, and IT infrastructure for businesses in the Dominican Republic.",
     "address": {
@@ -57,18 +57,18 @@ export function OrganizationSchema({ locale }: OrganizationSchemaProps) {
   )
 }
 
-export function ArticleSchema({ 
-  title, 
-  description, 
-  publishedDate, 
-  modifiedDate, 
-  author, 
-  locale, 
+export function ArticleSchema({
+  title,
+  description,
+  publishedDate,
+  modifiedDate,
+  author,
+  locale,
   slug,
-  imageUrl 
+  imageUrl
 }: ArticleSchemaProps) {
   const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://cecom.do'
-  
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -86,7 +86,7 @@ export function ArticleSchema({
       "name": "CECOM",
       "logo": {
         "@type": "ImageObject",
-        "url": `${baseUrl}/logos/cecom-logo.png`
+        "url": `${baseUrl}/logos/cecom-logo.svg`
       }
     },
     "mainEntityOfPage": {
@@ -113,7 +113,7 @@ export function ArticleSchema({
 
 export function LocalBusinessSchema({ locale }: LocalBusinessSchemaProps) {
   const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://cecom.do'
-  
+
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -140,7 +140,7 @@ export function LocalBusinessSchema({ locale }: LocalBusinessSchemaProps) {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": [
         "Monday",
-        "Tuesday", 
+        "Tuesday",
         "Wednesday",
         "Thursday",
         "Friday"
@@ -163,7 +163,7 @@ export function LocalBusinessSchema({ locale }: LocalBusinessSchemaProps) {
 
 export function WebsiteSchema({ locale }: { locale: string }) {
   const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://cecom.do'
-  
+
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",

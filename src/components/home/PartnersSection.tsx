@@ -11,7 +11,7 @@ export default function PartnersSection() {
     { name: 'Lenovo', logo: '/logos/lenovo.svg' },
     { name: 'Panduit', logo: '/logos/panduit.svg' },
     { name: 'Vertiv', logo: '/logos/vertiv.svg' },
-    { name: '3CX', logo: '/logos/3cx.png' },
+    { name: '3CX', logo: '/logos/3cx.svg' },
     { name: 'ESET', logo: '/logos/eset.svg' },
     { name: 'Axis', logo: '/logos/axis.svg' },
     { name: 'Cambium', logo: '/logos/cambium.svg' },
