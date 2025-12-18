@@ -22,6 +22,21 @@ tsconfig.tsbuildinfo
 !.htaccess
 !.cpanel.yml
 
+# Documentation (ignore all root .md files by default)
+/*.md
+
+# Explicitly include specific root MD files we want to keep
+!/README.md
+
+# Documentation in subdirectories (ignore by default)
+/docs/troubleshooting/*
+/docs/development/*
+
+# Explicitly include specific documentation we want to keep
+!/docs/README.md
+!/docs/deployment/guides/CPANEL-DEPLOYMENT-GUIDE.md
+!/docs/deployment/guides/FTP-DEPLOYMENT-GUIDE.md
+
 # Development artifacts
 /dist
 /coverage
